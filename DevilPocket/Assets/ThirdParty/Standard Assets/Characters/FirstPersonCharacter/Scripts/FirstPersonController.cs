@@ -55,6 +55,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
+            // Custom stuff
+            oldVolume = m_AudioSource.volume;
         }
 
 
@@ -254,6 +257,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 return;
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
+        }
+
+        // Custom stuff
+
+        private float oldVolume;
+        public void MuteSounds() {
+            m_AudioSource.volume = 0.0f;
+        }
+
+        public void UnmuteSounds() {
+            m_AudioSource.volume = oldVolume;
         }
     }
 }
