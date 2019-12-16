@@ -1040,13 +1040,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-  - '#choice Bruh Broer
+  - '#choice A B C D
 
-    Welke is beter'
-  - '#ifchoice Bruh
+    Which letter is your favorite?'
+  - '#ifchoice A
 
-    Okay'
-  - "#ifchoice Broer\nOk\xE9"
+    A!'
+  - '#ifchoice B
+
+    B!'
+  - '#ifchoice C
+
+    C!'
+  - '#ifchoice D
+
+    D!'
 --- !u!136 &1599072627
 CapsuleCollider:
   m_ObjectHideFlags: 0

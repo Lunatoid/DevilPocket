@@ -66,7 +66,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             RotateView();
             // the jump state needs to read here to make sure it is not missed
-            if (!m_Jump)
+            if (!m_Jump && !movementLocked)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
@@ -206,6 +206,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void GetInput(out float speed)
         {
+            // Custom
+            if (movementLocked) {
+                speed = 0.0f;
+                return;
+            }
+            
             // Read input
             float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
             float vertical = CrossPlatformInputManager.GetAxis("Vertical");
@@ -268,6 +274,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public void UnmuteSounds() {
             m_AudioSource.volume = oldVolume;
+        }
+
+        bool movementLocked;
+        public void LockMovement() {
+            movementLocked = true;
+        }
+
+        public void UnlockMovement() {
+            movementLocked = false;
+        }
+
+        public bool IsMovementLocked() {
+            return movementLocked;
         }
     }
 }

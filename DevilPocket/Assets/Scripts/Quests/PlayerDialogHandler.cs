@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerDialogHandler : MonoBehaviour {
 
@@ -17,6 +18,7 @@ public class PlayerDialogHandler : MonoBehaviour {
     }
     bool alreadyMovedAxis = false; // Used to disable the key repeat on the axis
     bool firstFrameInteractDelay = false; // If you talk to an NPC on the same frame as having a choice it will skip the choice
+    bool finishedAllText = false;
 
     ChoiceInfo choiceInfo = new ChoiceInfo();
 
@@ -42,6 +44,8 @@ public class PlayerDialogHandler : MonoBehaviour {
     // Deadzone for moving up and down choices
     const float AXIS_CHOICE_DEADZONE = 0.0f;
 
+    FirstPersonController fps;
+
     // Start is called before the first frame update
     void Start() {
         textboxColor = textboxBg.color;
@@ -49,10 +53,18 @@ public class PlayerDialogHandler : MonoBehaviour {
 
         textboxBg.color = Color.clear;
         choiceBg.color = Color.clear;
+
+        fps = GetComponent<FirstPersonController>();
     }
 
     // Update is called once per frame
     void Update() {
+        if (queuedDialog.Count > 0) {
+            fps.LockMovement();
+        } else if (fps.IsMovementLocked()) {
+            fps.UnlockMovement();
+        }
+
         if (choiceInfo.makingChoice) {
             HandleChoice();
         } else {
@@ -114,14 +126,16 @@ public class PlayerDialogHandler : MonoBehaviour {
     }
 
     public void PushDialog(string[] dialog) {
-        // Only push the dialog if there is no queued dialog
-        if (queuedDialog.Count == 0) {
+        // Only push the dialog if there is no queued dialog and we're not on the same frame as the final message
+        if (queuedDialog.Count == 0 && !finishedAllText) {    
             queuedDialog.AddRange(dialog);
             ParseTextCommands();
 
             textboxBg.color = textboxColor;
             firstFrameInteractDelay = true;
         }
+
+        finishedAllText = false;
     }
 
     void HandleChoice() {
@@ -198,5 +212,9 @@ public class PlayerDialogHandler : MonoBehaviour {
         textbox.text = "";
         queuedDialog.RemoveAt(0);
         ParseTextCommands();
+
+        if (queuedDialog.Count == 0) {
+            finishedAllText = true;
+        }
     }
 }
