@@ -96,5 +96,6 @@ MonoBehaviour:
   monsterName: PlayerPlayer
   monsterLevel: 99
   damage: 10
+  healAmount: -20
   maxHP: 90
   currentHP: 55

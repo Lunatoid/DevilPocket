@@ -4,8 +4,7 @@ using UnityEngine;
 
 public enum BattleState { Start, PlayerTurn, EnemyTurn, Won, Lost }
 
-public class BattleSystem : MonoBehaviour
-{
+public class BattleSystem : MonoBehaviour {
     public float waitTimeEnemy = 1f;
     public float waitTimeEnd = 2f;
     public float waitTimeLoad = 4f;
@@ -30,16 +29,15 @@ public class BattleSystem : MonoBehaviour
     [Space]
     public BattleState state;
 
+    bool canInteract = true;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         state = BattleState.Start;
         StartCoroutine(SetupBattle());
     }
 
-    IEnumerator SetupBattle()
-    {
+    IEnumerator SetupBattle() {
         GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
         playerMonster = playerGO.GetComponent<Monster>();
 
@@ -58,33 +56,28 @@ public class BattleSystem : MonoBehaviour
         PlayerTurn();
     }
 
-    IEnumerator PlayerAttack()
-    {
+    IEnumerator PlayerAttack() {
         bool isDead = enemyMonster.TakeDamage(playerMonster.damage);
 
         enemyHUD.SetHP(enemyMonster.currentHP);
-        dialoogText.text = "the attack is successful! " + enemyMonster.monsterName + " was hit for " + playerMonster.damage + " life points";
+        dialoogText.text = "The attack is successful! " + enemyMonster.monsterName + " was hit for " + playerMonster.damage + " life points!";
 
         yield return new WaitForSeconds(waitTimePlayer);
 
-        if (isDead)
-        {
+        if (isDead) {
             state = BattleState.Won;
             StartCoroutine(EndBattle());
-        }
-        else
-        {
+        } else {
             state = BattleState.EnemyTurn;
             StartCoroutine(EnemyAttack());
         }
     }
 
-    IEnumerator PlayerHeal()
-    {
+    IEnumerator PlayerHeal() {
         playerMonster.Heal(playerMonster.healAmount);
 
         playerHUD.SetHP(playerMonster.currentHP);
-        dialoogText.text = playerMonster.monsterName + " feels renewd strength!";
+        dialoogText.text = playerMonster.monsterName + " feels renewed strength!";
 
         yield return new WaitForSeconds(waitTimePlayer);
 
@@ -93,8 +86,7 @@ public class BattleSystem : MonoBehaviour
     }
 
 
-    IEnumerator EnemyAttack()
-    {
+    IEnumerator EnemyAttack() {
         dialoogText.text = enemyMonster.monsterName + " attacks!";
         yield return new WaitForSeconds(waitTimeEnemy);
 
@@ -105,57 +97,48 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(waitTimeEnemy);
 
-        if (isDead){
+        if (isDead) {
             state = BattleState.Lost;
-            EndBattle();
-        }
-        else {
+            StartCoroutine(EndBattle());
+        } else {
             state = BattleState.PlayerTurn;
             PlayerTurn();
         }
     }
 
-    IEnumerator EndBattle()
-    {
-        if (state == BattleState.Won)
-        {
-            dialoogText.text = "You won the battle agenst" + enemyMonster.monsterName + "!";
+    IEnumerator EndBattle() {
+        if (state == BattleState.Won) {
+            dialoogText.text = "You won the battle against " + enemyMonster.monsterName + "!";
             yield return new WaitForSeconds(waitTimeEnd);
-        }
-        else if (state == BattleState.Lost)
-        {
-            dialoogText.text = "You where slain by " + enemyMonster.monsterName + "!";
+        } else if (state == BattleState.Lost) {
+            dialoogText.text = "You were slain by " + enemyMonster.monsterName + "!";
             yield return new WaitForSeconds(waitTimeEnd);
-            dialoogText.text = "You retun home in shame";
+            dialoogText.text = "You return home in shame...";
             yield return new WaitForSeconds(waitTimeEnd);
         }
     }
 
-    void PlayerTurn()
-    {
+    void PlayerTurn() {
         dialoogText.text = "Choose an action:";
+        canInteract = true;
     }
 
-    public void OnAttackButton()
-    {
-        if (state != BattleState.PlayerTurn)
-        {
+    public void OnAttackButton() {
+        if (state != BattleState.PlayerTurn) {
             return;
-        }
-        else
-        {
+        } else {
+            if (!canInteract) return;
+            canInteract = false;
             StartCoroutine(PlayerAttack());
         }
     }
 
-    public void OnHealButton()
-    {
-        if (state != BattleState.PlayerTurn)
-        {
+    public void OnHealButton() {
+        if (state != BattleState.PlayerTurn) {
             return;
-        }
-        else
-        {
+        } else {
+            if (!canInteract) return;
+            canInteract = false;
             StartCoroutine(PlayerHeal());
         }
     }
