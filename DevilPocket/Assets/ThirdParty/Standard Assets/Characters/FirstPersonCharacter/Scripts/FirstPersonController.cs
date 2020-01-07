@@ -266,7 +266,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         // Custom stuff
-
         private float oldVolume;
         public void MuteSounds() {
             m_AudioSource.volume = 0.0f;

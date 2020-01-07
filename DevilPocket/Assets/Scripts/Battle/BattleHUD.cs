@@ -4,20 +4,28 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class BattleHUD : MonoBehaviour
-{
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI levelText;
-    public Slider hpSlider;
+public class BattleHUD : MonoBehaviour {
+    [SerializeField]
+    TextMeshProUGUI nameText;
 
-    public void SetHUD(Monster monster){
+    [SerializeField]
+    TextMeshProUGUI levelText;
+
+    [SerializeField]
+    Slider hpSlider;
+
+    /// <summary>
+    /// Applies the monster properties to the HUD
+    /// </summary>
+    /// <param name="monster">The monster.</param>
+    public void SetHUD(Monster monster) {
         nameText.text = monster.monsterName;
         levelText.text = "Lvl " + monster.monsterLevel;
         hpSlider.maxValue = monster.maxHP;
         hpSlider.value = monster.currentHP;
     }
 
-    public void SetHP(int hp){
+    public void SetHP(int hp) {
         hpSlider.value = hp;
     }
 }

@@ -33,6 +33,14 @@ public class BattleSystem : MonoBehaviour {
 
     bool canInteract = true;
 
+    [Space, SerializeField, Header("Random.Range(base+minMod*level, base+maxMod*level)"), Header("Money from battles is calculated like this:\n")]
+    float baseMoney = 10.0f;
+
+    [SerializeField]
+    float minMoneyMod = 0.1f;
+    [SerializeField]
+    float maxMoneyMod = 0.3f;
+
     // Start is called before the first frame update
     void Start() {
         if (!playerInventory) {
@@ -120,7 +128,15 @@ public class BattleSystem : MonoBehaviour {
 
     IEnumerator EndBattle() {
         if (state == BattleState.Won) {
+            float moneyFloat = Random.Range(baseMoney + (float)enemyMonster.monsterLevel * minMoneyMod,
+                                            baseMoney + (float)enemyMonster.monsterLevel * maxMoneyMod);
+
+            int money = Mathf.RoundToInt(moneyFloat);
+            playerInventory.money += money;
+
             dialoogText.text = "You won the battle against " + enemyMonster.monsterName + "!";
+            yield return new WaitForSeconds(waitTimeEnd);
+            dialoogText.text = "You got " + money + " coins!";
             yield return new WaitForSeconds(waitTimeEnd);
         } else if (state == BattleState.Lost) {
             dialoogText.text = "You were slain by " + enemyMonster.monsterName + "!";
