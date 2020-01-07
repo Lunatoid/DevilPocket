@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Monster : MonoBehaviour {
+
+    public bool ownedByPlayer = false;
+
     public string monsterName;
     public int monsterLevel;
 
@@ -11,7 +14,16 @@ public class Monster : MonoBehaviour {
     public int healAmount = 0;
     public int maxHP;
     public int currentHP;
-    public enum Elemnent { Poison, Metal, Fichting }
+    public enum Element { Poison, Metal, Fichting }
+
+    [SerializeField, Header("Element 0 - Front, Element 1 - Back")]
+    Sprite[] sprites = new Sprite[2];
+
+    public void SetSprite() {
+        int index = (ownedByPlayer) ? 1 : 0;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.sprite = sprites[index];
+    }
 
     public bool TakeDamage(int dmg) {
         currentHP -= dmg;

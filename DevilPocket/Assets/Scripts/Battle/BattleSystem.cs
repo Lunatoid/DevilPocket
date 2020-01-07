@@ -2,18 +2,20 @@
 using TMPro;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public enum BattleState { Start, PlayerTurn, EnemyTurn, Won, Lost }
 
 public class BattleSystem : MonoBehaviour {
+
+    PlayerInventory playerInventory = null;
+
     public float waitTimeEnemy = 1f;
     public float waitTimeEnd = 2f;
     public float waitTimeLoad = 4f;
     public float waitTimePlayer = 3f;
 
     [Space]
-    public GameObject playerPrefab;
-    public GameObject enemyPrefab;
-
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
 
@@ -33,22 +35,32 @@ public class BattleSystem : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        if (!playerInventory) {
+            playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
+        }
+
         state = BattleState.Start;
         StartCoroutine(SetupBattle());
     }
 
     IEnumerator SetupBattle() {
-        GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
-        playerMonster = playerGO.GetComponent<Monster>();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
-        GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
+        // Setup monsters
+        GameObject playerGo = Instantiate(playerInventory.GetMonster(), playerBattleStation);
+        playerMonster = playerGo.GetComponent<Monster>();
+
+        GameObject enemyGo = Instantiate(playerInventory.enemyMonsters[0], enemyBattleStation);
         enemyMonster = enemyGo.GetComponent<Monster>();
 
         dialoogText.text = "A wild " + enemyMonster.monsterName + " approaches...";
 
-
         playerHUD.SetHUD(playerMonster);
         enemyHUD.SetHUD(enemyMonster);
+
+        playerMonster.SetSprite();
+        enemyMonster.SetSprite();
 
         yield return new WaitForSeconds(waitTimeLoad);
 
@@ -116,6 +128,8 @@ public class BattleSystem : MonoBehaviour {
             dialoogText.text = "You return home in shame...";
             yield return new WaitForSeconds(waitTimeEnd);
         }
+
+        SceneManager.LoadScene("MainScene");
     }
 
     void PlayerTurn() {
