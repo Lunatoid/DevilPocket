@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 456.21
@@ -295,3 +299,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ea82a9fe098cc469f457cb371252df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1867336980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867336978}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3868aaa230a1c6439e6a61c25876e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textbox: {fileID: 0}
+  textboxBg: {fileID: 0}
+  choiceBox: {fileID: 0}
+  choiceBg: {fileID: 0}

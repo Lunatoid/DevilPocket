@@ -24,6 +24,16 @@ public class PlayerInventory : MonoBehaviour {
                 monster.GetComponent<Monster>().ownedByPlayer = true;
             }
         }
+
+        // for (int i = 0; i < carriedMonsters.Length; ++i) {
+        //     if (carriedMonsters[i]) {
+        //         carriedMonsters[i] = Instantiate(carriedMonsters[i]);
+        //         carriedMonsters[i].GetComponent<Monster>().ownedByPlayer = true;
+        //         carriedMonsters[i].SetActive(false);
+        // 
+        //         DontDestroyOnLoad(carriedMonsters[i]);
+        //     }
+        // }
     }
 
     /// <summary>

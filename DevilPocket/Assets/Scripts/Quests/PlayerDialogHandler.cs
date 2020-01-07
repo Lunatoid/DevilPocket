@@ -22,17 +22,10 @@ public class PlayerDialogHandler : MonoBehaviour {
 
     ChoiceInfo choiceInfo = new ChoiceInfo();
 
-    [SerializeField]
-    TextMeshProUGUI textbox;
-
-    [SerializeField]
-    Image textboxBg;
-
-    [SerializeField]
-    TextMeshProUGUI choiceBox;
-
-    [SerializeField]
-    Image choiceBg;
+    public TextMeshProUGUI textbox;
+    public Image textboxBg;
+    public TextMeshProUGUI choiceBox;
+    public Image choiceBg;
 
     Color textboxColor;
     Color choiceColor;
@@ -47,7 +40,7 @@ public class PlayerDialogHandler : MonoBehaviour {
     FirstPersonController fps;
 
     // Start is called before the first frame update
-    void Start() {
+    public void Start() {
         textboxColor = textboxBg.color;
         choiceColor = choiceBg.color;
 
