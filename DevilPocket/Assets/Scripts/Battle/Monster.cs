@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Element { Normal, Poison, Metal, Fighting }
+
 public class Monster : MonoBehaviour {
 
     public bool ownedByPlayer = false;
@@ -14,7 +16,10 @@ public class Monster : MonoBehaviour {
     public int healAmount = 0;
     public int maxHP;
     public int currentHP;
-    public enum Element { Poison, Metal, Fichting }
+
+    public Element element;
+
+    public Move[] moves = new Move[3];
 
     [SerializeField, Header("Element 0 - Front, Element 1 - Back")]
     Sprite[] sprites = new Sprite[2];
@@ -41,5 +46,3 @@ public class Monster : MonoBehaviour {
     }
 
 }
-
-

@@ -1388,7 +1388,7 @@ RectTransform:
   - {fileID: 652225727}
   - {fileID: 1472014742}
   m_Father: {fileID: 1311798544}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1439,7 +1439,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1933963150}
-        m_MethodName: OnAttackButton
+        m_MethodName: DoMove0
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3009,7 +3009,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1933963150}
-        m_MethodName: OnAttackButton
+        m_MethodName: DoMove2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3736,8 +3736,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1923827901}
   - {fileID: 352749040}
+  - {fileID: 1923827901}
   - {fileID: 1045356571}
   m_Father: {fileID: 1624411370}
   m_RootOrder: 2
@@ -6218,11 +6218,11 @@ RectTransform:
   - {fileID: 1946471387}
   - {fileID: 1327453197}
   m_Father: {fileID: 1311798544}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000002861}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 166.29, y: 88.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1923827902
@@ -6269,7 +6269,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1933963150}
-        m_MethodName: OnHealButton
+        m_MethodName: DoMove1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6354,6 +6354,9 @@ MonoBehaviour:
   playerHUD: {fileID: 1717082076}
   enemyHUD: {fileID: 1194890978}
   state: 0
+  baseMoney: 10
+  minMoneyMod: 0.1
+  maxMoneyMod: 0.3
 --- !u!4 &1933963151
 Transform:
   m_ObjectHideFlags: 0

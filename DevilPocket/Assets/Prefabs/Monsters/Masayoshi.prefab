@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 2314592045236946009}
   - component: {fileID: 2314592045236946022}
   - component: {fileID: 2314592045236946023}
+  - component: {fileID: 3353553404789625649}
+  - component: {fileID: -5696781382713963702}
+  - component: {fileID: -3919855343587964621}
   m_Layer: 0
   m_Name: Masayoshi
   m_TagString: Untagged
@@ -93,12 +96,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac2475680b1fa941b5ac03615c289bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownedByPlayer: 0
   monsterName: Masayoshi
   monsterLevel: 9
   damage: 17
   healAmount: 5
   maxHP: 50
   currentHP: 50
+  element: 1
+  moves:
+  - {fileID: 3353553404789625649}
+  - {fileID: -5696781382713963702}
+  - {fileID: -3919855343587964621}
   sprites:
   - {fileID: 21300000, guid: d4b6d1be3b9be5a47a6e346eced6dbbd, type: 3}
   - {fileID: 21300000, guid: 72e9ce5c5db0170409a8f228a8f798d3, type: 3}
+--- !u!114 &3353553404789625649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Uppercut
+  type: 0
+  element: 0
+  maxUses: 10
+  uses: 0
+  val: 6
+--- !u!114 &-5696781382713963702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Invest
+  type: 1
+  element: 0
+  maxUses: 5
+  uses: 5
+  val: 5
+--- !u!114 &-3919855343587964621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Dump It
+  type: 0
+  element: 1
+  maxUses: 1
+  uses: 0
+  val: 20

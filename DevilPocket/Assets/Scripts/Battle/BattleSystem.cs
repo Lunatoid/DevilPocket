@@ -76,41 +76,34 @@ public class BattleSystem : MonoBehaviour {
         PlayerTurn();
     }
 
-    IEnumerator PlayerAttack() {
-        bool isDead = enemyMonster.TakeDamage(playerMonster.damage);
+    IEnumerator PlayerMove(int index) {
+        bool isEnemyDead = playerMonster.moves[index].PerformMove(playerMonster, enemyMonster);
 
+        playerHUD.SetHP(playerMonster.currentHP);
         enemyHUD.SetHP(enemyMonster.currentHP);
-        dialoogText.text = "The attack is successful! " + enemyMonster.monsterName + " was hit for " + playerMonster.damage + " life points!";
+
+        if (playerMonster.moves[index].type == MoveType.Attack) {
+            dialoogText.text = "The attack is successful! " + enemyMonster.monsterName + " was hit for " + playerMonster.moves[index].val + " life points!";
+        } else if (playerMonster.moves[index].type == MoveType.Recover) {
+            dialoogText.text = playerMonster.monsterName + " feels renewed strength!";
+        }
 
         yield return new WaitForSeconds(waitTimePlayer);
 
-        if (isDead) {
+        if (isEnemyDead) {
             state = BattleState.Won;
             StartCoroutine(EndBattle());
         } else {
             state = BattleState.EnemyTurn;
-            StartCoroutine(EnemyAttack());
+            StartCoroutine(EnemyMove());
         }
     }
 
-    IEnumerator PlayerHeal() {
-        playerMonster.Heal(playerMonster.healAmount);
-
-        playerHUD.SetHP(playerMonster.currentHP);
-        dialoogText.text = playerMonster.monsterName + " feels renewed strength!";
-
-        yield return new WaitForSeconds(waitTimePlayer);
-
-        state = BattleState.EnemyTurn;
-        StartCoroutine(EnemyAttack());
-    }
-
-
-    IEnumerator EnemyAttack() {
+    IEnumerator EnemyMove() {
         dialoogText.text = enemyMonster.monsterName + " attacks!";
         yield return new WaitForSeconds(waitTimeEnemy);
 
-        // hiero nog toevoegen dat de moster van de tegenstander kan helen wan hij laag in hp is;
+        // @TODO: choose move based on most damage/strong type/low health heal
         bool isDead = playerMonster.TakeDamage(enemyMonster.damage);
 
         playerHUD.SetHP(playerMonster.currentHP);
@@ -153,24 +146,26 @@ public class BattleSystem : MonoBehaviour {
         canInteract = true;
     }
 
-    public void OnAttackButton() {
+    public void DoMove0() {
+        DoMove(0);
+    }
+
+    public void DoMove1() {
+        DoMove(1);
+    }
+
+    public void DoMove2() {
+        DoMove(2);
+    }
+
+    void DoMove(int index) {
         if (state != BattleState.PlayerTurn) {
             return;
         } else {
             if (!canInteract) return;
             canInteract = false;
-            StartCoroutine(PlayerAttack());
+            StartCoroutine(PlayerMove(index));
         }
-    }
 
-    public void OnHealButton() {
-        if (state != BattleState.PlayerTurn) {
-            return;
-        } else {
-            if (!canInteract) return;
-            canInteract = false;
-            StartCoroutine(PlayerHeal());
-        }
     }
-
 }
