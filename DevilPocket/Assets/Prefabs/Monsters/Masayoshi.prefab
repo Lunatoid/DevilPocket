@@ -93,12 +93,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac2475680b1fa941b5ac03615c289bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownedByPlayer: 0
   monsterName: Masayoshi
-  monsterLevel: 9
-  damage: 17
-  healAmount: 5
-  maxHP: 50
-  currentHP: 50
+  monsterLevel: 1
+  damage: 5
+  healAmount: 3
+  maxHP: 14
+  currentHP: 14
   sprites:
   - {fileID: 21300000, guid: d4b6d1be3b9be5a47a6e346eced6dbbd, type: 3}
   - {fileID: 21300000, guid: 72e9ce5c5db0170409a8f228a8f798d3, type: 3}

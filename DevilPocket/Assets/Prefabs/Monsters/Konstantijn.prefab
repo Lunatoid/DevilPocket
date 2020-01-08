@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5588440095518819130}
   - component: {fileID: 5588440095518819125}
   m_Layer: 0
-  m_Name: Fernando
+  m_Name: Konstantijn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -4
-  m_Sprite: {fileID: 21300000, guid: 85102d4b6b8c77f47853636897623653, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2de86c1f8ae33d741a3589034d4b63f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,12 +94,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
-  monsterName: Fernando
+  monsterName: Konstantijn
   monsterLevel: 1
-  damage: 3
-  healAmount: 6
+  damage: 2
+  healAmount: 5
   maxHP: 15
   currentHP: 15
   sprites:
-  - {fileID: 21300000, guid: 700dfb3d6f819ca48a9bc3669cf002e3, type: 3}
-  - {fileID: 21300000, guid: 85102d4b6b8c77f47853636897623653, type: 3}
+  - {fileID: 21300000, guid: 2de86c1f8ae33d741a3589034d4b63f2, type: 3}
+  - {fileID: 21300000, guid: 9706697c5e3687040973c485927782a7, type: 3}
