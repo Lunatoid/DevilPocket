@@ -100,11 +100,11 @@ MonoBehaviour:
   healAmount: 9
   maxHP: 30
   currentHP: 30
-  element: 0
+  element: 1
   moves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4619254192897032504, guid: f6736db10ef13a248a3b8e53e3a010d8, type: 3}
+  - {fileID: 6735199846944130454, guid: 2f9fab67d0c2d3d458931a7539ec894e, type: 3}
+  - {fileID: 1071466227185405619, guid: 402f6af7a27a7dd41a4a7a3e43c54ef4, type: 3}
   sprites:
   - {fileID: 21300000, guid: 3554f2848539fce40a223655cba1c071, type: 3}
   - {fileID: 21300000, guid: 82a6ddde35c0f6d41bf630843ca347e4, type: 3}
