@@ -13,16 +13,18 @@ public class Move : MonoBehaviour {
     public Element element;
     public int maxUses;
     public int uses;
+    private bool initialized = false;
 
     [Header("This will either be the base attack or base heal")]
     public int val;
 
-    // Start is called before the first frame update
-    void Start() {
-        uses = maxUses;
-    }
-
     public bool PerformMove(Monster ownMonster, Monster enemyMonster) {
+        if (!initialized) {
+            // Initialize max uses
+            uses = maxUses;
+            initialized = true;
+        }
+
         if (uses > 0) {
             --uses;
         } else {
