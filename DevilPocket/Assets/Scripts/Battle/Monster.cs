@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Element { Normal, Poison, Metal, Fighting }
+public enum Element { Normal, Poison, Metal, Ice }
 
 public class Monster : MonoBehaviour {
 
