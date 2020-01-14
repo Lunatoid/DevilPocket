@@ -1,20 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: a1b9098518e753645a3b9fe735c30eee
-=======
-guid: 2de86c1f8ae33d741a3589034d4b63f2
->>>>>>> 769b7df8f88c10492c88e14650515492a200c6c3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
     mipMapMode: 0
-<<<<<<< HEAD
-    enableMipMap: 1
-=======
     enableMipMap: 0
->>>>>>> 769b7df8f88c10492c88e14650515492a200c6c3
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -42,15 +34,6 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-<<<<<<< HEAD
-    wrapU: -1
-    wrapV: -1
-    wrapW: -1
-  nPOTScale: 1
-  lightmap: 0
-  compressionQuality: 50
-  spriteMode: 0
-=======
     wrapU: 1
     wrapV: 1
     wrapW: -1
@@ -58,28 +41,17 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
->>>>>>> 769b7df8f88c10492c88e14650515492a200c6c3
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
-  alphaIsTransparency: 0
-  spriteTessellationDetail: -1
-  textureType: 0
-=======
-  spritePixelsToUnits: 215
+  spritePixelsToUnits: 230
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
->>>>>>> 769b7df8f88c10492c88e14650515492a200c6c3
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -88,9 +60,6 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-<<<<<<< HEAD
-    maxTextureSize: 2048
-=======
     maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
@@ -116,7 +85,6 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 1024
->>>>>>> 769b7df8f88c10492c88e14650515492a200c6c3
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -132,11 +100,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-<<<<<<< HEAD
-    spriteID: 
-=======
     spriteID: 5e97eb03825dee720800000000000000
->>>>>>> 769b7df8f88c10492c88e14650515492a200c6c3
     internalID: 0
     vertices: []
     indices: 

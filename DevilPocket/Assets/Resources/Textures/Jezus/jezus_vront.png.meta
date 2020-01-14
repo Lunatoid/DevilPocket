@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:DevilPocket/Assets/Recources/Textures/Adriaan/Adriaan_back.png.meta
 guid: e5a22c90a0338044596aaeba4f1fc280
-=======
-guid: 450b3a4d4735f3e4990ff4612db8cd8e
->>>>>>> 769b7df8f88c10492c88e14650515492a200c6c3:DevilPocket/Assets/Resources/Textures/Jezus/jezus_vront.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +45,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 195
+  spritePixelsToUnits: 190
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1

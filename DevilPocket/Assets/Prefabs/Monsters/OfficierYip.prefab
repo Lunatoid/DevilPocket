@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5588440095518819130}
   - component: {fileID: 5588440095518819125}
   m_Layer: 0
-  m_Name: Midas 1
+  m_Name: OfficierYip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,6 +100,11 @@ MonoBehaviour:
   healAmount: 6
   maxHP: 12
   currentHP: 12
+  element: 0
+  moves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: fd6c75622df55ee4b933a5a9322c66f5, type: 3}
-  - {fileID: 21300000, guid: 6977911f327d6f848a4bb573c7aacb5f, type: 3}
+  - {fileID: 21300000, guid: 16e9bb1447be1664490f75c365353ca0, type: 3}

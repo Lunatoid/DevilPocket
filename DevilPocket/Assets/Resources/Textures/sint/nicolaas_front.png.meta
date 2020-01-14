@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:DevilPocket/Assets/Recources/Textures/Django/Django_front.png.meta
 guid: 3554f2848539fce40a223655cba1c071
-=======
-guid: 1735d9ac2d66c654eb1db1e5a4b19e63
->>>>>>> 769b7df8f88c10492c88e14650515492a200c6c3:DevilPocket/Assets/Resources/Textures/sint/nicolaas_front.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +32,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -100
     wrapU: 1
     wrapV: 1
