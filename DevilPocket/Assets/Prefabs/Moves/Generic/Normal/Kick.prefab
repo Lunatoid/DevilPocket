@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Kick
   type: 0
   element: 0
-  maxUses: 10
+  maxUses: 5
   uses: 0
   val: 5
