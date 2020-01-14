@@ -14,6 +14,10 @@ public class BattleHUD : MonoBehaviour {
     [SerializeField]
     Slider hpSlider;
 
+    [SerializeField]
+    GameObject[] elementUI;
+
+
     /// <summary>
     /// Applies the monster properties to the HUD
     /// </summary>
@@ -23,6 +27,10 @@ public class BattleHUD : MonoBehaviour {
         levelText.text = "Lvl " + monster.monsterLevel;
         hpSlider.maxValue = monster.maxHP;
         hpSlider.value = monster.currentHP;
+    }
+
+    public void SetElement() {
+
     }
 
     public void SetHP(int hp) {
