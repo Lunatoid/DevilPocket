@@ -14,8 +14,31 @@ public class BattleHUD : MonoBehaviour {
     [SerializeField]
     Slider hpSlider;
 
+
+    [Space(20)]
+    [Header("Monster Types")] 
     [SerializeField]
-    GameObject[] elementUI;
+    GameObject elementPoison;
+
+    [SerializeField]
+    GameObject elementMetal;
+
+    [SerializeField]
+    GameObject elementIce;
+
+    [Space(20)]
+    [Header("Move Types")]
+    [SerializeField]
+    GameObject moveElementNormaal;
+
+    [SerializeField]
+    GameObject moveElementPoison;
+
+    [SerializeField]
+    GameObject moveElementMetal;
+
+    [SerializeField]
+    GameObject moveElementIce;
 
 
     /// <summary>
@@ -27,12 +50,23 @@ public class BattleHUD : MonoBehaviour {
         levelText.text = "Lvl " + monster.monsterLevel;
         hpSlider.maxValue = monster.maxHP;
         hpSlider.value = monster.currentHP;
+
+        if (monster.element == Element.Poison) {
+            Instantiate(elementPoison, transform.parent);
+        }
+        if (monster.element == Element.Metal) {
+            Instantiate(elementMetal, transform.parent);
+        }
+        if (monster.element == Element.Ice) {
+            Instantiate(elementIce, transform.parent);
+        }
+
+        
+
+
     }
 
-    public void SetElement() {
-
-    }
-
+   
     public void SetHP(int hp) {
         hpSlider.value = hp;
     }
