@@ -21,6 +21,12 @@ public class Monster : MonoBehaviour {
 
     public Move[] moves = new Move[3];
 
+    private void Start() {
+        foreach (Move move in moves) {
+            move.Init();
+        } 
+    }
+
     [SerializeField, Header("Element 0 - Front, Element 1 - Back")]
     Sprite[] sprites = new Sprite[2];
 

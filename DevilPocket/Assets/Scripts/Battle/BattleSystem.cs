@@ -77,16 +77,19 @@ public class BattleSystem : MonoBehaviour {
     }
 
     IEnumerator PerformMove(Monster current, Monster target, int index) {
+        int uses = current.moves[index].uses;
         bool isTargetDead = current.moves[index].PerformMove(current, target);
 
         playerHUD.SetHP(playerMonster.currentHP);
         enemyHUD.SetHP(enemyMonster.currentHP);
 
         dialoogText.text = $"{current.monsterName} used {current.moves[index].moveName}.";
-        if (current.moves[index].type == MoveType.Attack) {
-            dialoogText.text += $"\nIt hit for {current.moves[index].val} damage!";
+        if (uses == 0) {
+            dialoogText.text += "\nBut it was out of uses!";
+        } else if (current.moves[index].type == MoveType.Attack) {
+            dialoogText.text += $"\nIt hit for {current.moves[index].GetCalculatedValue(target.element)} damage!";
         } else if (current.moves[index].type == MoveType.Recover) {
-            dialoogText.text += $"\nIt recovered {current.moves[index].val} life points!";
+            dialoogText.text += $"\nIt recovered {current.moves[index].GetCalculatedValue(target.element)} life points!";
         }
 
         yield return new WaitForSeconds(waitTimePlayer);
@@ -105,7 +108,58 @@ public class BattleSystem : MonoBehaviour {
 
                 // @TODO: enemy AI
 
-                StartCoroutine(PerformMove(target, current, Random.Range(0, target.moves.Length)));
+                int moveIndex = 0;
+                MoveType targetType;
+
+                float healthPercent = (float)enemyMonster.currentHP / (float)enemyMonster.maxHP;
+
+                if (healthPercent < 0.15f) {
+                    targetType = MoveType.Recover;
+                } else if (healthPercent < 0.5f) {
+                    // 1 in HEAL_CHANCE times it will heal
+                    const int HEAL_CHANCE = 3;
+
+                    bool shouldHeal = Random.Range(0, HEAL_CHANCE) == 0;
+
+                    // Find a move
+                    targetType = (shouldHeal) ? MoveType.Recover : MoveType.Attack;
+                } else {
+                    targetType = MoveType.Attack;
+                }
+
+                Debug.Log("Enemy wants to " + targetType);
+
+                // Every time we pick a random move and it's not a desired move we add 1 to the rejectedMoves
+                // If the rejectedMoves reaches the REJECTED_THRESHOLD it will just pick a random move
+                int rejectedMoves = 0;
+                const int REJECTED_THRESHOLD = 50;
+
+                while (true) {
+                    int randomIndex = Random.Range(0, enemyMonster.moves.Length);
+
+                    if (enemyMonster.moves[randomIndex].type == targetType) {
+                        // Check if it has any uses left
+                        if (enemyMonster.moves[randomIndex].uses > 0 || !enemyMonster.moves[randomIndex].initialized) {
+                            Debug.Log("Enemy chose " + enemyMonster.moves[randomIndex].moveName);
+                            moveIndex = randomIndex;
+                            break;
+                        } else {
+                            ++rejectedMoves;
+                        }
+                    } else {
+                        ++rejectedMoves;
+                    }
+
+
+                    if (rejectedMoves >= REJECTED_THRESHOLD) {
+                        Debug.Log("Rejection threshold reached. Enemy chose " + enemyMonster.moves[randomIndex].moveName);
+                        moveIndex = randomIndex;
+                        break;
+                    }
+
+                }
+
+                StartCoroutine(PerformMove(target, current, moveIndex));
             } else {
                 state = BattleState.PlayerTurn;
                 PlayerTurn();
