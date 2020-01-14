@@ -100,6 +100,11 @@ MonoBehaviour:
   healAmount: 4
   maxHP: 17
   currentHP: 17
+  element: 1
+  moves:
+  - {fileID: 7153494906975767993, guid: 260a4eeb11b2e6d42a55b8ac6faa03f0, type: 3}
+  - {fileID: 8169263828084590486, guid: ccc0f6a459222d344bacb842351d1828, type: 3}
+  - {fileID: 3002876498893415751, guid: 99ab23c1d2591384b97063d667f25473, type: 3}
   sprites:
   - {fileID: 21300000, guid: 54da73e84d5822141a8879fd13dd5551, type: 3}
   - {fileID: 21300000, guid: f60e83c1e02efe74e86ee1577c7661a4, type: 3}

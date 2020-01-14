@@ -76,46 +76,40 @@ public class BattleSystem : MonoBehaviour {
         PlayerTurn();
     }
 
-    IEnumerator PlayerMove(int index) {
-        bool isEnemyDead = playerMonster.moves[index].PerformMove(playerMonster, enemyMonster);
+    IEnumerator PerformMove(Monster current, Monster target, int index) {
+        bool isTargetDead = current.moves[index].PerformMove(current, target);
 
         playerHUD.SetHP(playerMonster.currentHP);
         enemyHUD.SetHP(enemyMonster.currentHP);
 
-        if (playerMonster.moves[index].type == MoveType.Attack) {
-            dialoogText.text = "The attack is successful! " + enemyMonster.monsterName + " was hit for " + playerMonster.moves[index].val + " life points!";
-        } else if (playerMonster.moves[index].type == MoveType.Recover) {
-            dialoogText.text = playerMonster.monsterName + " feels renewed strength!";
+        dialoogText.text = $"{current.monsterName} used {current.moves[index].moveName}.";
+        if (current.moves[index].type == MoveType.Attack) {
+            dialoogText.text += $"\nIt hit for {current.moves[index].val} damage!";
+        } else if (current.moves[index].type == MoveType.Recover) {
+            dialoogText.text += $"\nIt recovered {current.moves[index].val} life points!";
         }
 
         yield return new WaitForSeconds(waitTimePlayer);
 
-        if (isEnemyDead) {
-            state = BattleState.Won;
-            StartCoroutine(EndBattle());
+        if (isTargetDead) {
+            if (state == BattleState.PlayerTurn) {
+                state = BattleState.Won;
+                StartCoroutine(EndBattle());
+            } else {
+                state = BattleState.Lost;
+                StartCoroutine(EndBattle());
+            }
         } else {
-            state = BattleState.EnemyTurn;
-            StartCoroutine(EnemyMove());
-        }
-    }
+            if (state == BattleState.PlayerTurn) {
+                state = BattleState.EnemyTurn;
 
-    IEnumerator EnemyMove() {
-        dialoogText.text = enemyMonster.monsterName + " attacks!";
-        yield return new WaitForSeconds(waitTimeEnemy);
+                // @TODO: enemy AI
 
-        // @TODO: choose move based on most damage/strong type/low health heal
-        bool isDead = playerMonster.TakeDamage(enemyMonster.damage);
-
-        playerHUD.SetHP(playerMonster.currentHP);
-
-        yield return new WaitForSeconds(waitTimeEnemy);
-
-        if (isDead) {
-            state = BattleState.Lost;
-            StartCoroutine(EndBattle());
-        } else {
-            state = BattleState.PlayerTurn;
-            PlayerTurn();
+                StartCoroutine(PerformMove(target, current, Random.Range(0, target.moves.Length)));
+            } else {
+                state = BattleState.PlayerTurn;
+                PlayerTurn();
+            }
         }
     }
 
@@ -164,7 +158,7 @@ public class BattleSystem : MonoBehaviour {
         } else {
             if (!canInteract) return;
             canInteract = false;
-            StartCoroutine(PlayerMove(index));
+            StartCoroutine(PerformMove(playerMonster, enemyMonster, index));
         }
 
     }
