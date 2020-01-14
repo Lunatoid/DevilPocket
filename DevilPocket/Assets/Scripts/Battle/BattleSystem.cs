@@ -28,6 +28,7 @@ public class BattleSystem : MonoBehaviour {
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
+    
     [Space]
     public BattleState state;
 
@@ -62,10 +63,14 @@ public class BattleSystem : MonoBehaviour {
         GameObject enemyGo = Instantiate(playerInventory.enemyMonsters[0], enemyBattleStation);
         enemyMonster = enemyGo.GetComponent<Monster>();
 
+        
+
+
         dialoogText.text = "A wild " + enemyMonster.monsterName + " approaches...";
 
         playerHUD.SetHUD(playerMonster);
         enemyHUD.SetHUD(enemyMonster);
+        
 
         playerMonster.SetSprite();
         enemyMonster.SetSprite();
@@ -82,6 +87,7 @@ public class BattleSystem : MonoBehaviour {
 
         playerHUD.SetHP(playerMonster.currentHP);
         enemyHUD.SetHP(enemyMonster.currentHP);
+        
 
         dialoogText.text = $"{current.monsterName} used {current.moves[index].moveName}.";
         if (uses == 0) {

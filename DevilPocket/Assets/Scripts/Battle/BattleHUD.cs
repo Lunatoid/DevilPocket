@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine.UI;
 
 public class BattleHUD : MonoBehaviour {
+
+
     [SerializeField]
     TextMeshProUGUI nameText;
 
@@ -26,6 +28,7 @@ public class BattleHUD : MonoBehaviour {
     [SerializeField]
     GameObject elementIce;
 
+
     [Space(20)]
     [Header("Move Types")]
     [SerializeField]
@@ -41,6 +44,30 @@ public class BattleHUD : MonoBehaviour {
     GameObject moveElementIce;
 
 
+    [Space(20)]
+    [Header("Move Name")]
+    [SerializeField]
+    TextMeshProUGUI move1NameText;
+
+    [SerializeField]
+    TextMeshProUGUI move2NameText;
+
+    [SerializeField]
+    TextMeshProUGUI move3NameText;
+
+
+    [Space(20)]
+    [Header("Move Name")]
+    [SerializeField]
+    TextMeshProUGUI move1Uses;
+
+    [SerializeField]
+    TextMeshProUGUI move2Uses;
+
+    [SerializeField]
+    TextMeshProUGUI move3Uses;
+
+
     /// <summary>
     /// Applies the monster properties to the HUD
     /// </summary>
@@ -51,6 +78,7 @@ public class BattleHUD : MonoBehaviour {
         hpSlider.maxValue = monster.maxHP;
         hpSlider.value = monster.currentHP;
 
+       // fully woriking element loding
         if (monster.element == Element.Poison) {
             Instantiate(elementPoison, transform.parent);
         }
@@ -60,14 +88,35 @@ public class BattleHUD : MonoBehaviour {
         if (monster.element == Element.Ice) {
             Instantiate(elementIce, transform.parent);
         }
+    }
+    public void SetHUD(Move move) {
 
-        
+        // names of the moves
+        move1NameText.text = move.moveName;
+        move2NameText.text = move.moveName;
+        move3NameText.text = move.moveName;
 
+        // pp use
+        move1Uses.text = move.uses + "/" + move.maxUses;
+        move2Uses.text = move.uses + "/" + move.maxUses;
+        move3Uses.text = move.uses + "/" + move.maxUses;
+
+        // sets the icon vor the moves micht needt to relocate the locatin of the move buttons
+        if (move.element == Element.Normal) {
+            Instantiate(moveElementNormaal, transform.parent);
+        }
+        if (move.element == Element.Poison) {
+            Instantiate(moveElementPoison, transform.parent);
+        }
+        if (move.element == Element.Metal) {
+            Instantiate(moveElementMetal, transform.parent);
+        }
+        if (move.element == Element.Ice) {
+            Instantiate(moveElementIce, transform.parent);
+        }
 
     }
-
-   
-    public void SetHP(int hp) {
+        public void SetHP(int hp) {
         hpSlider.value = hp;
     }
 }
