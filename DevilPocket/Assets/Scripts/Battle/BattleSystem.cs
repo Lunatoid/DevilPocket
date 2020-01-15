@@ -49,10 +49,10 @@ public class BattleSystem : MonoBehaviour {
         }
 
         state = BattleState.Start;
-        StartCoroutine(SetupBattle());
+        SetupBattle();
     }
 
-    IEnumerator SetupBattle() {
+    void SetupBattle() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -63,19 +63,16 @@ public class BattleSystem : MonoBehaviour {
         GameObject enemyGo = Instantiate(playerInventory.enemyMonsters[0], enemyBattleStation);
         enemyMonster = enemyGo.GetComponent<Monster>();
 
-        
-
-
         dialoogText.text = "A wild " + enemyMonster.monsterName + " approaches...";
 
         playerHUD.SetHUD(playerMonster);
         enemyHUD.SetHUD(enemyMonster);
         
-
         playerMonster.SetSprite();
         enemyMonster.SetSprite();
 
-        yield return new WaitForSeconds(waitTimeLoad);
+        playerHUD.SetMovesHUD(playerMonster);
+        playerHUD.UpdateUsesHUD(playerMonster);
 
         state = BattleState.PlayerTurn;
         PlayerTurn();
@@ -84,6 +81,7 @@ public class BattleSystem : MonoBehaviour {
     IEnumerator PerformMove(Monster current, Monster target, int index) {
         int uses = current.moves[index].uses;
         bool isTargetDead = current.moves[index].PerformMove(current, target);
+        playerHUD.UpdateUsesHUD(playerMonster);
 
         playerHUD.SetHP(playerMonster.currentHP);
         enemyHUD.SetHP(enemyMonster.currentHP);
@@ -145,7 +143,7 @@ public class BattleSystem : MonoBehaviour {
 
                     if (enemyMonster.moves[randomIndex].type == targetType) {
                         // Check if it has any uses left
-                        if (enemyMonster.moves[randomIndex].uses > 0 || !enemyMonster.moves[randomIndex].initialized) {
+                        if (enemyMonster.moves[randomIndex].uses > 0) {
                             Debug.Log("Enemy chose " + enemyMonster.moves[randomIndex].moveName);
                             moveIndex = randomIndex;
                             break;

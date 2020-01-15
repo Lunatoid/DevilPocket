@@ -13,7 +13,6 @@ public class Move : MonoBehaviour {
     public Element element;
     public int maxUses;
     public int uses;
-    public bool initialized;
 
     // Example:
     // TYPE_MOD[Element.Poison][Element.Metal] returns 1.5 because it's 1.5 as strong
@@ -31,10 +30,6 @@ public class Move : MonoBehaviour {
 
     [Header("This will either be the base attack or base heal")]
     public int val;
-
-    public void Init() {
-        uses = maxUses;
-    }
 
     public bool PerformMove(Monster ownMonster, Monster enemyMonster) {
         if (uses > 0) {
@@ -59,6 +54,15 @@ public class Move : MonoBehaviour {
     /// <returns>The <c>val</c> with type info applied.</returns>
     public int GetCalculatedValue(Element enemyElement) {
         return Mathf.RoundToInt((float)val * TYPE_MOD[(int)element][(int)enemyElement]);
+    }
+
+    public void CopyFromMove(Move other) {
+        moveName = other.moveName;
+        type = other.type;
+        element = other.element;
+        maxUses = other.maxUses;
+        uses = other.uses;
+        val = other.val;
     }
 
 }

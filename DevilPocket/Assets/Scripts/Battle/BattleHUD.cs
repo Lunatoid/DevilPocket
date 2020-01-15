@@ -88,18 +88,13 @@ public class BattleHUD : MonoBehaviour {
         if (monster.element == Element.Ice) {
             Instantiate(elementIce, transform.parent);
         }
+    }
 
-
-
+    public void SetMovesHUD(Monster monster) {
         // names of the moves
         move1NameText.text = monster.moves[0].moveName;
         move2NameText.text = monster.moves[1].moveName;
         move3NameText.text = monster.moves[2].moveName;
-
-        // pp use
-        move1Uses.text = monster.moves[0].uses + "/" + monster.moves[0].maxUses;
-        move2Uses.text = monster.moves[1].uses + "/" + monster.moves[1].maxUses;
-        move3Uses.text = monster.moves[2].uses + "/" + monster.moves[2].maxUses;
 
         // sets the icon vor the moves micht needt to relocate the locatin of the move buttons
 
@@ -144,7 +139,17 @@ public class BattleHUD : MonoBehaviour {
         if (monster.moves[2].element == Element.Ice) {
             Instantiate(moveElementIce, transform.parent);
         }
+    }
 
+    public void UpdateUsesHUD(Monster monster) {
+        // pp use
+        move1Uses.text = monster.moves[0].uses + "/" + monster.moves[0].maxUses;
+        move2Uses.text = monster.moves[1].uses + "/" + monster.moves[1].maxUses;
+        move3Uses.text = monster.moves[2].uses + "/" + monster.moves[2].maxUses;
+
+        // Debug.Log(monster.moves[0].uses + " " + monster.moves[0].initialized);
+        // Debug.Log(monster.moves[1].uses + " " + monster.moves[1].initialized);
+        // Debug.Log(monster.moves[2].uses + " " + monster.moves[2].initialized);
     }
 
     //works fine.

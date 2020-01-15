@@ -47,5 +47,5 @@ MonoBehaviour:
   type: 1
   element: 1
   maxUses: 2
-  uses: 0
+  uses: 2
   val: 8

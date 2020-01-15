@@ -21,14 +21,28 @@ public class Monster : MonoBehaviour {
 
     public Move[] moves = new Move[3];
 
-    private void Start() {
-        foreach (Move move in moves) {
-            move.Init();
-        } 
-    }
-
     [SerializeField, Header("Element 0 - Front, Element 1 - Back")]
     Sprite[] sprites = new Sprite[2];
+
+    private void Start() {
+        // UNITY FOR SOME REASON DOESN'T COPY THE PREFAB SO WHEN YOU
+        // DO A MOVE IT WILL EDIT THE PREFAB AT RUNTIME.
+        //
+        // SO WHAT IS THE SOLUTION?
+        // MAKING NEW COMPONENTS AND THEN COPYING EACH PARAMETER!!!!!!!
+        for (int i = 0; i < moves.Length; ++i) {
+            Move newMove = gameObject.AddComponent<Move>();
+            newMove.CopyFromMove(moves[i]);
+            moves[i] = newMove;
+        }
+    }
+
+    private void OnDestroy() {
+        // Unity edits the prefab for some reason????
+        foreach (Move move in moves) {
+            move.uses = move.maxUses;
+        }
+    }
 
     public void SetSprite() {
         int index = (ownedByPlayer) ? 1 : 0;
