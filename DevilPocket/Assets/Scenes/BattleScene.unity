@@ -2344,7 +2344,7 @@ RectTransform:
   - {fileID: 1717082073}
   - {fileID: 227561305}
   m_Father: {fileID: 1796838635}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3521,7 +3521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 4.60002, y: -5.6}
+  m_AnchoredPosition: {x: 4.5999985, y: 0.5999985}
   m_SizeDelta: {x: 54.59, y: 16.59}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1086488299
@@ -3736,6 +3736,9 @@ MonoBehaviour:
   moveElementPoison: {fileID: 0}
   moveElementMetal: {fileID: 0}
   moveElementIce: {fileID: 0}
+  move1Position: {fileID: 0}
+  move2Position: {fileID: 0}
+  move3Position: {fileID: 0}
   move1NameText: {fileID: 0}
   move2NameText: {fileID: 0}
   move3NameText: {fileID: 0}
@@ -3773,7 +3776,7 @@ RectTransform:
   m_Children:
   - {fileID: 1624411370}
   m_Father: {fileID: 1796838635}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -4289,20 +4292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34af1f002653e754f96629bffe8af9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveElementNormaal: {fileID: 7125431918934049201, guid: 49ec1883e9690a545b828801b47f281e,
-    type: 3}
-  moveElementPoison: {fileID: 7125431918934049201, guid: 380ea4373ece31b4f97b27d394ea2a63,
-    type: 3}
-  moveElementMetal: {fileID: 7125431918934049201, guid: 5744527febb2e634cb14138cb1a0d4c3,
-    type: 3}
-  moveElementIce: {fileID: 7125431918934049201, guid: 42c4ab44bdc43d649839a5d0050eabd4,
-    type: 3}
-  move1NameText: {fileID: 652225728}
-  move2NameText: {fileID: 1946471388}
-  move3NameText: {fileID: 819420076}
-  move1Uses: {fileID: 1417300046}
-  move2Uses: {fileID: 129916230}
-  move3Uses: {fileID: 143744428}
 --- !u!1 &1327453196
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,7 +4327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 4.60002, y: -5.6}
+  m_AnchoredPosition: {x: 4.60002, y: 0.5999985}
   m_SizeDelta: {x: 54.59, y: 16.59}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1327453198
@@ -5023,7 +5012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 4.60002, y: -5.6}
+  m_AnchoredPosition: {x: 4.60002, y: 0.5999985}
   m_SizeDelta: {x: 54.59, y: 16.59}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1472014743
@@ -6158,6 +6147,9 @@ MonoBehaviour:
     type: 3}
   moveElementIce: {fileID: 7125431918934049201, guid: 42c4ab44bdc43d649839a5d0050eabd4,
     type: 3}
+  move1Position: {fileID: 1472014742}
+  move2Position: {fileID: 1327453197}
+  move3Position: {fileID: 1086488298}
   move1NameText: {fileID: 652225728}
   move2NameText: {fileID: 1946471388}
   move3NameText: {fileID: 819420076}
@@ -6329,8 +6321,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1884396932}
-  - {fileID: 863467327}
   - {fileID: 1198266249}
+  - {fileID: 863467327}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7046,7 +7038,6 @@ MonoBehaviour:
   dialoogText: {fileID: 745022842}
   playerHUD: {fileID: 1717082076}
   enemyHUD: {fileID: 1194890978}
-  moveHUD: {fileID: 1311798547}
   state: 0
   baseMoney: 10
   minMoneyMod: 0.1

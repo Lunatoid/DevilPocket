@@ -43,6 +43,16 @@ public class BattleHUD : MonoBehaviour {
     [SerializeField]
     GameObject moveElementIce;
 
+    [Space(20)]
+    [Header("Move Types Position")]
+    [SerializeField]
+    Transform move1Position;
+
+    [SerializeField]
+    Transform move2Position;
+
+    [SerializeField]
+    Transform move3Position;
 
     [Space(20)]
     [Header("Move Name")]
@@ -100,44 +110,44 @@ public class BattleHUD : MonoBehaviour {
 
         //for move 1
         if (monster.moves[0].element == Element.Normal) {
-            Instantiate(moveElementNormaal, transform.parent);
+            Instantiate(moveElementNormaal, move1Position);
         }
         if (monster.moves[0].element == Element.Poison) {
-            Instantiate(moveElementPoison, transform.parent);
+            Instantiate(moveElementPoison, move1Position);
         }
         if (monster.moves[0].element == Element.Metal) {
-            Instantiate(moveElementMetal, transform.parent);
+            Instantiate(moveElementMetal, move1Position);
         }
         if (monster.moves[0].element == Element.Ice) {
-            Instantiate(moveElementIce, transform.parent);
+            Instantiate(moveElementIce, move1Position);
         }
 
         // for move 2
         if (monster.moves[1].element == Element.Normal) {
-            Instantiate(moveElementNormaal, transform.parent);
+            Instantiate(moveElementNormaal, move2Position);
         }
         if (monster.moves[1].element == Element.Poison) {
-            Instantiate(moveElementPoison, transform.parent);
+            Instantiate(moveElementPoison, move2Position);
         }
         if (monster.moves[1].element == Element.Metal) {
-            Instantiate(moveElementMetal, transform.parent);
+            Instantiate(moveElementMetal, move2Position);
         }
         if (monster.moves[1].element == Element.Ice) {
-            Instantiate(moveElementIce, transform.parent);
+            Instantiate(moveElementIce, move2Position);
         }
 
         //for move 3
         if (monster.moves[2].element == Element.Normal) {
-            Instantiate(moveElementNormaal, transform.parent);
+            Instantiate(moveElementNormaal, move3Position);
         }
         if (monster.moves[2].element == Element.Poison) {
-            Instantiate(moveElementPoison, transform.parent);
+            Instantiate(moveElementPoison, move3Position);
         }
         if (monster.moves[2].element == Element.Metal) {
-            Instantiate(moveElementMetal, transform.parent);
+            Instantiate(moveElementMetal, move3Position);
         }
         if (monster.moves[2].element == Element.Ice) {
-            Instantiate(moveElementIce, transform.parent);
+            Instantiate(moveElementIce, move3Position);
         }
     }
 

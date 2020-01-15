@@ -193,10 +193,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carriedMonsters:
-  - {fileID: 5588440095518819128, guid: 39508084f412f7e44814c71af184d452, type: 3}
+  - {fileID: 5588440095518819128, guid: dde2d625f7b6b014cab7a71830ba2ce2, type: 3}
   - {fileID: 2314592045236946008, guid: dfe9c08e3aaa7494f868a52b80be0a3e, type: 3}
   enemyMonsters:
-  - {fileID: 5588440095518819128, guid: b438aaa7f379358429f673190c760fd2, type: 3}
+  - {fileID: 5588440095518819128, guid: 85acd9f6c2d052e4da0cccfe2e97ef26, type: 3}
   money: 0
 --- !u!4 &1862359563
 Transform:

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: dislexia
   type: 0
-  element: 1
+  element: 2
   maxUses: 2
   uses: 2
   val: 29
