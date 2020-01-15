@@ -96,14 +96,14 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Konstantijn
   monsterLevel: 1
-  damage: 2
-  healAmount: 5
-  maxHP: 15
-  currentHP: 15
+  damage: 61
+  healAmount: 55
+  maxHP: 54
+  currentHP: 54
   element: 2
   moves:
-  - {fileID: 5929243772648109525, guid: 0b95e6bd60673b74fb42a8e67a191c3d, type: 3}
-  - {fileID: 9129702394386448749, guid: 3037b2198fc77dd43a1a218dd73e7032, type: 3}
+  - {fileID: 8620193238673471425, guid: de3f116cad1df6942a06cca87b03afee, type: 3}
+  - {fileID: 6463164832305737893, guid: 24e25cc88c9cc6f41a1d8c3b7f46f268, type: 3}
   - {fileID: 4919414339557361876, guid: 0789814ff547d6c4d88b949203bbd3fa, type: 3}
   sprites:
   - {fileID: 21300000, guid: a1b9098518e753645a3b9fe735c30eee, type: 3}

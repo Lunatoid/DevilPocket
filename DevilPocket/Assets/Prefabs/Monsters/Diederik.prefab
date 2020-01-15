@@ -96,14 +96,14 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Diderik
   monsterLevel: 1
-  damage: 6
-  healAmount: 2
-  maxHP: 12
-  currentHP: 12
+  damage: 39
+  healAmount: 59
+  maxHP: 79
+  currentHP: 79
   element: 2
   moves:
-  - {fileID: 7153494906975767993, guid: 260a4eeb11b2e6d42a55b8ac6faa03f0, type: 3}
-  - {fileID: 4042540963995636795, guid: 100e7598b12ee7049811ee30524c3343, type: 3}
+  - {fileID: 9089079935574885266, guid: 072f352210008d5418de692a0f144cda, type: 3}
+  - {fileID: 9129702394386448749, guid: 3037b2198fc77dd43a1a218dd73e7032, type: 3}
   - {fileID: 5683832465688105911, guid: 5090a81ee92b3ad428f0e1ff0aa80d80, type: 3}
   sprites:
   - {fileID: 21300000, guid: 26812a31450d0af41a6398da4d4ae302, type: 3}

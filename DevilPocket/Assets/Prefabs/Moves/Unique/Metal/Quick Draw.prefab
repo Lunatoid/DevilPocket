@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Quick Draw
   type: 0
   element: 2
-  maxUses: 6
-  uses: 6
-  val: 6
+  maxUses: 5
+  uses: 5
+  val: 43

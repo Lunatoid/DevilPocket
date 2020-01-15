@@ -93,17 +93,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac2475680b1fa941b5ac03615c289bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownedByPlayer: 0
+  ownedByPlayer: 1
   monsterName: Joris
   monsterLevel: 1
-  damage: 10
-  healAmount: 7
-  maxHP: 35
-  currentHP: 35
-  element: 2
+  damage: 90
+  healAmount: 70
+  maxHP: 95
+  currentHP: 95
+  element: 0
   moves:
-  - {fileID: 4619254192897032504, guid: f6736db10ef13a248a3b8e53e3a010d8, type: 3}
-  - {fileID: 9129702394386448749, guid: 3037b2198fc77dd43a1a218dd73e7032, type: 3}
+  - {fileID: 2904493311554246606, guid: 5825c70305fbb4c478c541c7995aa5c1, type: 3}
+  - {fileID: 4883965054988022405, guid: 9dd07477c0df31644b5bac015edf5afd, type: 3}
   - {fileID: 4883965054988022405, guid: 2dc647831e14730449429cbefb32a513, type: 3}
   sprites:
   - {fileID: 21300000, guid: be719fd0d581a924d9cea120a11a9f5d, type: 3}

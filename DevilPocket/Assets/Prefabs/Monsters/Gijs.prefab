@@ -96,13 +96,13 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Gijs
   monsterLevel: 1
-  damage: 5
-  healAmount: 2
-  maxHP: 12
-  currentHP: 12
+  damage: 62
+  healAmount: 50
+  maxHP: 58
+  currentHP: 58
   element: 1
   moves:
-  - {fileID: 7153494906975767993, guid: 260a4eeb11b2e6d42a55b8ac6faa03f0, type: 3}
+  - {fileID: 4619254192897032504, guid: f6736db10ef13a248a3b8e53e3a010d8, type: 3}
   - {fileID: 6735199846944130454, guid: 2f9fab67d0c2d3d458931a7539ec894e, type: 3}
   - {fileID: 5522158253931881316, guid: c9b02ac17174ea44d91b8ace32ccf066, type: 3}
   sprites:

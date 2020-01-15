@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Water Bottle
   type: 1
   element: 3
-  maxUses: 3
-  uses: 3
-  val: 4
+  maxUses: 10
+  uses: 10
+  val: 40

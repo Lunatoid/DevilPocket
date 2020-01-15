@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Needle
   type: 0
   element: 2
-  maxUses: 7
-  uses: 7
-  val: 3
+  maxUses: 20
+  uses: 20
+  val: 7

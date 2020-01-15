@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Derust
   type: 1
   element: 2
-  maxUses: 1
-  uses: 1
-  val: 7
+  maxUses: 10
+  uses: 10
+  val: 40

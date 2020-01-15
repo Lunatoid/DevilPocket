@@ -96,14 +96,14 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Tom
   monsterLevel: 1
-  damage: 7
-  healAmount: 10
-  maxHP: 35
-  currentHP: 35
-  element: 3
+  damage: 69
+  healAmount: 81
+  maxHP: 105
+  currentHP: 105
+  element: 0
   moves:
-  - {fileID: 9089079935574885266, guid: 072f352210008d5418de692a0f144cda, type: 3}
-  - {fileID: 8427882285039793066, guid: 9d413a47d8be06e4e83fe78d2fbb6624, type: 3}
+  - {fileID: 2904493311554246606, guid: 0a55bf8befb600a418c29e00887e7c82, type: 3}
+  - {fileID: 4883965054988022405, guid: 578c3ec37aa6cc643a45ba6528260eee, type: 3}
   - {fileID: 2904493311554246606, guid: 3fa110426d1d6464da1f3a14ab0649bc, type: 3}
   sprites:
   - {fileID: 21300000, guid: 5f71f87b135183d478d39da4f3873e25, type: 3}

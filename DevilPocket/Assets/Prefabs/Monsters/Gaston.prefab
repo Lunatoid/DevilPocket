@@ -96,13 +96,13 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Gaston
   monsterLevel: 1
-  damage: 4
-  healAmount: 4
-  maxHP: 15
-  currentHP: 15
+  damage: 55
+  healAmount: 49
+  maxHP: 66
+  currentHP: 66
   element: 1
   moves:
-  - {fileID: 8620193238673471425, guid: de3f116cad1df6942a06cca87b03afee, type: 3}
+  - {fileID: 8169263828084590486, guid: ccc0f6a459222d344bacb842351d1828, type: 3}
   - {fileID: 5379172134117765659, guid: 959f571c57c81504c8fec391b102e4f6, type: 3}
   - {fileID: 3702105459866651307, guid: 57243fbd23ff7e142ac02ccdeebb0e7e, type: 3}
   sprites:

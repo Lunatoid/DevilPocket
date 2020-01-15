@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Sewage Water
   type: 0
-  element: 0
-  maxUses: 3
-  uses: 3
-  val: 6
+  element: 1
+  maxUses: 10
+  uses: 10
+  val: 12

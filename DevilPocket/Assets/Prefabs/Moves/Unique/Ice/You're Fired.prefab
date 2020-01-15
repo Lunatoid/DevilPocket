@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: You're Fired
   type: 0
   element: 3
-  maxUses: 1
-  uses: 1
-  val: 9
+  maxUses: 15
+  uses: 15
+  val: 11

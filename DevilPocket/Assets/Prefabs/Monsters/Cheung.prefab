@@ -96,14 +96,14 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Cheung
   monsterLevel: 1
-  damage: 2
-  healAmount: 4
-  maxHP: 17
-  currentHP: 17
+  damage: 54
+  healAmount: 62
+  maxHP: 53
+  currentHP: 53
   element: 1
   moves:
   - {fileID: 7153494906975767993, guid: 260a4eeb11b2e6d42a55b8ac6faa03f0, type: 3}
-  - {fileID: 8169263828084590486, guid: ccc0f6a459222d344bacb842351d1828, type: 3}
+  - {fileID: 8169263828084590486, guid: 5a21ccbc9b2ca6c4fae7086bb5f1d3ba, type: 3}
   - {fileID: 3002876498893415751, guid: 99ab23c1d2591384b97063d667f25473, type: 3}
   sprites:
   - {fileID: 21300000, guid: 54da73e84d5822141a8879fd13dd5551, type: 3}

@@ -96,10 +96,10 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Jesus
   monsterLevel: 1
-  damage: 4
-  healAmount: 4
-  maxHP: 16
-  currentHP: 16
+  damage: 67
+  healAmount: 67
+  maxHP: 67
+  currentHP: 67
   element: 3
   moves:
   - {fileID: 4619254192897032504, guid: f6736db10ef13a248a3b8e53e3a010d8, type: 3}

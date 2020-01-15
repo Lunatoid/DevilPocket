@@ -46,7 +46,6 @@ MonoBehaviour:
   moveName: Pope's Blessing
   type: 1
   element: 0
-  maxUses: 1
-  uses: 1
-  initialized: 0
-  val: 15
+  maxUses: 5
+  uses: 5
+  val: 65

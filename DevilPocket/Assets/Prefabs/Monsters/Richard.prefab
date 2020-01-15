@@ -96,13 +96,13 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Richard
   monsterLevel: 1
-  damage: 5
-  healAmount: 4
-  maxHP: 13
-  currentHP: 13
+  damage: 45
+  healAmount: 41
+  maxHP: 84
+  currentHP: 84
   element: 3
   moves:
-  - {fileID: 9089079935574885266, guid: 072f352210008d5418de692a0f144cda, type: 3}
+  - {fileID: 5929243772648109525, guid: 0b95e6bd60673b74fb42a8e67a191c3d, type: 3}
   - {fileID: 8427882285039793066, guid: 9d413a47d8be06e4e83fe78d2fbb6624, type: 3}
   - {fileID: 9148025947520634365, guid: 768b23c7fcefe1445a7d79ca5b843872, type: 3}
   sprites:

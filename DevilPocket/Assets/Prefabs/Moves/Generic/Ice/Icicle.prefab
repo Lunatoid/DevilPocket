@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Icicle
   type: 0
   element: 3
-  maxUses: 3
-  uses: 3
-  val: 7
+  maxUses: 10
+  uses: 10
+  val: 13

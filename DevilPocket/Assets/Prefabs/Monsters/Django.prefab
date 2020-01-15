@@ -96,14 +96,14 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Django
   monsterLevel: 1
-  damage: 15
-  healAmount: 1
-  maxHP: 9
-  currentHP: 9
+  damage: 75
+  healAmount: 50
+  maxHP: 45
+  currentHP: 45
   element: 2
   moves:
   - {fileID: 8620193238673471425, guid: de3f116cad1df6942a06cca87b03afee, type: 3}
-  - {fileID: 9129702394386448749, guid: 3037b2198fc77dd43a1a218dd73e7032, type: 3}
+  - {fileID: 4042540963995636795, guid: 100e7598b12ee7049811ee30524c3343, type: 3}
   - {fileID: 656284145416467884, guid: 4d3eea41447ac1d43bc1294eb7aeaf29, type: 3}
   sprites:
   - {fileID: 21300000, guid: 2b21bba7ffa5d3c4f8a3b48df1fd8eff, type: 3}

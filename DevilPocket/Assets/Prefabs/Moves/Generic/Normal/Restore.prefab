@@ -46,7 +46,6 @@ MonoBehaviour:
   moveName: Restore
   type: 1
   element: 0
-  maxUses: 3
-  uses: 3
-  initialized: 0
-  val: 4
+  maxUses: 15
+  uses: 15
+  val: 30

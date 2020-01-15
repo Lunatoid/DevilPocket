@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Knife
   type: 0
   element: 2
-  maxUses: 4
-  uses: 4
-  val: 3
+  maxUses: 10
+  uses: 10
+  val: 13

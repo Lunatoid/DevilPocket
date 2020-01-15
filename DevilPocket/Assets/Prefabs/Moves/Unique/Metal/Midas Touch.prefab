@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Midas Touch
-  type: 0
+  type: 1
   element: 2
-  maxUses: 1
-  uses: 1
-  val: -20
+  maxUses: 5
+  uses: 5
+  val: -23

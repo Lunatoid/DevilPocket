@@ -93,17 +93,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac2475680b1fa941b5ac03615c289bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownedByPlayer: 0
+  ownedByPlayer: 1
   monsterName: Adriaan
   monsterLevel: 1
-  damage: 5
-  healAmount: 2
-  maxHP: 15
-  currentHP: 15
+  damage: 40
+  healAmount: 57
+  maxHP: 73
+  currentHP: 73
   element: 3
   moves:
-  - {fileID: 9089079935574885266, guid: 072f352210008d5418de692a0f144cda, type: 3}
-  - {fileID: 8427882285039793066, guid: 9d413a47d8be06e4e83fe78d2fbb6624, type: 3}
+  - {fileID: 7153494906975767993, guid: 260a4eeb11b2e6d42a55b8ac6faa03f0, type: 3}
+  - {fileID: 8045829569748509705, guid: 43b5ddff20749254593b9c860495cee2, type: 3}
   - {fileID: 6152278402689689237, guid: 5af1ff67b2c454e42b4e8d323002cd30, type: 3}
   sprites:
   - {fileID: 21300000, guid: e913bbde74a9b5f4a896982c79007b3f, type: 3}

@@ -28,6 +28,9 @@ public class BattleHUD : MonoBehaviour {
     [SerializeField]
     GameObject elementIce;
 
+    [SerializeField]
+    GameObject elementGodly;
+
 
     [Space(20)]
     [Header("Move Types")]
@@ -97,6 +100,9 @@ public class BattleHUD : MonoBehaviour {
         }
         if (monster.element == Element.Ice) {
             Instantiate(elementIce, transform.parent);
+        }
+        if (monster.element == Element.Normal) {
+            Instantiate(elementGodly, transform.parent);
         }
     }
 

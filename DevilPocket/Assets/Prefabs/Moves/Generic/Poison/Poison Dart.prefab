@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Poison Dart
   type: 0
   element: 1
-  maxUses: 8
-  uses: 8
-  val: 3
+  maxUses: 20
+  uses: 20
+  val: 6

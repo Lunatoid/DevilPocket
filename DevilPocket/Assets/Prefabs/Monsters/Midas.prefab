@@ -96,13 +96,13 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Midas
   monsterLevel: 1
-  damage: 4
-  healAmount: 3
-  maxHP: 17
-  currentHP: 17
+  damage: 1
+  healAmount: 55
+  maxHP: 114
+  currentHP: 114
   element: 2
   moves:
-  - {fileID: 4619254192897032504, guid: f6736db10ef13a248a3b8e53e3a010d8, type: 3}
+  - {fileID: 5929243772648109525, guid: 0b95e6bd60673b74fb42a8e67a191c3d, type: 3}
   - {fileID: 8891199487633102933, guid: f1bd5cd3c141fc84caad079a78ea5f8a, type: 3}
   - {fileID: 4570954629442143243, guid: 11a776a8f8131fe44bd4bba3deafa880, type: 3}
   sprites:

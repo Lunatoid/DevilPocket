@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Groove and Move
   type: 0
-  element: 0
-  maxUses: 4
-  uses: 4
-  val: 4
+  element: 1
+  maxUses: 10
+  uses: 10
+  val: 22

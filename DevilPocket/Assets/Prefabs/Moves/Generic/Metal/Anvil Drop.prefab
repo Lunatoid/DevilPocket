@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Anvil Drop
   type: 0
-  element: 0
-  maxUses: 1
-  uses: 1
-  val: 10
+  element: 2
+  maxUses: 5
+  uses: 5
+  val: 34

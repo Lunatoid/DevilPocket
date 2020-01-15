@@ -94,16 +94,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
-  monsterName: Konstantijn
+  monsterName: Masayoshi
   monsterLevel: 1
-  damage: 2
-  healAmount: 5
-  maxHP: 15
-  currentHP: 15
+  damage: 58
+  healAmount: 52
+  maxHP: 60
+  currentHP: 60
   element: 3
   moves:
-  - {fileID: 7153494906975767993, guid: 260a4eeb11b2e6d42a55b8ac6faa03f0, type: 3}
-  - {fileID: 7661768756707137691, guid: b6427908f5c556e47bae278353ce5d0a, type: 3}
+  - {fileID: 9089079935574885266, guid: 072f352210008d5418de692a0f144cda, type: 3}
+  - {fileID: 8427882285039793066, guid: 9d413a47d8be06e4e83fe78d2fbb6624, type: 3}
   - {fileID: 5687581249907580108, guid: a0445b21421a6cb47a23c1f17ad1184b, type: 3}
   sprites:
   - {fileID: 21300000, guid: d4b6d1be3b9be5a47a6e346eced6dbbd, type: 3}

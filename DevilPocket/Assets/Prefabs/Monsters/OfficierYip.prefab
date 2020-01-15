@@ -96,14 +96,14 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Officier Yip
   monsterLevel: 1
-  damage: 4
-  healAmount: 6
-  maxHP: 12
-  currentHP: 12
+  damage: 59
+  healAmount: 41
+  maxHP: 70
+  currentHP: 70
   element: 3
   moves:
-  - {fileID: 8620193238673471425, guid: de3f116cad1df6942a06cca87b03afee, type: 3}
-  - {fileID: 8045829569748509705, guid: 8eccf85a77692df44ac3bc9213a49bfa, type: 3}
+  - {fileID: 7153494906975767993, guid: 260a4eeb11b2e6d42a55b8ac6faa03f0, type: 3}
+  - {fileID: 7661768756707137691, guid: b6427908f5c556e47bae278353ce5d0a, type: 3}
   - {fileID: 2374725462459637319, guid: 4424c6bba4559274ba3c5d74c890b06b, type: 3}
   sprites:
   - {fileID: 21300000, guid: fd6c75622df55ee4b933a5a9322c66f5, type: 3}

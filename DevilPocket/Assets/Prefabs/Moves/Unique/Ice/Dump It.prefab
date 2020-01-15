@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Dump It
   type: 0
   element: 3
-  maxUses: 1
-  uses: 1
-  val: 12
+  maxUses: 5
+  uses: 5
+  val: 40
