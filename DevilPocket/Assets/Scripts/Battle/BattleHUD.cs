@@ -18,7 +18,7 @@ public class BattleHUD : MonoBehaviour {
 
 
     [Space(20)]
-    [Header("Monster Types")] 
+    [Header("Monster Types")]
     [SerializeField]
     GameObject elementPoison;
 
@@ -78,7 +78,7 @@ public class BattleHUD : MonoBehaviour {
         hpSlider.maxValue = monster.maxHP;
         hpSlider.value = monster.currentHP;
 
-       // fully woriking element loding
+        // fully woriking element loding
         if (monster.element == Element.Poison) {
             Instantiate(elementPoison, transform.parent);
         }
@@ -88,35 +88,67 @@ public class BattleHUD : MonoBehaviour {
         if (monster.element == Element.Ice) {
             Instantiate(elementIce, transform.parent);
         }
-    }
-    public void SetHUD(Move move) {
+
+
 
         // names of the moves
-        move1NameText.text = move.moveName;
-        move2NameText.text = move.moveName;
-        move3NameText.text = move.moveName;
+        move1NameText.text = monster.moves[0].moveName;
+        move2NameText.text = monster.moves[1].moveName;
+        move3NameText.text = monster.moves[2].moveName;
 
         // pp use
-        move1Uses.text = move.uses + "/" + move.maxUses;
-        move2Uses.text = move.uses + "/" + move.maxUses;
-        move3Uses.text = move.uses + "/" + move.maxUses;
+        move1Uses.text = monster.moves[0].uses + "/" + monster.moves[0].maxUses;
+        move2Uses.text = monster.moves[1].uses + "/" + monster.moves[1].maxUses;
+        move3Uses.text = monster.moves[2].uses + "/" + monster.moves[2].maxUses;
 
         // sets the icon vor the moves micht needt to relocate the locatin of the move buttons
-        if (move.element == Element.Normal) {
+
+        //for move 1
+        if (monster.moves[0].element == Element.Normal) {
             Instantiate(moveElementNormaal, transform.parent);
         }
-        if (move.element == Element.Poison) {
+        if (monster.moves[0].element == Element.Poison) {
             Instantiate(moveElementPoison, transform.parent);
         }
-        if (move.element == Element.Metal) {
+        if (monster.moves[0].element == Element.Metal) {
             Instantiate(moveElementMetal, transform.parent);
         }
-        if (move.element == Element.Ice) {
+        if (monster.moves[0].element == Element.Ice) {
+            Instantiate(moveElementIce, transform.parent);
+        }
+
+        // for move 2
+        if (monster.moves[1].element == Element.Normal) {
+            Instantiate(moveElementNormaal, transform.parent);
+        }
+        if (monster.moves[1].element == Element.Poison) {
+            Instantiate(moveElementPoison, transform.parent);
+        }
+        if (monster.moves[1].element == Element.Metal) {
+            Instantiate(moveElementMetal, transform.parent);
+        }
+        if (monster.moves[1].element == Element.Ice) {
+            Instantiate(moveElementIce, transform.parent);
+        }
+
+        //for move 3
+        if (monster.moves[2].element == Element.Normal) {
+            Instantiate(moveElementNormaal, transform.parent);
+        }
+        if (monster.moves[2].element == Element.Poison) {
+            Instantiate(moveElementPoison, transform.parent);
+        }
+        if (monster.moves[2].element == Element.Metal) {
+            Instantiate(moveElementMetal, transform.parent);
+        }
+        if (monster.moves[2].element == Element.Ice) {
             Instantiate(moveElementIce, transform.parent);
         }
 
     }
-        public void SetHP(int hp) {
+
+    //works fine.
+    public void SetHP(int hp) {
         hpSlider.value = hp;
     }
 }
