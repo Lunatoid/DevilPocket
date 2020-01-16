@@ -25,7 +25,7 @@ public class NpcDialog : MonoBehaviour {
     void Update() {
         if (CrossPlatformInputManager.GetButtonDown("Interact") &&
             Vector3.Distance(transform.position, player.transform.position) < INTERACT_DISTANCE) {
-            playerDialogHandler.PushDialog(dialog);
+            playerDialogHandler.PushDialog(gameObject, dialog);
         }
     }
 }

@@ -171,7 +171,6 @@ public class BattleSystem : MonoBehaviour {
         playerHUD.SetHP(playerMonster.currentHP);
         enemyHUD.SetHP(enemyMonster.currentHP);
 
-
         dialoogText.text = $"{current.monsterName} used {current.moves[index].moveName}.";
         if (uses == 0) {
             dialoogText.text += "\nBut it was out of uses!";

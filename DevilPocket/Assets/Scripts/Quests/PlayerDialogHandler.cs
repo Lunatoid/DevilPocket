@@ -27,6 +27,10 @@ public class PlayerDialogHandler : MonoBehaviour {
     public TextMeshProUGUI choiceBox;
     public Image choiceBg;
 
+    // The last gameObject that added dialog.
+    // Used for #function's SendMessage
+    GameObject npc;
+
     Color textboxColor;
     Color choiceColor;
 
@@ -40,7 +44,7 @@ public class PlayerDialogHandler : MonoBehaviour {
     FirstPersonController fps;
 
     // Start is called before the first frame update
-    public void Start() {
+    public void Init() {
         textboxColor = textboxBg.color;
         choiceColor = choiceBg.color;
 
@@ -111,6 +115,14 @@ public class PlayerDialogHandler : MonoBehaviour {
                     }
                     break;
 
+                case "function":
+                    if (args.Count >= 1) {
+                        string funcName = args[0];
+                        args.RemoveAt(0);
+                        npc.SendMessage(funcName, args);
+                    }
+                    break;
+
                 default:
                     Debug.LogError($"Unknown text command '{cmd}'");
                     break;
@@ -118,9 +130,11 @@ public class PlayerDialogHandler : MonoBehaviour {
         }
     }
 
-    public void PushDialog(string[] dialog) {
+    public void PushDialog(GameObject npc, string[] dialog) {
         // Only push the dialog if there is no queued dialog and we're not on the same frame as the final message
-        if (queuedDialog.Count == 0 && !finishedAllText) {    
+        if (queuedDialog.Count == 0 && !finishedAllText) {
+            this.npc = npc;
+
             queuedDialog.AddRange(dialog);
             ParseTextCommands();
 

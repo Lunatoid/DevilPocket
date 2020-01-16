@@ -34,6 +34,10 @@ public class MainSceneInit : MonoBehaviour {
         handler.choiceBox = choiceBox;
         handler.choiceBg = choiceBg;
         handler.enabled = true;
+        handler.Init();
+
+        // textboxBg.color = Color.clear;
+        // choiceBg.color = Color.clear;
 
         Destroy(gameObject);
     }
