@@ -51,6 +51,10 @@ public class BattleSystem : MonoBehaviour {
         SetupBattle();
     }
 
+    /// <summary>
+    /// Gets called when the player has no valid monsters.
+    /// Shows dialog and then switches to the main scene.
+    /// </summary>
     IEnumerator EscapeNoValidMonsters() {
         dialoogText.text = $"You enter the battle but none of your monsters are able to fight!";
         yield return new WaitForSeconds(waitTimeEnd);
@@ -59,6 +63,9 @@ public class BattleSystem : MonoBehaviour {
         SceneManager.LoadScene("MainScene");
     }
 
+    /// <summary>
+    /// Initializes the HUD and other elements.
+    /// </summary>
     void SetupBattle() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -90,6 +97,10 @@ public class BattleSystem : MonoBehaviour {
         PlayerTurn();
     }
 
+    /// <summary>
+    /// Uses the enemy AI to decide a move to choose.
+    /// </summary>
+    /// <returns>The index of the move the enemy wants to perform.</returns>
     int EnemyChooseMove() {
         // Enemy AI
         int moveIndex = 0;
@@ -145,6 +156,13 @@ public class BattleSystem : MonoBehaviour {
         return moveIndex;
     }
 
+    /// <summary>
+    /// Performs the specified move of the <c>current</c> monster.
+    /// Will switch to either the player's turn or the enemy's turn depending on the <c>state</c>.
+    /// </summary>
+    /// <param name="current">The monster that is attacking.</param>
+    /// <param name="target">The monster that is being attacked.</param>
+    /// <param name="index">The move that is being used.</param>
     IEnumerator PerformMove(Monster current, Monster target, int index) {
         int uses = current.moves[index].uses;
         bool isTargetDead = current.moves[index].PerformMove(current, target);
@@ -190,6 +208,10 @@ public class BattleSystem : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Ends the battle and switches back to the main scene.
+    /// Will show the appropiate text based on whether <c>state</c> is equal to <c>Won</c> or <c>Lost</c>.
+    /// </summary>
     IEnumerator EndBattle() {
         if (state == BattleState.Won) {
             float moneyFloat = Random.Range(baseMoney + (float)enemyMonster.monsterLevel * minMoneyMod,
@@ -211,6 +233,9 @@ public class BattleSystem : MonoBehaviour {
         ExitScene();
     }
 
+    /// <summary>
+    /// Loads the player hud with all the data from the primary monster.
+    /// </summary>
     void LoadPlayerMonsterHud() {
         GameObject playerGo = playerInventory.GetMonster();
         playerGo.SetActive(true);
@@ -224,34 +249,56 @@ public class BattleSystem : MonoBehaviour {
         playerHUD.UpdateUsesHUD(playerMonster);
     }
 
+    /// <summary>
+    /// Loads the hud with all the data from <c>enemyMonster</c>.
+    /// </summary>
     void LoadEnemyMonsterHud() {
         enemyMonster.SetSprite();
         enemyHUD.SetHUD(enemyMonster);
     }
 
+    /// <summary>
+    /// Pulls the current monster out of the battle scene and back into the player inventory.
+    /// </summary>
     void ExitScene() {
         playerMonster.transform.parent = playerInventory.transform;
         playerMonster.gameObject.SetActive(false);
         SceneManager.LoadScene("MainScene");
     }
 
+    /// <summary>
+    /// Shows dialog and enables player interaction
+    /// </summary>
     void PlayerTurn() {
         dialoogText.text = "Choose an action:";
         canInteract = true;
     }
 
+    /// <summary>
+    /// Calls <c>DoMove</c> with index <c>0</c>.
+    /// </summary>
     public void DoMove0() {
         DoMove(0);
     }
 
+    /// <summary>
+    /// Calls <c>DoMove</c> with index <c>1</c>.
+    /// </summary>
     public void DoMove1() {
         DoMove(1);
     }
 
+    /// <summary>
+    /// Calls <c>DoMove</c> with index <c>2</c>.
+    /// </summary>
     public void DoMove2() {
         DoMove(2);
     }
 
+    /// <summary>
+    /// Calls <c>PerformMove</c> with the specified index.
+    /// </summary>
+    /// <param name="index">The index of the move to do.</param>
     void DoMove(int index) {
         if (state != BattleState.PlayerTurn) {
             return;
@@ -263,6 +310,10 @@ public class BattleSystem : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// Attempts to run from the monster.
+    /// Will either successfully run or it will fail and trigger the enemy turn.
+    /// </summary>
     public void AttemptRun() {
         if (state != BattleState.PlayerTurn || !canInteract) return;
         canInteract = false;
@@ -274,6 +325,10 @@ public class BattleSystem : MonoBehaviour {
         StartCoroutine(PerformRun(Random.Range(1, 101) <= percentChance));
     }
 
+    /// <summary>
+    /// Individual run logic.
+    /// </summary>
+    /// <param name="success">If <c>true</c> it will run successfully, if <c>false</c> it will fail.</param>
     IEnumerator PerformRun(bool success) {
         if (success) {
             dialoogText.text = "You successfully ran away!";
@@ -287,6 +342,10 @@ public class BattleSystem : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Attempts to perform a switch of the current monster.
+    /// Will call <c>PerformSwitch</c> with the success based on whether or not the other monster has any HP.
+    /// </summary>
     public void SwitchMonsters() {
         if (state != BattleState.PlayerTurn || !canInteract) return;
         canInteract = false;
@@ -294,6 +353,10 @@ public class BattleSystem : MonoBehaviour {
         StartCoroutine(PerformSwitch(playerInventory.GetMonster(true).GetComponent<Monster>().currentHP > 0));
     }
 
+    /// <summary>
+    /// Performs the switch logic.
+    /// </summary>
+    /// <param name="success">If <c>true</c> it will switch it, if <c>false</c> it will show dialog but keep the player turn.</param>
     IEnumerator PerformSwitch(bool success) {
         if (success) {
             // Save current monster
