@@ -12,7 +12,6 @@ public class BattleSystem : MonoBehaviour {
 
     public float waitTimeEnemy = 1f;
     public float waitTimeEnd = 2f;
-    public float waitTimeLoad = 4f;
     public float waitTimePlayer = 3f;
 
     [Space]
@@ -28,7 +27,7 @@ public class BattleSystem : MonoBehaviour {
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
-    
+
     [Space]
     public BattleState state;
 
@@ -52,30 +51,98 @@ public class BattleSystem : MonoBehaviour {
         SetupBattle();
     }
 
+    IEnumerator EscapeNoValidMonsters() {
+        dialoogText.text = $"You enter the battle but none of your monsters are able to fight!";
+        yield return new WaitForSeconds(waitTimeEnd);
+        dialoogText.text = $"You run away as fast as you can!";
+        yield return new WaitForSeconds(waitTimeEnd);
+        SceneManager.LoadScene("MainScene");
+    }
+
     void SetupBattle() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // Setup monsters
-        GameObject playerGo = Instantiate(playerInventory.GetMonster(), playerBattleStation);
-        playerMonster = playerGo.GetComponent<Monster>();
-
         GameObject enemyGo = Instantiate(playerInventory.enemyMonsters[0], enemyBattleStation);
         enemyMonster = enemyGo.GetComponent<Monster>();
 
+        LoadEnemyMonsterHud();
+
+        // Find a suitable monster
+        GameObject playerGo = playerInventory.GetMonster();
+
+        if (playerGo.GetComponent<Monster>().currentHP <= 0) {
+            playerGo = playerInventory.GetMonster(true);
+            if (playerGo.GetComponent<Monster>().currentHP <= 0) {
+                // Both of our monsters have no HP, retreat!
+                StartCoroutine(EscapeNoValidMonsters());
+                return;
+            } else {
+                // Our second monster is healthy
+                playerInventory.SwitchMonsters();
+            }
+        }
+        LoadPlayerMonsterHud();
+
         dialoogText.text = "A wild " + enemyMonster.monsterName + " approaches...";
-
-        playerHUD.SetHUD(playerMonster);
-        enemyHUD.SetHUD(enemyMonster);
-        
-        playerMonster.SetSprite();
-        enemyMonster.SetSprite();
-
-        playerHUD.SetMovesHUD(playerMonster);
-        playerHUD.UpdateUsesHUD(playerMonster);
 
         state = BattleState.PlayerTurn;
         PlayerTurn();
+    }
+
+    int EnemyChooseMove() {
+        // Enemy AI
+        int moveIndex = 0;
+        MoveType targetType;
+
+        float healthPercent = (float)enemyMonster.currentHP / (float)enemyMonster.maxHP;
+
+        if (healthPercent < 0.15f) {
+            targetType = MoveType.Recover;
+        } else if (healthPercent < 0.5f) {
+            // 1 in HEAL_CHANCE times it will heal
+            const int HEAL_CHANCE = 3;
+
+            bool shouldHeal = Random.Range(0, HEAL_CHANCE) == 0;
+
+            // Find a move
+            targetType = (shouldHeal) ? MoveType.Recover : MoveType.Attack;
+        } else {
+            targetType = MoveType.Attack;
+        }
+
+        Debug.Log("Enemy wants to " + targetType);
+
+        // Every time we pick a random move and it's not a desired move we add 1 to the rejectedMoves
+        // If the rejectedMoves reaches the REJECTED_THRESHOLD it will just pick a random move
+        int rejectedMoves = 0;
+        const int REJECTED_THRESHOLD = 50;
+
+        while (true) {
+            int randomIndex = Random.Range(0, enemyMonster.moves.Length);
+
+            if (enemyMonster.moves[randomIndex].type == targetType) {
+                // Check if it has any uses left
+                if (enemyMonster.moves[randomIndex].uses > 0) {
+                    Debug.Log("Enemy chose " + enemyMonster.moves[randomIndex].moveName);
+                    moveIndex = randomIndex;
+                    break;
+                } else {
+                    ++rejectedMoves;
+                }
+            } else {
+                ++rejectedMoves;
+            }
+
+
+            if (rejectedMoves >= REJECTED_THRESHOLD) {
+                Debug.Log("Rejection threshold reached. Enemy chose " + enemyMonster.moves[randomIndex].moveName);
+                moveIndex = randomIndex;
+                break;
+            }
+        }
+
+        return moveIndex;
     }
 
     IEnumerator PerformMove(Monster current, Monster target, int index) {
@@ -85,7 +152,7 @@ public class BattleSystem : MonoBehaviour {
 
         playerHUD.SetHP(playerMonster.currentHP);
         enemyHUD.SetHP(enemyMonster.currentHP);
-        
+
 
         dialoogText.text = $"{current.monsterName} used {current.moves[index].moveName}.";
         if (uses == 0) {
@@ -103,67 +170,19 @@ public class BattleSystem : MonoBehaviour {
                 state = BattleState.Won;
                 StartCoroutine(EndBattle());
             } else {
-                state = BattleState.Lost;
-                StartCoroutine(EndBattle());
+                // See if we can switch to our second monster
+                if (playerInventory.GetMonster(true).GetComponent<Monster>().currentHP > 0) {
+                    StartCoroutine(PerformSwitch(true));
+                } else {
+                    state = BattleState.Lost;
+                    StartCoroutine(EndBattle());
+                }
             }
         } else {
             if (state == BattleState.PlayerTurn) {
                 state = BattleState.EnemyTurn;
 
-                // @TODO: enemy AI
-
-                int moveIndex = 0;
-                MoveType targetType;
-
-                float healthPercent = (float)enemyMonster.currentHP / (float)enemyMonster.maxHP;
-
-                if (healthPercent < 0.15f) {
-                    targetType = MoveType.Recover;
-                } else if (healthPercent < 0.5f) {
-                    // 1 in HEAL_CHANCE times it will heal
-                    const int HEAL_CHANCE = 3;
-
-                    bool shouldHeal = Random.Range(0, HEAL_CHANCE) == 0;
-
-                    // Find a move
-                    targetType = (shouldHeal) ? MoveType.Recover : MoveType.Attack;
-                } else {
-                    targetType = MoveType.Attack;
-                }
-
-                Debug.Log("Enemy wants to " + targetType);
-
-                // Every time we pick a random move and it's not a desired move we add 1 to the rejectedMoves
-                // If the rejectedMoves reaches the REJECTED_THRESHOLD it will just pick a random move
-                int rejectedMoves = 0;
-                const int REJECTED_THRESHOLD = 50;
-
-                while (true) {
-                    int randomIndex = Random.Range(0, enemyMonster.moves.Length);
-
-                    if (enemyMonster.moves[randomIndex].type == targetType) {
-                        // Check if it has any uses left
-                        if (enemyMonster.moves[randomIndex].uses > 0) {
-                            Debug.Log("Enemy chose " + enemyMonster.moves[randomIndex].moveName);
-                            moveIndex = randomIndex;
-                            break;
-                        } else {
-                            ++rejectedMoves;
-                        }
-                    } else {
-                        ++rejectedMoves;
-                    }
-
-
-                    if (rejectedMoves >= REJECTED_THRESHOLD) {
-                        Debug.Log("Rejection threshold reached. Enemy chose " + enemyMonster.moves[randomIndex].moveName);
-                        moveIndex = randomIndex;
-                        break;
-                    }
-
-                }
-
-                StartCoroutine(PerformMove(target, current, moveIndex));
+                StartCoroutine(PerformMove(target, current, EnemyChooseMove()));
             } else {
                 state = BattleState.PlayerTurn;
                 PlayerTurn();
@@ -189,7 +208,30 @@ public class BattleSystem : MonoBehaviour {
             dialoogText.text = "You return home in shame...";
             yield return new WaitForSeconds(waitTimeEnd);
         }
+        ExitScene();
+    }
 
+    void LoadPlayerMonsterHud() {
+        GameObject playerGo = playerInventory.GetMonster();
+        playerGo.SetActive(true);
+        playerGo.transform.parent = playerBattleStation;
+        playerGo.transform.position = new Vector3(0.0f, 0.0f);
+        playerGo.transform.localPosition = new Vector3(0.0f, 0.0f);
+        playerMonster = playerGo.GetComponent<Monster>();
+        playerHUD.SetHUD(playerMonster);
+        playerMonster.SetSprite();
+        playerHUD.SetMovesHUD(playerMonster);
+        playerHUD.UpdateUsesHUD(playerMonster);
+    }
+
+    void LoadEnemyMonsterHud() {
+        enemyMonster.SetSprite();
+        enemyHUD.SetHUD(enemyMonster);
+    }
+
+    void ExitScene() {
+        playerMonster.transform.parent = playerInventory.transform;
+        playerMonster.gameObject.SetActive(false);
         SceneManager.LoadScene("MainScene");
     }
 
@@ -219,5 +261,62 @@ public class BattleSystem : MonoBehaviour {
             StartCoroutine(PerformMove(playerMonster, enemyMonster, index));
         }
 
+    }
+
+    public void AttemptRun() {
+        if (state != BattleState.PlayerTurn || !canInteract) return;
+        canInteract = false;
+
+        // @TODO: better run algorithm
+        bool strongOrSameStrength = playerMonster.monsterLevel >= enemyMonster.monsterLevel;
+
+        int percentChance = (strongOrSameStrength) ? 75 : 10;
+        StartCoroutine(PerformRun(Random.Range(1, 101) <= percentChance));
+    }
+
+    IEnumerator PerformRun(bool success) {
+        if (success) {
+            dialoogText.text = "You successfully ran away!";
+            yield return new WaitForSeconds(waitTimeEnd);
+            ExitScene();
+        } else {
+            dialoogText.text = "You failed to run away!";
+            yield return new WaitForSeconds(waitTimeEnd);
+            state = BattleState.EnemyTurn;
+            StartCoroutine(PerformMove(enemyMonster, playerMonster, EnemyChooseMove()));
+        }
+    }
+
+    public void SwitchMonsters() {
+        if (state != BattleState.PlayerTurn || !canInteract) return;
+        canInteract = false;
+
+        StartCoroutine(PerformSwitch(playerInventory.GetMonster(true).GetComponent<Monster>().currentHP > 0));
+    }
+
+    IEnumerator PerformSwitch(bool success) {
+        if (success) {
+            // Save current monster
+            playerMonster.transform.parent = playerInventory.transform;
+            playerMonster.gameObject.SetActive(false);
+
+            // Switch them
+            playerInventory.SwitchMonsters();
+
+            // Load the new one
+            LoadPlayerMonsterHud();
+
+            dialoogText.text = $"Get 'em, {playerMonster.monsterName}!";
+            yield return new WaitForSeconds(waitTimeEnd);
+
+            state = BattleState.EnemyTurn;
+            StartCoroutine(PerformMove(enemyMonster, playerMonster, EnemyChooseMove()));
+        } else {
+            string otherMonsterName = playerInventory.GetMonster(true).GetComponent<Monster>().monsterName;
+            dialoogText.text = $"Looks like {otherMonsterName} is not in fighting state...";
+            yield return new WaitForSeconds(waitTimeEnd);
+
+            PlayerTurn();
+        }
     }
 }

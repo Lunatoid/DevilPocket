@@ -19,21 +19,15 @@ public class PlayerInventory : MonoBehaviour {
     private void Awake() {
         DontDestroyOnLoad(gameObject);
 
-        foreach (GameObject monster in carriedMonsters) {
-            if (monster) {
-                monster.GetComponent<Monster>().ownedByPlayer = true;
+        for (int i = 0; i < carriedMonsters.Length; ++i) {
+            if (carriedMonsters[i]) {
+                carriedMonsters[i] = Instantiate(carriedMonsters[i], gameObject.transform);
+                carriedMonsters[i].GetComponent<Monster>().ownedByPlayer = true;
+                carriedMonsters[i].SetActive(false);
+        
+                // DontDestroyOnLoad(carriedMonsters[i]);
             }
         }
-
-        // for (int i = 0; i < carriedMonsters.Length; ++i) {
-        //     if (carriedMonsters[i]) {
-        //         carriedMonsters[i] = Instantiate(carriedMonsters[i]);
-        //         carriedMonsters[i].GetComponent<Monster>().ownedByPlayer = true;
-        //         carriedMonsters[i].SetActive(false);
-        // 
-        //         DontDestroyOnLoad(carriedMonsters[i]);
-        //     }
-        // }
     }
 
     /// <summary>
@@ -46,7 +40,14 @@ public class PlayerInventory : MonoBehaviour {
         return carriedMonsters[index];
     }
 
-    
+    /// <summary>
+    /// Swaps the first carried monster with the second one.
+    /// </summary>
+    public void SwitchMonsters() {
+        GameObject tmp = carriedMonsters[0];
+        carriedMonsters[0] = carriedMonsters[1];
+        carriedMonsters[1] = tmp;
+    }
 
 #if UNITY_EDITOR
     private void Update() {

@@ -35,7 +35,7 @@ public class Move : MonoBehaviour {
         if (uses > 0) {
             --uses;
         } else {
-            return false;
+            return enemyMonster.currentHP <= 0;
         }
 
         if (type == MoveType.Attack) {
@@ -44,7 +44,7 @@ public class Move : MonoBehaviour {
             ownMonster.Heal(GetCalculatedValue(enemyMonster.element));
         }
 
-        return false;
+        return enemyMonster.currentHP <= 0;
     }
 
     /// <summary>
