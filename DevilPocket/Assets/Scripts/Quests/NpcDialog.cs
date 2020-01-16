@@ -7,7 +7,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class NpcDialog : MonoBehaviour {
 
     // How close the player needs to be for them to be able to interact
-    const float INTERACT_DISTANCE = 2.5f;
+    const float INTERACT_DISTANCE = 3.5f;
 
     GameObject player;
     PlayerDialogHandler playerDialogHandler;
