@@ -196,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495248}
   - component: {fileID: 20585150}
+  - component: {fileID: 3317381425523137535}
   m_Layer: 0
   m_Name: BLD_Bridge_B
   m_TagString: Untagged
@@ -247,6 +248,22 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2385180}
   m_Enabled: 1
+--- !u!114 &3317381425523137535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &164184
 GameObject:
   m_ObjectHideFlags: 0

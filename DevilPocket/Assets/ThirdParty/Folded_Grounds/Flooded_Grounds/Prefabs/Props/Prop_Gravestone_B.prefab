@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3331296}
   - component: {fileID: 2333074}
   - component: {fileID: 6544354}
+  - component: {fileID: 7489804297438349171}
   m_Layer: 8
   m_Name: Prop_Gravestone_B
   m_TagString: Untagged
@@ -92,3 +93,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1518269, y: 1.8723565, z: 0.25698656}
   m_Center: {x: 0, y: 0.928065, z: 0.0032029971}
+--- !u!114 &7489804297438349171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

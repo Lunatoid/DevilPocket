@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 489576}
   - component: {fileID: 20531162}
+  - component: {fileID: 2131506708320342401}
   m_Layer: 8
   m_Name: Prop_Lamp_B
   m_TagString: Untagged
@@ -56,6 +57,22 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2386874}
   m_Enabled: 1
+--- !u!114 &2131506708320342401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &155034
 GameObject:
   m_ObjectHideFlags: 0

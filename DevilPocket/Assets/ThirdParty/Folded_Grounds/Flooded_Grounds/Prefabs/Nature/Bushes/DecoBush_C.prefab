@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3335262}
   - component: {fileID: 2360296}
   - component: {fileID: 6456114}
+  - component: {fileID: -1496868397374009087}
   m_Layer: 0
   m_Name: DecoBush_C
   m_TagString: Untagged
@@ -93,3 +94,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 2f0bb1032b48d5845966aa580a118718, type: 3}
+--- !u!114 &-1496868397374009087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

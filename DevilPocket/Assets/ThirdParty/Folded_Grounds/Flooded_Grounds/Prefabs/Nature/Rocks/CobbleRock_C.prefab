@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 478424}
   - component: {fileID: 20564152}
   - component: {fileID: 2816626383989139906}
+  - component: {fileID: 3853737781935521598}
   m_Layer: 0
   m_Name: CobbleRock_C
   m_TagString: Untagged
@@ -76,6 +77,22 @@ CapsuleCollider:
   m_Height: 2.024414
   m_Direction: 0
   m_Center: {x: 0.037902832, y: 0.090478, z: 0}
+--- !u!114 &3853737781935521598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &154912
 GameObject:
   m_ObjectHideFlags: 0

@@ -289,6 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 488602}
   - component: {fileID: 20529370}
+  - component: {fileID: -8484307287549510071}
   m_Layer: 0
   m_Name: Rock_B
   m_TagString: Untagged
@@ -340,3 +341,19 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2366078}
   m_Enabled: 1
+--- !u!114 &-8484307287549510071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

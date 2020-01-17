@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2339290}
   - component: {fileID: 6562970}
   - component: {fileID: 114800394831905180}
+  - component: {fileID: 4908816489450539850}
+  - component: {fileID: 363991888870284934}
   m_Layer: 0
   m_Name: _BLOCKERCUBE
   m_TagString: Untagged
@@ -105,3 +107,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b5e677f5c60e548a68ce75b82380be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4908816489450539850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!114 &363991888870284934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

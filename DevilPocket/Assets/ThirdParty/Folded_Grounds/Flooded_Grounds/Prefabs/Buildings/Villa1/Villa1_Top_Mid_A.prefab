@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3393312}
   - component: {fileID: 2364186}
   - component: {fileID: 6477348}
+  - component: {fileID: 2639185591668118030}
   m_Layer: 0
   m_Name: Villa1_Top_Mid_A
   m_TagString: Untagged
@@ -93,3 +94,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300004, guid: 1ea5ad505437e9a4f802fb6a24c402cf, type: 3}
+--- !u!114 &2639185591668118030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

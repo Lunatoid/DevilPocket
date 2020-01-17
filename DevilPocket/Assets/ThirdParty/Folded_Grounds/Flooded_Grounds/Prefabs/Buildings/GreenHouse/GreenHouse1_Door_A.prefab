@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3386258}
   - component: {fileID: 2376602}
   - component: {fileID: 6599296}
+  - component: {fileID: -8875426056873624422}
   m_Layer: 0
   m_Name: GreenHouse1_Door_A
   m_TagString: Untagged
@@ -92,3 +93,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.8372021, y: 5.8, z: 0.3731077}
   m_Center: {x: -0.918911, y: 2.9, z: -0.0013451129}
+--- !u!114 &-8875426056873624422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

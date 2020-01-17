@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3318634}
   - component: {fileID: 2378370}
   - component: {fileID: 6569946}
+  - component: {fileID: -1429059496726347689}
   m_Layer: 0
   m_Name: BrickHouse_IntWall_A
   m_TagString: Untagged
@@ -92,3 +93,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 5, z: 0.20000166}
   m_Center: {x: -2, y: 2.5, z: -0.000000461936}
+--- !u!114 &-1429059496726347689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3391974}
   - component: {fileID: 2342666}
   - component: {fileID: 6549254}
+  - component: {fileID: 5420777207628867175}
   m_Layer: 0
   m_Name: Villa1_Deco_Column_Mid_A
   m_TagString: Untagged
@@ -92,3 +93,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1653352, y: 7, z: 1.1834985}
   m_Center: {x: -0.00000035762787, y: 3.5, z: 0.099999666}
+--- !u!114 &5420777207628867175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

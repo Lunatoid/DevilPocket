@@ -15,17 +15,17 @@ public class Move : MonoBehaviour {
     public int uses;
 
     // Example:
-    // TYPE_MOD[Element.Poison][Element.Metal] returns 1.5 because it's 1.5 as strong
+    // TYPE_MOD[Element.Poison][Element.Metal] returns 1.2 because it's 1.2 as strong
 
     public float[][] TYPE_MOD = new float[][] {
         // Normal
         new float[] { 1.0f, 1.0f, 1.0f, 1.0f },
         // Poison
-        new float[] { 1.0f, 1.0f, 1.5f, 0.5f },
+        new float[] { 1.0f, 1.0f, 1.2f, 0.8f },
         // Metal
-        new float[] { 1.0f, 0.5f, 1.0f, 1.5f },
+        new float[] { 1.0f, 0.2f, 1.0f, 1.8f },
         // Ice
-        new float[] { 1.0f, 1.5f, 0.5f, 1.0f }
+        new float[] { 1.0f, 1.2f, 0.8f, 1.0f }
     };
 
     [Header("This will either be the base attack or base heal")]

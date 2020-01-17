@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3329826}
   - component: {fileID: 2328948}
   - component: {fileID: 6569796}
+  - component: {fileID: -1873656721475616935}
   m_Layer: 0
   m_Name: IndBuilding1_Deco_Column_Mid
   m_TagString: Untagged
@@ -92,3 +93,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 5, z: 1.0000002}
   m_Center: {x: 0, y: 2.5, z: -0.00000011920929}
+--- !u!114 &-1873656721475616935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
