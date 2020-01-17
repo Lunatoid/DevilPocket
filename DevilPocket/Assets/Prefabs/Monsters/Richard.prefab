@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Richard
   monsterLevel: 1
-  damage: 45
-  healAmount: 41
+  damageValue: {x: 45, y: 2}
+  healValue: {x: 41, y: 2}
   maxHP: 84
   currentHP: 84
   element: 3

@@ -30,6 +30,16 @@ public class Move : MonoBehaviour {
 
     [Header("This will either be the base attack or base heal")]
     public int val;
+    private int monsterBase = 0;
+    private int growth = 0;
+
+    public void SetBaseVal(int baseVal) {
+        monsterBase = baseVal;
+    }
+
+    public void SetGrowth(int growth) {
+        this.growth = growth;
+    }
 
     public bool PerformMove(Monster ownMonster, Monster enemyMonster) {
         if (uses > 0) {
@@ -53,7 +63,7 @@ public class Move : MonoBehaviour {
     /// <param name="enemyElement">The element of the enemy monster.</param>
     /// <returns>The <c>val</c> with type info applied.</returns>
     public int GetCalculatedValue(Element enemyElement) {
-        return Mathf.RoundToInt((float)val * TYPE_MOD[(int)element][(int)enemyElement]);
+        return Mathf.RoundToInt((float)val * TYPE_MOD[(int)element][(int)enemyElement]) + monsterBase;
     }
 
     public void CopyFromMove(Move other) {
@@ -65,4 +75,7 @@ public class Move : MonoBehaviour {
         val = other.val;
     }
 
+    public void LevelUp() {
+        val += growth;
+    }
 }

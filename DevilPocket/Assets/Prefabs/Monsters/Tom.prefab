@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Tom
   monsterLevel: 1
-  damage: 69
-  healAmount: 81
+  damageValue: {x: 69, y: 3}
+  healValue: {x: 81, y: 3}
   maxHP: 105
   currentHP: 105
   element: 0

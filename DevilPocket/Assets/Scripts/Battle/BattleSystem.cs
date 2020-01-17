@@ -37,9 +37,17 @@ public class BattleSystem : MonoBehaviour {
     float baseMoney = 10.0f;
 
     [SerializeField]
-    float minMoneyMod = 0.1f;
+    float minMoneyMod = 1.0f;
     [SerializeField]
-    float maxMoneyMod = 0.3f;
+    float maxMoneyMod = 3.5f;
+
+    [Space, SerializeField, Header("Random.Range(base+minMod*level, base+maxMod*level)"), Header("EXP from battles is calculated like this:\n")]
+    float baseExp = 50.0f;
+
+    [SerializeField]
+    float minExpMod = 1.0f;
+    [SerializeField]
+    float maxExpMod = 5.0f;
 
     // Start is called before the first frame update
     void Start() {
@@ -214,15 +222,22 @@ public class BattleSystem : MonoBehaviour {
     /// </summary>
     IEnumerator EndBattle() {
         if (state == BattleState.Won) {
-            float moneyFloat = Random.Range(baseMoney + (float)enemyMonster.monsterLevel * minMoneyMod,
-                                            baseMoney + (float)enemyMonster.monsterLevel * maxMoneyMod);
+            float moneyFloat = Random.Range(baseMoney + (float)(enemyMonster.monsterLevel + 1) * minMoneyMod,
+                                            baseMoney + (float)(enemyMonster.monsterLevel + 1) * maxMoneyMod);
 
             int money = Mathf.RoundToInt(moneyFloat);
             playerInventory.money += money;
 
+            float expFloat = Random.Range(baseExp + (float)(enemyMonster.monsterLevel + 1) * minExpMod,
+                                          baseExp + (float)(enemyMonster.monsterLevel + 1) * maxExpMod);
+
+            playerMonster.AddExp(Mathf.RoundToInt(expFloat));
+            LoadPlayerMonsterHud();
+
+
             dialoogText.text = "You won the battle against " + enemyMonster.monsterName + "!";
             yield return new WaitForSeconds(waitTimeEnd);
-            dialoogText.text = "You got " + money + " coins!";
+            dialoogText.text = "You got " + money + " coins and " + Mathf.RoundToInt(expFloat) + " experience!";
             yield return new WaitForSeconds(waitTimeEnd);
         } else if (state == BattleState.Lost) {
             dialoogText.text = "You were slain by " + enemyMonster.monsterName + "!";

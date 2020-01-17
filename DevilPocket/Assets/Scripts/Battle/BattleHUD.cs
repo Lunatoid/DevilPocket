@@ -16,6 +16,8 @@ public class BattleHUD : MonoBehaviour {
     [SerializeField]
     Slider hpSlider;
 
+    [SerializeField]
+    Slider expSlider;
 
     [Space(20)]
     [Header("Monster Types")]
@@ -91,6 +93,11 @@ public class BattleHUD : MonoBehaviour {
         hpSlider.maxValue = monster.maxHP;
         hpSlider.value = monster.currentHP;
 
+        if (expSlider) {
+            expSlider.maxValue = monster.GetExpUntilLevelUp();
+            expSlider.value = monster.GetCurrentExp();
+        }
+
         // fully woriking element loding
         if (monster.element == Element.Poison) {
             Instantiate(elementPoison, transform.parent);
@@ -162,6 +169,10 @@ public class BattleHUD : MonoBehaviour {
         move1Uses.text = monster.moves[0].uses + "/" + monster.moves[0].maxUses;
         move2Uses.text = monster.moves[1].uses + "/" + monster.moves[1].maxUses;
         move3Uses.text = monster.moves[2].uses + "/" + monster.moves[2].maxUses;
+
+        move1Uses.transform.parent.GetComponent<Button>().interactable = monster.moves[0].uses > 0;
+        move2Uses.transform.parent.GetComponent<Button>().interactable = monster.moves[1].uses > 0;
+        move3Uses.transform.parent.GetComponent<Button>().interactable = monster.moves[2].uses > 0;
 
         // Debug.Log(monster.moves[0].uses + " " + monster.moves[0].initialized);
         // Debug.Log(monster.moves[1].uses + " " + monster.moves[1].initialized);

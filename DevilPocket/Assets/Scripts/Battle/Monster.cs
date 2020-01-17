@@ -11,15 +11,21 @@ public class Monster : MonoBehaviour {
     public string monsterName;
     public int monsterLevel;
 
-    public int damage;
+    // Flat values gained per level
+    [Header("x = base, y = growth")]
+    public Vector2Int damageValue;
+    public Vector2Int healValue;
 
-    public int healAmount = 0;
     public int maxHP;
     public int currentHP;
 
     public Element element;
 
     public Move[] moves = new Move[3];
+
+    private int currentXP = 0;
+    const int BASE_XP = 100;
+    private int xpUntilLevelUp = BASE_XP;
 
     [SerializeField, Header("Element 0 - Front, Element 1 - Back")]
     Sprite[] sprites = new Sprite[2];
@@ -34,13 +40,8 @@ public class Monster : MonoBehaviour {
             Move newMove = gameObject.AddComponent<Move>();
             newMove.CopyFromMove(moves[i]);
             moves[i] = newMove;
-        }
-    }
-
-    private void OnDestroy() {
-        // Unity edits the prefab for some reason????
-        foreach (Move move in moves) {
-            move.uses = move.maxUses;
+            moves[i].SetBaseVal((moves[i].type == MoveType.Attack) ? damageValue.x : healValue.x);
+            moves[i].SetGrowth((moves[i].type == MoveType.Attack) ? damageValue.y : healValue.y);
         }
     }
 
@@ -63,6 +64,32 @@ public class Monster : MonoBehaviour {
         currentHP += amount;
         if (currentHP > maxHP)
             currentHP = maxHP;
+    }
+
+    public void AddExp(int exp) {
+        currentXP += exp;
+
+        if (currentXP >= xpUntilLevelUp) {
+            int remainder = currentXP % xpUntilLevelUp;
+
+            ++monsterLevel;
+
+            currentXP = remainder;
+
+            xpUntilLevelUp = Mathf.RoundToInt((float)BASE_XP * Mathf.Pow((float)monsterLevel, 1.8f));
+
+            foreach (Move move in moves) {
+                move.LevelUp();
+            }
+        }
+    }
+
+    public int GetCurrentExp() {
+        return currentXP;
+    }
+
+    public int GetExpUntilLevelUp() {
+        return xpUntilLevelUp;
     }
 
 }

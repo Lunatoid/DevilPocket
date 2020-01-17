@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Gijs
   monsterLevel: 1
-  damage: 62
-  healAmount: 50
+  damageValue: {x: 62, y: 2}
+  healValue: {x: 50, y: 2}
   maxHP: 58
   currentHP: 58
   element: 1

@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Diderik
   monsterLevel: 1
-  damage: 39
-  healAmount: 59
+  damageValue: {x: 39, y: 2}
+  healValue: {x: 59, y: 2}
   maxHP: 79
   currentHP: 79
   element: 2

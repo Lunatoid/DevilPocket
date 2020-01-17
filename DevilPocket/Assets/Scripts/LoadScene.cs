@@ -7,6 +7,6 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour {
     // Start is called before the first frame update
     void Awake() {
-        SceneManager.LoadSceneAsync("MainScene");
+        AsyncOperation op = SceneManager.LoadSceneAsync("MainScene");
     }
 }

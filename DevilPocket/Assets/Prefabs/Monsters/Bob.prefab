@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Bob
   monsterLevel: 1
-  damage: 35
-  healAmount: 35
+  damageValue: {x: 35, y: 2}
+  healValue: {x: 35, y: 2}
   maxHP: 100
   currentHP: 100
   element: 2

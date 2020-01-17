@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Midas
   monsterLevel: 1
-  damage: 1
-  healAmount: 55
+  damageValue: {x: 1, y: 2}
+  healValue: {x: -55, y: -2}
   maxHP: 114
   currentHP: 114
   element: 2

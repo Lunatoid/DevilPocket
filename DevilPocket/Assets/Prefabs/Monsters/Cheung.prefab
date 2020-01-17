@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Cheung
   monsterLevel: 1
-  damage: 54
-  healAmount: 62
+  damageValue: {x: 54, y: 2}
+  healValue: {x: 62, y: 2}
   maxHP: 53
   currentHP: 53
   element: 1

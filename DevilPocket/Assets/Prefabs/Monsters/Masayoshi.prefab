@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Masayoshi
   monsterLevel: 1
-  damage: 58
-  healAmount: 52
+  damageValue: {x: 58, y: 2}
+  healValue: {x: 52, y: 2}
   maxHP: 60
   currentHP: 60
   element: 3

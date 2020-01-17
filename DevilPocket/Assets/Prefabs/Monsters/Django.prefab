@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Django
   monsterLevel: 1
-  damage: 75
-  healAmount: 50
+  damageValue: {x: 75, y: 2}
+  healValue: {x: 50, y: 2}
   maxHP: 45
   currentHP: 45
   element: 2

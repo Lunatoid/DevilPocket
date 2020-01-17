@@ -3726,6 +3726,7 @@ MonoBehaviour:
   nameText: {fileID: 1006571465}
   levelText: {fileID: 1472468247}
   hpSlider: {fileID: 926834517}
+  expSlider: {fileID: 0}
   elementPoison: {fileID: 2361072054170201684, guid: 73d4dad6df102b04ea478039e7a6684a,
     type: 3}
   elementMetal: {fileID: 2361072054170201684, guid: 42324447946223845b20e8263fdcc1df,
@@ -6419,6 +6420,7 @@ MonoBehaviour:
   nameText: {fileID: 865746759}
   levelText: {fileID: 1396680670}
   hpSlider: {fileID: 542052559}
+  expSlider: {fileID: 532618281}
   elementPoison: {fileID: 2361072054170201684, guid: 73d4dad6df102b04ea478039e7a6684a,
     type: 3}
   elementMetal: {fileID: 2361072054170201684, guid: 42324447946223845b20e8263fdcc1df,
@@ -7329,6 +7331,9 @@ MonoBehaviour:
   baseMoney: 10
   minMoneyMod: 0.1
   maxMoneyMod: 0.3
+  baseExp: 50
+  minExpMod: 1
+  maxExpMod: 5
 --- !u!4 &1933963151
 Transform:
   m_ObjectHideFlags: 0
