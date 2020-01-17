@@ -182,28 +182,29 @@ public class BattleSystem : MonoBehaviour {
 
         yield return new WaitForSeconds(waitTimePlayer);
 
-        if (isTargetDead) {
-            if (state == BattleState.PlayerTurn) {
-                state = BattleState.Won;
-                StartCoroutine(EndBattle());
-            } else {
-                // See if we can switch to our second monster
-                if (playerInventory.GetMonster(true).GetComponent<Monster>().currentHP > 0) {
-                    StartCoroutine(PerformSwitch(true));
-                } else {
-                    state = BattleState.Lost;
-                    StartCoroutine(EndBattle());
-                }
-            }
-        } else {
-            if (state == BattleState.PlayerTurn) {
-                state = BattleState.EnemyTurn;
+        bool isCurrentDead = current.currentHP <= 0;
 
-                StartCoroutine(PerformMove(target, current, EnemyChooseMove()));
+        bool playerWon = (state == BattleState.PlayerTurn && isTargetDead) || (state == BattleState.EnemyTurn && isCurrentDead);
+        bool enemyWon  = (state == BattleState.EnemyTurn && isTargetDead) || (state == BattleState.PlayerTurn && isCurrentDead);
+
+        if (playerWon) {
+            state = BattleState.Won;
+            StartCoroutine(EndBattle());
+        } else if (enemyWon) {
+            // See if we can switch to our second monster
+            if (playerInventory.GetMonster(true).GetComponent<Monster>().currentHP > 0) {
+                StartCoroutine(PerformSwitch(true, BattleState.PlayerTurn));
             } else {
-                state = BattleState.PlayerTurn;
-                PlayerTurn();
+                state = BattleState.Lost;
+                StartCoroutine(EndBattle());
             }
+        } else if (state == BattleState.PlayerTurn) {
+            state = BattleState.EnemyTurn;
+
+            StartCoroutine(PerformMove(target, current, EnemyChooseMove()));
+        } else {
+            state = BattleState.PlayerTurn;
+            PlayerTurn();
         }
     }
 
@@ -349,14 +350,15 @@ public class BattleSystem : MonoBehaviour {
         if (state != BattleState.PlayerTurn || !canInteract) return;
         canInteract = false;
 
-        StartCoroutine(PerformSwitch(playerInventory.GetMonster(true).GetComponent<Monster>().currentHP > 0));
+        StartCoroutine(PerformSwitch(playerInventory.GetMonster(true).GetComponent<Monster>().currentHP > 0, BattleState.EnemyTurn));
     }
 
     /// <summary>
     /// Performs the switch logic.
     /// </summary>
     /// <param name="success">If <c>true</c> it will switch it, if <c>false</c> it will show dialog but keep the player turn.</param>
-    IEnumerator PerformSwitch(bool success) {
+    /// <param name="nextTurn">If the switch fails, which turn it should switch to</param>
+    IEnumerator PerformSwitch(bool success, BattleState nextTurn) {
         if (success) {
             // Save current monster
             playerMonster.transform.parent = playerInventory.transform;
@@ -372,13 +374,18 @@ public class BattleSystem : MonoBehaviour {
             yield return new WaitForSeconds(waitTimeEnd);
 
             state = BattleState.EnemyTurn;
-            StartCoroutine(PerformMove(enemyMonster, playerMonster, EnemyChooseMove()));
         } else {
             string otherMonsterName = playerInventory.GetMonster(true).GetComponent<Monster>().monsterName;
             dialoogText.text = $"Looks like {otherMonsterName} is not in fighting state...";
             yield return new WaitForSeconds(waitTimeEnd);
 
+        }
+
+        state = nextTurn;
+        if (nextTurn == BattleState.PlayerTurn) {
             PlayerTurn();
+        } else if (nextTurn == BattleState.EnemyTurn) {
+            StartCoroutine(PerformMove(enemyMonster, playerMonster, EnemyChooseMove()));
         }
     }
 }
