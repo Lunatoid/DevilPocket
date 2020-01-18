@@ -105,7 +105,7 @@ public class BattleSystem : MonoBehaviour {
 
         dialoogText.text = "A wild " + enemyMonster.monsterName + " approaches...";
 
-        yield return new WaitForSeconds(waitTimePlayer + 0.5f);
+        yield return new WaitForSeconds(waitTimePlayer + 1.5f);
 
         state = BattleState.PlayerTurn;
         PlayerTurn();
