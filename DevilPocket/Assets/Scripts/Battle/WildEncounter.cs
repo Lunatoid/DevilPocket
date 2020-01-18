@@ -16,6 +16,9 @@ public class WildEncounter : MonoBehaviour {
     [SerializeField]
     float monsterSpeed = 3.5f;
 
+    [SerializeField, Header("This will be the cap of the animation speed.")]
+    float maxAnimationSpeed = 2.5f;
+
     public Animator transition;
 
     // This is the random monster that the player will encounter
@@ -26,29 +29,19 @@ public class WildEncounter : MonoBehaviour {
     PlayerInventory playerInventory;
     RandomMonsterPicker randomMonsterPicker;
 
-    Vector3 destination;
     NavMeshAgent agent;
-    Transform target;
 
     Animator monsterAnimator;
 
     private void Start() {
-
         player = GameObject.FindGameObjectWithTag("Player");
         playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
-        target = player.transform;
-
         randomMonsterPicker = GameObject.Find("RandomMonsterPicker").GetComponent<RandomMonsterPicker>();
-
-        // Cache agent component and destination
         agent = GetComponent<NavMeshAgent>();
-        destination = agent.destination;
-
-        // sets speed for the animator
-        agent.speed = monsterSpeed;
-
-        // Setting the speed var in the blend tree to the speed value of the agent
         monsterAnimator = GetComponent<Animator>();
+
+        // Apply our own speed
+        agent.speed = monsterSpeed;
 
         // Get a random monster
         randomMonster = randomMonsterPicker.GetRandomMonsterPrefab();
@@ -60,9 +53,7 @@ public class WildEncounter : MonoBehaviour {
     /// </summary>
     /// <param name="wildMonsterTrigger"></param>
     private void OnTriggerEnter(Collider wildMonsterTrigger) {
-        
-        if (wildMonsterTrigger.gameObject.tag == "Player" ) {
-
+        if (wildMonsterTrigger.gameObject.tag == "Player") {
             StartCoroutine(LoadBattleScene());
             Debug.Log("loading");
         }
@@ -74,7 +65,7 @@ public class WildEncounter : MonoBehaviour {
         transition.SetTrigger("start");
 
         // wait for seconds
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.0f);
 
         // load scene 
         playerInventory.enemyMonsters[0] = randomMonster;
@@ -88,25 +79,13 @@ public class WildEncounter : MonoBehaviour {
         monsterNameText.transform.LookAt(player.transform);
 
         // speed is declard within the blendtree 
-        monsterAnimator.SetFloat("speed", monsterSpeed);
+        monsterAnimator.SetFloat("speed", Mathf.Min(agent.velocity.magnitude, maxAnimationSpeed));
 
-        // @TODO monster keeps folowing the player after the player wakls out of 
-        // the " monsterTriggerDistence ".
-        if (Vector3.Distance(destination, target.position)< monsterTriggerDistence) {
-
-            monsterSpeed = agent.speed;
-            gameObject.GetComponent<NavMeshAgent>().enabled = true;
-
-            destination = target.position;
-            agent.destination = destination;
+        // Stop if the distance between us and the player is greater than the trigger distance
+        agent.isStopped = Vector3.Distance(transform.position, player.transform.position) > monsterTriggerDistence;
+        if (!agent.isStopped) {
+            agent.destination = player.transform.position;
         }
-        else {
-            monsterSpeed = 0;
-            gameObject.GetComponent<NavMeshAgent>().enabled = false;
-        }
-
-        
-
     }
 
 }
