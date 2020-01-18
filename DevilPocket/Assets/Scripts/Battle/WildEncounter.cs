@@ -19,14 +19,14 @@ public class WildEncounter : MonoBehaviour {
     [SerializeField]
     float monsterSpeed = 3.5f;
 
+
     [SerializeField]
     GameObject[] monsterPool;
+    
+    GameObject randomMonster;
 
 
     GameObject player;
-
-    GameObject randomMonster;
-
 
     Vector3 destination;
     NavMeshAgent agent;
@@ -34,14 +34,11 @@ public class WildEncounter : MonoBehaviour {
 
     Animator monsterAnimator;
 
-    
-
     private void Start() {
 
         GetMonster();
 
         player = GameObject.FindGameObjectWithTag("Player");
-
         target = player.transform;
 
         // Cache agent component and destination
@@ -53,9 +50,8 @@ public class WildEncounter : MonoBehaviour {
 
         // Setting the speed var in the blend tree to the speed value of the agent
         monsterAnimator = GetComponent<Animator>();
-        
-       
     }
+
 
     private void GetMonster() {
         monsterPool[Random.Range(0, monsterPool.Length)] = randomMonster;
@@ -81,9 +77,11 @@ public class WildEncounter : MonoBehaviour {
     private void Update() {
         monsterNameText.transform.LookAt(player.transform);
 
-
+        // speed is declard within the blendtree 
         monsterAnimator.SetFloat("speed", monsterSpeed);
 
+        // @TODO monster keeps folowing the player after the player wakls out of 
+        // the " monsterTriggerDistence ".
         if (Vector3.Distance(destination, target.position)< monsterTriggerDistence) {
 
             monsterSpeed = agent.speed;
