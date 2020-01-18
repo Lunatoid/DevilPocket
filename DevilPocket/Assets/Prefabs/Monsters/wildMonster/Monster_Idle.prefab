@@ -2184,11 +2184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f3236c8f9cdd04b8e4160105d0eb99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  encouterdMonster: {fileID: 8533627721036493047}
   monsterNameText: {fileID: 4189499283990751400}
   monsterTriggerDistence: 20
   monsterSpeed: 3.5
-  transitson: {fileID: 0}
+  maxAnimationSpeed: 3.5
+  transition: {fileID: 0}
 --- !u!195 &2949045453487349242
 NavMeshAgent:
   m_ObjectHideFlags: 0
