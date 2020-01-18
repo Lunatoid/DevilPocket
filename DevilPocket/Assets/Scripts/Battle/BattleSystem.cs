@@ -294,7 +294,7 @@ public class BattleSystem : MonoBehaviour {
         transitson.SetTrigger("start");
 
         // wait for seconds
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.1f);
 
         // load scene 
         SceneManager.LoadScene("MainScene");
