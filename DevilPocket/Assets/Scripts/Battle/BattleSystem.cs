@@ -56,7 +56,7 @@ public class BattleSystem : MonoBehaviour {
         }
 
         state = BattleState.Start;
-        SetupBattle();
+        StartCoroutine( SetupBattle());
     }
 
     /// <summary>
@@ -74,7 +74,7 @@ public class BattleSystem : MonoBehaviour {
     /// <summary>
     /// Initializes the HUD and other elements.
     /// </summary>
-    void SetupBattle() {
+    IEnumerator SetupBattle() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -91,7 +91,8 @@ public class BattleSystem : MonoBehaviour {
             if (playerGo.GetComponent<Monster>().currentHP <= 0) {
                 // Both of our monsters have no HP, retreat!
                 StartCoroutine(EscapeNoValidMonsters());
-                return;
+                yield return new WaitForSeconds(0);
+
             } else {
                 // Our second monster is healthy
                 playerInventory.SwitchMonsters();
@@ -100,6 +101,8 @@ public class BattleSystem : MonoBehaviour {
         LoadPlayerMonsterHud();
 
         dialoogText.text = "A wild " + enemyMonster.monsterName + " approaches...";
+
+        yield return new WaitForSeconds(waitTimePlayer);
 
         state = BattleState.PlayerTurn;
         PlayerTurn();
