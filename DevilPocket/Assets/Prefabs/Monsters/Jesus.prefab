@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Jesus
   monsterLevel: 1
-  damageValue: {x: 67, y: 3}
-  healValue: {x: 67, y: 3}
+  damageValue: {x: 4, y: 3}
+  healValue: {x: 4, y: 3}
   maxHP: 67
   currentHP: 67
   element: 3

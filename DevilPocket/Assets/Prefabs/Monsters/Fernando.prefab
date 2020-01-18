@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Fernando
   monsterLevel: 1
-  damageValue: {x: 70, y: 3}
-  healValue: {x: 50, y: 3}
+  damageValue: {x: 2, y: 3}
+  healValue: {x: 6, y: 3}
   maxHP: 80
   currentHP: 80
   element: 2

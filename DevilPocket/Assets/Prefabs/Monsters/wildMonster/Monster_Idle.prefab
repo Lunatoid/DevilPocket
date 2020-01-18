@@ -177,6 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   encouterdMonster: {fileID: 655392739081959068}
   monsterNameText: {fileID: 4983089446346688382}
+  monsterTriggerDistence: 20
+  monsterSpeed: 3.5
 --- !u!195 &5196319129232899603
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -259,14 +261,14 @@ RectTransform:
   m_GameObject: {fileID: 679467195811038932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -0.59138554, y: 0.59138554, z: 0.59138554}
   m_Children: []
   m_Father: {fileID: 4558546491111589007}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 6.29}
+  m_AnchoredPosition: {x: 0, y: 6.56}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6762266215969011586
@@ -341,7 +343,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: name
+  m_text: Cheung
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -410,7 +412,7 @@ MonoBehaviour:
   m_margin: {x: 0.005493165, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 4983089446346688382}
-    characterCount: 4
+    characterCount: 6
     spriteCount: 0
     spaceCount: 0
     wordCount: 1

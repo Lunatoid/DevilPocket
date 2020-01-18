@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Gaston
   monsterLevel: 1
-  damageValue: {x: 55, y: 2}
-  healValue: {x: 49, y: 2}
+  damageValue: {x: 2, y: 2}
+  healValue: {x: 2, y: 2}
   maxHP: 66
   currentHP: 66
   element: 1

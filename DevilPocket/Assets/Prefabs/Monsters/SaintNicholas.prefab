@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Saint Nicholas
   monsterLevel: 1
-  damageValue: {x: 75, y: 3}
-  healValue: {x: 60, y: 3}
+  damageValue: {x: 6, y: 3}
+  healValue: {x: 2, y: 3}
   maxHP: 65
   currentHP: 65
   element: 1

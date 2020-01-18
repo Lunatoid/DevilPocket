@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Konstantijn
   monsterLevel: 1
-  damageValue: {x: 61, y: 2}
-  healValue: {x: 55, y: 2}
+  damageValue: {x: 3, y: 2}
+  healValue: {x: 2, y: 2}
   maxHP: 54
   currentHP: 54
   element: 2
