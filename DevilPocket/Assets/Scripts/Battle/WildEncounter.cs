@@ -8,9 +8,6 @@ using UnityEngine.Animations;
 
 public class WildEncounter : MonoBehaviour {
     [SerializeField]
-    GameObject encouterdMonster;
-
-    [SerializeField]
     TextMeshPro monsterNameText;
 
     [SerializeField]
@@ -19,8 +16,10 @@ public class WildEncounter : MonoBehaviour {
     [SerializeField]
     float monsterSpeed = 3.5f;
 
-    public Animator transitson;
+    public Animator transition;
 
+    // This is the random monster that the player will encounter
+    // Decided at Start()
     GameObject randomMonster;
 
     GameObject player;
@@ -46,7 +45,7 @@ public class WildEncounter : MonoBehaviour {
         destination = agent.destination;
 
         // sets speed for the animator
-        monsterSpeed = agent.speed;
+        agent.speed = monsterSpeed;
 
         // Setting the speed var in the blend tree to the speed value of the agent
         monsterAnimator = GetComponent<Animator>();
@@ -72,7 +71,7 @@ public class WildEncounter : MonoBehaviour {
     public IEnumerator LoadBattleScene() {
 
         //play animation
-        transitson.SetTrigger("start");
+        transition.SetTrigger("start");
 
         // wait for seconds
         yield return new WaitForSeconds(1);
