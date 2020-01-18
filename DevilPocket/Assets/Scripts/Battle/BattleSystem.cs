@@ -15,6 +15,9 @@ public class BattleSystem : MonoBehaviour {
     public float waitTimePlayer = 3f;
 
     [Space]
+    public Animator transitson;
+
+    [Space]
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
 
@@ -91,7 +94,7 @@ public class BattleSystem : MonoBehaviour {
             if (playerGo.GetComponent<Monster>().currentHP <= 0) {
                 // Both of our monsters have no HP, retreat!
                 StartCoroutine(EscapeNoValidMonsters());
-                yield return new WaitForSeconds(0);
+                yield return new WaitForEndOfFrame();
 
             } else {
                 // Our second monster is healthy
@@ -102,7 +105,7 @@ public class BattleSystem : MonoBehaviour {
 
         dialoogText.text = "A wild " + enemyMonster.monsterName + " approaches...";
 
-        yield return new WaitForSeconds(waitTimePlayer);
+        yield return new WaitForSeconds(waitTimePlayer + 0.5f);
 
         state = BattleState.PlayerTurn;
         PlayerTurn();
@@ -281,6 +284,19 @@ public class BattleSystem : MonoBehaviour {
     void ExitScene() {
         playerMonster.transform.parent = playerInventory.transform;
         playerMonster.gameObject.SetActive(false);
+        StartCoroutine(LoadMainScene());
+        //SceneManager.LoadScene("MainScene");
+    }
+
+    public IEnumerator LoadMainScene() {
+
+        //play animation
+        transitson.SetTrigger("start");
+
+        // wait for seconds
+        yield return new WaitForSeconds(1);
+
+        // load scene 
         SceneManager.LoadScene("MainScene");
     }
 

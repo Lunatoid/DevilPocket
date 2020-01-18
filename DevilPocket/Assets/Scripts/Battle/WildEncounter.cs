@@ -19,6 +19,8 @@ public class WildEncounter : MonoBehaviour {
     [SerializeField]
     float monsterSpeed = 3.5f;
 
+    public Animator transitson;
+
 
     [SerializeField]
     GameObject[] monsterPool;
@@ -68,11 +70,25 @@ public class WildEncounter : MonoBehaviour {
         
         if (wildMonsterTrigger.gameObject.tag == "Player" ) {
 
-            Destroy(gameObject);
-            SceneManager.LoadScene("BattleScene");
+            StartCoroutine(LoadBattleScene());
             Debug.Log("loading");
         }
     }
+
+    public IEnumerator LoadBattleScene() {
+
+        //play animation
+        transitson.SetTrigger("start");
+
+        // wait for seconds
+        yield return new WaitForSeconds(1);
+
+        // load scene 
+        SceneManager.LoadScene("BattleScene");
+        Destroy(gameObject);
+    }
+
+
 
     private void Update() {
         monsterNameText.transform.LookAt(player.transform);
