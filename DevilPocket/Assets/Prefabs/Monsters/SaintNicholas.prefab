@@ -96,10 +96,10 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Saint Nicholas
   monsterLevel: 1
-  damageValue: {x: 6, y: 3}
-  healValue: {x: 2, y: 3}
-  maxHP: 65
-  currentHP: 65
+  damageValue: {x: 6, y: 2}
+  healValue: {x: 2, y: 2}
+  maxHP: 80
+  currentHP: 80
   element: 1
   moves:
   - {fileID: 4619254192897032504, guid: f6736db10ef13a248a3b8e53e3a010d8, type: 3}

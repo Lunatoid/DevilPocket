@@ -6,8 +6,7 @@ using TMPro;
 using UnityEngine.AI;
 using UnityEngine.Animations;
 
-public class WildEncounter : MonoBehaviour
-{
+public class WildEncounter : MonoBehaviour {
     [SerializeField]
     GameObject encouterdMonster;
 
@@ -20,7 +19,14 @@ public class WildEncounter : MonoBehaviour
     [SerializeField]
     float monsterSpeed = 3.5f;
 
+    [SerializeField]
+    GameObject[] monsterPool;
+
+
     GameObject player;
+
+    GameObject randomMonster;
+
 
     Vector3 destination;
     NavMeshAgent agent;
@@ -31,6 +37,9 @@ public class WildEncounter : MonoBehaviour
     
 
     private void Start() {
+
+        GetMonster();
+
         player = GameObject.FindGameObjectWithTag("Player");
 
         target = player.transform;
@@ -48,7 +57,17 @@ public class WildEncounter : MonoBehaviour
        
     }
 
+    private void GetMonster() {
+        monsterPool[Random.Range(0, monsterPool.Length)] = randomMonster;
+        
+       // randomMonster.name
 
+    }
+
+    /// <summary>
+    /// the lading of the battel sene when the palyer is in conctact with the ennemy
+    /// </summary>
+    /// <param name="wildMonsterTrigger"></param>
     private void OnTriggerEnter(Collider wildMonsterTrigger) {
         
         if (wildMonsterTrigger.gameObject.tag == "Player" ) {

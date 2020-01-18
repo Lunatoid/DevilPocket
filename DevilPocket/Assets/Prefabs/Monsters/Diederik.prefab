@@ -96,10 +96,10 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Diderik
   monsterLevel: 1
-  damageValue: {x: 1, y: 2}
-  healValue: {x: 3, y: 2}
-  maxHP: 79
-  currentHP: 79
+  damageValue: {x: 1, y: 1}
+  healValue: {x: 3, y: 1}
+  maxHP: 72
+  currentHP: 72
   element: 2
   moves:
   - {fileID: 9089079935574885266, guid: 072f352210008d5418de692a0f144cda, type: 3}

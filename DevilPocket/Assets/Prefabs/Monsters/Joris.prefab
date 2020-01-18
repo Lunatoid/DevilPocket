@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 1
   monsterName: Joris
   monsterLevel: 1
-  damageValue: {x: 8, y: 3}
-  healValue: {x: 0, y: 3}
+  damageValue: {x: 8, y: 2}
+  healValue: {x: 0, y: 2}
   maxHP: 95
   currentHP: 95
   element: 0

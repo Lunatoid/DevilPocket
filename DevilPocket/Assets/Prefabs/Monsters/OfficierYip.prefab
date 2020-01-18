@@ -96,8 +96,8 @@ MonoBehaviour:
   ownedByPlayer: 0
   monsterName: Officier Yip
   monsterLevel: 1
-  damageValue: {x: 3, y: 2}
-  healValue: {x: 1, y: 2}
+  damageValue: {x: 3, y: 1}
+  healValue: {x: 1, y: 1}
   maxHP: 70
   currentHP: 70
   element: 3

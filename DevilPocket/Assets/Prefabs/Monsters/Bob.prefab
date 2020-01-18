@@ -98,8 +98,8 @@ MonoBehaviour:
   monsterLevel: 1
   damageValue: {x: 1, y: 2}
   healValue: {x: 1, y: 2}
-  maxHP: 100
-  currentHP: 100
+  maxHP: 80
+  currentHP: 80
   element: 2
   moves:
   - {fileID: 5929243772648109525, guid: 0b95e6bd60673b74fb42a8e67a191c3d, type: 3}
