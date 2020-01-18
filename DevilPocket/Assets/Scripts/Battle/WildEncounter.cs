@@ -21,14 +21,11 @@ public class WildEncounter : MonoBehaviour {
 
     public Animator transitson;
 
-
-    [SerializeField]
-    GameObject[] monsterPool;
-    
     GameObject randomMonster;
 
-
     GameObject player;
+    PlayerInventory playerInventory;
+    RandomMonsterPicker randomMonsterPicker;
 
     Vector3 destination;
     NavMeshAgent agent;
@@ -38,10 +35,11 @@ public class WildEncounter : MonoBehaviour {
 
     private void Start() {
 
-        GetMonster();
-
         player = GameObject.FindGameObjectWithTag("Player");
+        playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
         target = player.transform;
+
+        randomMonsterPicker = GameObject.Find("RandomMonsterPicker").GetComponent<RandomMonsterPicker>();
 
         // Cache agent component and destination
         agent = GetComponent<NavMeshAgent>();
@@ -52,14 +50,10 @@ public class WildEncounter : MonoBehaviour {
 
         // Setting the speed var in the blend tree to the speed value of the agent
         monsterAnimator = GetComponent<Animator>();
-    }
 
-
-    private void GetMonster() {
-        monsterPool[Random.Range(0, monsterPool.Length)] = randomMonster;
-        
-       // randomMonster.name
-
+        // Get a random monster
+        randomMonster = randomMonsterPicker.GetRandomMonsterPrefab();
+        monsterNameText.text = randomMonster.GetComponent<Monster>().monsterName;
     }
 
     /// <summary>
@@ -84,6 +78,7 @@ public class WildEncounter : MonoBehaviour {
         yield return new WaitForSeconds(1);
 
         // load scene 
+        playerInventory.enemyMonsters[0] = randomMonster;
         SceneManager.LoadScene("BattleScene");
         Destroy(gameObject);
     }

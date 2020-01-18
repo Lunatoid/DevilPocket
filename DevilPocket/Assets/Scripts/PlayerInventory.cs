@@ -12,13 +12,33 @@ public class PlayerInventory : MonoBehaviour {
     [SerializeField]
     GameObject[] carriedMonsters = new GameObject[2];
 
-    public List<GameObject> enemyMonsters = new List<GameObject>();
+    public List<GameObject> enemyMonsters = new List<GameObject>(1);
 
     public int money = 0;
 
     private void Awake() {
         DontDestroyOnLoad(gameObject);
 
+        // Populate our inventory with two random monsters
+        RandomMonsterPicker randomMonsterPicker = GameObject.Find("RandomMonsterPicker").GetComponent<RandomMonsterPicker>();
+        for (int i = 0; i < carriedMonsters.Length; ++i) {
+            do {
+                GameObject candidate = randomMonsterPicker.GetRandomMonsterPrefab();
+
+                for (int j = 0; j < i; ++j) {
+                    // Check if we already have this prefab
+                    if (carriedMonsters[j] == candidate) {
+                        continue;
+                    }
+                }
+
+                // This one is unique, add it
+                carriedMonsters[i] = candidate;
+                break;
+            } while (true);
+        }
+
+        // Instantiate and initialize them
         for (int i = 0; i < carriedMonsters.Length; ++i) {
             if (carriedMonsters[i]) {
                 carriedMonsters[i] = Instantiate(carriedMonsters[i], gameObject.transform);
@@ -28,6 +48,8 @@ public class PlayerInventory : MonoBehaviour {
                 // DontDestroyOnLoad(carriedMonsters[i]);
             }
         }
+
+        
     }
 
     /// <summary>

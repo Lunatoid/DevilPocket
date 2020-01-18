@@ -94,8 +94,7 @@ public class BattleSystem : MonoBehaviour {
             if (playerGo.GetComponent<Monster>().currentHP <= 0) {
                 // Both of our monsters have no HP, retreat!
                 StartCoroutine(EscapeNoValidMonsters());
-                yield return new WaitForEndOfFrame();
-
+                yield break;
             } else {
                 // Our second monster is healthy
                 playerInventory.SwitchMonsters();
@@ -407,19 +406,19 @@ public class BattleSystem : MonoBehaviour {
             dialoogText.text = $"Get 'em, {playerMonster.monsterName}!";
             yield return new WaitForSeconds(waitTimeEnd);
 
-            state = BattleState.EnemyTurn;
+            state = nextTurn;
+            if (nextTurn == BattleState.PlayerTurn) {
+                PlayerTurn();
+            } else if (nextTurn == BattleState.EnemyTurn) {
+                StartCoroutine(PerformMove(enemyMonster, playerMonster, EnemyChooseMove()));
+            }
         } else {
             string otherMonsterName = playerInventory.GetMonster(true).GetComponent<Monster>().monsterName;
             dialoogText.text = $"Looks like {otherMonsterName} is not in fighting state...";
             yield return new WaitForSeconds(waitTimeEnd);
-
-        }
-
-        state = nextTurn;
-        if (nextTurn == BattleState.PlayerTurn) {
             PlayerTurn();
-        } else if (nextTurn == BattleState.EnemyTurn) {
-            StartCoroutine(PerformMove(enemyMonster, playerMonster, EnemyChooseMove()));
+
         }
+
     }
 }
