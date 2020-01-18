@@ -54,12 +54,15 @@ public class BattleSystem : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        
         if (!playerInventory) {
             playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
         }
 
         state = BattleState.Start;
         StartCoroutine( SetupBattle());
+
+        transitson.SetTrigger("init");
     }
 
     /// <summary>
@@ -294,7 +297,7 @@ public class BattleSystem : MonoBehaviour {
         transitson.SetTrigger("start");
 
         // wait for seconds
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.1f);
 
         // load scene 
         SceneManager.LoadScene("MainScene");

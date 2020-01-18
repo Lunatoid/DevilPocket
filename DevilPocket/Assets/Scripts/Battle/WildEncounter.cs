@@ -50,7 +50,7 @@ public class WildEncounter : MonoBehaviour {
         randomMonster = randomMonsterPicker.GetRandomMonsterPrefab();
         monsterNameText.text = randomMonster.GetComponent<Monster>().monsterName;
 
-        
+       // transition.SetTrigger("init");
 
     }
 
@@ -60,18 +60,16 @@ public class WildEncounter : MonoBehaviour {
     /// <param name="wildMonsterTrigger"></param>
     private void OnTriggerEnter(Collider wildMonsterTrigger) {
         if (wildMonsterTrigger.gameObject.tag == "Player") {
+            transition.SetTrigger("start");
             StartCoroutine(LoadBattleScene());
             Debug.Log("loading");
+            //play animation
         }
     }
 
     public IEnumerator LoadBattleScene() {
-
-        //play animation
-        transition.SetTrigger("start");
-
         // wait for seconds
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.1f);
 
         // load scene 
         playerInventory.enemyMonsters[0] = randomMonster;
