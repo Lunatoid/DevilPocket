@@ -68,10 +68,11 @@ public class BattleSystem : MonoBehaviour {
     /// </summary>
     IEnumerator EscapeNoValidMonsters() {
         dialoogText.text = $"You enter the battle but none of your monsters are able to fight!";
-        yield return new WaitForSeconds(waitTimeEnd);
+        yield return new WaitForSeconds(3);
         dialoogText.text = $"You run away as fast as you can!";
-        yield return new WaitForSeconds(waitTimeEnd);
-        SceneManager.LoadScene("MainScene");
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(LoadMainScene());
+        //SceneManager.LoadScene("MainScene");
     }
 
     /// <summary>
@@ -104,7 +105,7 @@ public class BattleSystem : MonoBehaviour {
 
         dialoogText.text = "A wild " + enemyMonster.monsterName + " approaches...";
 
-        yield return new WaitForSeconds(waitTimePlayer + 1.5f);
+        yield return new WaitForSeconds(3.5f);
 
         state = BattleState.PlayerTurn;
         PlayerTurn();
@@ -293,7 +294,7 @@ public class BattleSystem : MonoBehaviour {
         transitson.SetTrigger("start");
 
         // wait for seconds
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1.3f);
 
         // load scene 
         SceneManager.LoadScene("MainScene");

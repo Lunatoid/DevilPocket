@@ -20,6 +20,7 @@ public class WildEncounter : MonoBehaviour {
     float maxAnimationSpeed = 2.5f;
 
     public Animator transition;
+    
 
     // This is the random monster that the player will encounter
     // Decided at Start()
@@ -40,12 +41,17 @@ public class WildEncounter : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         monsterAnimator = GetComponent<Animator>();
 
+        transition = GetComponent<Animator>();
+
         // Apply our own speed
         agent.speed = monsterSpeed;
 
         // Get a random monster
         randomMonster = randomMonsterPicker.GetRandomMonsterPrefab();
         monsterNameText.text = randomMonster.GetComponent<Monster>().monsterName;
+
+        
+
     }
 
     /// <summary>
@@ -65,7 +71,7 @@ public class WildEncounter : MonoBehaviour {
         transition.SetTrigger("start");
 
         // wait for seconds
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.2f);
 
         // load scene 
         playerInventory.enemyMonsters[0] = randomMonster;
