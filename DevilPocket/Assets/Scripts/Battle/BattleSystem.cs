@@ -104,7 +104,7 @@ public class BattleSystem : MonoBehaviour {
 
         dialoogText.text = "A wild " + enemyMonster.monsterName + " approaches...";
 
-        yield return new WaitForSeconds(waitTimePlayer + 0.5f);
+        yield return new WaitForSeconds(waitTimePlayer + 1.5f);
 
         state = BattleState.PlayerTurn;
         PlayerTurn();
@@ -293,7 +293,7 @@ public class BattleSystem : MonoBehaviour {
         transitson.SetTrigger("start");
 
         // wait for seconds
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.1f);
 
         // load scene 
         SceneManager.LoadScene("MainScene");
