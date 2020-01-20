@@ -40,7 +40,9 @@ public class WildEncounter : MonoBehaviour {
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
+
         randomMonsterPicker = GameObject.Find("RandomMonsterPicker").GetComponent<RandomMonsterPicker>();
+
         agent = GetComponent<NavMeshAgent>();
         monsterAnimator = GetComponent<Animator>();
 
@@ -65,12 +67,12 @@ public class WildEncounter : MonoBehaviour {
     /// <param name="wildMonsterTrigger"></param>
     private void OnTriggerEnter(Collider wildMonsterTrigger) {
         if (wildMonsterTrigger.gameObject.tag == "Player") {
+
             Debug.Log("molesting mosnter");
-           // transition.SetTrigger("start");
-            lt.LoadBattle();
-            StartCoroutine(LoadBattleScene());
+            lt.SildeUpDouwn();
+
             Debug.Log("loading");
-            //play animation
+            StartCoroutine(LoadBattleScene());
         }
     }
 

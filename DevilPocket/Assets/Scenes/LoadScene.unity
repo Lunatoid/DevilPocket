@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 1862359562}
   m_Layer: 0
   m_Name: PlayerInventory
-  m_TagString: Untagged
+  m_TagString: PlayerInventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
   enemyMonsters:
   - {fileID: 5588440095518819128, guid: c368eca4569658c41ba12f8f9f95b149, type: 3}
   money: 0
+  hasBattlepass: 1
 --- !u!4 &1862359563
 Transform:
   m_ObjectHideFlags: 0
@@ -344,6 +345,10 @@ PrefabInstance:
     - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Volume
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_RunSpeed
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
@@ -550,6 +555,11 @@ PrefabInstance:
     - target: {fileID: 8129151399754311773, guid: 26d18b777349bfe4b9674d0918cf3297,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129151400038504063, guid: 26d18b777349bfe4b9674d0918cf3297,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

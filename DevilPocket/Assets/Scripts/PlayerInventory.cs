@@ -16,6 +16,9 @@ public class PlayerInventory : MonoBehaviour {
 
     public int money = 0;
 
+    public bool hasBattlepass = false;
+
+
     private void Awake() {
         DontDestroyOnLoad(gameObject);
 

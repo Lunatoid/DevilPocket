@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Monster
   - LevelLoader
+  - PlayerInventory
   layers:
   - Default
   - TransparentFX
