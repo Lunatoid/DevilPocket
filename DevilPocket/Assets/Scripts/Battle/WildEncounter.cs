@@ -19,6 +19,7 @@ public class WildEncounter : MonoBehaviour {
     [SerializeField, Header("This will be the cap of the animation speed.")]
     float maxAnimationSpeed = 2.5f;
 
+   // public GameObject transitionGO;
     public Animator transition;
     
 
@@ -68,6 +69,8 @@ public class WildEncounter : MonoBehaviour {
     }
 
     public IEnumerator LoadBattleScene() {
+
+        transition.SetTrigger("start");
         // wait for seconds
         yield return new WaitForSeconds(1.1f);
 
