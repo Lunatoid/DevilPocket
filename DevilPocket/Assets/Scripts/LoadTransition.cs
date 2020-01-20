@@ -4,10 +4,8 @@ using UnityEngine;
 public class LoadTransition : MonoBehaviour {
     public Animator transitionAnimtor;
 
-    public IEnumerator LoadBattle() {
-
+    public void LoadBattle() {
         transitionAnimtor.SetTrigger("start");
-
-        yield return new WaitForSeconds(1.1f);
+        Debug.Log("Start anim beattle enter (schreen to black)");
     }
 }

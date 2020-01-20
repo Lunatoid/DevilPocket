@@ -35,6 +35,8 @@ public class WildEncounter : MonoBehaviour {
 
     Animator monsterAnimator;
 
+    LoadTransition lt;
+
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
@@ -42,6 +44,8 @@ public class WildEncounter : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         monsterAnimator = GetComponent<Animator>();
 
+        lt = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LoadTransition>();
+        
         transition = GetComponent<Animator>();
 
         // Apply our own speed
@@ -61,7 +65,9 @@ public class WildEncounter : MonoBehaviour {
     /// <param name="wildMonsterTrigger"></param>
     private void OnTriggerEnter(Collider wildMonsterTrigger) {
         if (wildMonsterTrigger.gameObject.tag == "Player") {
-            transition.SetTrigger("start");
+            Debug.Log("molesting mosnter");
+           // transition.SetTrigger("start");
+            lt.LoadBattle();
             StartCoroutine(LoadBattleScene());
             Debug.Log("loading");
             //play animation
@@ -70,8 +76,8 @@ public class WildEncounter : MonoBehaviour {
 
     public IEnumerator LoadBattleScene() {
 
-        transition.SetTrigger("start");
-        // wait for seconds
+        Debug.Log("Your fate is near");
+
         yield return new WaitForSeconds(1.1f);
 
         // load scene 
