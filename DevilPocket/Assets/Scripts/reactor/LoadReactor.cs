@@ -7,6 +7,7 @@ public class LoadReactor : MonoBehaviour {
 
     LoadTransition lt;
 
+    [SerializeField]
     bool inReactor = false;
 
     private void Start() {
@@ -15,8 +16,6 @@ public class LoadReactor : MonoBehaviour {
 
     public void OnTriggerEnter(Collider reactorEntrance) {
 
-        
-        
 
         if (!inReactor) {
             Debug.Log("Entering the arena");
