@@ -163,6 +163,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593da4663a35f4349a814fea90ce384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1288718582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1288718584}
+  - component: {fileID: 1288718583}
+  m_Layer: 0
+  m_Name: EncounterManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1288718583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288718582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59de6e575ef51f419780758700aa064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  encounterPrefab: {fileID: 8533627721036493047, guid: b2107c51a395f194bb3b8d16066d6c68,
+    type: 3}
+  despawnTimeInSeconds: 300
+  despawnMargin: 60
+  encounterCap: 25
+  timeUntilSpawning: 5
+  despawnCheckInterval: 15
+--- !u!4 &1288718584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288718582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 648.83997, y: 19.025534, z: 512.0877}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1847072345
 GameObject:
   m_ObjectHideFlags: 0
