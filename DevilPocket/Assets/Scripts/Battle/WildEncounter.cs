@@ -19,9 +19,9 @@ public class WildEncounter : MonoBehaviour {
     [SerializeField, Header("This will be the cap of the animation speed.")]
     float maxAnimationSpeed = 2.5f;
 
-   // public GameObject transitionGO;
+    // public GameObject transitionGO;
     public Animator transition;
-    
+
 
     // This is the random monster that the player will encounter
     // Decided at Start()
@@ -39,16 +39,16 @@ public class WildEncounter : MonoBehaviour {
 
     bool wasChasingPlayer = false;
 
+    NavMeshTriangulation navMeshTriangles;
+
     Vector3 GetRandomDestination() {
         // Set agent to random path
-        NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
-
         // Pick the first indice of a random triangle in the nav mesh
-        int t = Random.Range(0, navMeshData.indices.Length-3);
+        int t = Random.Range(0, navMeshTriangles.indices.Length-3);
 
         // Select a random point on it
-        Vector3 point = Vector3.Lerp(navMeshData.vertices[navMeshData.indices[t]], navMeshData.vertices[navMeshData.indices[t+1]], Random.value);
-        Vector3.Lerp(point, navMeshData.vertices[navMeshData.indices[t + 2]], Random.value);
+        Vector3 point = Vector3.Lerp(navMeshTriangles.vertices[navMeshTriangles.indices[t]], navMeshTriangles.vertices[navMeshTriangles.indices[t+1]], Random.value);
+        Vector3.Lerp(point, navMeshTriangles.vertices[navMeshTriangles.indices[t + 2]], Random.value);
 
         return point;
     }
@@ -73,6 +73,9 @@ public class WildEncounter : MonoBehaviour {
         // Get a random monster
         randomMonster = randomMonsterPicker.GetRandomMonsterPrefab();
         monsterNameText.text = randomMonster.GetComponent<Monster>().monsterName;
+
+        navMeshTriangles = NavMesh.CalculateTriangulation();
+        agent.destination = GetRandomDestination();
     }
 
     /// <summary>
@@ -113,18 +116,16 @@ public class WildEncounter : MonoBehaviour {
         bool chasingPlayer = Vector3.Distance(transform.position, player.transform.position) < monsterTriggerDistence;
         if (chasingPlayer) {
             agent.destination = player.transform.position;
-        }
-
-        if (Vector3.Distance(transform.position, agent.destination) < 1.0f && !chasingPlayer) {
+        } else if (Vector3.Distance(transform.position, agent.destination) < 1.0f) {
             // Reached destination
-            if (!chasingPlayer) {
-                agent.destination = GetRandomDestination();
-            }
+            agent.destination = GetRandomDestination();
+            Debug.Log("Reached destination!");
         }
 
         if (!agent.hasPath && !agent.pathPending) {
             // New destination
             agent.destination = GetRandomDestination();
+            Debug.Log("Choosing new random destination...");
         }
     }
 

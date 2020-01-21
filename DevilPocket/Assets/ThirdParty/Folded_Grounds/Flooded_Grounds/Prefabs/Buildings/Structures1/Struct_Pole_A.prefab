@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 405850}
   - component: {fileID: 20567504}
-  - component: {fileID: 8975304242817985892}
   m_Layer: 0
   m_Name: Struct_Pole_A
   m_TagString: Untagged
@@ -57,22 +56,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2346454}
   m_Enabled: 1
---- !u!114 &8975304242817985892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &148484
 GameObject:
   m_ObjectHideFlags: 0

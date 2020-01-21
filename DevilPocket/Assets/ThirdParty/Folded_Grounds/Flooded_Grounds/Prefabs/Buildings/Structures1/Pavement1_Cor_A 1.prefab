@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3368492}
   - component: {fileID: 2368518}
   - component: {fileID: 6438774}
-  - component: {fileID: 9113351588954216136}
   - component: {fileID: 7805584086216391973}
   m_Layer: 0
   m_Name: Pavement1_Cor_A 1
@@ -95,22 +94,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 2020aea23032fa3468a01f4033e661c3, type: 3}
---- !u!114 &9113351588954216136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!114 &7805584086216391973
 MonoBehaviour:
   m_ObjectHideFlags: 0

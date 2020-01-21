@@ -196,7 +196,7 @@ MonoBehaviour:
     type: 3}
   despawnTimeInSeconds: 300
   despawnMargin: 60
-  encounterCap: 25
+  encounterCap: 50
   timeUntilSpawning: 5
   despawnCheckInterval: 15
 --- !u!4 &1288718584

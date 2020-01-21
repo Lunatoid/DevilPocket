@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3340900}
   - component: {fileID: 2364454}
   - component: {fileID: 6441136}
-  - component: {fileID: -4910774852545103699}
   m_Layer: 0
   m_Name: Struct_Roundabout_A
   m_TagString: Untagged
@@ -95,19 +94,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 252ea566efa16964db6209b227a7281d, type: 3}
---- !u!114 &-4910774852545103699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
