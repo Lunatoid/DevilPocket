@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
     }
 
     private void TogglePlayer(Scene arg0, Scene arg1) {
-        gameObject.SetActive(arg1.name == "MainScene");
+        // @TODO: rename from Example_01 to something like "ArenaScene"
+        gameObject.SetActive(arg1.name == "MainScene" || arg1.name == "Example_01");
     }
 }
