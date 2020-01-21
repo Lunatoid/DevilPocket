@@ -37,6 +37,22 @@ public class WildEncounter : MonoBehaviour {
 
     LoadTransition lt;
 
+    bool wasChasingPlayer = false;
+
+    Vector3 GetRandomDestination() {
+        // Set agent to random path
+        NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
+
+        // Pick the first indice of a random triangle in the nav mesh
+        int t = Random.Range(0, navMeshData.indices.Length-3);
+
+        // Select a random point on it
+        Vector3 point = Vector3.Lerp(navMeshData.vertices[navMeshData.indices[t]], navMeshData.vertices[navMeshData.indices[t+1]], Random.value);
+        Vector3.Lerp(point, navMeshData.vertices[navMeshData.indices[t + 2]], Random.value);
+
+        return point;
+    }
+
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
@@ -47,8 +63,9 @@ public class WildEncounter : MonoBehaviour {
         monsterAnimator = GetComponent<Animator>();
 
         lt = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LoadTransition>();
-        
-        transition = GetComponent<Animator>();
+
+        // transition = GetComponent<Animator>();
+        transition = lt.GetComponentInChildren<Animator>();
 
         // Apply our own speed
         agent.speed = monsterSpeed;
@@ -56,9 +73,6 @@ public class WildEncounter : MonoBehaviour {
         // Get a random monster
         randomMonster = randomMonsterPicker.GetRandomMonsterPrefab();
         monsterNameText.text = randomMonster.GetComponent<Monster>().monsterName;
-
-       // transition.SetTrigger("init");
-
     }
 
     /// <summary>
@@ -89,7 +103,6 @@ public class WildEncounter : MonoBehaviour {
     }
 
 
-
     private void Update() {
         monsterNameText.transform.LookAt(player.transform);
 
@@ -97,9 +110,21 @@ public class WildEncounter : MonoBehaviour {
         monsterAnimator.SetFloat("speed", Mathf.Min(agent.velocity.magnitude, maxAnimationSpeed));
 
         // Stop if the distance between us and the player is greater than the trigger distance
-        agent.isStopped = Vector3.Distance(transform.position, player.transform.position) > monsterTriggerDistence;
-        if (!agent.isStopped) {
+        bool chasingPlayer = Vector3.Distance(transform.position, player.transform.position) < monsterTriggerDistence;
+        if (chasingPlayer) {
             agent.destination = player.transform.position;
+        }
+
+        if (Vector3.Distance(transform.position, agent.destination) < 1.0f && !chasingPlayer) {
+            // Reached destination
+            if (!chasingPlayer) {
+                agent.destination = GetRandomDestination();
+            }
+        }
+
+        if (!agent.hasPath && !agent.pathPending) {
+            // New destination
+            agent.destination = GetRandomDestination();
         }
     }
 

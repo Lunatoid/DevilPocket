@@ -2186,8 +2186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterNameText: {fileID: 4189499283990751400}
   monsterTriggerDistence: 20
-  monsterSpeed: 3.5
-  maxAnimationSpeed: 3.5
+  monsterSpeed: 6
+  maxAnimationSpeed: 4
   transition: {fileID: 0}
 --- !u!195 &2949045453487349242
 NavMeshAgent:
