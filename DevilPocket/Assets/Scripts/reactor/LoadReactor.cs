@@ -21,8 +21,7 @@ public class LoadReactor : MonoBehaviour {
             Debug.Log("Entering the arena");
             lt.FadeToBlack();
             StartCoroutine(EnteringReactor());
-        }
-        else {
+        } else {
             Debug.Log("Exiting the arena");
             lt.FadeToBlack();
             StartCoroutine(ExitReactor());

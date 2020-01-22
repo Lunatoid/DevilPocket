@@ -3399,8 +3399,8 @@ MonoBehaviour:
     m_Mode: 4
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 1703470080}
-    m_SelectOnRight: {fileID: 1923827902}
+    m_SelectOnLeft: {fileID: 1923827902}
+    m_SelectOnRight: {fileID: 1703470080}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -4531,7 +4531,6 @@ GameObject:
   - component: {fileID: 1311798544}
   - component: {fileID: 1311798546}
   - component: {fileID: 1311798545}
-  - component: {fileID: 1311798547}
   m_Layer: 5
   m_Name: MoevesHUD
   m_TagString: Untagged
@@ -4597,18 +4596,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311798543}
   m_CullTransparentMesh: 0
---- !u!114 &1311798547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1311798543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34af1f002653e754f96629bffe8af9d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1327453196
 GameObject:
   m_ObjectHideFlags: 0
@@ -5740,7 +5727,7 @@ PrefabInstance:
     - target: {fileID: 1117381401320205064, guid: 0e9bd469b39f7b8479a56e768a590c3d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1117381401320205065, guid: 0e9bd469b39f7b8479a56e768a590c3d,
         type: 3}
@@ -6573,8 +6560,8 @@ MonoBehaviour:
     m_Mode: 4
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 1045356572}
+    m_SelectOnLeft: {fileID: 1045356572}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
