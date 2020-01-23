@@ -30,6 +30,10 @@ public class BattleSystem : MonoBehaviour {
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
+    [Space]
+    public AudioClip attackSfx;
+    public AudioClip healSfx;
+    AudioSource audioSource;
 
     [Space]
     public BattleState state;
@@ -54,10 +58,11 @@ public class BattleSystem : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        
         if (!playerInventory) {
             playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
         }
+
+        audioSource = GetComponent<AudioSource>();
 
         state = BattleState.Start;
         StartCoroutine( SetupBattle());
@@ -193,8 +198,14 @@ public class BattleSystem : MonoBehaviour {
             dialoogText.text += "\nBut it was out of uses!";
         } else if (current.moves[index].type == MoveType.Attack) {
             dialoogText.text += $"\nIt hit for {current.moves[index].GetCalculatedValue(target.element)} damage!";
+            audioSource.clip = attackSfx;
+            audioSource.Play();
+            StartCoroutine(DamageBlink(target));
         } else if (current.moves[index].type == MoveType.Recover) {
             dialoogText.text += $"\nIt recovered {current.moves[index].GetCalculatedValue(target.element)} life points!";
+            audioSource.clip = healSfx;
+            audioSource.Play();
+            StartCoroutine(HealGlow(current));
         }
 
         yield return new WaitForSeconds(waitTimePlayer);
@@ -279,6 +290,45 @@ public class BattleSystem : MonoBehaviour {
     void LoadEnemyMonsterHud() {
         enemyMonster.SetSprite();
         enemyHUD.SetHUD(enemyMonster);
+    }
+
+    IEnumerator DamageBlink(Monster monster) {
+        // How many times it will blink
+        const int BLINK_TIMES = 3;
+
+        SpriteRenderer sr = monster.GetComponent<SpriteRenderer>();
+        for (int i = 0; i < BLINK_TIMES; ++i) {
+            sr.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            yield return new WaitForSeconds(0.1f);
+            sr.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator HealGlow(Monster monster) {
+        SpriteRenderer sr = monster.GetComponent<SpriteRenderer>();
+
+        float elapsedTime = 0.0f;
+        const float TIME_TO_LERP = 0.25f;
+
+        // White -> Green
+        while (elapsedTime < TIME_TO_LERP) {
+            elapsedTime += Time.deltaTime;
+            sr.color = Color.Lerp(sr.color, Color.green, (elapsedTime / TIME_TO_LERP));
+            yield return new WaitForEndOfFrame();
+        }
+
+        // Wait
+        yield return new WaitForSeconds(0.5f);
+
+        // Green -> White
+        elapsedTime = 0.0f;
+        while (elapsedTime < TIME_TO_LERP) {
+            elapsedTime += Time.deltaTime;
+            sr.color = Color.Lerp(sr.color, Color.white, (elapsedTime / TIME_TO_LERP));
+            yield return new WaitForEndOfFrame();
+        }
+
     }
 
     /// <summary>
