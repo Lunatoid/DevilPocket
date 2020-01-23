@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HospitalHeal : MonoBehaviour {
+    AudioSource source;
+
+    private void Start() {
+        source = GetComponent<AudioSource>();
+    }
+
     void HealMonster(Monster monster) {
         monster.currentHP = monster.maxHP;
         foreach (Move move in monster.moves) {
@@ -17,5 +23,7 @@ public class HospitalHeal : MonoBehaviour {
 
         HealMonster(inventory.GetMonster().GetComponent<Monster>());
         HealMonster(inventory.GetMonster(true).GetComponent<Monster>());
+
+        source.Play();
     }
 }
