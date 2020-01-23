@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac2475680b1fa941b5ac03615c289bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownedByPlayer: 1
+  ownedByPlayer: 0
   monsterName: Joris
   monsterLevel: 1
   damageValue: {x: 8, y: 2}
