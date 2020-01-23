@@ -18,8 +18,8 @@ public class EncounterManager : MonoBehaviour {
     [SerializeField]
     float despawnTimeInSeconds = 300.0f;
 
-    [SerializeField, Header("Monster's despawn time is despawnTimeInSeconds (+-) 1.0..despawnMargin")]
-    float despawnMargin = 60.0f;
+    [SerializeField, Header("Random interval from 0.0 to waitSpawnMargin to wait every respawn")]
+    float waitSpawnMargin = 10.0f;
 
     [SerializeField, Header("Amount of encounters that should be spawned at any given time")]
     int encounterCap;
@@ -61,18 +61,7 @@ public class EncounterManager : MonoBehaviour {
         }
     }
 
-    void SweepAndSpawn() {
-        Debug.Log("Starting SweepAndSpawn...");
-
-        // First sweep any instances that should despawn
-        for (int i = 0; i < spawnedEncounters.Count; ++i) {
-            if (System.DateTime.Now.Subtract(spawnedEncounters[i].instancedTime).TotalSeconds >= despawnTimeInSeconds) {
-                Destroy(spawnedEncounters[i].instance);
-                spawnedEncounters[i].instance = null;
-                Debug.Log("Despawning encounter");
-            }
-        }
-
+    IEnumerator RespawnMonsters() {
         // Spawn any new ones
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("EncounterSpawner");
 
@@ -93,20 +82,27 @@ public class EncounterManager : MonoBehaviour {
                 }
 
                 spawnedEncounters[i].instance = Instantiate(encounterPrefab, spawnPos, Quaternion.identity, transform);
-
                 spawnedEncounters[i].instancedTime = System.DateTime.Now;
-                bool plusMargin = Random.Range(0.0f, 1.0f) > 0.5f;
+                
+                Debug.Log("Spawning encounter at " + spawnPoint.name);
 
-                float margin = Random.Range(0.0f, despawnMargin);
-                if (!plusMargin) {
-                    margin = -margin;
-                }
-
-                spawnedEncounters[i].instancedTime.AddSeconds(margin);
-
-                Debug.Log("Spawning encounter at " + spawnPoint.name + "with a despawn time of " + (despawnTimeInSeconds + margin));
-
+                yield return new WaitForSeconds(Random.Range(0.0f, waitSpawnMargin));
             }
         }
+    }
+
+    void SweepAndSpawn() {
+        Debug.Log("Starting SweepAndSpawn...");
+
+        // First sweep any instances that should despawn
+        for (int i = 0; i < spawnedEncounters.Count; ++i) {
+            if (System.DateTime.Now.Subtract(spawnedEncounters[i].instancedTime).TotalSeconds >= despawnTimeInSeconds) {
+                Destroy(spawnedEncounters[i].instance);
+                spawnedEncounters[i].instance = null;
+                Debug.Log("Despawning encounter");
+            }
+        }
+
+        StartCoroutine(RespawnMonsters());
     }
 }
