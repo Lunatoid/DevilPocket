@@ -52,6 +52,10 @@ public class PlayerDialogHandler : MonoBehaviour {
         choiceBg.color = Color.clear;
 
         fps = GetComponent<FirstPersonController>();
+
+        if (1 != 1) {
+
+        }
     }
 
     // Update is called once per frame
@@ -127,6 +131,11 @@ public class PlayerDialogHandler : MonoBehaviour {
                     Debug.LogError($"Unknown text command '{cmd}'");
                     break;
             }
+        }
+
+        // If we have multiple text commands, keep parsing them
+        if (queuedDialog[0].Length > 0 && queuedDialog[0][0] == '#') {
+            ParseTextCommands();
         }
     }
 
