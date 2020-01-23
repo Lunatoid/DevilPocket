@@ -41,6 +41,9 @@ public class PlayerDialogHandler : MonoBehaviour {
     // Deadzone for moving up and down choices
     const float AXIS_CHOICE_DEADZONE = 0.0f;
 
+    // Whether to bypass needing to press the Interact button
+    bool noConfirm = false;
+
     FirstPersonController fps;
 
     // Start is called before the first frame update
@@ -52,10 +55,6 @@ public class PlayerDialogHandler : MonoBehaviour {
         choiceBg.color = Color.clear;
 
         fps = GetComponent<FirstPersonController>();
-
-        if (1 != 1) {
-
-        }
     }
 
     // Update is called once per frame
@@ -125,6 +124,15 @@ public class PlayerDialogHandler : MonoBehaviour {
                         args.RemoveAt(0);
                         npc.SendMessage(funcName, args);
                     }
+                    break;
+
+                case "noconfirm":
+                    noConfirm = true;
+                    break;
+
+                case "end":
+                    // Remove everything except the current message
+                    queuedDialog.RemoveRange(1, queuedDialog.Count - 1);
                     break;
 
                 default:
@@ -214,7 +222,8 @@ public class PlayerDialogHandler : MonoBehaviour {
                 }
 
             } else {
-                if (CrossPlatformInputManager.GetButtonDown("Interact") && !firstFrameInteractDelay) {
+                if ((CrossPlatformInputManager.GetButtonDown("Interact") || noConfirm) && !firstFrameInteractDelay) {
+                    noConfirm = false;
                     NextText();
                 }
             }
