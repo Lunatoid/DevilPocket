@@ -195,9 +195,9 @@ MonoBehaviour:
   encounterPrefab: {fileID: 8533627721036493047, guid: b2107c51a395f194bb3b8d16066d6c68,
     type: 3}
   despawnTimeInSeconds: 300
-  despawnMargin: 60
+  waitSpawnMargin: 10
   encounterCap: 50
-  timeUntilSpawning: 0
+  timeUntilSpawning: 3
   despawnCheckInterval: 15
 --- !u!4 &1288718584
 Transform:
