@@ -16,6 +16,9 @@ public class WildEncounter : MonoBehaviour {
     [SerializeField]
     float monsterSpeed = 3.5f;
 
+    [SerializeField]
+    float chaseModifier = 1.25f;
+
     [SerializeField, Header("This will be the cap of the animation speed.")]
     float maxAnimationSpeed = 2.5f;
 
@@ -114,6 +117,9 @@ public class WildEncounter : MonoBehaviour {
 
         // Stop if the distance between us and the player is greater than the trigger distance
         bool chasingPlayer = Vector3.Distance(transform.position, player.transform.position) < monsterTriggerDistence;
+
+        agent.speed = (chasingPlayer) ? monsterSpeed * chaseModifier : monsterSpeed;
+
         if (chasingPlayer) {
             agent.destination = player.transform.position;
         } else if (Vector3.Distance(transform.position, agent.destination) < 1.0f) {
