@@ -56383,9 +56383,7 @@ PrefabInstance:
 
         #function OpenFirstDoor
 
-        Great! Show me the power of your monsters.
-
-'
+        Great! Show me the power of your monsters.'
       objectReference: {fileID: 0}
     - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
         type: 3}
@@ -56394,16 +56392,12 @@ PrefabInstance:
 
         Why are you even here...
 
-        The exit is behind you...
-
-        by defeting the REACTOR PLOEG!
-
-'
+        The exit is behind you...'
       objectReference: {fileID: 0}
     - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
         type: 3}
       propertyPath: dialog.Array.data[4]
-      value: Good luck.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
         type: 3}

@@ -22,7 +22,7 @@ public class OpenReactorDoorsInside : MonoBehaviour {
     public void OpenFirstDoor(List<string> args) {
         Debug.Log("Open deur");
         openingDoors.SetTrigger("First");
-        // openingDoors.SetTrigger("Ice");
+        //openingDoors.SetTrigger("Ice");
     }
 
     public void OpenSecondDoor(List<string> args) {
