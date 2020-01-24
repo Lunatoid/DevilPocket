@@ -16,6 +16,7 @@ public class PlayerDialogHandler : MonoBehaviour {
         public List<string> choices = new List<string>();
         public int selectedIndex = 0;
     }
+
     bool alreadyMovedAxis = false; // Used to disable the key repeat on the axis
     bool firstFrameInteractDelay = false; // If you talk to an NPC on the same frame as having a choice it will skip the choice
     bool finishedAllText = false;
@@ -23,9 +24,9 @@ public class PlayerDialogHandler : MonoBehaviour {
     ChoiceInfo choiceInfo = new ChoiceInfo();
 
     public TextMeshProUGUI textbox;
-    public Image textboxBg;
+    public GameObject textboxBg;
     public TextMeshProUGUI choiceBox;
-    public Image choiceBg;
+    public GameObject choiceBg;
 
     // The last gameObject that added dialog.
     // Used for #function's SendMessage
@@ -45,15 +46,14 @@ public class PlayerDialogHandler : MonoBehaviour {
     bool noConfirm = false;
 
     FirstPersonController fps;
+    public AudioSource sfxSource;
+    public AudioClip selectClip;
+    public AudioClip confirmClip;
 
     // Start is called before the first frame update
     public void Init() {
-        textboxColor = textboxBg.color;
-        choiceColor = choiceBg.color;
-
-        textboxBg.color = Color.clear;
-        choiceBg.color = Color.clear;
-
+        textboxBg.SetActive(false);
+        choiceBg.SetActive(false);
         fps = GetComponent<FirstPersonController>();
     }
 
@@ -103,7 +103,7 @@ public class PlayerDialogHandler : MonoBehaviour {
                     choiceInfo.choices = args;
                     choiceInfo.selectedIndex = 0;
 
-                    choiceBg.color = choiceColor;
+                    choiceBg.SetActive(true);
 
                     textbox.text = queuedDialog[0];
                     break;
@@ -149,24 +149,22 @@ public class PlayerDialogHandler : MonoBehaviour {
 
     public void PushDialog(GameObject npc, string[] dialog) {
         // Only push the dialog if there is no queued dialog and we're not on the same frame as the final message
-        if (queuedDialog.Count == 0 && !finishedAllText) {
+        if (queuedDialog.Count == 0) {
             this.npc = npc;
 
             queuedDialog.AddRange(dialog);
             ParseTextCommands();
 
-            textboxBg.color = textboxColor;
+            textboxBg.SetActive(true);
             firstFrameInteractDelay = true;
         }
-
-        finishedAllText = false;
     }
 
     void HandleChoice() {
         choiceBox.text = "";
         for (int i = 0; i < choiceInfo.choices.Count; ++i) {
             if (i == choiceInfo.selectedIndex) {
-                choiceBox.text += $"<align=\"center\"><color=\"yellow\">{choiceInfo.choices[i]}</color></align>\n";
+                choiceBox.text += $"<align=\"center\"><u>{choiceInfo.choices[i]}</u></align>\n";
             } else {
                 choiceBox.text += $"<align=\"center\">{choiceInfo.choices[i]}</align>\n";
             }
@@ -176,6 +174,8 @@ public class PlayerDialogHandler : MonoBehaviour {
         // Debug.Log($"Axis {axis}");
         if (!alreadyMovedAxis && axis > AXIS_CHOICE_DEADZONE) {
             alreadyMovedAxis = true;
+            sfxSource.clip = selectClip;
+            sfxSource.Play();
             if (choiceInfo.selectedIndex == 0) {
                 choiceInfo.selectedIndex = choiceInfo.choices.Count - 1;
             } else {
@@ -183,6 +183,8 @@ public class PlayerDialogHandler : MonoBehaviour {
             }
         } else if (!alreadyMovedAxis && axis < AXIS_CHOICE_DEADZONE) {
             alreadyMovedAxis = true;
+            sfxSource.clip = selectClip;
+            sfxSource.Play();
             if (choiceInfo.selectedIndex == choiceInfo.choices.Count - 1) {
                 choiceInfo.selectedIndex = 0;
             } else {
@@ -195,8 +197,11 @@ public class PlayerDialogHandler : MonoBehaviour {
         if (CrossPlatformInputManager.GetButtonDown("Interact") && !firstFrameInteractDelay) {
             choiceInfo.makingChoice = false;
 
+            sfxSource.clip = confirmClip;
+            sfxSource.Play();
+
             choiceBox.text = "";
-            choiceBg.color = Color.clear;
+            choiceBg.SetActive(false);
 
             NextText();
         }
@@ -227,8 +232,8 @@ public class PlayerDialogHandler : MonoBehaviour {
                     NextText();
                 }
             }
-        } else if (textboxBg.color.a != 0.0f) {
-            textboxBg.color = Color.clear;
+        } else if (textboxBg.activeSelf) {
+            textboxBg.SetActive(false);
         }
     }
 

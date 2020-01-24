@@ -7949,6 +7949,8 @@ MonoBehaviour:
   enemyHUD: {fileID: 1194890978}
   attackSfx: {fileID: 8300000, guid: 343e727d9a0e39a469e33ae45f3c3d26, type: 3}
   healSfx: {fileID: 8300000, guid: a1a85175f79c3ff4c9cbda14521947c1, type: 3}
+  levelUpSfx: {fileID: 8300000, guid: 8bf79938a17d0664db6a2b95bf06364c, type: 3}
+  runSfx: {fileID: 8300000, guid: 351fe344ba1e9154a9535b7d798700c2, type: 3}
   state: 0
   baseMoney: 10
   minMoneyMod: 0.1

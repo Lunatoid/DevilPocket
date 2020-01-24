@@ -7,7 +7,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class NpcDialog : MonoBehaviour {
 
     // How close the player needs to be for them to be able to interact
-    const float INTERACT_DISTANCE = 3.5f;
+    const float INTERACT_DISTANCE = 3.0f;
 
     GameObject player;
     PlayerDialogHandler playerDialogHandler;
@@ -25,7 +25,11 @@ public class NpcDialog : MonoBehaviour {
     void Update() {
         if (CrossPlatformInputManager.GetButtonDown("Interact") &&
             Vector3.Distance(transform.position, player.transform.position) < INTERACT_DISTANCE) {
+            // Add dialog
             playerDialogHandler.PushDialog(gameObject, dialog);
+
+            // Look at player
+            // transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, transform.position.z));
         }
     }
 }

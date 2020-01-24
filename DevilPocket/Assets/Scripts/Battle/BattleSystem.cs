@@ -31,8 +31,19 @@ public class BattleSystem : MonoBehaviour {
     public BattleHUD enemyHUD;
 
     [Space]
-    public AudioClip attackSfx;
-    public AudioClip healSfx;
+
+    [SerializeField]
+    AudioClip attackSfx;
+
+    [SerializeField]
+    AudioClip healSfx;
+
+    [SerializeField]
+    AudioClip levelUpSfx;
+
+    [SerializeField]
+    AudioClip runSfx;
+
     AudioSource audioSource;
 
     [Space]
@@ -205,7 +216,7 @@ public class BattleSystem : MonoBehaviour {
             dialoogText.text += $"\nIt recovered {current.moves[index].GetCalculatedValue(target.element)} life points!";
             audioSource.clip = healSfx;
             audioSource.Play();
-            StartCoroutine(HealGlow(current));
+            StartCoroutine(FlashColor(current, Color.green));
         }
 
         yield return new WaitForSeconds(waitTimePlayer);
@@ -251,9 +262,20 @@ public class BattleSystem : MonoBehaviour {
             float expFloat = Random.Range(baseExp + (float)(enemyMonster.monsterLevel + 1) * minExpMod,
                                           baseExp + (float)(enemyMonster.monsterLevel + 1) * maxExpMod);
 
-            playerMonster.AddExp(Mathf.RoundToInt(expFloat));
+            bool leveledUp = playerMonster.AddExp(Mathf.RoundToInt(expFloat));
             LoadPlayerMonsterHud();
 
+            if (leveledUp) {
+                audioSource.clip = levelUpSfx;
+                audioSource.Play();
+
+                StartCoroutine(FlashColor(playerMonster, Color.cyan));
+
+                dialoogText.text = "Leveled up!\n";
+                dialoogText.text += "Damage increased by " + playerMonster.damageValue.y + "!\n";
+                dialoogText.text += "Healing increased by " + playerMonster.healValue.y + "!\n";
+                yield return new WaitForSeconds(waitTimeEnd * 3.0f);
+            }
 
             dialoogText.text = "You won the battle against " + enemyMonster.monsterName + "!";
             yield return new WaitForSeconds(waitTimeEnd);
@@ -305,7 +327,7 @@ public class BattleSystem : MonoBehaviour {
         }
     }
 
-    IEnumerator HealGlow(Monster monster) {
+    IEnumerator FlashColor(Monster monster, Color color) {
         SpriteRenderer sr = monster.GetComponent<SpriteRenderer>();
 
         float elapsedTime = 0.0f;
@@ -314,7 +336,7 @@ public class BattleSystem : MonoBehaviour {
         // White -> Green
         while (elapsedTime < TIME_TO_LERP) {
             elapsedTime += Time.deltaTime;
-            sr.color = Color.Lerp(sr.color, Color.green, (elapsedTime / TIME_TO_LERP));
+            sr.color = Color.Lerp(sr.color, color, (elapsedTime / TIME_TO_LERP));
             yield return new WaitForEndOfFrame();
         }
 
@@ -419,6 +441,8 @@ public class BattleSystem : MonoBehaviour {
     IEnumerator PerformRun(bool success) {
         if (success) {
             dialoogText.text = "You successfully ran away!";
+            audioSource.clip = runSfx;
+            audioSource.Play();
             yield return new WaitForSeconds(waitTimeEnd);
             ExitScene();
         } else {

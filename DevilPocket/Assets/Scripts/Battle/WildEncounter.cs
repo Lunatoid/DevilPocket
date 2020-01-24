@@ -22,10 +22,6 @@ public class WildEncounter : MonoBehaviour {
     [SerializeField, Header("This will be the cap of the animation speed.")]
     float maxAnimationSpeed = 2.5f;
 
-    // public GameObject transitionGO;
-    public Animator transition;
-
-
     // This is the random monster that the player will encounter
     // Decided at Start()
     GameObject randomMonster;
@@ -37,10 +33,6 @@ public class WildEncounter : MonoBehaviour {
     NavMeshAgent agent;
 
     Animator monsterAnimator;
-
-    LoadTransition lt;
-
-    bool wasChasingPlayer = false;
 
     NavMeshTriangulation navMeshTriangles;
 
@@ -65,11 +57,6 @@ public class WildEncounter : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         monsterAnimator = GetComponent<Animator>();
 
-        lt = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LoadTransition>();
-
-        // transition = GetComponent<Animator>();
-        transition = lt.GetComponentInChildren<Animator>();
-
         // Apply our own speed
         agent.speed = monsterSpeed;
 
@@ -88,17 +75,17 @@ public class WildEncounter : MonoBehaviour {
     private void OnTriggerEnter(Collider wildMonsterTrigger) {
         if (wildMonsterTrigger.gameObject.tag == "Player") {
 
-            Debug.Log("molesting mosnter");
-            lt.SildeUpDouwn();
+            // Debug.Log("molesting mosnter");
+            GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LoadTransition>().SlideUpDown();
 
-            Debug.Log("loading");
+            // Debug.Log("loading");
             StartCoroutine(LoadBattleScene());
         }
     }
 
     public IEnumerator LoadBattleScene() {
 
-        Debug.Log("Your fate is near");
+        // Debug.Log("Your fate is near");
 
         yield return new WaitForSeconds(1.1f);
 
@@ -125,13 +112,13 @@ public class WildEncounter : MonoBehaviour {
         } else if (Vector3.Distance(transform.position, agent.destination) < 1.0f) {
             // Reached destination
             agent.destination = GetRandomDestination();
-            Debug.Log("Reached destination!");
+            // Debug.Log("Reached destination!");
         }
 
         if (!agent.hasPath && !agent.pathPending) {
             // New destination
             agent.destination = GetRandomDestination();
-            Debug.Log("Choosing new random destination...");
+            // Debug.Log("Choosing new random destination...");
         }
     }
 

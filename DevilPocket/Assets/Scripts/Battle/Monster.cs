@@ -66,7 +66,7 @@ public class Monster : MonoBehaviour {
             currentHP = maxHP;
     }
 
-    public void AddExp(int exp) {
+    public bool AddExp(int exp) {
         currentXP += exp;
 
         if (currentXP >= xpUntilLevelUp) {
@@ -81,7 +81,10 @@ public class Monster : MonoBehaviour {
             foreach (Move move in moves) {
                 move.LevelUp();
             }
+
+            return true;
         }
+        return false;
     }
 
     public int GetCurrentExp() {

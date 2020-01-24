@@ -13,13 +13,13 @@ public class MainSceneInit : MonoBehaviour {
     TextMeshProUGUI textbox;
 
     [SerializeField]
-    Image textboxBg;
+    GameObject textboxBg;
 
     [SerializeField]
     TextMeshProUGUI choiceBox;
 
     [SerializeField]
-    Image choiceBg;
+    GameObject choiceBg;
 
     GameObject player;
 
