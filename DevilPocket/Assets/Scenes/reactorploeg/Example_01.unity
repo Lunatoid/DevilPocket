@@ -20707,9 +20707,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textbox: {fileID: 1375302713}
-  textboxBg: {fileID: 2102766213}
+  textboxBg: {fileID: 1423894135}
   choiceBox: {fileID: 1331398117}
-  choiceBg: {fileID: 1814905297}
+  choiceBg: {fileID: 1059122832}
 --- !u!4 &691284368
 Transform:
   m_ObjectHideFlags: 0
@@ -56383,9 +56383,7 @@ PrefabInstance:
 
         #function OpenFirstDoor
 
-        #end
-
-        Grate! Show me the power of your monsters.
+        Great! Show me the power of your monsters.
 
 '
       objectReference: {fileID: 0}
@@ -56393,8 +56391,6 @@ PrefabInstance:
         type: 3}
       propertyPath: dialog.Array.data[3]
       value: '#ifchoice No
-
-        #end
 
         Why are you even here...
 

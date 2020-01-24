@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using TMPro;
 using UnityEngine.UI;
@@ -49,6 +50,14 @@ public class PlayerDialogHandler : MonoBehaviour {
     public AudioSource sfxSource;
     public AudioClip selectClip;
     public AudioClip confirmClip;
+
+    public void Start() {
+        SceneManager.activeSceneChanged += DisableOnSceneChange;
+    }
+
+    private void DisableOnSceneChange(Scene arg0, Scene arg1) {
+        enabled = false;
+    }
 
     // Start is called before the first frame update
     public void Init() {
@@ -142,7 +151,7 @@ public class PlayerDialogHandler : MonoBehaviour {
         }
 
         // If we have multiple text commands, keep parsing them
-        if (queuedDialog[0].Length > 0 && queuedDialog[0][0] == '#') {
+        if (queuedDialog.Count > 0 && queuedDialog[0].Length > 0 && queuedDialog[0][0] == '#') {
             ParseTextCommands();
         }
     }
