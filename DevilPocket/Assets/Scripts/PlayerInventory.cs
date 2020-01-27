@@ -7,8 +7,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 #endif
 
-public class PlayerInventory : MonoBehaviour {
-    
+public class PlayerInventory : MonoBehaviour, IShopCostumer {
+
     [SerializeField]
     GameObject[] carriedMonsters = new GameObject[2];
 
@@ -53,12 +53,12 @@ public class PlayerInventory : MonoBehaviour {
                 carriedMonsters[i] = Instantiate(carriedMonsters[i], gameObject.transform);
                 carriedMonsters[i].GetComponent<Monster>().ownedByPlayer = true;
                 carriedMonsters[i].SetActive(false);
-        
+
                 // DontDestroyOnLoad(carriedMonsters[i]);
             }
         }
 
-        
+
     }
 
     /// <summary>
@@ -111,4 +111,26 @@ public class PlayerInventory : MonoBehaviour {
         }
     }
 #endif
+
+    public void BoughtItem(Item.ItemType itemType) {
+        Debug.Log("Bought item" + itemType);
+        switch (itemType) {
+
+            // when inplemented add the item on the corospending line.
+            case Item.ItemType.Aas:          break;
+            case Item.ItemType.Paracetamol:  break;
+            case Item.ItemType.Ibuprofen:    break;
+            case Item.ItemType.Morphine:     break;
+            case Item.ItemType.BattlePass:   break;
+        }
+    }
+
+    public bool TrySpendGoldAmount(int spendGoldAmount) {
+        if (money >= spendGoldAmount) {
+            money -= spendGoldAmount;
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
