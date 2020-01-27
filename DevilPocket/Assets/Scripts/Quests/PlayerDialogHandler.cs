@@ -107,6 +107,7 @@ public class PlayerDialogHandler : MonoBehaviour {
             // Debug.Log($"Parsing text command {cmd}");
 
             switch (cmd) {
+                // #choice OptionA OptionB ...
                 case "choice":
                     choiceInfo.makingChoice = true;
                     choiceInfo.choices = args;
@@ -117,6 +118,7 @@ public class PlayerDialogHandler : MonoBehaviour {
                     textbox.text = queuedDialog[0];
                     break;
 
+                // #ifchoice Yes
                 case "ifchoice":
                     if (args.Count == 1) {
                         // Remove it if the choice is not the current choice
@@ -127,6 +129,7 @@ public class PlayerDialogHandler : MonoBehaviour {
                     }
                     break;
 
+                // #function FunctionName arg1 arg2 ...
                 case "function":
                     if (args.Count >= 1) {
                         string funcName = args[0];
@@ -135,10 +138,12 @@ public class PlayerDialogHandler : MonoBehaviour {
                     }
                     break;
 
+                // #noconfirm
                 case "noconfirm":
                     noConfirm = true;
                     break;
 
+                // #end
                 case "end":
                     // Remove everything except the current message
                     queuedDialog.RemoveRange(1, queuedDialog.Count - 1);

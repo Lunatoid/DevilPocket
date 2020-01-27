@@ -18,6 +18,7 @@ public class PlayerInventory : MonoBehaviour {
 
     public bool hasBattlepass = false;
 
+    List<Quest> quests = new List<Quest>();
 
     private void Awake() {
         DontDestroyOnLoad(gameObject);
@@ -72,6 +73,27 @@ public class PlayerInventory : MonoBehaviour {
         GameObject tmp = carriedMonsters[0];
         carriedMonsters[0] = carriedMonsters[1];
         carriedMonsters[1] = tmp;
+    }
+
+    public void AddQuest(QuestGiver giver, Quest quest) {
+        quests.Add(quest);
+        quests[quests.Count - 1].giver = giver;
+    }
+
+
+    /// <summary>
+    /// Updates completion on all quests.
+    /// </summary>
+    /// <param name="intendedType">The intended type of the amount.</param>
+    /// <param name="amount">The amount.</param>
+    /// <returns>Whether or not any of them completed.</returns>
+    public bool UpdateCompletion(QuestGoal.GoalType intendedType, int amount = 1) {
+        bool anyCompleted = false;
+        foreach (Quest quest in quests) {
+            anyCompleted |= quest.UpdateCompletion(intendedType, amount);
+        }
+
+        return anyCompleted;
     }
 
 #if UNITY_EDITOR
