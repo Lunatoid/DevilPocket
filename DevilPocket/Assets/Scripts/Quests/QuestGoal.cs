@@ -8,7 +8,7 @@ public struct KillMonstersData {
     public int amountDone;
     public int amountRequired;
 
-    [Header("Leave blank for any monster (NYI)")]
+    [Header("Leave blank for any monster")]
     public string killName;
 }
 
@@ -22,7 +22,7 @@ public struct CatchMonstersData {
 }
 
 [System.Serializable]
-public struct DeliverItemsData {
+public struct BuyItemsData {
     public Item.ItemType itemType;
     public int amountDone;
     public int amountRequired;
@@ -31,7 +31,7 @@ public struct DeliverItemsData {
 public enum GoalType {
     KillMonsters,
     CatchMonsters,
-    DeliverItems
+    BuyItems
 }
 
 [System.Serializable]
@@ -46,7 +46,7 @@ public class QuestGoal {
 
     public KillMonstersData killMonstersData;
     public CatchMonstersData catchMonstersData;
-    public DeliverItemsData deliverItemsData;
+    public BuyItemsData buyItemsData;
 
     public bool Completed {
         get {
@@ -57,8 +57,8 @@ public class QuestGoal {
                 case GoalType.CatchMonsters:
                     return catchMonstersData.amountDone >= catchMonstersData.amountRequired;
 
-                case GoalType.DeliverItems:
-                    return deliverItemsData.amountDone >= deliverItemsData.amountRequired;
+                case GoalType.BuyItems:
+                    return buyItemsData.amountDone >= buyItemsData.amountRequired;
             }
 
             return false;
@@ -78,7 +78,7 @@ public class QuestGoal {
             case GoalType.KillMonsters:
                 if (customData is string) {
                     // This is the string of the monster name
-                    if (customData as string != killMonstersData.killName) break;
+                    if (killMonstersData.killName.Length > 0 && customData as string != killMonstersData.killName) break;
                 }
 
                 killMonstersData.amountDone += amount;
@@ -87,23 +87,32 @@ public class QuestGoal {
             case GoalType.CatchMonsters:
                 if (customData is string) {
                     // This is the string of the monster name
-                    if (customData as string != catchMonstersData.catchName) break;
+                    if (catchMonstersData.catchName.Length > 0 && customData as string != catchMonstersData.catchName) break;
                 }
 
                 catchMonstersData.amountDone += amount;
                 break;
 
-            case GoalType.DeliverItems:
+            case GoalType.BuyItems:
                 if (customData is Item.ItemType) {
                     // This is the item to collect
                     Item.ItemType itemType = (Item.ItemType)(System.Object)customData;
-                    if (itemType != deliverItemsData.itemType) break;
+                    if (itemType != buyItemsData.itemType) break;
                 }
 
-                deliverItemsData.amountDone += amount;
+                buyItemsData.amountDone += amount;
                 break;
         }
 
         return Completed;
+    }
+
+    public void CopyFromQuestGoal(QuestGoal other) {
+        goalType = other.goalType;
+        goalName = other.goalName;
+        goalDescription = other.goalDescription;
+        killMonstersData = other.killMonstersData;
+        catchMonstersData = other.catchMonstersData;
+        buyItemsData = other.buyItemsData;
     }
 }

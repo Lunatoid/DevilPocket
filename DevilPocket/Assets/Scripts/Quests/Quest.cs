@@ -50,4 +50,20 @@ public class Quest : MonoBehaviour {
 
         return anyCompleted;
     }
+
+    public void CopyFromQuest(Quest other) {
+        giver = other.giver;
+        questName = other.questName;
+        questDescription = other.questDescription;
+
+        questGoals = new QuestGoal[other.questGoals.Length];
+
+        for (int i = 0; i < other.questGoals.Length; ++i) {
+            questGoals[i] = new QuestGoal();
+            questGoals[i].CopyFromQuestGoal(other.questGoals[i]);
+        }
+
+        currentGoal = other.currentGoal;
+        moneyReward = other.moneyReward;
+    }
 }

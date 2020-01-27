@@ -20,8 +20,13 @@ public class PlayerInventory : MonoBehaviour {
 
     List<Quest> quests = new List<Quest>();
 
+    GameObject questHolder;
+
     private void Awake() {
         DontDestroyOnLoad(gameObject);
+
+        questHolder = new GameObject("QuestHolder");
+        questHolder.transform.parent = transform;
 
         // Populate our inventory with two random monsters
         RandomMonsterPicker randomMonsterPicker = GameObject.Find("RandomMonsterPicker").GetComponent<RandomMonsterPicker>();
@@ -75,9 +80,11 @@ public class PlayerInventory : MonoBehaviour {
         carriedMonsters[1] = tmp;
     }
 
-    public void AddQuest(QuestGiver giver, Quest quest) {
-        quests.Add(quest);
-        quests[quests.Count - 1].giver = giver;
+    public void AddQuest(Quest quest) {
+        Quest newQuest = questHolder.AddComponent<Quest>();
+        newQuest.CopyFromQuest(quest);
+
+        quests.Add(newQuest);
     }
 
 

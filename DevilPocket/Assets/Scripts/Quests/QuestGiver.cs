@@ -8,8 +8,17 @@ public class QuestGiver : MonoBehaviour {
 
     public Quest quest;
 
+    bool alreadyGaveQuest = false;
+
+    private void Start() {
+        quest.giver = this;
+    }
+
     // Meant to be called with #function
     void GiveQuest(List<string> args) {
-        GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>().AddQuest(this, quest);
+        if (!alreadyGaveQuest) {
+            alreadyGaveQuest = true;
+            GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>().AddQuest(quest);
+        }
     }
 }

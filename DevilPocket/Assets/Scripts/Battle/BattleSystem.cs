@@ -265,6 +265,9 @@ public class BattleSystem : MonoBehaviour {
             bool leveledUp = playerMonster.AddExp(Mathf.RoundToInt(expFloat));
             LoadPlayerMonsterHud();
 
+            // Update any quest data
+            playerInventory.UpdateCompletion(GoalType.KillMonsters, 1, enemyMonster.monsterName);
+
             if (leveledUp) {
                 audioSource.clip = levelUpSfx;
                 audioSource.Play();
