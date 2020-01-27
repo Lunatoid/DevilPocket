@@ -9,7 +9,7 @@ public struct KillMonstersData {
     public int amountRequired;
 
     [Header("Leave blank for any monster (NYI)")]
-    public string killName; // @TODO: Not yet implemented
+    public string killName;
 }
 
 [System.Serializable]
@@ -17,25 +17,25 @@ public struct CatchMonstersData {
     public int amountDone;
     public int amountRequired;
 
-    [Header("Leave blank for any monster (NYI)")]
-    public string catchName; // @TODO: Not yet implemented
+    [Header("Leave blank for any monster")]
+    public string catchName;
 }
 
 [System.Serializable]
 public struct DeliverItemsData {
-    // @TODO: ItemType type;
+    public Item.ItemType itemType;
     public int amountDone;
     public int amountRequired;
 }
 
+public enum GoalType {
+    KillMonsters,
+    CatchMonsters,
+    DeliverItems
+}
+
 [System.Serializable]
 public class QuestGoal {
-
-    public enum GoalType {
-        KillMonsters,
-        CatchMonsters,
-        DeliverItems
-    }
 
     public GoalType goalType;
 
@@ -71,23 +71,39 @@ public class QuestGoal {
     /// <param name="intendedType">The intended type of the amount.</param>
     /// <param name="amount">The amount.</param>
     /// <returns>Whether the goal was completed.</returns>
-    public bool UpdateCompletion(GoalType intendedType, int amount = 1) {
+    public bool UpdateCompletion<T>(GoalType intendedType, int amount = 1, T customData = default) {
         if (intendedType != goalType) return false;
 
         switch (goalType) {
             case GoalType.KillMonsters:
+                if (customData is string) {
+                    // This is the string of the monster name
+                    if (customData as string != killMonstersData.killName) break;
+                }
+
                 killMonstersData.amountDone += amount;
-                return Completed;
+                break;
 
             case GoalType.CatchMonsters:
+                if (customData is string) {
+                    // This is the string of the monster name
+                    if (customData as string != catchMonstersData.catchName) break;
+                }
+
                 catchMonstersData.amountDone += amount;
-                return Completed;
+                break;
 
             case GoalType.DeliverItems:
+                if (customData is Item.ItemType) {
+                    // This is the item to collect
+                    Item.ItemType itemType = (Item.ItemType)(System.Object)customData;
+                    if (itemType != deliverItemsData.itemType) break;
+                }
+
                 deliverItemsData.amountDone += amount;
-                return Completed;
+                break;
         }
 
-        return false;
+        return Completed;
     }
 }

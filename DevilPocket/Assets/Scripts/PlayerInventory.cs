@@ -87,10 +87,10 @@ public class PlayerInventory : MonoBehaviour {
     /// <param name="intendedType">The intended type of the amount.</param>
     /// <param name="amount">The amount.</param>
     /// <returns>Whether or not any of them completed.</returns>
-    public bool UpdateCompletion(QuestGoal.GoalType intendedType, int amount = 1) {
+    public bool UpdateCompletion<T>(GoalType intendedType, int amount = 1, T customData = default) {
         bool anyCompleted = false;
         foreach (Quest quest in quests) {
-            anyCompleted |= quest.UpdateCompletion(intendedType, amount);
+            anyCompleted |= quest.UpdateCompletion(intendedType, amount, customData);
         }
 
         return anyCompleted;
