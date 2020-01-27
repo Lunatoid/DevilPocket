@@ -62,7 +62,7 @@ public class Shop_UI : MonoBehaviour {
     }
 
     public void Hide() {
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
 }
