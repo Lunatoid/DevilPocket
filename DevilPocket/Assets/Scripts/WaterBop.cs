@@ -25,7 +25,7 @@ public class WaterBop : MonoBehaviour {
         if (isInWater) {
             if (leaveWaterTimer > 0.0f) {
                 leaveWaterTimer -= Time.deltaTime;
-                Debug.Log(leaveWaterTimer);
+                //Debug.Log(leaveWaterTimer);
             } else {
                 Debug.Log("Unmuting sounds");
                 player.GetComponent<FirstPersonController>().UnmuteSounds();
