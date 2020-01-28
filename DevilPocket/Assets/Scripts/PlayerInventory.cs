@@ -17,6 +17,13 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     public int money = 0;
 
     public bool hasBattlepass = false;
+    public int assAmont = 0;
+    public int paracetamolAmount = 0;
+    public int ibuprofenAmount = 0;
+    public int morphineAmount = 0;
+
+    AudioSource sourceBuyItem;
+    AudioSource sourceNoMonny;
 
     List<Quest> quests = new List<Quest>();
 
@@ -58,6 +65,8 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
             }
         }
 
+        sourceBuyItem = GetComponent<AudioSource>();
+        sourceNoMonny = GetComponent<AudioSource>();
 
     }
 
@@ -117,19 +126,21 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
         switch (itemType) {
 
             // when inplemented add the item on the corospending line.
-            case Item.ItemType.Aas:          break;
-            case Item.ItemType.Paracetamol:  break;
-            case Item.ItemType.Ibuprofen:    break;
-            case Item.ItemType.Morphine:     break;
-            case Item.ItemType.BattlePass:   break;
+            case Item.ItemType.Aas:             assAmont++; break;
+            case Item.ItemType.Paracetamol:     paracetamolAmount++; break;
+            case Item.ItemType.Ibuprofen:       ibuprofenAmount++; break;
+            case Item.ItemType.Morphine:        morphineAmount++; break;
+            case Item.ItemType.BattlePass:      hasBattlepass = true; break;
         }
     }
 
     public bool TrySpendGoldAmount(int spendGoldAmount) {
         if (money >= spendGoldAmount) {
             money -= spendGoldAmount;
+            sourceBuyItem.Play();
             return true;
         } else {
+            sourceNoMonny.Play();
             return false;
         }
     }
