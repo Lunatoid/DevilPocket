@@ -5,6 +5,7 @@ using UnityEngine;
 // Data for each quest
 [System.Serializable]
 public struct KillMonstersData {
+    [HideInInspector]
     public int amountDone;
     public int amountRequired;
 
@@ -14,6 +15,7 @@ public struct KillMonstersData {
 
 [System.Serializable]
 public struct CatchMonstersData {
+    [HideInInspector]
     public int amountDone;
     public int amountRequired;
 
@@ -24,6 +26,7 @@ public struct CatchMonstersData {
 [System.Serializable]
 public struct BuyItemsData {
     public Item.ItemType itemType;
+    [HideInInspector]
     public int amountDone;
     public int amountRequired;
 }
