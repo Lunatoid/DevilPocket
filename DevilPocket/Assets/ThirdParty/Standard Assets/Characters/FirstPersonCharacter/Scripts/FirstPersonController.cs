@@ -204,7 +204,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        private void GetInput(out float speed)
+        public void GetInput(out float speed)
         {
             // Custom
             if (movementLocked) {
