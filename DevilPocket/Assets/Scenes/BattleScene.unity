@@ -655,6 +655,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1933963153}
+        m_MethodName: IbuprofenButtonClik
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &81872200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5297,6 +5308,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1933963153}
+        m_MethodName: ParacetamolButtonClik
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1090232727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7672,6 +7694,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 613526019}
         m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1933963153}
+        m_MethodName: MorphineButtonClik
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10489,6 +10522,7 @@ GameObject:
   - component: {fileID: 1933963151}
   - component: {fileID: 1933963150}
   - component: {fileID: 1933963152}
+  - component: {fileID: 1933963153}
   m_Layer: 0
   m_Name: BattleSystem
   m_TagString: Untagged
@@ -10525,9 +10559,9 @@ MonoBehaviour:
   baseMoney: 10
   minMoneyMod: 0.1
   maxMoneyMod: 0.3
-  baseExp: 50
+  baseExp: 100
   minExpMod: 1
-  maxExpMod: 5
+  maxExpMod: 30
 --- !u!4 &1933963151
 Transform:
   m_ObjectHideFlags: 0
@@ -10638,6 +10672,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1933963153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933963149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81257c486b6aa74fa242fbaa035444f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1946471386
 GameObject:
   m_ObjectHideFlags: 0
