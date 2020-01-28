@@ -17,10 +17,14 @@ public class Shop_UI : MonoBehaviour {
     public Sprite morphine;
     public Sprite battlePass;
 
+    PlayerInventory playerInventory;
+
     private void Awake() {
         container = transform.Find("container");
         shopItemTemplate = container.Find("shopItemTemplate");
         shopItemTemplate.gameObject.SetActive(false);
+
+        playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
     }
 
 
@@ -52,6 +56,9 @@ public class Shop_UI : MonoBehaviour {
 
     public void TryBuyItem(Item.ItemType itemType) {
         if (shopCostumer.TrySpendGoldAmount(Item.GetCost(itemType))) {
+            // Update any quests that want to buy items
+            playerInventory.UpdateCompletion(GoalType.BuyItems, 1, itemType);
+
             shopCostumer.BoughtItem(itemType);
         }
     }
