@@ -22,8 +22,13 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     public int ibuprofenAmount = 0;
     public int morphineAmount = 0;
 
-    AudioSource sourceBuyItem;
-    AudioSource sourceNoMonny;
+    AudioSource shopSource;
+
+    [SerializeField]
+    AudioClip noMoneyClip;
+
+    [SerializeField]
+    AudioClip boughtItemClip;
 
     List<Quest> quests = new List<Quest>();
 
@@ -65,9 +70,7 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
             }
         }
 
-        sourceBuyItem = GetComponent<AudioSource>();
-        sourceNoMonny = GetComponent<AudioSource>();
-
+        shopSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -137,10 +140,12 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     public bool TrySpendGoldAmount(int spendGoldAmount) {
         if (money >= spendGoldAmount) {
             money -= spendGoldAmount;
-            sourceBuyItem.Play();
+            shopSource.clip = boughtItemClip;
+            shopSource.Play();
             return true;
         } else {
-            sourceNoMonny.Play();
+            shopSource.clip = noMoneyClip;
+            shopSource.Play();
             return false;
         }
     }

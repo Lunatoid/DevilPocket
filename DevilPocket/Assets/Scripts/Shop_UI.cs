@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 
+using UnityStandardAssets.Characters.FirstPerson;
+
 public class Shop_UI : MonoBehaviour {
     private Transform container;
     private Transform shopItemTemplate;
@@ -18,11 +20,11 @@ public class Shop_UI : MonoBehaviour {
     public Sprite battlePass;
 
     PlayerInventory playerInventory;
+    FirstPersonController fps;
 
     private void Awake() {
         container = transform.Find("container");
         shopItemTemplate = container.Find("shopItemTemplate");
-        shopItemTemplate.gameObject.SetActive(false);
 
         playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
     }
@@ -34,6 +36,11 @@ public class Shop_UI : MonoBehaviour {
         CreateItemButton(Item.ItemType.Ibuprofen, ibuprofen, "Ibuprofen", Item.GetCost(Item.ItemType.Ibuprofen), 2);
         CreateItemButton(Item.ItemType.Morphine, morphine, "Morphine", Item.GetCost(Item.ItemType.Morphine), 3);
         CreateItemButton(Item.ItemType.BattlePass, battlePass, "Battle pass", Item.GetCost(Item.ItemType.BattlePass), 4);
+
+        // We don't need the template anymore
+        Destroy(shopItemTemplate.gameObject);
+
+        fps = GameObject.Find("Player").GetComponent<FirstPersonController>();
 
         Hide();
     }
@@ -64,12 +71,25 @@ public class Shop_UI : MonoBehaviour {
     }
 
     public void Show(IShopCostumer shopCostumer) {
+        if (!fps) {
+            fps = GameObject.Find("Player").GetComponent<FirstPersonController>();
+        }
+        fps.enabled = false;
+
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         this.shopCostumer = shopCostumer;
-        gameObject.SetActive(true);
+        container.gameObject.SetActive(true);
     }
 
     public void Hide() {
-        gameObject.SetActive(false);
+        if (fps) {
+            fps.enabled = true;
+        }
+
+        container.gameObject.SetActive(false);
     }
 
 }

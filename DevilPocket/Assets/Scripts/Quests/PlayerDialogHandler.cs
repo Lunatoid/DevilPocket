@@ -20,8 +20,7 @@ public class PlayerDialogHandler : MonoBehaviour {
 
     bool alreadyMovedAxis = false; // Used to disable the key repeat on the axis
     bool firstFrameInteractDelay = false; // If you talk to an NPC on the same frame as having a choice it will skip the choice
-    bool finishedAllText = false;
-
+    
     ChoiceInfo choiceInfo = new ChoiceInfo();
 
     public TextMeshProUGUI textbox;
@@ -32,9 +31,6 @@ public class PlayerDialogHandler : MonoBehaviour {
     // The last gameObject that added dialog.
     // Used for #function's SendMessage
     GameObject npc;
-
-    Color textboxColor;
-    Color choiceColor;
 
     // How many seconds it takes for the next letter to appear
     const float TYPEWRITER_LETTER_TIME = 0.05f;
@@ -256,9 +252,5 @@ public class PlayerDialogHandler : MonoBehaviour {
         textbox.text = "";
         queuedDialog.RemoveAt(0);
         ParseTextCommands();
-
-        if (queuedDialog.Count == 0) {
-            finishedAllText = true;
-        }
     }
 }

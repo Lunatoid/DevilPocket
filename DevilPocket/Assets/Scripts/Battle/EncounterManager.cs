@@ -84,7 +84,7 @@ public class EncounterManager : MonoBehaviour {
                 spawnedEncounters[i].instance = Instantiate(encounterPrefab, spawnPos, Quaternion.identity, transform);
                 spawnedEncounters[i].instancedTime = System.DateTime.Now;
                 
-                Debug.Log("Spawning encounter at " + spawnPoint.name);
+                // Debug.Log("Spawning encounter at " + spawnPoint.name);
 
                 yield return new WaitForSeconds(Random.Range(0.0f, waitSpawnMargin));
             }
