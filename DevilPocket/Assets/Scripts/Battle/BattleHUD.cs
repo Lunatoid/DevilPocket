@@ -82,6 +82,19 @@ public class BattleHUD : MonoBehaviour {
     [SerializeField]
     TextMeshProUGUI move3Uses;
 
+ //  [SerializeField]
+ //  TextMeshProUGUI aasHoeveelhijd;
+ //
+ //  [SerializeField]
+ //  TextMeshProUGUI paracetamolhoeveelhijd;
+ //
+ //  [SerializeField]
+ //  TextMeshProUGUI ibuprofenhoeveelhijd;
+ //
+ //  [SerializeField]
+ //  TextMeshProUGUI morphineHoeveelhijd;
+ //
+ //  private PlayerInventory playerInventory;
 
     /// <summary>
     /// Applies the monster properties to the HUD
@@ -92,6 +105,11 @@ public class BattleHUD : MonoBehaviour {
         levelText.text = "Lvl " + monster.monsterLevel;
         hpSlider.maxValue = monster.maxHP;
         hpSlider.value = monster.currentHP;
+
+    //    aasHoeveelhijd.text = playerInventory.assAmont.ToString();
+    //    paracetamolhoeveelhijd.text = playerInventory.paracetamolAmount.ToString();
+    //    ibuprofenhoeveelhijd.text = playerInventory.ibuprofenAmount.ToString();
+    //    morphineHoeveelhijd.text = playerInventory.morphineAmount.ToString();
 
         if (expSlider) {
             expSlider.maxValue = monster.GetExpUntilLevelUp();

@@ -314,12 +314,14 @@ MonoBehaviour:
   - {fileID: 5588440095518819128, guid: 84061c9120e1e384d849c9ed02774f74, type: 3}
   enemyMonsters:
   - {fileID: 5588440095518819128, guid: c368eca4569658c41ba12f8f9f95b149, type: 3}
-  money: 1000
-  hasBattlepass: 1
-  assAmont: 0
-  paracetamolAmount: 0
+  money: 2000
+  hasBattlepass: 0
+  assAmont: 10
+  paracetamolAmount: 5
   ibuprofenAmount: 0
   morphineAmount: 0
+  noMoneyClip: {fileID: 8300000, guid: 7d1db80367819f44ebe863ac67c40926, type: 3}
+  boughtItemClip: {fileID: 8300000, guid: 53c203a356407fc438f70849d5b3a653, type: 3}
 --- !u!4 &1862359563
 Transform:
   m_ObjectHideFlags: 0
@@ -344,8 +346,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 747ba53d9fcb54b4bb2bdd8ea8c7cc85, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
