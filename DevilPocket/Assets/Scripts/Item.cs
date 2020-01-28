@@ -17,7 +17,7 @@ public class Item : MonoBehaviour {
         switch (itemType) {
             default:
             case ItemType.None:         return 0;
-            case ItemType.Aas:          return 20;
+            case ItemType.Aas:          return 5;
             case ItemType.Paracetamol:  return 20;
             case ItemType.Ibuprofen:    return 50;
             case ItemType.Morphine:     return 100;
