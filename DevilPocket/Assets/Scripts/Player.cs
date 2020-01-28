@@ -15,9 +15,5 @@ public class Player : MonoBehaviour {
         // @TODO: rename from Example_01 to something like "ArenaScene"
         gameObject.SetActive(arg1.name == "MainScene" || arg1.name == "Example_01");
 
-#if UNITY_EDITOR
-        gameObject.SetActive(arg1.name == "TomTestScene");
-#endif
-
     }
 }
