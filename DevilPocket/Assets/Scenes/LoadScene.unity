@@ -313,7 +313,7 @@ MonoBehaviour:
   - {fileID: 5588440095518819128, guid: 84061c9120e1e384d849c9ed02774f74, type: 3}
   enemyMonsters:
   - {fileID: 5588440095518819128, guid: c368eca4569658c41ba12f8f9f95b149, type: 3}
-  money: 0
+  money: 1000
   hasBattlepass: 1
 --- !u!4 &1862359563
 Transform:
@@ -398,7 +398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_RunSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}

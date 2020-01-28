@@ -9,6 +9,10 @@ public class OpenCostumerShop : MonoBehaviour {
 
     IShopCostumer shopCostumer;
 
+    private void Start() {
+        shopCostumer = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
+    }
+
     public void EnterShop() {
         shop_UI.Show(shopCostumer);
     }
