@@ -74,7 +74,7 @@ MonoBehaviour:
   - percentChance: 0.29
     monsterPrefab: {fileID: 5588440095518819128, guid: e1efc1f085c2b0244a59fc2d98b62441,
       type: 3}
-  - percentChance: 0.29
+  - percentChance: 0.15
     monsterPrefab: {fileID: 5588440095518819128, guid: d40ea7cb763042e47878c0e7b180c7de,
       type: 3}
   - percentChance: 0.29
