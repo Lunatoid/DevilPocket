@@ -5,50 +5,55 @@ using UnityEngine.UIElements;
 
 public class HealItem : MonoBehaviour {
     public enum HealType {
-        paracetamol,
-        ibuprofen,
-        morphine
+        Paracetamol,
+        Ibuprofen,
+        Morphine
     }
 
     PlayerInventory playerInventory;
+    BattleSystem battleSystem;
 
-    Monster monster;
+    public void Start() {
+        playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
+        battleSystem = GetComponent<BattleSystem>();
+    }
 
     public void ParacetamolButtonClik() {
-        ItemHeal(HealType.paracetamol, playerInventory, monster);
+        ItemHeal(HealType.Paracetamol, playerInventory);
     }
 
     public void IbuprofenButtonClik() {
-        ItemHeal(HealType.ibuprofen, playerInventory, monster);
+        ItemHeal(HealType.Ibuprofen, playerInventory);
     }
 
     public void MorphineButtonClik() {
-        ItemHeal(HealType.morphine, playerInventory, monster);
+        ItemHeal(HealType.Morphine, playerInventory);
     }
 
+    public void ItemHeal(HealType healType, PlayerInventory playerInventory) {
+        if (battleSystem.GetState() != BattleState.PlayerTurn) return;
 
-    public void ItemHeal(HealType healType, PlayerInventory playerInventory, Monster monster) {
         switch (healType) {
-            case HealType.paracetamol:
-                if (playerInventory.paracetamolAmount > 0) { // gives here an error
-                    monster.currentHP = monster.currentHP + (monster.maxHP / 3);
+            case HealType.Paracetamol:
+                if (playerInventory.paracetamolAmount > 0) {
                     playerInventory.paracetamolAmount--;
+                    StartCoroutine(battleSystem.UseHealItem(true, 20, "You used Paracetamol!"));
                     Debug.Log("Paracetamol");
                 }
                 break;
 
-            case HealType.ibuprofen:
-                if (playerInventory.ibuprofenAmount > 0) { // gives here an error
-                    monster.currentHP = monster.currentHP + (monster.maxHP / 2);
+            case HealType.Ibuprofen:
+                if (playerInventory.ibuprofenAmount > 0) {
                     playerInventory.ibuprofenAmount--;
+                    StartCoroutine(battleSystem.UseHealItem(true, 50, "You used Ibuprofen!"));
                     Debug.Log("ibuprofen");
                 }
                 break;
 
-            case HealType.morphine:
-                if (playerInventory.morphineAmount > 0) { // gives here an error
-                    monster.currentHP = monster.maxHP;
+            case HealType.Morphine:
+                if (playerInventory.morphineAmount > 0) {
                     playerInventory.morphineAmount--;
+                    StartCoroutine(battleSystem.UseHealItem(true, 120, "You used Morphine!"));
                     Debug.Log("morphine");
                 }
                 break;

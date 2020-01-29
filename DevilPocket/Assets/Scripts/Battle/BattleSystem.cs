@@ -500,6 +500,39 @@ public class BattleSystem : MonoBehaviour {
             PlayerTurn();
 
         }
+    }
 
+    public IEnumerator UseHealItem(bool playerMonster, int amount, string message = "") {
+        // Set state immediately so the player can't spam actions
+        state = (playerMonster) ? BattleState.EnemyTurn : BattleState.PlayerTurn;
+
+        if (playerMonster) {
+            playerHUD.UpdateUsesHUD(this.playerMonster);
+        }
+
+        Monster current = (playerMonster) ? this.playerMonster : enemyMonster;
+
+        dialoogText.text += $"{message}\nIt recovered {amount} life points!";
+        audioSource.clip = healSfx;
+        audioSource.Play();
+
+        StartCoroutine(FlashColor(current, Color.green));
+
+        current.Heal(amount);
+
+        playerHUD.SetHP(this.playerMonster.currentHP);
+        enemyHUD.SetHP(enemyMonster.currentHP);
+
+        yield return new WaitForSeconds(waitTimePlayer);
+
+        if (state == BattleState.EnemyTurn) {
+            StartCoroutine(PerformMove(enemyMonster, this.playerMonster, EnemyChooseMove()));
+        } else {
+            PlayerTurn();
+        }
+    }
+
+    public BattleState GetState() {
+        return state;
     }
 }

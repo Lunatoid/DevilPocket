@@ -72,7 +72,7 @@ public class BattleHUD : MonoBehaviour {
 
 
     [Space(20)]
-    [Header("Move Name")]
+    [Header("Move Uses")]
     [SerializeField]
     TextMeshProUGUI move1Uses;
 
@@ -82,19 +82,21 @@ public class BattleHUD : MonoBehaviour {
     [SerializeField]
     TextMeshProUGUI move3Uses;
 
- //  [SerializeField]
- //  TextMeshProUGUI aasHoeveelhijd;
- //
- //  [SerializeField]
- //  TextMeshProUGUI paracetamolhoeveelhijd;
- //
- //  [SerializeField]
- //  TextMeshProUGUI ibuprofenhoeveelhijd;
- //
- //  [SerializeField]
- //  TextMeshProUGUI morphineHoeveelhijd;
- //
- //  private PlayerInventory playerInventory;
+    [Space(20)]
+    [Header("Item Uses")]
+    [SerializeField]
+    TextMeshProUGUI baitUses;
+    
+    [SerializeField]
+    TextMeshProUGUI paracetamolUses;
+
+    [SerializeField]
+    TextMeshProUGUI ibuprofenUses;
+
+    [SerializeField]
+    TextMeshProUGUI morphineUses;
+
+    private PlayerInventory playerInventory;
 
     /// <summary>
     /// Applies the monster properties to the HUD
@@ -106,10 +108,12 @@ public class BattleHUD : MonoBehaviour {
         hpSlider.maxValue = monster.maxHP;
         hpSlider.value = monster.currentHP;
 
-    //    aasHoeveelhijd.text = playerInventory.assAmont.ToString();
-    //    paracetamolhoeveelhijd.text = playerInventory.paracetamolAmount.ToString();
-    //    ibuprofenhoeveelhijd.text = playerInventory.ibuprofenAmount.ToString();
-    //    morphineHoeveelhijd.text = playerInventory.morphineAmount.ToString();
+        //    aasHoeveelhijd.text = playerInventory.assAmont.ToString();
+        //    paracetamolhoeveelhijd.text = playerInventory.paracetamolAmount.ToString();
+        //    ibuprofenhoeveelhijd.text = playerInventory.ibuprofenAmount.ToString();
+        //    morphineHoeveelhijd.text = playerInventory.morphineAmount.ToString();
+
+        playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
 
         if (expSlider) {
             expSlider.maxValue = monster.GetExpUntilLevelUp();
@@ -182,19 +186,30 @@ public class BattleHUD : MonoBehaviour {
         }
     }
 
+    void SetButtonInteractable(Transform buttonTransform, bool interactable) {
+        buttonTransform.GetComponent<Button>().interactable = interactable;
+    }
+
     public void UpdateUsesHUD(Monster monster) {
-        // pp use
+        // pp uses
         move1Uses.text = monster.moves[0].uses + "/" + monster.moves[0].maxUses;
         move2Uses.text = monster.moves[1].uses + "/" + monster.moves[1].maxUses;
         move3Uses.text = monster.moves[2].uses + "/" + monster.moves[2].maxUses;
 
-        move1Uses.transform.parent.GetComponent<Button>().interactable = monster.moves[0].uses > 0;
-        move2Uses.transform.parent.GetComponent<Button>().interactable = monster.moves[1].uses > 0;
-        move3Uses.transform.parent.GetComponent<Button>().interactable = monster.moves[2].uses > 0;
+        SetButtonInteractable(move1Uses.transform.parent, monster.moves[0].uses > 0);
+        SetButtonInteractable(move2Uses.transform.parent, monster.moves[1].uses > 0);
+        SetButtonInteractable(move3Uses.transform.parent, monster.moves[2].uses > 0);
 
-        // Debug.Log(monster.moves[0].uses + " " + monster.moves[0].initialized);
-        // Debug.Log(monster.moves[1].uses + " " + monster.moves[1].initialized);
-        // Debug.Log(monster.moves[2].uses + " " + monster.moves[2].initialized);
+        // Item uses
+        baitUses.text = playerInventory.baitAmount.ToString();
+        paracetamolUses.text = playerInventory.paracetamolAmount.ToString();
+        ibuprofenUses.text = playerInventory.ibuprofenAmount.ToString();
+        morphineUses.text = playerInventory.morphineAmount.ToString();
+
+        SetButtonInteractable(baitUses.transform.parent, playerInventory.baitAmount > 0);
+        SetButtonInteractable(paracetamolUses.transform.parent, playerInventory.paracetamolAmount > 0);
+        SetButtonInteractable(ibuprofenUses.transform.parent, playerInventory.ibuprofenAmount > 0);
+        SetButtonInteractable(morphineUses.transform.parent, playerInventory.morphineAmount > 0);
     }
 
     //works fine.

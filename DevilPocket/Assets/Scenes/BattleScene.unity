@@ -5628,6 +5628,10 @@ MonoBehaviour:
   move1Uses: {fileID: 0}
   move2Uses: {fileID: 0}
   move3Uses: {fileID: 0}
+  baitUses: {fileID: 0}
+  paracetamolUses: {fileID: 0}
+  ibuprofenUses: {fileID: 0}
+  morphineUses: {fileID: 0}
 --- !u!1 &1198266248
 GameObject:
   m_ObjectHideFlags: 0
@@ -9521,6 +9525,10 @@ MonoBehaviour:
   move1Uses: {fileID: 1417300046}
   move2Uses: {fileID: 129916230}
   move3Uses: {fileID: 143744428}
+  baitUses: {fileID: 321543853}
+  paracetamolUses: {fileID: 84128803}
+  ibuprofenUses: {fileID: 998996905}
+  morphineUses: {fileID: 929987156}
 --- !u!1 &1724863883
 GameObject:
   m_ObjectHideFlags: 0

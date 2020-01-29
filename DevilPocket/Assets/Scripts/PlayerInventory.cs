@@ -17,7 +17,7 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     public int money = 0;
 
     public bool hasBattlepass = false;
-    public int assAmont = 0;
+    public int baitAmount = 0;
     public int paracetamolAmount = 0;
     public int ibuprofenAmount = 0;
     public int morphineAmount = 0;
@@ -129,7 +129,7 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
         switch (itemType) {
 
             // when inplemented add the item on the corospending line.
-            case Item.ItemType.Aas:             assAmont++; break;
+            case Item.ItemType.Aas:             baitAmount++; break;
             case Item.ItemType.Paracetamol:     paracetamolAmount++; break;
             case Item.ItemType.Ibuprofen:       ibuprofenAmount++; break;
             case Item.ItemType.Morphine:        morphineAmount++; break;
