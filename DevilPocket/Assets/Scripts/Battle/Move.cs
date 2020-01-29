@@ -78,4 +78,12 @@ public class Move : MonoBehaviour {
     public void LevelUp() {
         val += growth;
     }
+
+    public string SaveToString() {
+        return $"{uses}";
+    }
+
+    public void LoadFromString(string saveString) {
+        uses = int.Parse(saveString);
+    }
 }

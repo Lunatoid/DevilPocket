@@ -1,0 +1,10 @@
+2020
+0
+5
+1
+1
+False
+Konstantijn
+25 20 2 True,20,2,15
+Officier Yip
+50 44 2 True,15,5,6

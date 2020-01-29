@@ -95,4 +95,44 @@ public class Monster : MonoBehaviour {
         return xpUntilLevelUp;
     }
 
+    public string SaveToString() {
+        string saveString = $"{currentHP} {currentXP} {monsterLevel} {ownedByPlayer},";
+
+        // Save each move
+        for (int i = 0; i < moves.Length; ++i) {
+            saveString += moves[i].SaveToString();
+            if (i + 1 < moves.Length) {
+                saveString += ',';
+            }
+        }
+
+        return saveString;
+    }
+
+    public void LoadFromString(string saveString) {
+        string[] lines = saveString.Split(',');
+
+        Debug.Assert(lines.Length == 4);
+
+        // Load monster data
+        string[] values = lines[0].Split(' ');
+
+        Debug.Assert(values.Length == 4);
+
+        currentHP = int.Parse(values[0]);
+        currentXP = int.Parse(values[1]);
+        int targetLevel = int.Parse(values[2]);
+
+        // Level up to targetLevel
+        for (int i = 0; i < targetLevel - 1; ++i) {
+            AddExp(xpUntilLevelUp);
+        }
+
+        ownedByPlayer = bool.Parse(values[3]);
+
+        // Load move data
+        for (int i = 0; i < moves.Length; ++i) {
+            moves[i].LoadFromString(lines[i + 1]);
+        }
+    }
 }

@@ -49,4 +49,19 @@ public class RandomMonsterPicker : MonoBehaviour {
         // If no monster returned, just return the first item in the list, which should still be random thanks to the shuffle
         return randomMonsters[0].monsterPrefab;
     }
+
+    /// <summary>
+    /// Looks through all the monsters and returns the prefab of the specified name.
+    /// </summary>
+    /// <param name="monsterName">Name of the monster.</param>
+    /// <returns></returns>
+    public GameObject GetMonsterPrefabByName(string monsterName) {
+        foreach (MonsterEntry entry in randomMonsters) {
+            if (entry.monsterPrefab.GetComponent<Monster>().monsterName == monsterName) {
+                return entry.monsterPrefab;
+            }
+        }
+
+        return null;
+    }
 }

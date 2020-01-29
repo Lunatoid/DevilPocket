@@ -30,6 +30,8 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     [SerializeField]
     AudioClip boughtItemClip;
 
+    RandomMonsterPicker randomMonsterPicker;
+
     List<Quest> quests = new List<Quest>();
 
     GameObject questHolder;
@@ -41,7 +43,7 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
         questHolder.transform.parent = transform;
 
         // Populate our inventory with two random monsters
-        RandomMonsterPicker randomMonsterPicker = GameObject.Find("RandomMonsterPicker").GetComponent<RandomMonsterPicker>();
+        randomMonsterPicker = GameObject.Find("RandomMonsterPicker").GetComponent<RandomMonsterPicker>();
         for (int i = 0; i < carriedMonsters.Length; ++i) {
             do {
                 GameObject candidate = randomMonsterPicker.GetRandomMonsterPrefab();
@@ -71,6 +73,18 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
         }
 
         shopSource = GetComponent<AudioSource>();
+    }
+
+    public void LoadMonster(string monsterName, string saveString, bool secondaryMonster = false) {
+        int index = (secondaryMonster) ? 1 : 0;
+
+        // Destroy the carried monster
+        Destroy(carriedMonsters[index]);
+
+        // Get the monster by name
+        carriedMonsters[index] = Instantiate(randomMonsterPicker.GetMonsterPrefabByName(monsterName), gameObject.transform);
+        carriedMonsters[index].GetComponent<Monster>().LoadFromString(saveString);
+        carriedMonsters[index].SetActive(false);
     }
 
     /// <summary>
