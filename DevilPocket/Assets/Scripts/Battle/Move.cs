@@ -23,7 +23,7 @@ public class Move : MonoBehaviour {
         // Poison
         new float[] { 1.0f, 1.0f, 1.2f, 0.8f },
         // Metal
-        new float[] { 1.0f, 0.2f, 1.0f, 1.8f },
+        new float[] { 1.0f, 0.2f, 1.0f, 1.2f },
         // Ice
         new float[] { 1.0f, 1.2f, 0.8f, 1.0f }
     };

@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: Icicle
+  moveName: Ice Shuriken
   type: 0
   element: 3
   maxUses: 20
   uses: 20
-  val: 6
+  val: 7
