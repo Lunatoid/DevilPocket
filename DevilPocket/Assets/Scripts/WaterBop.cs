@@ -7,14 +7,14 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class WaterBop : MonoBehaviour {
 
     [SerializeField]
-    float forceAmount = 10.0f;
+    float forceAmount = 5.0f;
 
     GameObject player;
 
     // If we immediately unmute the audio it will still play the footsteps
     // We set a timer to unmute the audio
     const float LEAVE_WATER_UNMUTE_TIME = 0.5f;
-    bool isInWater = false;
+    public bool isInWater = false;
     float leaveWaterTimer = 0.0f;
 
     void Start() {
