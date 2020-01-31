@@ -20,7 +20,7 @@ DevilPocket/[Ll]ogs/
 DevilPocket/[Aa]ssets/Plugins/Editor/JetBrains*
 
 # Don't allow the save file
-DevilPocket[Aa]ssets/save.txt
+DevilPocket/[Aa]ssets/save.txt
 
 # Visual Studio cache directory
 .vs/
