@@ -44,33 +44,25 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
 
         // Populate our inventory with two random monsters
         randomMonsterPicker = GameObject.Find("RandomMonsterPicker").GetComponent<RandomMonsterPicker>();
-        for (int i = 0; i < carriedMonsters.Length; ++i) {
-            do {
-                GameObject candidate = randomMonsterPicker.GetRandomMonsterPrefab();
-
-                for (int j = 0; j < i; ++j) {
-                    // Check if we already have this prefab
-                    if (carriedMonsters[j] == candidate) {
-                        continue;
-                    }
-                }
-
-                // This one is unique, add it
-                carriedMonsters[i] = candidate;
-                break;
-            } while (true);
-        }
-
+        
         // Instantiate and initialize them
-        for (int i = 0; i < carriedMonsters.Length; ++i) {
-            if (carriedMonsters[i]) {
-                carriedMonsters[i] = Instantiate(carriedMonsters[i], gameObject.transform);
-                carriedMonsters[i].GetComponent<Monster>().ownedByPlayer = true;
-                carriedMonsters[i].SetActive(false);
+        carriedMonsters[0] = Instantiate(randomMonsterPicker.GetRandomMonsterPrefab(), gameObject.transform);
+        carriedMonsters[0].GetComponent<Monster>().ownedByPlayer = true;
+        carriedMonsters[0].SetActive(false);
 
-                // DontDestroyOnLoad(carriedMonsters[i]);
-            }
+        for (int i = 1; i < carriedMonsters.Length; ++i) {
+            carriedMonsters[i] = null;
         }
+
+        //for (int i = 0; i < carriedMonsters.Length; ++i) {
+        //    if (carriedMonsters[i]) {
+        //        carriedMonsters[i] = Instantiate(carriedMonsters[i], gameObject.transform);
+        //        carriedMonsters[i].GetComponent<Monster>().ownedByPlayer = true;
+        //        carriedMonsters[i].SetActive(false);
+        //
+        //        // DontDestroyOnLoad(carriedMonsters[i]);
+        //    }
+        //}
 
         shopSource = GetComponent<AudioSource>();
     }

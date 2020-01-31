@@ -111,13 +111,20 @@ public class BattleSystem : MonoBehaviour {
 
         if (playerGo.GetComponent<Monster>().currentHP <= 0) {
             playerGo = playerInventory.GetMonster(true);
-            if (playerGo.GetComponent<Monster>().currentHP <= 0) {
-                // Both of our monsters have no HP, retreat!
+
+            if (playerGo) {
+                if (playerGo.GetComponent<Monster>().currentHP <= 0) {
+                    // Both of our monsters have no HP, retreat!
+                    StartCoroutine(EscapeNoValidMonsters());
+                    yield break;
+                } else {
+                    // Our second monster is healthy
+                    playerInventory.SwitchMonsters();
+                }
+            } else {
+                // GameObject is null, we don't have a second monster
                 StartCoroutine(EscapeNoValidMonsters());
                 yield break;
-            } else {
-                // Our second monster is healthy
-                playerInventory.SwitchMonsters();
             }
         }
         LoadPlayerMonsterHud();
@@ -231,7 +238,8 @@ public class BattleSystem : MonoBehaviour {
             StartCoroutine(EndBattle());
         } else if (enemyWon) {
             // See if we can switch to our second monster
-            if (playerInventory.GetMonster(true).GetComponent<Monster>().currentHP > 0) {
+            GameObject otherMonster = playerInventory.GetMonster(true);
+            if (otherMonster && otherMonster.GetComponent<Monster>().currentHP > 0) {
                 StartCoroutine(PerformSwitch(true, BattleState.PlayerTurn));
             } else {
                 state = BattleState.Lost;
@@ -464,7 +472,10 @@ public class BattleSystem : MonoBehaviour {
         if (state != BattleState.PlayerTurn || !canInteract) return;
         canInteract = false;
 
-        StartCoroutine(PerformSwitch(playerInventory.GetMonster(true).GetComponent<Monster>().currentHP > 0, BattleState.EnemyTurn));
+        bool success = playerInventory.GetMonster(true) != null &&
+                       playerInventory.GetMonster(true).GetComponent<Monster>().currentHP > 0;
+
+        StartCoroutine(PerformSwitch(success, BattleState.EnemyTurn));
     }
 
     /// <summary>
@@ -494,9 +505,15 @@ public class BattleSystem : MonoBehaviour {
                 StartCoroutine(PerformMove(enemyMonster, playerMonster, EnemyChooseMove()));
             }
         } else {
-            string otherMonsterName = playerInventory.GetMonster(true).GetComponent<Monster>().monsterName;
-            dialoogText.text = $"Looks like {otherMonsterName} is not in fighting state...";
-            yield return new WaitForSeconds(waitTimeEnd);
+            GameObject otherMonster = playerInventory.GetMonster(true);
+            if (otherMonster) {
+                string otherMonsterName = playerInventory.GetMonster(true).GetComponent<Monster>().monsterName;
+                dialoogText.text = $"Looks like {otherMonsterName} is not in fighting state...";
+                yield return new WaitForSeconds(waitTimeEnd);
+            } else {
+                dialoogText.text = $"You have no other monster to switch to!";
+                yield return new WaitForSeconds(waitTimeEnd);
+            }
             PlayerTurn();
 
         }

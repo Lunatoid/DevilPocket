@@ -194,11 +194,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   encounterPrefab: {fileID: 8533627721036493047, guid: b2107c51a395f194bb3b8d16066d6c68,
     type: 3}
-  despawnTimeInSeconds: 300
-  waitSpawnMargin: 5
-  encounterCap: 50
-  timeUntilSpawning: 3
-  despawnCheckInterval: 15
+  despawnTimeInSeconds: 600
+  waitSpawnMargin: 4
+  encounterCap: 25
+  timeUntilSpawning: 0
+  despawnCheckInterval: 10
 --- !u!4 &1288718584
 Transform:
   m_ObjectHideFlags: 0

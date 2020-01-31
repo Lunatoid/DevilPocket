@@ -34,12 +34,20 @@ public class Saver : MonoBehaviour {
 
         // Carried monsters
         Monster primaryMonster = playerInventory.GetMonster().GetComponent<Monster>();
-        Monster secondaryMonster = playerInventory.GetMonster(true).GetComponent<Monster>();
-
         writer.WriteLine(primaryMonster.monsterName);
         writer.WriteLine(primaryMonster.SaveToString());
-        writer.WriteLine(secondaryMonster.monsterName);
-        writer.WriteLine(secondaryMonster.SaveToString());
+
+
+        GameObject secondaryMonsterGO = playerInventory.GetMonster(true);
+
+        if (secondaryMonsterGO) {
+            Monster secondaryMonster = secondaryMonsterGO.GetComponent<Monster>();
+
+            writer.WriteLine(secondaryMonster.monsterName);
+            writer.WriteLine(secondaryMonster.SaveToString());
+        } else {
+            writer.WriteLine("null");
+        }
 
         // @TODO: PC monsters
         // @TODO: completed quests
@@ -68,7 +76,10 @@ public class Saver : MonoBehaviour {
         string primaryMonsterName = reader.ReadLine();
         playerInventory.LoadMonster(primaryMonsterName, reader.ReadLine());
         string secondaryMonsterName = reader.ReadLine();
-        playerInventory.LoadMonster(secondaryMonsterName, reader.ReadLine(), true);
+        
+        if (secondaryMonsterName != "null") {
+            playerInventory.LoadMonster(secondaryMonsterName, reader.ReadLine(), true);
+        }
 
         // @TODO: PC monsters
         // @TODO: completed quests

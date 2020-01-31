@@ -22,7 +22,10 @@ public class HospitalHeal : MonoBehaviour {
         PlayerInventory inventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
 
         HealMonster(inventory.GetMonster().GetComponent<Monster>());
-        HealMonster(inventory.GetMonster(true).GetComponent<Monster>());
+
+        if (inventory.GetMonster(true)) {
+            HealMonster(inventory.GetMonster(true).GetComponent<Monster>());
+        }
 
         source.Play();
     }
