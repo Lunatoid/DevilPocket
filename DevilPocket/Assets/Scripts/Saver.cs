@@ -49,7 +49,15 @@ public class Saver : MonoBehaviour {
             writer.WriteLine("null");
         }
 
-        // @TODO: PC monsters
+        // PC monsters
+        writer.WriteLine(playerInventory.pcStorage.Count);
+
+        foreach (PlayerInventory.PcEntry entry in playerInventory.pcStorage) {
+            writer.WriteLine(entry.name);
+            writer.WriteLine(entry.saveString);
+        }
+
+
         // @TODO: completed quests
         // @TODO: completed bosses
 
@@ -79,6 +87,16 @@ public class Saver : MonoBehaviour {
         
         if (secondaryMonsterName != "null") {
             playerInventory.LoadMonster(secondaryMonsterName, reader.ReadLine(), true);
+        }
+
+        // PC monsters
+        int count = int.Parse(reader.ReadLine());
+        for (int i = 0; i < count; ++i) {
+            PlayerInventory.PcEntry entry;
+            entry.name = reader.ReadLine();
+            entry.saveString = reader.ReadLine();
+
+            playerInventory.pcStorage.Add(entry);
         }
 
         // @TODO: PC monsters

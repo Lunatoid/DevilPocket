@@ -259,39 +259,63 @@ public class BattleSystem : MonoBehaviour {
     /// Ends the battle and switches back to the main scene.
     /// Will show the appropiate text based on whether <c>state</c> is equal to <c>Won</c> or <c>Lost</c>.
     /// </summary>
-    IEnumerator EndBattle() {
+    /// <param name="killedEnemy">Whether or not the player won by killing the enemy. Only applicable if the player won.</param>
+    IEnumerator EndBattle(bool killedEnemy = true) {
         if (state == BattleState.Won) {
-            float moneyFloat = Random.Range(baseMoney + (float)(enemyMonster.monsterLevel + 1) * minMoneyMod,
-                                            baseMoney + (float)(enemyMonster.monsterLevel + 1) * maxMoneyMod);
+            if (killedEnemy) {
+                // Player killed the enemy
+                float moneyFloat = Random.Range(baseMoney + (float)(enemyMonster.monsterLevel + 1) * minMoneyMod,
+                                                baseMoney + (float)(enemyMonster.monsterLevel + 1) * maxMoneyMod);
 
-            int money = Mathf.RoundToInt(moneyFloat);
-            playerInventory.money += money;
+                int money = Mathf.RoundToInt(moneyFloat);
+                playerInventory.money += money;
 
-            float expFloat = Random.Range(baseExp + (float)(enemyMonster.monsterLevel + 1) * minExpMod,
-                                          baseExp + (float)(enemyMonster.monsterLevel + 1) * maxExpMod);
+                float expFloat = Random.Range(baseExp + (float)(enemyMonster.monsterLevel + 1) * minExpMod,
+                                              baseExp + (float)(enemyMonster.monsterLevel + 1) * maxExpMod);
 
-            bool leveledUp = playerMonster.AddExp(Mathf.RoundToInt(expFloat));
-            LoadPlayerMonsterHud();
+                bool leveledUp = playerMonster.AddExp(Mathf.RoundToInt(expFloat));
+                LoadPlayerMonsterHud();
 
-            // Update any quest data
-            playerInventory.UpdateCompletion(GoalType.KillMonsters, 1, enemyMonster.monsterName);
+                // Update any quest data
+                playerInventory.UpdateCompletion(GoalType.KillMonsters, 1, enemyMonster.monsterName);
 
-            if (leveledUp) {
-                audioSource.clip = levelUpSfx;
-                audioSource.Play();
+                if (leveledUp) {
+                    audioSource.clip = levelUpSfx;
+                    audioSource.Play();
 
-                StartCoroutine(FlashColor(playerMonster, Color.cyan));
+                    StartCoroutine(FlashColor(playerMonster, Color.cyan));
 
-                dialoogText.text = "Leveled up!\n";
-                dialoogText.text += "Damage increased by " + playerMonster.damageValue.y + "!\n";
-                dialoogText.text += "Healing increased by " + playerMonster.healValue.y + "!\n";
-                yield return new WaitForSeconds(waitTimeEnd * 3.0f);
+                    dialoogText.text = "Leveled up!\n";
+                    dialoogText.text += "Damage increased by " + playerMonster.damageValue.y + "!\n";
+                    dialoogText.text += "Healing increased by " + playerMonster.healValue.y + "!\n";
+                    yield return new WaitForSeconds(waitTimeEnd * 3.0f);
+                }
+
+                dialoogText.text = "You won the battle against " + enemyMonster.monsterName + "!";
+                yield return new WaitForSeconds(waitTimeEnd);
+                dialoogText.text = "You got " + money + " coins and " + Mathf.RoundToInt(expFloat) + " experience!";
+                yield return new WaitForSeconds(waitTimeEnd);
+            } else {
+                // Player caught the enemy
+
+                // Update any quest data
+                playerInventory.UpdateCompletion(GoalType.CatchMonsters, 1, enemyMonster.monsterName);
+
+                // Check if we can equip them immediately 
+                if (!playerInventory.GetMonster(true)) {
+                    playerInventory.LoadMonsterIntoParty(enemyMonster, true);
+
+                    dialoogText.text = $"{enemyMonster.monsterName} is now in your party!";
+                    yield return new WaitForSeconds(waitTimeEnd);
+                } else {
+                    // Send them to the PC
+                    playerInventory.AddMonsterToPc(enemyMonster);
+
+                    dialoogText.text = $"{enemyMonster.monsterName} has been sent to your PC!";
+                    yield return new WaitForSeconds(waitTimeEnd);
+                }
+
             }
-
-            dialoogText.text = "You won the battle against " + enemyMonster.monsterName + "!";
-            yield return new WaitForSeconds(waitTimeEnd);
-            dialoogText.text = "You got " + money + " coins and " + Mathf.RoundToInt(expFloat) + " experience!";
-            yield return new WaitForSeconds(waitTimeEnd);
         } else if (state == BattleState.Lost) {
             dialoogText.text = "You were slain by " + enemyMonster.monsterName + "!";
             yield return new WaitForSeconds(waitTimeEnd);
@@ -437,8 +461,7 @@ public class BattleSystem : MonoBehaviour {
     public void AttemptRun() {
         if (state != BattleState.PlayerTurn || !canInteract) return;
         canInteract = false;
-
-        // @TODO: better run algorithm
+        
         bool strongOrSameStrength = playerMonster.monsterLevel >= enemyMonster.monsterLevel;
 
         int percentChance = (strongOrSameStrength) ? 75 : 10;
@@ -519,6 +542,13 @@ public class BattleSystem : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Uses the heal item.
+    /// </summary>
+    /// <param name="playerMonster">Whether or not to heal the player or the enemy.</param>
+    /// <param name="amount">The amount.</param>
+    /// <param name="message">The message.</param>
+    /// <returns></returns>
     public IEnumerator UseHealItem(bool playerMonster, int amount, string message = "") {
         // Set state immediately so the player can't spam actions
         state = (playerMonster) ? BattleState.EnemyTurn : BattleState.PlayerTurn;
@@ -529,7 +559,7 @@ public class BattleSystem : MonoBehaviour {
 
         Monster current = (playerMonster) ? this.playerMonster : enemyMonster;
 
-        dialoogText.text += $"{message}\nIt recovered {amount} life points!";
+        dialoogText.text = $"{message}\nIt recovered {amount} life points!";
         audioSource.clip = healSfx;
         audioSource.Play();
 
@@ -547,6 +577,44 @@ public class BattleSystem : MonoBehaviour {
         } else {
             PlayerTurn();
         }
+    }
+
+    public IEnumerator CatchEnemyMonster() {
+        // Set state immediately so the player can't spam actions
+        state = BattleState.EnemyTurn;
+
+        playerHUD.UpdateUsesHUD(playerMonster);
+
+        dialoogText.text = $"You lay the bait!";
+
+        yield return new WaitForSeconds(waitTimePlayer);
+
+        // First do a level check
+        bool strongOrSameStrength = playerMonster.monsterLevel >= enemyMonster.monsterLevel;
+
+        int percentChance = (strongOrSameStrength) ? 75 : 10;
+        if (Random.Range(1, 101) <= percentChance) {
+            // We passed the first check, now do another one based on health
+
+            // Get the health percentage where 0.0 is full health and 1.0 is no health
+            float healthPercent = 1.0f - (float)enemyMonster.maxHP / (float)enemyMonster.currentHP;
+            percentChance = 60 - Mathf.RoundToInt(healthPercent) * 50;
+            if (Random.Range(1, 101) <= percentChance) {
+                dialoogText.text = $"{enemyMonster.monsterName} fell right for your trap!";
+                yield return new WaitForSeconds(waitTimePlayer);
+
+                // We got 'em!
+                state = BattleState.Won;
+                StartCoroutine(EndBattle(false));
+                yield break;
+            }
+
+        }
+
+        dialoogText.text = $"{enemyMonster.monsterName} sees right through your trap!";
+        yield return new WaitForSeconds(waitTimePlayer);
+
+        StartCoroutine(PerformMove(enemyMonster, playerMonster, EnemyChooseMove()));
     }
 
     public BattleState GetState() {

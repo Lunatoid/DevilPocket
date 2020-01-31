@@ -18,6 +18,16 @@ public class HealItem : MonoBehaviour {
         battleSystem = GetComponent<BattleSystem>();
     }
 
+    public void BaitButtonClick() {
+        if (battleSystem.GetState() != BattleState.PlayerTurn) return;
+
+        if (playerInventory.baitAmount > 0) {
+            playerInventory.baitAmount--;
+            StartCoroutine(battleSystem.CatchEnemyMonster());
+            Debug.Log("Bait");
+        }
+    }
+
     public void ParacetamolButtonClik() {
         ItemHeal(HealType.Paracetamol, playerInventory);
     }

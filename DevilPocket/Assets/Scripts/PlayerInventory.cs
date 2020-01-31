@@ -36,6 +36,15 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
 
     GameObject questHolder;
 
+    [System.Serializable]
+    public struct PcEntry {
+        public string name;
+        public string saveString;
+    }
+
+    [HideInInspector]
+    public List<PcEntry> pcStorage = new List<PcEntry>();
+
     private void Awake() {
         DontDestroyOnLoad(gameObject);
 
@@ -53,16 +62,6 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
         for (int i = 1; i < carriedMonsters.Length; ++i) {
             carriedMonsters[i] = null;
         }
-
-        //for (int i = 0; i < carriedMonsters.Length; ++i) {
-        //    if (carriedMonsters[i]) {
-        //        carriedMonsters[i] = Instantiate(carriedMonsters[i], gameObject.transform);
-        //        carriedMonsters[i].GetComponent<Monster>().ownedByPlayer = true;
-        //        carriedMonsters[i].SetActive(false);
-        //
-        //        // DontDestroyOnLoad(carriedMonsters[i]);
-        //    }
-        //}
 
         shopSource = GetComponent<AudioSource>();
     }
@@ -154,5 +153,50 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
             shopSource.Play();
             return false;
         }
+    }
+
+    /// <summary>
+    /// Adds the monster to the pc.
+    /// </summary>
+    /// <param name="monster">The monster.</param>
+    public void AddMonsterToPc(Monster monster) {
+        PcEntry entry;
+        entry.name = monster.monsterName;
+        entry.saveString = monster.SaveToString();
+
+        pcStorage.Add(entry);
+    }
+
+    /// <summary>
+    /// Loads the monster from the pc and stores the one it is going to replace.
+    /// </summary>
+    /// <param name="pcIndex">Index of the monster in the pc.</param>
+    /// <param name="secondaryMonster">If <c>false</c> it will replace the primary monster, if <c>true</c> it will replace the secondary.</param>
+    public void LoadMonsterFromPc(int pcIndex, bool secondaryMonster = false) {
+        int index = (secondaryMonster) ? 1 : 0;
+        PcEntry entry = pcStorage[pcIndex];
+
+        GameObject prefab = randomMonsterPicker.GetMonsterPrefabByName(entry.name);
+
+        // Put the current monster in the PC
+        if (carriedMonsters[index] != null) {
+            AddMonsterToPc(carriedMonsters[index].GetComponent<Monster>());
+        }
+
+        // Load the monster
+        carriedMonsters[index] = Instantiate(prefab, gameObject.transform);
+        carriedMonsters[index].GetComponent<Monster>().LoadFromString(entry.saveString);
+        carriedMonsters[index].GetComponent<Monster>().ownedByPlayer = true;
+        carriedMonsters[index].SetActive(false);
+    }
+
+    public void LoadMonsterIntoParty(Monster monster, bool secondaryMonster = false) {
+        int index = (secondaryMonster) ? 1 : 0;
+
+        GameObject prefab = randomMonsterPicker.GetMonsterPrefabByName(monster.monsterName);
+        carriedMonsters[index] = Instantiate(prefab, gameObject.transform);
+        carriedMonsters[index].GetComponent<Monster>().LoadFromString(monster.SaveToString());
+        carriedMonsters[index].GetComponent<Monster>().ownedByPlayer = true;
+        carriedMonsters[index].SetActive(false);
     }
 }
