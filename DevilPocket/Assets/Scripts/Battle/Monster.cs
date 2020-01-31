@@ -30,7 +30,16 @@ public class Monster : MonoBehaviour {
     [SerializeField, Header("Element 0 - Front, Element 1 - Back")]
     Sprite[] sprites = new Sprite[2];
 
-    private void Start() {
+    bool initialized = false;
+
+    void Start() {
+        Init();
+    }
+
+    void Init() {
+        if (initialized) return;
+        initialized = true;
+
         // UNITY FOR SOME REASON DOESN'T COPY THE PREFAB SO WHEN YOU
         // DO A MOVE IT WILL EDIT THE PREFAB AT RUNTIME.
         //
@@ -78,6 +87,10 @@ public class Monster : MonoBehaviour {
 
             xpUntilLevelUp = Mathf.RoundToInt((float)BASE_XP * Mathf.Pow((float)monsterLevel, 1.8f));
 
+            // Also level up HP
+            maxHP     += damageValue.y + healValue.y;
+            currentHP += damageValue.y + healValue.y;
+
             foreach (Move move in moves) {
                 move.LevelUp();
             }
@@ -96,6 +109,8 @@ public class Monster : MonoBehaviour {
     }
 
     public string SaveToString() {
+        Init();
+
         string saveString = $"{currentHP} {currentXP} {monsterLevel} {ownedByPlayer},";
 
         // Save each move
@@ -110,6 +125,8 @@ public class Monster : MonoBehaviour {
     }
 
     public void LoadFromString(string saveString) {
+        Init();
+
         string[] lines = saveString.Split(',');
 
         Debug.Assert(lines.Length == 4);
@@ -124,15 +141,23 @@ public class Monster : MonoBehaviour {
         int targetLevel = int.Parse(values[2]);
 
         // Level up to targetLevel
-        for (int i = 0; i < targetLevel - 1; ++i) {
-            AddExp(xpUntilLevelUp);
-        }
+        LevelTo(targetLevel);
 
         ownedByPlayer = bool.Parse(values[3]);
 
         // Load move data
         for (int i = 0; i < moves.Length; ++i) {
             moves[i].LoadFromString(lines[i + 1]);
+        }
+    }
+
+    public void LevelTo(int level) {
+        Init();
+
+        level = Mathf.Clamp(level, 1, 99);
+
+        for (int i = monsterLevel; i < level; ++i) {
+            AddExp(xpUntilLevelUp);
         }
     }
 }

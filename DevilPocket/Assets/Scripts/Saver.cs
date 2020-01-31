@@ -99,7 +99,6 @@ public class Saver : MonoBehaviour {
             playerInventory.pcStorage.Add(entry);
         }
 
-        // @TODO: PC monsters
         // @TODO: completed quests
         // @TODO: completed bosses
 

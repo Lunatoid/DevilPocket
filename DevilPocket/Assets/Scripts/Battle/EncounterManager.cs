@@ -30,9 +30,12 @@ public class EncounterManager : MonoBehaviour {
     [SerializeField, Header("The interval in checking if encounters should despawn and spawn new ones")]
     float despawnCheckInterval;
 
+    PlayerInventory playerInventory;
+
     // Start is called before the first frame update
     void Awake() {
         DontDestroyOnLoad(gameObject);
+        playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
         spawnedEncounters = new List<EncounterEntry>(encounterCap);
         
         for (int i = 0; i < encounterCap; ++i) {
@@ -65,6 +68,28 @@ public class EncounterManager : MonoBehaviour {
         // Spawn any new ones
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("EncounterSpawner");
 
+        int minLevel = 0;
+        int maxLevel = 0;
+
+        {
+            GameObject primaryMonster = playerInventory.GetMonster();
+            GameObject secondaryMonster = playerInventory.GetMonster(true);
+
+            if (secondaryMonster) {
+                minLevel = Mathf.Min(primaryMonster.GetComponent<Monster>().monsterLevel,
+                                     secondaryMonster.GetComponent<Monster>().monsterLevel);
+                maxLevel = Mathf.Max(primaryMonster.GetComponent<Monster>().monsterLevel,
+                                     secondaryMonster.GetComponent<Monster>().monsterLevel);
+            } else {
+                minLevel = primaryMonster.GetComponent<Monster>().monsterLevel;
+                maxLevel = primaryMonster.GetComponent<Monster>().monsterLevel;
+            }
+        }
+
+        // +/- 3 around the min and max
+        minLevel = Mathf.Max(1, minLevel - 3);
+        maxLevel = Mathf.Max(1, maxLevel + 3);
+
         for (int i = 0; i < spawnedEncounters.Count; ++i) {
             if (spawnedEncounters[i].instance == null) {
 
@@ -73,7 +98,7 @@ public class EncounterManager : MonoBehaviour {
 
                 // Raycast down to find the ground
                 RaycastHit hitInfo;
-                int mask = 1 << LayerMask.NameToLayer("terain");
+                int mask = 1 << LayerMask.NameToLayer("terain"); // YES THIS IS THE SPELLING
                 if (Physics.Raycast(spawnPoint.transform.position, Vector3.down, out hitInfo, 100000000.0f, mask)) {
                     spawnPos = hitInfo.point;
                 } else {
@@ -82,6 +107,7 @@ public class EncounterManager : MonoBehaviour {
                 }
 
                 spawnedEncounters[i].instance = Instantiate(encounterPrefab, spawnPos, Quaternion.identity, transform);
+                spawnedEncounters[i].instance.GetComponent<WildEncounter>().level = Random.Range(minLevel, maxLevel + 1);
                 spawnedEncounters[i].instancedTime = System.DateTime.Now;
                 
                 // Debug.Log("Spawning encounter at " + spawnPoint.name);

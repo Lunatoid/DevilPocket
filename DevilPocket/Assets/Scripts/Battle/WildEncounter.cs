@@ -22,6 +22,8 @@ public class WildEncounter : MonoBehaviour {
     [SerializeField, Header("This will be the cap of the animation speed.")]
     float maxAnimationSpeed = 2.5f;
 
+    public int level = 1;
+
     // This is the random monster that the player will encounter
     // Decided at Start()
     GameObject randomMonster;
@@ -74,6 +76,8 @@ public class WildEncounter : MonoBehaviour {
     /// <param name="wildMonsterTrigger"></param>
     private void OnTriggerEnter(Collider wildMonsterTrigger) {
         if (wildMonsterTrigger.gameObject.tag == "Player") {
+            // Apply level
+            randomMonster.GetComponent<Monster>().LevelTo(level);
 
             // Debug.Log("molesting mosnter");
             GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LoadTransition>().SlideUpDown();

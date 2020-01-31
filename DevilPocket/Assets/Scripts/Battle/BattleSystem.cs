@@ -288,6 +288,7 @@ public class BattleSystem : MonoBehaviour {
                     dialoogText.text = "Leveled up!\n";
                     dialoogText.text += "Damage increased by " + playerMonster.damageValue.y + "!\n";
                     dialoogText.text += "Healing increased by " + playerMonster.healValue.y + "!\n";
+                    dialoogText.text += "Hit points increased by " + (playerMonster.damageValue.y + playerMonster.healValue.y) + "!\n";
                     yield return new WaitForSeconds(waitTimeEnd * 3.0f);
                 }
 
