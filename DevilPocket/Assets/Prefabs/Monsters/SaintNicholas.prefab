@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Saint Nicholas
-  monsterLevel: 1
+  monsterLevel: 5
   damageValue: {x: 6, y: 2}
   healValue: {x: 2, y: 2}
   maxHP: 80

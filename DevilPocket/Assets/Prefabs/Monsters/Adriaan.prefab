@@ -98,9 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Adriaan
-  monsterLevel: 1
-  damageValue: {x: 1, y: 2}
-  healValue: {x: 2, y: 2}
+  monsterLevel: 5
+  damageValue: {x: 1, y: 1}
+  healValue: {x: 2, y: 1}
   maxHP: 69
   currentHP: 69
   element: 3

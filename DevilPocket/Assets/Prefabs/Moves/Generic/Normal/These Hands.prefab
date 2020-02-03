@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: These Hands
   type: 0
   element: 0
-  maxUses: 10
-  uses: 10
+  maxUses: 20
+  uses: 20
   val: 15

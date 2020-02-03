@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: -5146382565629805165}
   - component: {fileID: -913973807165747878}
   - component: {fileID: -6621711878775761462}
+  - component: {fileID: 516503900591434337}
+  - component: {fileID: 4899393154128229570}
+  - component: {fileID: -5950243394423520837}
   m_Layer: 0
   m_Name: Gaston
   m_TagString: Untagged
@@ -98,16 +101,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Gaston
-  monsterLevel: 2
+  monsterLevel: 9
   damageValue: {x: 2, y: 1}
   healValue: {x: 2, y: 1}
-  maxHP: 68
-  currentHP: 68
+  maxHP: 76
+  currentHP: 76
   element: 1
   moves:
-  - {fileID: -5146382565629805165}
-  - {fileID: -913973807165747878}
-  - {fileID: -6621711878775761462}
+  - {fileID: 516503900591434337}
+  - {fileID: 4899393154128229570}
+  - {fileID: -5950243394423520837}
   sprites:
   - {fileID: 21300000, guid: e9870c2dde7c3824f96e11096c2c64fc, type: 3}
   - {fileID: 21300000, guid: d63c323dfaddab64083957bde248bd77, type: 3}
@@ -165,3 +168,57 @@ MonoBehaviour:
   maxUses: 10
   uses: 10
   val: 18
+--- !u!114 &516503900591434337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Grug Smash
+  type: 0
+  element: 0
+  maxUses: 5
+  uses: 5
+  val: 28
+--- !u!114 &4899393154128229570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Antidote
+  type: 1
+  element: 1
+  maxUses: 10
+  uses: 10
+  val: 25
+--- !u!114 &-5950243394423520837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Serve Raw Food
+  type: 0
+  element: 1
+  maxUses: 10
+  uses: 10
+  val: 22

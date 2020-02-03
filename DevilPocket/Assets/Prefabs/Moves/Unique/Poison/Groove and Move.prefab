@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Groove and Move
   type: 0
   element: 1
-  maxUses: 10
-  uses: 10
+  maxUses: 20
+  uses: 20
   val: 17

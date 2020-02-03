@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Fernando
-  monsterLevel: 2
+  monsterLevel: 5
   damageValue: {x: 2, y: 2}
   healValue: {x: 6, y: 2}
   maxHP: 84

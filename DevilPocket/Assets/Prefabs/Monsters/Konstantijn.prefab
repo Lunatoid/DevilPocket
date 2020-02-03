@@ -95,9 +95,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Konstantijn
-  monsterLevel: 1
-  damageValue: {x: 3, y: 2}
-  healValue: {x: 2, y: 2}
+  monsterLevel: 5
+  damageValue: {x: 3, y: 1}
+  healValue: {x: 2, y: 1}
   maxHP: 55
   currentHP: 55
   element: 2

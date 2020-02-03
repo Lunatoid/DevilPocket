@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Heart of the Dice
   type: 0
   element: 2
-  maxUses: 12
-  uses: 12
+  maxUses: 24
+  uses: 24
   val: 14

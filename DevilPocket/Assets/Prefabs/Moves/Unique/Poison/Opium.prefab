@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: Opium
+  moveName: nCov-2019
   type: 0
   element: 1
-  maxUses: 15
-  uses: 15
+  maxUses: 30
+  uses: 30
   val: 13

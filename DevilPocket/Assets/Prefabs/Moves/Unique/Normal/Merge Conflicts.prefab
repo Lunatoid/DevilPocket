@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Merge Conflicts
   type: 0
   element: 0
-  maxUses: 5
-  uses: 5
+  maxUses: 10
+  uses: 10
   val: 30

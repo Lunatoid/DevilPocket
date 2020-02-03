@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Liver Damage
   type: 0
   element: 0
-  maxUses: 15
-  uses: 15
+  maxUses: 30
+  uses: 30
   val: 11

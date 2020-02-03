@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Anvil Drop
   type: 0
   element: 2
-  maxUses: 5
-  uses: 5
+  maxUses: 10
+  uses: 10
   val: 23

@@ -98,9 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Gijs
-  monsterLevel: 1
-  damageValue: {x: 3, y: 2}
-  healValue: {x: 2, y: 2}
+  monsterLevel: 5
+  damageValue: {x: 3, y: 1}
+  healValue: {x: 2, y: 1}
   maxHP: 58
   currentHP: 58
   element: 1

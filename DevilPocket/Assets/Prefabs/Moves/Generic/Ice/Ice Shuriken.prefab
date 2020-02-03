@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Ice Shuriken
   type: 0
   element: 3
-  maxUses: 20
-  uses: 20
+  maxUses: 40
+  uses: 40
   val: 7

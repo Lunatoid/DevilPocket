@@ -101,9 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Trainer
-  monsterLevel: 7
-  damageValue: {x: 2, y: 2}
-  healValue: {x: 2, y: 2}
+  monsterLevel: 5
+  damageValue: {x: 2, y: 1}
+  healValue: {x: 2, y: 1}
   maxHP: 99
   currentHP: 99
   element: 3

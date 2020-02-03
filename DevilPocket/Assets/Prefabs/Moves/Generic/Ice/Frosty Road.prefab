@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Frosty Road
   type: 0
   element: 3
-  maxUses: 5
-  uses: 5
+  maxUses: 10
+  uses: 10
   val: 23

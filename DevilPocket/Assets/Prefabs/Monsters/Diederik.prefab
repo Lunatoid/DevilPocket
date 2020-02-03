@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Diederik
-  monsterLevel: 4
+  monsterLevel: 5
   damageValue: {x: 1, y: 1}
   healValue: {x: 3, y: 1}
   maxHP: 78

@@ -46,6 +46,6 @@ MonoBehaviour:
   moveName: Japanese Language
   type: 0
   element: 0
-  maxUses: 15
-  uses: 15
+  maxUses: 30
+  uses: 30
   val: 10

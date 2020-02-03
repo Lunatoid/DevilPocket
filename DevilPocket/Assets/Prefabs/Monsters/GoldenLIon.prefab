@@ -95,9 +95,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Golden Lion
-  monsterLevel: 1
-  damageValue: {x: 3, y: 2}
-  healValue: {x: 1, y: 2}
+  monsterLevel: 5
+  damageValue: {x: 3, y: 1}
+  healValue: {x: 1, y: 1}
   maxHP: 72
   currentHP: 72
   element: 1
