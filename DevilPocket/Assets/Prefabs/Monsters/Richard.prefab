@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 5588440095518819131}
   - component: {fileID: 5588440095518819130}
   - component: {fileID: 5588440095518819125}
+  - component: {fileID: -1126094588383814314}
+  - component: {fileID: -3169925504228538379}
+  - component: {fileID: 7622622872016741919}
   m_Layer: 0
   m_Name: Richard
   m_TagString: Untagged
@@ -94,17 +97,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
-  monsterName: Ricard
-  monsterLevel: 1
+  monsterName: Richard
+  monsterLevel: 3
   damageValue: {x: 2, y: 1}
   healValue: {x: 1, y: 1}
-  maxHP: 84
-  currentHP: 84
+  maxHP: 88
+  currentHP: 88
   element: 3
   moves:
-  - {fileID: 5929243772648109525, guid: 0b95e6bd60673b74fb42a8e67a191c3d, type: 3}
-  - {fileID: 8427882285039793066, guid: 9d413a47d8be06e4e83fe78d2fbb6624, type: 3}
-  - {fileID: 9148025947520634365, guid: 768b23c7fcefe1445a7d79ca5b843872, type: 3}
+  - {fileID: -1126094588383814314}
+  - {fileID: -3169925504228538379}
+  - {fileID: 7622622872016741919}
   sprites:
   - {fileID: 21300000, guid: fab7cab36aabdaf4a9fb3e7d9c5f578d, type: 3}
   - {fileID: 21300000, guid: 3a211ee9cabf3da40a8fd084208fdd15, type: 3}
+--- !u!114 &-1126094588383814314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Grug Smash
+  type: 0
+  element: 0
+  maxUses: 5
+  uses: 5
+  val: 25
+--- !u!114 &-3169925504228538379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Water Bottle
+  type: 1
+  element: 3
+  maxUses: 10
+  uses: 10
+  val: 22
+--- !u!114 &7622622872016741919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: You're Fired
+  type: 0
+  element: 3
+  maxUses: 15
+  uses: 15
+  val: 15

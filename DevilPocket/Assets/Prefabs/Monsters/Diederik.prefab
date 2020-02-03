@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 2314592045236946009}
   - component: {fileID: 2314592045236946022}
   - component: {fileID: 2314592045236946023}
+  - component: {fileID: -3685600345386175911}
+  - component: {fileID: -3501728858925118061}
+  - component: {fileID: -5040049876545081124}
   m_Layer: 0
   m_Name: Diederik
   m_TagString: Untagged
@@ -95,16 +98,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Diederik
-  monsterLevel: 1
+  monsterLevel: 4
   damageValue: {x: 1, y: 1}
   healValue: {x: 3, y: 1}
-  maxHP: 72
-  currentHP: 72
+  maxHP: 78
+  currentHP: 78
   element: 2
   moves:
-  - {fileID: 9089079935574885266, guid: 072f352210008d5418de692a0f144cda, type: 3}
-  - {fileID: 9129702394386448749, guid: 3037b2198fc77dd43a1a218dd73e7032, type: 3}
-  - {fileID: 5683832465688105911, guid: 5090a81ee92b3ad428f0e1ff0aa80d80, type: 3}
+  - {fileID: -3685600345386175911}
+  - {fileID: -3501728858925118061}
+  - {fileID: -5040049876545081124}
   sprites:
   - {fileID: 21300000, guid: 26812a31450d0af41a6398da4d4ae302, type: 3}
   - {fileID: 21300000, guid: bf9a27f7e1ad8a148be6ee4c75643341, type: 3}
+--- !u!114 &-3685600345386175911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: These Hands
+  type: 0
+  element: 0
+  maxUses: 10
+  uses: 10
+  val: 18
+--- !u!114 &-3501728858925118061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Knife
+  type: 0
+  element: 2
+  maxUses: 10
+  uses: 10
+  val: 18
+--- !u!114 &-5040049876545081124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Heart of the Dice
+  type: 0
+  element: 2
+  maxUses: 12
+  uses: 12
+  val: 17

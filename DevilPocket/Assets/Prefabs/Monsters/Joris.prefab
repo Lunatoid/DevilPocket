@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 5588440095518819131}
   - component: {fileID: 5588440095518819130}
   - component: {fileID: 5588440095518819125}
+  - component: {fileID: -8097087030918080106}
+  - component: {fileID: 4549979273538625052}
+  - component: {fileID: 4937629576071208755}
   m_Layer: 0
   m_Name: Joris
   m_TagString: Untagged
@@ -95,16 +98,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Joris
-  monsterLevel: 1
+  monsterLevel: 2
   damageValue: {x: 8, y: 2}
   healValue: {x: 0, y: 2}
-  maxHP: 95
-  currentHP: 95
+  maxHP: 99
+  currentHP: 99
   element: 0
   moves:
-  - {fileID: 2904493311554246606, guid: 5825c70305fbb4c478c541c7995aa5c1, type: 3}
-  - {fileID: 4883965054988022405, guid: 9dd07477c0df31644b5bac015edf5afd, type: 3}
-  - {fileID: 4883965054988022405, guid: 2dc647831e14730449429cbefb32a513, type: 3}
+  - {fileID: -8097087030918080106}
+  - {fileID: 4549979273538625052}
+  - {fileID: 4937629576071208755}
   sprites:
   - {fileID: 21300000, guid: be719fd0d581a924d9cea120a11a9f5d, type: 3}
   - {fileID: 21300000, guid: f9c800e2d277d3e4994ade46637dc47c, type: 3}
+--- !u!114 &-8097087030918080106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Liver Damage
+  type: 0
+  element: 0
+  maxUses: 15
+  uses: 15
+  val: 13
+--- !u!114 &4549979273538625052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Hospital juices
+  type: 1
+  element: 0
+  maxUses: 5
+  uses: 5
+  val: 32
+--- !u!114 &4937629576071208755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: dislexia
+  type: 0
+  element: 0
+  maxUses: 5
+  uses: 5
+  val: 47

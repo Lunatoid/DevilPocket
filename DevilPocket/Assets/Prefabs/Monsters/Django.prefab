@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 2314592045236946009}
   - component: {fileID: 2314592045236946022}
   - component: {fileID: 2314592045236946023}
+  - component: {fileID: 9072575244379174185}
+  - component: {fileID: -73218519127718029}
+  - component: {fileID: -5715572971308349248}
   m_Layer: 0
   m_Name: Django
   m_TagString: Untagged
@@ -102,9 +105,63 @@ MonoBehaviour:
   currentHP: 50
   element: 2
   moves:
-  - {fileID: 8620193238673471425, guid: de3f116cad1df6942a06cca87b03afee, type: 3}
-  - {fileID: 4042540963995636795, guid: 100e7598b12ee7049811ee30524c3343, type: 3}
-  - {fileID: 656284145416467884, guid: 4d3eea41447ac1d43bc1294eb7aeaf29, type: 3}
+  - {fileID: 9072575244379174185}
+  - {fileID: -73218519127718029}
+  - {fileID: -5715572971308349248}
   sprites:
   - {fileID: 21300000, guid: 2b21bba7ffa5d3c4f8a3b48df1fd8eff, type: 3}
   - {fileID: 21300000, guid: 025dcb838ab8a534ba6c924d5f557d67, type: 3}
+--- !u!114 &9072575244379174185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Kick
+  type: 0
+  element: 0
+  maxUses: 20
+  uses: 20
+  val: 7
+--- !u!114 &-73218519127718029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Needle
+  type: 0
+  element: 2
+  maxUses: 20
+  uses: 20
+  val: 7
+--- !u!114 &-5715572971308349248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Quick Draw
+  type: 0
+  element: 2
+  maxUses: 5
+  uses: 5
+  val: 23
