@@ -322,7 +322,7 @@ MonoBehaviour:
   morphineAmount: 1
   noMoneyClip: {fileID: 8300000, guid: 7d1db80367819f44ebe863ac67c40926, type: 3}
   boughtItemClip: {fileID: 8300000, guid: 53c203a356407fc438f70849d5b3a653, type: 3}
-  questLedger: {fileID: 1923206673591217296, guid: c133863893e2aa94eab322e38d7c1150,
+  questLedgerPrefab: {fileID: 5727230179252295215, guid: c133863893e2aa94eab322e38d7c1150,
     type: 3}
   pcStorage: []
 --- !u!4 &1862359563

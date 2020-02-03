@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using System.IO;
+
 public class Menu : MonoBehaviour
 {
     LoadTransition lt;
@@ -11,8 +13,15 @@ public class Menu : MonoBehaviour
         lt = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LoadTransition>();
     }
 
-   public void LoadMainScene() {
+    public void LoadGame() {
         StartCoroutine(LoadMainSceneCO());
+    }
+
+    public void NewGame() {
+        if (File.Exists($"{Application.dataPath}/save.txt")) {
+            File.Delete($"{Application.dataPath}/save.txt");
+        }
+        LoadGame();
     }
 
     public void ExitGame() {

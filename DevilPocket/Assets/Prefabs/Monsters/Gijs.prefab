@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 5588440095518819131}
   - component: {fileID: 5588440095518819130}
   - component: {fileID: 5588440095518819125}
+  - component: {fileID: 5935671533768111515}
+  - component: {fileID: 2498941817553049017}
+  - component: {fileID: 4338562613161911794}
   m_Layer: 0
   m_Name: Gijs
   m_TagString: Untagged
@@ -102,9 +105,63 @@ MonoBehaviour:
   currentHP: 58
   element: 1
   moves:
-  - {fileID: 4619254192897032504, guid: f6736db10ef13a248a3b8e53e3a010d8, type: 3}
-  - {fileID: 6735199846944130454, guid: 2f9fab67d0c2d3d458931a7539ec894e, type: 3}
-  - {fileID: 5522158253931881316, guid: c9b02ac17174ea44d91b8ace32ccf066, type: 3}
+  - {fileID: 5935671533768111515}
+  - {fileID: 2498941817553049017}
+  - {fileID: 4338562613161911794}
   sprites:
   - {fileID: 21300000, guid: 0b23164cd44414f4ca6946540ab97206, type: 3}
   - {fileID: 21300000, guid: 09493d63c9f9dd54585f8a49d3485472, type: 3}
+--- !u!114 &5935671533768111515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Pope's Blessing
+  type: 1
+  element: 0
+  maxUses: 5
+  uses: 5
+  val: 35
+--- !u!114 &2498941817553049017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Poison Dart
+  type: 0
+  element: 1
+  maxUses: 20
+  uses: 20
+  val: 7
+--- !u!114 &4338562613161911794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Groove and Move
+  type: 0
+  element: 1
+  maxUses: 10
+  uses: 10
+  val: 17
