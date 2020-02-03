@@ -44,23 +44,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   giver: {fileID: 0}
+  goalType: 0
   questName: Exterminate Richard
   questDescription: Nobody likes Richard. Time to get rid of him!
-  questGoals:
-  - goalType: 0
-    goalName: Killing the Richard
-    goalDescription: Try to find Richard in the wild and then get rid of him!
-    killMonstersData:
-      amountDone: 0
-      amountRequired: 5
-      killName: Richard
-    catchMonstersData:
-      amountDone: 0
-      amountRequired: 0
-      catchName: 
-    buyItemsData:
-      itemType: 0
-      amountDone: 0
-      amountRequired: 0
-  currentGoal: 0
   moneyReward: 100
+  killMonstersData:
+    amountDone: 0
+    amountRequired: 5
+    killName: Richard
+  catchMonstersData:
+    amountDone: 0
+    amountRequired: 0
+    catchName: 
+  buyItemsData:
+    itemType: 0
+    amountDone: 0
+    amountRequired: 0

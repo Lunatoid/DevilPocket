@@ -57,6 +57,8 @@ public class Saver : MonoBehaviour {
             writer.WriteLine(entry.saveString);
         }
 
+        // Quests
+        writer.WriteLine(playerInventory.SaveQuestLedger());
 
         // @TODO: completed quests
         // @TODO: completed bosses
@@ -98,6 +100,9 @@ public class Saver : MonoBehaviour {
 
             playerInventory.pcStorage.Add(entry);
         }
+
+        // Quests
+        playerInventory.LoadQuestLedger(reader);
 
         // @TODO: completed quests
         // @TODO: completed bosses

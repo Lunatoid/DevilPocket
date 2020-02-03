@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.IO;
+
 // DEBUG!!!
 #if UNITY_EDITOR
 using UnityEngine.SceneManagement;
@@ -32,9 +34,9 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
 
     RandomMonsterPicker randomMonsterPicker;
 
-    List<Quest> quests = new List<Quest>();
-
-    GameObject questHolder;
+    [SerializeField]
+    GameObject questLedgerPrefab;
+    QuestLedger questLedger;
 
     [System.Serializable]
     public struct PcEntry {
@@ -48,8 +50,8 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     private void Awake() {
         DontDestroyOnLoad(gameObject);
 
-        questHolder = new GameObject("QuestHolder");
-        questHolder.transform.parent = transform;
+        GameObject ledger = Instantiate(questLedgerPrefab, transform);
+        questLedger = ledger.GetComponent<QuestLedger>();
 
         // Populate our inventory with two random monsters
         randomMonsterPicker = GameObject.Find("RandomMonsterPicker").GetComponent<RandomMonsterPicker>();
@@ -97,11 +99,8 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
         carriedMonsters[1] = tmp;
     }
 
-    public void AddQuest(Quest quest) {
-        Quest newQuest = questHolder.AddComponent<Quest>();
-        newQuest.CopyFromQuest(quest);
-
-        quests.Add(newQuest);
+    public void AddQuest(string name) {
+        questLedger.AcceptQuest(name);
     }
 
 
@@ -112,12 +111,7 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     /// <param name="amount">The amount.</param>
     /// <returns>Whether or not any of them completed.</returns>
     public bool UpdateCompletion<T>(GoalType intendedType, int amount = 1, T customData = default) {
-        bool anyCompleted = false;
-        foreach (Quest quest in quests) {
-            anyCompleted |= quest.UpdateCompletion(intendedType, amount, customData);
-        }
-
-        return anyCompleted;
+        return questLedger.UpdateCompletion(intendedType, amount, customData);
     }
 
 #if UNITY_EDITOR
@@ -198,5 +192,13 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
         carriedMonsters[index].GetComponent<Monster>().LoadFromString(monster.SaveToString());
         carriedMonsters[index].GetComponent<Monster>().ownedByPlayer = true;
         carriedMonsters[index].SetActive(false);
+    }
+
+    public string SaveQuestLedger() {
+        return questLedger.Save();
+    }
+
+    public void LoadQuestLedger(StreamReader reader) {
+        questLedger.Load(reader);
     }
 }

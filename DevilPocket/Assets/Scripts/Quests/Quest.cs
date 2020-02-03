@@ -2,68 +2,142 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Data for each quest
+[System.Serializable]
+public struct KillMonstersData {
+    public int amountDone;
+    public int amountRequired;
+
+    [Header("Leave blank for any monster")]
+    public string killName;
+}
+
+[System.Serializable]
+public struct CatchMonstersData {
+    public int amountDone;
+    public int amountRequired;
+
+    [Header("Leave blank for any monster")]
+    public string catchName;
+}
+
+[System.Serializable]
+public struct BuyItemsData {
+    public Item.ItemType itemType;
+    public int amountDone;
+    public int amountRequired;
+}
+
+public enum GoalType {
+    KillMonsters,
+    CatchMonsters,
+    BuyItems
+}
+
 public class Quest : MonoBehaviour {
+    public GoalType goalType;
 
-    [HideInInspector]
-    public QuestGiver giver;
-
+    public string questGiverName;
     public string questName;
+
+    public bool acceptedQuest = false;
 
     [Multiline]
     public string questDescription;
 
-    public QuestGoal[] questGoals;
-
-    [HideInInspector]
-    public int currentGoal;
-
     public int moneyReward;
+    private bool collectedReward = false;
+
+    public KillMonstersData killMonstersData;
+    public CatchMonstersData catchMonstersData;
+    public BuyItemsData buyItemsData;
 
     public bool Completed {
         get {
-            foreach (QuestGoal goal in questGoals) {
-                if (!goal.Completed) {
-                    return false;
-                }
+            switch (goalType) {
+                case GoalType.KillMonsters:
+                    return killMonstersData.amountDone >= killMonstersData.amountRequired;
+
+                case GoalType.CatchMonsters:
+                    return catchMonstersData.amountDone >= catchMonstersData.amountRequired;
+
+                case GoalType.BuyItems:
+                    return buyItemsData.amountDone >= buyItemsData.amountRequired;
             }
 
-            return true;
+            return false;
         }
     }
 
     /// <summary>
-    /// Updates completion on all goals.
+    /// Updates the completion amount if the intended type is the same.
     /// </summary>
     /// <param name="intendedType">The intended type of the amount.</param>
     /// <param name="amount">The amount.</param>
-    /// <returns>Whether or not any of them completed.</returns>
+    /// <returns>Whether the goal was completed.</returns>
     public bool UpdateCompletion<T>(GoalType intendedType, int amount = 1, T customData = default) {
-        bool anyCompleted = false;
-        foreach (QuestGoal goal in questGoals) {
-            anyCompleted |= goal.UpdateCompletion(intendedType, amount, customData);
+        if (intendedType != goalType) return false;
+
+        switch (goalType) {
+            case GoalType.KillMonsters:
+                if (customData is string) {
+                    // This is the string of the monster name
+                    if (killMonstersData.killName.Length > 0 && customData as string != killMonstersData.killName) break;
+                }
+
+                killMonstersData.amountDone += amount;
+                break;
+
+            case GoalType.CatchMonsters:
+                if (customData is string) {
+                    // This is the string of the monster name
+                    if (catchMonstersData.catchName.Length > 0 && customData as string != catchMonstersData.catchName) break;
+                }
+
+                catchMonstersData.amountDone += amount;
+                break;
+
+            case GoalType.BuyItems:
+                if (customData is Item.ItemType) {
+                    // This is the item to collect
+                    Item.ItemType itemType = (Item.ItemType)(System.Object)customData;
+                    if (itemType != buyItemsData.itemType) break;
+                }
+
+                buyItemsData.amountDone += amount;
+                break;
         }
 
-        // Check if the current quest is completed
-        if (questGoals[currentGoal].Completed) {
-            ++currentGoal;
-        }
-
-        return anyCompleted;
+        return Completed;
     }
 
     public void CopyFromQuest(Quest other) {
-        giver = other.giver;
+        questGiverName = other.questGiverName;
         questName = other.questName;
         questDescription = other.questDescription;
+        acceptedQuest = other.acceptedQuest;
 
-        questGoals = new QuestGoal[other.questGoals.Length];
+        goalType = other.goalType;
+        killMonstersData = other.killMonstersData;
+        catchMonstersData = other.catchMonstersData;
+        buyItemsData = other.buyItemsData;
 
-        for (int i = 0; i < other.questGoals.Length; ++i) {
-            questGoals[i] = new QuestGoal();
-            questGoals[i].CopyFromQuestGoal(other.questGoals[i]);
-        }
-
-        currentGoal = other.currentGoal;
         moneyReward = other.moneyReward;
+    }
+
+    public string SaveToString() {
+        return $"{acceptedQuest},{collectedReward},{killMonstersData.amountDone},{catchMonstersData.amountDone},{buyItemsData.amountDone}";
+    }
+
+    public void LoadFromString(string saveString) {
+        string[] lines = saveString.Split(',');
+
+        Debug.Assert(lines.Length == 5);
+
+        acceptedQuest = bool.Parse(lines[0]);
+        collectedReward = bool.Parse(lines[1]);
+        killMonstersData.amountDone = int.Parse(lines[2]);
+        catchMonstersData.amountDone = int.Parse(lines[3]);
+        buyItemsData.amountDone = int.Parse(lines[4]);
     }
 }

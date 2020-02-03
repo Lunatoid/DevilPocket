@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &4244767477103581624
+--- !u!114 &2832332472530142945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57411965b2cf68d4681879b14d380054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGiverName: Name
-  quest: {fileID: 0}
 --- !u!1001 &870060918324123466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24,7 +22,7 @@ PrefabInstance:
     - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
         type: 3}
       propertyPath: m_Name
-      value: NPC_Quest
+      value: NPC_Quest Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
         type: 3}
@@ -89,7 +87,7 @@ PrefabInstance:
     - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
         type: 3}
       propertyPath: dialog.Array.data[0]
-      value: '#function GiveQuest
+      value: '#function GiveQuest PrefabNameHere
 
         Here is a quest!'
       objectReference: {fileID: 0}

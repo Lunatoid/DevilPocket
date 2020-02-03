@@ -285,8 +285,9 @@ public class BattleSystem : MonoBehaviour {
 
                     StartCoroutine(FlashColor(playerMonster, Color.cyan));
 
-                    dialoogText.text = "Leveled up!\n";
-                    dialoogText.text += "Damage increased by " + playerMonster.damageValue.y + "!\n";
+                    dialoogText.text = "Leveled up!";
+                    yield return new WaitForSeconds(waitTimeEnd);
+                    dialoogText.text = "Damage increased by " + playerMonster.damageValue.y + "!\n";
                     dialoogText.text += "Healing increased by " + playerMonster.healValue.y + "!\n";
                     dialoogText.text += "Hit points increased by " + (playerMonster.damageValue.y + playerMonster.healValue.y) + "!\n";
                     yield return new WaitForSeconds(waitTimeEnd * 3.0f);
