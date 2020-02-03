@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 2314592045236946009}
   - component: {fileID: 2314592045236946022}
   - component: {fileID: 2314592045236946023}
+  - component: {fileID: 2333313780391988855}
+  - component: {fileID: -7899572148893275584}
+  - component: {fileID: 7915232709073198574}
   m_Layer: 0
   m_Name: Bob
   m_TagString: Untagged
@@ -95,16 +98,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Bob
-  monsterLevel: 1
+  monsterLevel: 3
   damageValue: {x: 1, y: 2}
   healValue: {x: 1, y: 2}
-  maxHP: 80
-  currentHP: 80
+  maxHP: 88
+  currentHP: 88
   element: 2
   moves:
-  - {fileID: 5929243772648109525, guid: 0b95e6bd60673b74fb42a8e67a191c3d, type: 3}
-  - {fileID: 8891199487633102933, guid: f1bd5cd3c141fc84caad079a78ea5f8a, type: 3}
-  - {fileID: 1354320140519062471, guid: f52b4b347cb962d4a9ac5892a05fdbeb, type: 3}
+  - {fileID: 2333313780391988855}
+  - {fileID: -7899572148893275584}
+  - {fileID: 7915232709073198574}
   sprites:
   - {fileID: 21300000, guid: 353bea5d61e8e9049abc89744bba9721, type: 3}
   - {fileID: 21300000, guid: 16a09fce905dac644b693243a8132894, type: 3}
+--- !u!114 &2333313780391988855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Grug Smash
+  type: 0
+  element: 0
+  maxUses: 5
+  uses: 5
+  val: 27
+--- !u!114 &-7899572148893275584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Derust
+  type: 1
+  element: 2
+  maxUses: 10
+  uses: 10
+  val: 24
+--- !u!114 &7915232709073198574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Workplace Accident
+  type: 0
+  element: 2
+  maxUses: 10
+  uses: 10
+  val: 21

@@ -314,12 +314,12 @@ MonoBehaviour:
   - {fileID: 5588440095518819128, guid: 84061c9120e1e384d849c9ed02774f74, type: 3}
   enemyMonsters:
   - {fileID: 5588440095518819128, guid: c368eca4569658c41ba12f8f9f95b149, type: 3}
-  money: 2000
+  money: 0
   hasBattlepass: 0
   baitAmount: 0
-  paracetamolAmount: 5
-  ibuprofenAmount: 1
-  morphineAmount: 1
+  paracetamolAmount: 0
+  ibuprofenAmount: 0
+  morphineAmount: 0
   noMoneyClip: {fileID: 8300000, guid: 7d1db80367819f44ebe863ac67c40926, type: 3}
   boughtItemClip: {fileID: 8300000, guid: 53c203a356407fc438f70849d5b3a653, type: 3}
   questLedgerPrefab: {fileID: 5727230179252295215, guid: c133863893e2aa94eab322e38d7c1150,

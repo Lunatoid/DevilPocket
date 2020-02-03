@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 6077562678366196320}
   - component: {fileID: 9218850777456972447}
   - component: {fileID: -3087042761593051476}
+  - component: {fileID: 6544229668047205922}
+  - component: {fileID: -7269467727337555709}
+  - component: {fileID: -8715349967293556836}
   m_Layer: 0
   m_Name: Trainer
   m_TagString: Untagged
@@ -98,16 +101,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Trainer
-  monsterLevel: 3
+  monsterLevel: 7
   damageValue: {x: 2, y: 2}
   healValue: {x: 2, y: 2}
-  maxHP: 83
-  currentHP: 83
+  maxHP: 99
+  currentHP: 99
   element: 3
   moves:
-  - {fileID: 6077562678366196320}
-  - {fileID: 9218850777456972447}
-  - {fileID: -3087042761593051476}
+  - {fileID: 6544229668047205922}
+  - {fileID: -7269467727337555709}
+  - {fileID: -8715349967293556836}
   sprites:
   - {fileID: 21300000, guid: 99a2fb00b81792a48b6a549a849e1ce4, type: 3}
   - {fileID: 21300000, guid: 3573c47ca125d244e9b89dffafd29b1d, type: 3}
@@ -165,3 +168,57 @@ MonoBehaviour:
   maxUses: 10
   uses: 10
   val: 22
+--- !u!114 &6544229668047205922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Restore
+  type: 1
+  element: 0
+  maxUses: 15
+  uses: 15
+  val: 27
+--- !u!114 &-7269467727337555709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Frosty Road
+  type: 0
+  element: 3
+  maxUses: 5
+  uses: 5
+  val: 35
+--- !u!114 &-8715349967293556836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Yellow Mouse
+  type: 0
+  element: 3
+  maxUses: 10
+  uses: 10
+  val: 30

@@ -33,6 +33,10 @@ public class InventoryUI : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI ibuprofenAmount;
     [SerializeField] private TextMeshProUGUI morphineAmount;
 
+    [SerializeField] private GameObject monster2Pannel;
+
+    [SerializeField] private TextMeshProUGUI battlePassText;
+
     private PlayerInventory playerInventory;
     private Puse puse;
 
@@ -57,9 +61,14 @@ public class InventoryUI : MonoBehaviour {
 
         
         // monny on schreen
-        coins.text = playerInventory.money.ToString();
+        coins.text = $"Coins {playerInventory.money.ToString()}";
 
-
+        // battle pass text
+        if (playerInventory.hasBattlepass == false) {
+            battlePassText.text = "No batlepass yet. \nGo buy it at the shop!";
+        } else {
+            battlePassText.text = "You got the Battle pass! ";
+        }
 
         //items on schreen
         baitAmount.text = ("Bait " + playerInventory.baitAmount);
@@ -76,7 +85,9 @@ public class InventoryUI : MonoBehaviour {
         monsterSprite1.sprite = primaryMonster.sprites[0];
         monsterLVL1.text = $"LVL {primaryMonster.monsterLevel}";
 
+        // sond mosnter on schhreen 
         if (playerInventory.GetMonster(true)) {
+            monster2Pannel.SetActive(true);
             Monster secondaryMonster = playerInventory.GetMonster(true).GetComponent<Monster>();
             monstername2.text = secondaryMonster.monsterName;
             monsterHP2.text = $"{secondaryMonster.currentHP} {'/'} {secondaryMonster.maxHP}";
@@ -84,7 +95,11 @@ public class InventoryUI : MonoBehaviour {
             monsterSprite2.sprite = secondaryMonster.sprites[0];
             monsterLVL2.text = $"LVL {secondaryMonster.monsterLevel}";
 
+        }else {
+            monster2Pannel.SetActive(false);
         }
+
+
 
     }
 
