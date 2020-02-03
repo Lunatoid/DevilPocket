@@ -12,7 +12,7 @@ using UnityEngine.SceneManagement;
 public class PlayerInventory : MonoBehaviour, IShopCostumer {
 
     [SerializeField]
-    GameObject[] carriedMonsters = new GameObject[2];
+    public GameObject[] carriedMonsters = new GameObject[2];
 
     public List<GameObject> enemyMonsters = new List<GameObject>(1);
 

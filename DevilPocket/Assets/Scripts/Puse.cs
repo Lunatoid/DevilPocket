@@ -9,6 +9,8 @@ public class Puse : MonoBehaviour {
 
     LoadTransition lt;
 
+    public bool ispouse = false;
+
     private void Awake() {
         pausePanel.SetActive(false);
     }
@@ -18,9 +20,11 @@ public class Puse : MonoBehaviour {
         if (CrossPlatformInputManager.GetButtonDown("Pouse")) {
             if (!pausePanel.activeInHierarchy) {
                 PauseGame();
+                ispouse = true;
             }
             else if (pausePanel.activeInHierarchy) {
                 ContinueGame();
+                ispouse = false;
             }
         }
     }

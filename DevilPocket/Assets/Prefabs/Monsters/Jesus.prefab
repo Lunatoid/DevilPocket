@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 5588440095518819131}
   - component: {fileID: 5588440095518819130}
   - component: {fileID: 5588440095518819125}
+  - component: {fileID: 7115630591338393273}
+  - component: {fileID: -4236594595859853980}
+  - component: {fileID: 7601711282870101156}
   m_Layer: 0
   m_Name: Jesus
   m_TagString: Untagged
@@ -95,16 +98,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Jesus
-  monsterLevel: 1
+  monsterLevel: 5
   damageValue: {x: 4, y: 2}
   healValue: {x: 4, y: 2}
-  maxHP: 80
-  currentHP: 80
+  maxHP: 96
+  currentHP: 96
   element: 3
   moves:
-  - {fileID: 4619254192897032504, guid: f6736db10ef13a248a3b8e53e3a010d8, type: 3}
-  - {fileID: 8045829569748509705, guid: 8eccf85a77692df44ac3bc9213a49bfa, type: 3}
-  - {fileID: 1368453293984145110, guid: e6fb503b4279eb94f81008cc4688cc8b, type: 3}
+  - {fileID: 7115630591338393273}
+  - {fileID: -4236594595859853980}
+  - {fileID: 7601711282870101156}
   sprites:
   - {fileID: 21300000, guid: e5a22c90a0338044596aaeba4f1fc280, type: 3}
   - {fileID: 21300000, guid: e8951f195e31c4840bd64442fd6cdc8a, type: 3}
+--- !u!114 &7115630591338393273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Pope's Blessing
+  type: 1
+  element: 0
+  maxUses: 5
+  uses: 5
+  val: 43
+--- !u!114 &-4236594595859853980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Icicle
+  type: 0
+  element: 3
+  maxUses: 10
+  uses: 10
+  val: 23
+--- !u!114 &7601711282870101156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Second Coming
+  type: 0
+  element: 3
+  maxUses: 5
+  uses: 5
+  val: 38

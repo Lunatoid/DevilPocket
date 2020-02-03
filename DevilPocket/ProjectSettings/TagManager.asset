@@ -8,6 +8,8 @@ TagManager:
   - LevelLoader
   - PlayerInventory
   - EncounterSpawner
+  - Inventory
+  - PousePannel
   layers:
   - Default
   - TransparentFX

@@ -28,7 +28,7 @@ public class Monster : MonoBehaviour {
     private int xpUntilLevelUp = BASE_XP;
 
     [SerializeField, Header("Element 0 - Front, Element 1 - Back")]
-    Sprite[] sprites = new Sprite[2];
+    public Sprite[] sprites = new Sprite[2];
 
     bool initialized = false;
 
