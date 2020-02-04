@@ -14,7 +14,8 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     [SerializeField]
     public GameObject[] carriedMonsters = new GameObject[2];
 
-    public List<GameObject> enemyMonsters = new List<GameObject>(1);
+    public int enemyMonsterLevel = 1;
+    public GameObject enemyMonster;
 
     public int money = 0;
 

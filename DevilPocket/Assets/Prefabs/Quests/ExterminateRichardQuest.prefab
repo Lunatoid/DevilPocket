@@ -43,9 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739b83d0a33cd504c8de02385f21ec84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giver: {fileID: 0}
   goalType: 0
+  questGiverName: Matthias
   questName: Exterminate Richard
+  acceptedQuest: 0
   questDescription: Nobody likes Richard. Time to get rid of him!
   moneyReward: 100
   killMonstersData:

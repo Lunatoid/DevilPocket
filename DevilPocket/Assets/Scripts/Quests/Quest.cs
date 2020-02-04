@@ -37,6 +37,9 @@ public enum GoalType {
 public class Quest : MonoBehaviour {
     public GoalType goalType;
 
+    [HideInInspector]
+    public string questId;
+
     public string questGiverName;
     public string questName;
 
@@ -64,7 +67,7 @@ public class Quest : MonoBehaviour {
                 case GoalType.BuyItems:
                     return buyItemsData.amountDone >= buyItemsData.amountRequired;
             }
-
+            
             return false;
         }
     }

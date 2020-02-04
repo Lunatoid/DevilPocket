@@ -101,8 +101,9 @@ public class BattleSystem : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        GameObject enemyGo = Instantiate(playerInventory.enemyMonsters[0], enemyBattleStation);
+        GameObject enemyGo = Instantiate(playerInventory.enemyMonster, enemyBattleStation);
         enemyMonster = enemyGo.GetComponent<Monster>();
+        enemyMonster.LevelTo(playerInventory.enemyMonsterLevel);
 
         LoadEnemyMonsterHud();
 

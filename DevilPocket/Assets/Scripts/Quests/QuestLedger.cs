@@ -14,13 +14,14 @@ public class QuestLedger : MonoBehaviour {
         for (int i = 0; i < quests.Length; ++i) {
             Quest instantiated = gameObject.AddComponent<Quest>();
             instantiated.CopyFromQuest(quests[i]);
+            instantiated.questId = quests[i].name;
             quests[i] = instantiated;
         }
     }
 
     Quest GetQuestFromName(string name) {
         for (int i = 0; i < quests.Length; ++i) {
-            if (quests[i].name == name) {
+            if (quests[i].questId == name) {
                 return quests[i];
             }
         }

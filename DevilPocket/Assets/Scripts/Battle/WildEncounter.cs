@@ -76,9 +76,6 @@ public class WildEncounter : MonoBehaviour {
     /// <param name="wildMonsterTrigger"></param>
     private void OnTriggerEnter(Collider wildMonsterTrigger) {
         if (wildMonsterTrigger.gameObject.tag == "Player") {
-            // Apply level
-            randomMonster.GetComponent<Monster>().LevelTo(level);
-
             // Debug.Log("molesting mosnter");
             GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LoadTransition>().SlideUpDown();
 
@@ -94,7 +91,8 @@ public class WildEncounter : MonoBehaviour {
         yield return new WaitForSeconds(1.1f);
 
         // load scene 
-        playerInventory.enemyMonsters[0] = randomMonster;
+        playerInventory.enemyMonster = randomMonster;
+        playerInventory.enemyMonsterLevel = level;
         SceneManager.LoadScene("BattleScene");
         Destroy(gameObject);
     }
