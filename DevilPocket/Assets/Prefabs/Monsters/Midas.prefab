@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 5588440095518819131}
   - component: {fileID: 5588440095518819130}
   - component: {fileID: 5588440095518819125}
-  - component: {fileID: -3074165557283190590}
-  - component: {fileID: 6446638944857443279}
-  - component: {fileID: -1038110323791957377}
   m_Layer: 0
   m_Name: Midas
   m_TagString: Untagged
@@ -105,63 +102,9 @@ MonoBehaviour:
   currentHP: 113
   element: 2
   moves:
-  - {fileID: -3074165557283190590}
-  - {fileID: 6446638944857443279}
-  - {fileID: -1038110323791957377}
+  - {fileID: 5929243772648109525, guid: 0b95e6bd60673b74fb42a8e67a191c3d, type: 3}
+  - {fileID: 8891199487633102933, guid: f1bd5cd3c141fc84caad079a78ea5f8a, type: 3}
+  - {fileID: 4570954629442143243, guid: 11a776a8f8131fe44bd4bba3deafa880, type: 3}
   sprites:
   - {fileID: 21300000, guid: 6abeaf31503b4d84b8d83a6b8e42c2ee, type: 3}
   - {fileID: 21300000, guid: 2b5416d9994e9894a99c141c63e8bc3d, type: 3}
---- !u!114 &-3074165557283190590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Grug Smash
-  type: 0
-  element: 0
-  maxUses: 10
-  uses: 10
-  val: 33
---- !u!114 &6446638944857443279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Derust
-  type: 1
-  element: 2
-  maxUses: 10
-  uses: 10
-  val: 8
---- !u!114 &-1038110323791957377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Midas Touch
-  type: 1
-  element: 2
-  maxUses: 10
-  uses: 10
-  val: -22

@@ -95,16 +95,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Tom
-  monsterLevel: 1
+  monsterLevel: 3
   damageValue: {x: 0, y: 2}
   healValue: {x: 8, y: 2}
-  maxHP: 105
-  currentHP: 105
+  maxHP: 113
+  currentHP: 113
   element: 0
   moves:
   - {fileID: 2904493311554246606, guid: 0a55bf8befb600a418c29e00887e7c82, type: 3}
-  - {fileID: 4883965054988022405, guid: 578c3ec37aa6cc643a45ba6528260eee, type: 3}
   - {fileID: 2904493311554246606, guid: 3fa110426d1d6464da1f3a14ab0649bc, type: 3}
+  - {fileID: 4883965054988022405, guid: 578c3ec37aa6cc643a45ba6528260eee, type: 3}
   sprites:
   - {fileID: 21300000, guid: 5f71f87b135183d478d39da4f3873e25, type: 3}
   - {fileID: 21300000, guid: 3e58da6e785907e4087a8f348f6f822d, type: 3}

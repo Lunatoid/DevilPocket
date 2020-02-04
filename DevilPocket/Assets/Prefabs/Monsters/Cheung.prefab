@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 2314592045236946009}
   - component: {fileID: 2314592045236946022}
   - component: {fileID: 2314592045236946023}
+  - component: {fileID: -907671983205852329}
+  - component: {fileID: -875672211212886762}
+  - component: {fileID: -6969069824680769217}
   m_Layer: 0
   m_Name: Cheung
   m_TagString: Untagged
@@ -95,16 +98,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Cheung
-  monsterLevel: 5
+  monsterLevel: 7
   damageValue: {x: 2, y: 1}
   healValue: {x: 3, y: 1}
-  maxHP: 53
-  currentHP: 53
+  maxHP: 57
+  currentHP: 57
   element: 1
   moves:
-  - {fileID: 7153494906975767993, guid: 260a4eeb11b2e6d42a55b8ac6faa03f0, type: 3}
-  - {fileID: 8169263828084590486, guid: 5a21ccbc9b2ca6c4fae7086bb5f1d3ba, type: 3}
-  - {fileID: 3002876498893415751, guid: 99ab23c1d2591384b97063d667f25473, type: 3}
+  - {fileID: -907671983205852329}
+  - {fileID: -875672211212886762}
+  - {fileID: -6969069824680769217}
   sprites:
   - {fileID: 21300000, guid: 54da73e84d5822141a8879fd13dd5551, type: 3}
   - {fileID: 21300000, guid: f60e83c1e02efe74e86ee1577c7661a4, type: 3}
+--- !u!114 &-907671983205852329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Restore
+  type: 1
+  element: 0
+  maxUses: 15
+  uses: 15
+  val: 17
+--- !u!114 &-875672211212886762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Acid
+  type: 0
+  element: 1
+  maxUses: 10
+  uses: 10
+  val: 25
+--- !u!114 &-6969069824680769217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314592045236946008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: nCov-2019
+  type: 0
+  element: 1
+  maxUses: 30
+  uses: 30
+  val: 15

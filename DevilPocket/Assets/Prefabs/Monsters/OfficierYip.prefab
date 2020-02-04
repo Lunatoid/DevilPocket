@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 5588440095518819131}
   - component: {fileID: 5588440095518819130}
   - component: {fileID: 5588440095518819125}
-  - component: {fileID: -7893049304582467658}
-  - component: {fileID: -1134803495526676778}
-  - component: {fileID: -4753535204273134173}
   m_Layer: 0
   m_Name: OfficierYip
   m_TagString: Untagged
@@ -105,63 +102,9 @@ MonoBehaviour:
   currentHP: 72
   element: 3
   moves:
-  - {fileID: -7893049304582467658}
-  - {fileID: -1134803495526676778}
-  - {fileID: -4753535204273134173}
+  - {fileID: 7153494906975767993, guid: 260a4eeb11b2e6d42a55b8ac6faa03f0, type: 3}
+  - {fileID: 7661768756707137691, guid: b6427908f5c556e47bae278353ce5d0a, type: 3}
+  - {fileID: 2374725462459637319, guid: 4424c6bba4559274ba3c5d74c890b06b, type: 3}
   sprites:
   - {fileID: 21300000, guid: fd6c75622df55ee4b933a5a9322c66f5, type: 3}
   - {fileID: 21300000, guid: 16e9bb1447be1664490f75c365353ca0, type: 3}
---- !u!114 &-7893049304582467658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Restore
-  type: 1
-  element: 0
-  maxUses: 15
-  uses: 15
-  val: 16
---- !u!114 &-1134803495526676778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Frosty Road
-  type: 0
-  element: 3
-  maxUses: 10
-  uses: 10
-  val: 24
---- !u!114 &-4753535204273134173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Racial Profiling
-  type: 0
-  element: 3
-  maxUses: 20
-  uses: 20
-  val: 18
