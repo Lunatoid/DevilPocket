@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 5588440095518819131}
   - component: {fileID: 5588440095518819130}
   - component: {fileID: 5588440095518819125}
+  - component: {fileID: 5478560732645372219}
+  - component: {fileID: -4303361971816429160}
+  - component: {fileID: 2157783691730111549}
   m_Layer: 0
   m_Name: GoldenLIon
   m_TagString: Untagged
@@ -98,13 +101,67 @@ MonoBehaviour:
   monsterLevel: 5
   damageValue: {x: 3, y: 1}
   healValue: {x: 1, y: 1}
-  maxHP: 72
-  currentHP: 72
+  maxHP: 80
+  currentHP: 80
   element: 1
   moves:
-  - {fileID: 8620193238673471425, guid: de3f116cad1df6942a06cca87b03afee, type: 3}
-  - {fileID: 8169263828084590486, guid: 5a21ccbc9b2ca6c4fae7086bb5f1d3ba, type: 3}
-  - {fileID: 3702105459866651307, guid: 21b1283c8d6ebaa4293c3b16c87eef39, type: 3}
+  - {fileID: 5478560732645372219}
+  - {fileID: -4303361971816429160}
+  - {fileID: 2157783691730111549}
   sprites:
   - {fileID: 21300000, guid: edb86e8f9d18d45429b7ec01640457e5, type: 3}
   - {fileID: 21300000, guid: 36295944bc41f864ba1ba7befe2c1773, type: 3}
+--- !u!114 &5478560732645372219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Kick
+  type: 0
+  element: 0
+  maxUses: 40
+  uses: 40
+  val: 11
+--- !u!114 &-4303361971816429160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Acid
+  type: 0
+  element: 1
+  maxUses: 10
+  uses: 10
+  val: 27
+--- !u!114 &2157783691730111549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588440095518819128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Cheese snack
+  type: 1
+  element: 1
+  maxUses: 20
+  uses: 20
+  val: 29

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedByPlayer: 0
   monsterName: Big Smurf
-  monsterLevel: 7
+  monsterLevel: 5
   damageValue: {x: 2, y: 1}
   healValue: {x: 2, y: 1}
   maxHP: 74
