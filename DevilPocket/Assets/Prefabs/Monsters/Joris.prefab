@@ -126,8 +126,8 @@ MonoBehaviour:
   moveName: Liver Damage
   type: 0
   element: 0
-  maxUses: 15
-  uses: 15
+  maxUses: 30
+  uses: 30
   val: 13
 --- !u!114 &4549979273538625052
 MonoBehaviour:
@@ -144,8 +144,8 @@ MonoBehaviour:
   moveName: Hospital juices
   type: 1
   element: 0
-  maxUses: 5
-  uses: 5
+  maxUses: 10
+  uses: 10
   val: 32
 --- !u!114 &4937629576071208755
 MonoBehaviour:
@@ -162,6 +162,6 @@ MonoBehaviour:
   moveName: dislexia
   type: 0
   element: 0
-  maxUses: 5
-  uses: 5
+  maxUses: 10
+  uses: 10
   val: 47

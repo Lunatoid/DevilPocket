@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 5588440095518819131}
   - component: {fileID: 5588440095518819130}
   - component: {fileID: 5588440095518819125}
-  - component: {fileID: -3193923609699512018}
-  - component: {fileID: 8216858468643475800}
-  - component: {fileID: -8687058942365497777}
   m_Layer: 0
   m_Name: Big_Smurf
   m_TagString: Untagged
@@ -105,63 +102,9 @@ MonoBehaviour:
   currentHP: 74
   element: 1
   moves:
-  - {fileID: -3193923609699512018}
-  - {fileID: 8216858468643475800}
-  - {fileID: -8687058942365497777}
+  - {fileID: 8620193238673471425, guid: de3f116cad1df6942a06cca87b03afee, type: 3}
+  - {fileID: 5379172134117765659, guid: 959f571c57c81504c8fec391b102e4f6, type: 3}
+  - {fileID: 3702105459866651307, guid: 5c30f8af37fa1f44cb760ce1b66ff2a8, type: 3}
   sprites:
   - {fileID: 21300000, guid: f36311f8b31c24649b06c3ee4140a23f, type: 3}
   - {fileID: 21300000, guid: 0873f467dc41b3c43a7ecaafbb5d8d87, type: 3}
---- !u!114 &-3193923609699512018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Kick
-  type: 0
-  element: 0
-  maxUses: 40
-  uses: 40
-  val: 9
---- !u!114 &8216858468643475800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Antidote
-  type: 1
-  element: 1
-  maxUses: 10
-  uses: 10
-  val: 22
---- !u!114 &-8687058942365497777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Till The End Of Times
-  type: 0
-  element: 1
-  maxUses: 10
-  uses: 10
-  val: 28

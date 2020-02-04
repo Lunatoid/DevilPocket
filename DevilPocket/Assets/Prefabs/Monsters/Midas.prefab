@@ -11,12 +11,6 @@ GameObject:
   - component: {fileID: 5588440095518819131}
   - component: {fileID: 5588440095518819130}
   - component: {fileID: 5588440095518819125}
-  - component: {fileID: -8498071795677622266}
-  - component: {fileID: 3684163090865732562}
-  - component: {fileID: 714650831377692055}
-  - component: {fileID: 6454141285353991882}
-  - component: {fileID: 7673520320447885497}
-  - component: {fileID: 2297832831777993136}
   - component: {fileID: -3074165557283190590}
   - component: {fileID: 6446638944857443279}
   - component: {fileID: -1038110323791957377}
@@ -117,114 +111,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 6abeaf31503b4d84b8d83a6b8e42c2ee, type: 3}
   - {fileID: 21300000, guid: 2b5416d9994e9894a99c141c63e8bc3d, type: 3}
---- !u!114 &-8498071795677622266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Grug Smash
-  type: 0
-  element: 0
-  maxUses: 5
-  uses: 5
-  val: 29
---- !u!114 &3684163090865732562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Derust
-  type: 1
-  element: 2
-  maxUses: 10
-  uses: 10
-  val: 14
---- !u!114 &714650831377692055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Midas Touch
-  type: 1
-  element: 2
-  maxUses: 5
-  uses: 5
-  val: -16
---- !u!114 &6454141285353991882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Grug Smash
-  type: 0
-  element: 0
-  maxUses: 5
-  uses: 5
-  val: 33
---- !u!114 &7673520320447885497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Derust
-  type: 1
-  element: 2
-  maxUses: 10
-  uses: 10
-  val: 8
---- !u!114 &2297832831777993136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588440095518819128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Midas Touch
-  type: 1
-  element: 2
-  maxUses: 5
-  uses: 5
-  val: -22
 --- !u!114 &-3074165557283190590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,8 +126,8 @@ MonoBehaviour:
   moveName: Grug Smash
   type: 0
   element: 0
-  maxUses: 5
-  uses: 5
+  maxUses: 10
+  uses: 10
   val: 33
 --- !u!114 &6446638944857443279
 MonoBehaviour:
@@ -276,6 +162,6 @@ MonoBehaviour:
   moveName: Midas Touch
   type: 1
   element: 2
-  maxUses: 5
-  uses: 5
+  maxUses: 10
+  uses: 10
   val: -22

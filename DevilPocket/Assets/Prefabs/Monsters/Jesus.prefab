@@ -144,8 +144,8 @@ MonoBehaviour:
   moveName: Icicle
   type: 0
   element: 3
-  maxUses: 10
-  uses: 10
+  maxUses: 20
+  uses: 20
   val: 23
 --- !u!114 &7601711282870101156
 MonoBehaviour:
@@ -162,6 +162,6 @@ MonoBehaviour:
   moveName: Second Coming
   type: 0
   element: 3
-  maxUses: 5
-  uses: 5
+  maxUses: 10
+  uses: 10
   val: 38

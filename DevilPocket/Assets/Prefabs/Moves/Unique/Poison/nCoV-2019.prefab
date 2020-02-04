@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8431735763591197064}
   - component: {fileID: 3002876498893415751}
   m_Layer: 0
-  m_Name: Opium
+  m_Name: nCoV-2019
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: nCov-2019
+  moveName: nCoV-2019
   type: 0
   element: 1
   maxUses: 30

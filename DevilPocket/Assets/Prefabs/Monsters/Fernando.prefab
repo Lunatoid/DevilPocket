@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 2314592045236946009}
   - component: {fileID: 2314592045236946022}
   - component: {fileID: 2314592045236946023}
-  - component: {fileID: 7575482368327164444}
-  - component: {fileID: 7451718970797814611}
-  - component: {fileID: -5046615321764131876}
   m_Layer: 0
   m_Name: Fernando
   m_TagString: Untagged
@@ -105,63 +102,9 @@ MonoBehaviour:
   currentHP: 84
   element: 2
   moves:
-  - {fileID: 7575482368327164444}
-  - {fileID: 7451718970797814611}
-  - {fileID: -5046615321764131876}
+  - {fileID: 9089079935574885266, guid: 072f352210008d5418de692a0f144cda, type: 3}
+  - {fileID: 6463164832305737893, guid: 24e25cc88c9cc6f41a1d8c3b7f46f268, type: 3}
+  - {fileID: 3831462158941478934, guid: a3420e16cb1133240a087e80ec96b30d, type: 3}
   sprites:
   - {fileID: 21300000, guid: 700dfb3d6f819ca48a9bc3669cf002e3, type: 3}
   - {fileID: 21300000, guid: 85102d4b6b8c77f47853636897623653, type: 3}
---- !u!114 &7575482368327164444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2314592045236946008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: These Hands
-  type: 0
-  element: 0
-  maxUses: 10
-  uses: 10
-  val: 17
---- !u!114 &7451718970797814611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2314592045236946008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Anvil Drop
-  type: 0
-  element: 2
-  maxUses: 5
-  uses: 5
-  val: 25
---- !u!114 &-5046615321764131876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2314592045236946008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41288a44602eb37429df035199518744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveName: Sip Milk
-  type: 1
-  element: 2
-  maxUses: 5
-  uses: 5
-  val: 32
