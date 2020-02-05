@@ -315,7 +315,7 @@ MonoBehaviour:
   enemyMonsterLevel: 1
   enemyMonster: {fileID: 0}
   money: 0
-  hasBattlepass: 1
+  hasBattlepass: 0
   baitAmount: 0
   paracetamolAmount: 0
   ibuprofenAmount: 0
