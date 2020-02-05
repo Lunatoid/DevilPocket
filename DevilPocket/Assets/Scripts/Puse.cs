@@ -9,10 +9,15 @@ public class Puse : MonoBehaviour {
 
     LoadTransition lt;
 
+    public GameObject inventory;
+    public GameObject quests;
+
     public bool ispouse = false;
 
     private void Awake() {
         pausePanel.SetActive(false);
+        inventory.SetActive(false);
+        quests.SetActive(false);
     }
 
 
@@ -49,6 +54,17 @@ public class Puse : MonoBehaviour {
         lt.FadeToBlack();
         yield return new WaitForSeconds(1.1f);
         AsyncOperation op = SceneManager.LoadSceneAsync("MenuScene");
+    }
+
+
+    IEnumerator UpDaTeUNitygo() {
+        yield return new WaitForEndOfFrame();
+        StartCoroutine(UpDaTeUNitygo());
+    }
+
+    IEnumerator FiXedUPdatE() {
+        yield return new WaitForSeconds(Time.fixedDeltaTime);
+        StartCoroutine(FiXedUPdatE());
     }
 
 }
