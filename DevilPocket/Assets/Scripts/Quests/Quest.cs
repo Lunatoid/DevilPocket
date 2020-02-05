@@ -49,7 +49,7 @@ public class Quest : MonoBehaviour {
     public string questDescription;
 
     public int moneyReward;
-    private bool collectedReward = false;
+    public bool collectedReward = false;
 
     public KillMonstersData killMonstersData;
     public CatchMonstersData catchMonstersData;

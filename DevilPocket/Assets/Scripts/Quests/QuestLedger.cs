@@ -70,4 +70,8 @@ public class QuestLedger : MonoBehaviour {
             quests[i].LoadFromString(reader.ReadLine());
         }
     }
+
+    public Quest[] GetAllQuests() {
+        return quests;
+    }
 }

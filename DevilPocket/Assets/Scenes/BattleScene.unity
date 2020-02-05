@@ -10579,7 +10579,7 @@ MonoBehaviour:
   minMoneyMod: 0.1
   maxMoneyMod: 0.3
   baseExp: 100
-  minExpMod: 1
+  minExpMod: 10
   maxExpMod: 30
 --- !u!4 &1933963151
 Transform:
