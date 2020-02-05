@@ -44,11 +44,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalType: 0
+  questId: 
   questGiverName: Matthias
   questName: Exterminate Richard
   acceptedQuest: 0
   questDescription: Nobody likes Richard. Time to get rid of him!
   moneyReward: 100
+  collectedReward: 0
   killMonstersData:
     amountDone: 0
     amountRequired: 5

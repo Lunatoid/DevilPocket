@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalType: 0
+  questId: 
   questGiverName: Tijs
   questName: Assassinate Gijs
   acceptedQuest: 0
@@ -58,6 +59,7 @@ MonoBehaviour:
 
     I am willing to get rid of him, any way possible. And I am paying buy bucks.'
   moneyReward: 150
+  collectedReward: 0
   killMonstersData:
     amountDone: 0
     amountRequired: 1

@@ -79,6 +79,7 @@ public class Quest : MonoBehaviour {
     /// <param name="amount">The amount.</param>
     /// <returns>Whether the goal was completed.</returns>
     public bool UpdateCompletion<T>(GoalType intendedType, int amount = 1, T customData = default) {
+        if (!acceptedQuest) return false;
         if (intendedType != goalType) return false;
 
         switch (goalType) {

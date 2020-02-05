@@ -47,6 +47,8 @@ public class EncounterManager : MonoBehaviour {
     }
 
     private void ToggleEncounters(Scene arg0, Scene arg1) {
+        if (arg1.name == "MenuScene" || !gameObject) return;
+        
         bool active = arg1.name == "MainScene";
 
         foreach (EncounterEntry entry in spawnedEncounters) {

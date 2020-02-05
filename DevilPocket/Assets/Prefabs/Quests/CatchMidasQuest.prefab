@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalType: 1
+  questId: 
   questGiverName: Xx_MidasLover_xX
   questName: Catch the cutie!
   acceptedQuest: 0
@@ -51,6 +52,7 @@ MonoBehaviour:
 
     Catch 5 Midas'' and you''ll be rewarded in solid gold! Get it?'
   moneyReward: 250
+  collectedReward: 0
   killMonstersData:
     amountDone: 0
     amountRequired: 0

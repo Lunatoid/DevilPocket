@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3139436575383824180}
   - component: {fileID: 3650717002258918152}
   m_Layer: 0
-  m_Name: SaintCatchQuest 1
+  m_Name: SaintCatchQuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,13 +55,14 @@ MonoBehaviour:
 
     Thanks!'
   moneyReward: 60
+  collectedReward: 0
   killMonstersData:
     amountDone: 0
     amountRequired: 0
     killName: 
   catchMonstersData:
     amountDone: 0
-    amountRequired: 2
+    amountRequired: 1
     catchName: Saint Nicolas
   buyItemsData:
     itemType: 0

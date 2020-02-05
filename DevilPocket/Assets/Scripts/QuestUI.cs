@@ -24,15 +24,45 @@ public class QuestUI : MonoBehaviour {
 
     void Awake() {
         playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
-        
+
     }
 
     private void OnEnable() {
-        LoadQuest();
+        LoadQuest(currentQuest);
+    }
+
+    int GetAcceptedCount() {
+        int count = playerInventory.GetQuestCount();
+        int acceptedCount = 0;
+        for (int i = 0; i < count; ++i) {
+            if (playerInventory.GetQuest(i).acceptedQuest) {
+                ++acceptedCount;
+            }
+        }
+
+        return acceptedCount;
+    }
+
+    bool IsQuestAccepted(int index) {
+        return playerInventory.GetQuest(index).acceptedQuest;
+    }
+
+    int GetAcceptedIndex(int realIndex) {
+        int count = playerInventory.GetQuestCount();
+        int acceptedCount = 0;
+        for (int i = 0; i < realIndex; ++i) {
+            if (playerInventory.GetQuest(i).acceptedQuest) {
+                ++acceptedCount;
+            }
+        }
+
+        return acceptedCount;
     }
 
     private void LoadQuest(int desiredIndex = 0) {
         int count = playerInventory.GetQuestCount();
+
+        bool findPositive = desiredIndex >= currentQuest;
 
         if (desiredIndex < 0) {
             desiredIndex = count + desiredIndex;
@@ -40,12 +70,37 @@ public class QuestUI : MonoBehaviour {
             desiredIndex %= count;
         }
 
-        currentQuest = Mathf.Clamp(desiredIndex, 0, count);
+        // Find quest that is accepted
+        if (!playerInventory.GetQuest(desiredIndex).acceptedQuest) {
+            int originalIndex = desiredIndex;
+            bool found = false;
+            do {
+                desiredIndex += (findPositive) ? 1 : -1;
+
+                if (desiredIndex < 0) {
+                    desiredIndex = count + desiredIndex;
+                } else {
+                    desiredIndex %= count;
+                }
+
+                if (IsQuestAccepted(desiredIndex)) {
+                    found = true;
+                    break;
+                }
+            } while (desiredIndex != originalIndex);
+
+            if (!found) {
+                LoadEmptyQuest();
+                return;
+            }
+        }
+
 
         if (count == 0) {
-            LoadEmptyQuest();   
+            LoadEmptyQuest();
         } else {
-            LoadExistingQuest(currentQuest);
+            currentQuest = desiredIndex;
+            LoadExistingQuest(desiredIndex);
         }
     }
 
@@ -58,7 +113,11 @@ public class QuestUI : MonoBehaviour {
         questProgressBar.maxValue = 0;
         questProgressBar.value = 0;
         questDescriptionText.text = "";
+
         claimButton.interactable = false;
+        claimButton.GetComponentInChildren<TextMeshProUGUI>().text = "No Quest";
+        ;
+
         leftCycleButton.interactable = false;
         rightCycleButton.interactable = false;
     }
@@ -67,7 +126,7 @@ public class QuestUI : MonoBehaviour {
         int count = playerInventory.GetQuestCount();
         Quest quest = playerInventory.GetQuest(index);
 
-        questIndexText.text = $"Quest {index + 1}/{count}";
+        questIndexText.text = $"Quest {GetAcceptedIndex(index) + 1}/{GetAcceptedCount()}";
         questGiverText.text = quest.questGiverName;
         questTitleText.text = quest.questName;
         questRewardText.text = $"${quest.moneyReward}";
@@ -104,7 +163,15 @@ public class QuestUI : MonoBehaviour {
         questTargetText.text += $" ({questProgressBar.maxValue})";
 
         questDescriptionText.text = quest.questDescription;
+
         claimButton.interactable = quest.Completed && !quest.collectedReward;
+
+        TextMeshProUGUI buttonText = claimButton.GetComponentInChildren<TextMeshProUGUI>();
+        if (quest.Completed) {
+            buttonText.text = (quest.collectedReward) ? "Completed!" : "Claim Reward";
+        } else {
+            buttonText.text = "Not yet completed";
+        }
 
         leftCycleButton.interactable = count > 1;
         rightCycleButton.interactable = count > 1;

@@ -60,7 +60,6 @@ public class Saver : MonoBehaviour {
         // Quests
         writer.WriteLine(playerInventory.SaveQuestLedger());
 
-        // @TODO: completed quests
         // @TODO: completed bosses
 
         writer.Close();
@@ -69,7 +68,11 @@ public class Saver : MonoBehaviour {
     public void Load() {
         StreamReader reader;
         try {
-            reader = File.OpenText($"{Application.dataPath}/save.txt");
+            if (File.Exists($"{Application.dataPath}/save.txt")) {
+                reader = File.OpenText($"{Application.dataPath}/save.txt");
+            } else {
+                return;
+            }
         } catch (FileNotFoundException) {
             return;
         }
@@ -86,7 +89,7 @@ public class Saver : MonoBehaviour {
         string primaryMonsterName = reader.ReadLine();
         playerInventory.LoadMonster(primaryMonsterName, reader.ReadLine());
         string secondaryMonsterName = reader.ReadLine();
-        
+
         if (secondaryMonsterName != "null") {
             playerInventory.LoadMonster(secondaryMonsterName, reader.ReadLine(), true);
         }
@@ -104,7 +107,6 @@ public class Saver : MonoBehaviour {
         // Quests
         playerInventory.LoadQuestLedger(reader);
 
-        // @TODO: completed quests
         // @TODO: completed bosses
 
         reader.Close();

@@ -46,14 +46,15 @@ MonoBehaviour:
   goalType: 2
   questId: 
   questGiverName: Sales Man
-  questName: Grate deal
+  questName: Great Deal
   acceptedQuest: 0
   questDescription: 'Hey You!
 
-    BIG DISCOUNT 50% OFF
+    BIG DISCOUNT 50% OFF!!!
 
-    buy 100 Bait and get 250 coins!! '
+    Buy 100 Bait and get 250 coins!! '
   moneyReward: 250
+  collectedReward: 0
   killMonstersData:
     amountDone: 0
     amountRequired: 0

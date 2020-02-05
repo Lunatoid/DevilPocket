@@ -50,6 +50,7 @@ MonoBehaviour:
   acceptedQuest: 0
   questDescription: The sailor is a bit seasick, help him by buying some medication.
   moneyReward: 50
+  collectedReward: 0
   killMonstersData:
     amountDone: 0
     amountRequired: 0

@@ -52,6 +52,7 @@ public class PlayerDialogHandler : MonoBehaviour {
     }
 
     private void DisableOnSceneChange(Scene arg0, Scene arg1) {
+        if (arg1.name == "MenuScene") return;
         enabled = false;
     }
 
