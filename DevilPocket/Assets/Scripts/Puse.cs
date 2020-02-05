@@ -22,16 +22,22 @@ public class Puse : MonoBehaviour {
         backgoundPannel.SetActive(false);
     }
 
+    private void Start() {
+        lt = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LoadTransition>();
+    }
+
 
     void Update() {
         if (CrossPlatformInputManager.GetButtonDown("Pouse")) {
             if (!pausePanel.activeInHierarchy) {
                 PauseGame();
+                Cursor.visible = true;
                 ispouse = true;
             }
             else if (pausePanel.activeInHierarchy) {
                 ContinueGame();
                 ispouse = false;
+                Cursor.visible = false;
             }
         }
     }
@@ -46,6 +52,18 @@ public class Puse : MonoBehaviour {
         Time.timeScale = 1;
         pausePanel.SetActive(false);
         Debug.Log("Play");
+    }
+
+    public void ShowInventory() {
+        inventory.SetActive(true);
+        quests.SetActive(false);
+        backgoundPannel.SetActive(true);
+    }
+
+    public void ShowQwests() {
+        inventory.SetActive(false);
+        quests.SetActive(true);
+        backgoundPannel.SetActive(true);
     }
 
     public void LoadMenuScene() {
