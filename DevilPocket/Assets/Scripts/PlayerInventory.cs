@@ -203,7 +203,11 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
         questLedger.Load(reader);
     }
 
-    public Quest[] GetAllQuests() {
-        return questLedger.GetAllQuests();
+    public Quest GetQuest(int index) {
+        return questLedger.GetQuest(index);
+    }
+
+    public int GetQuestCount() {
+        return questLedger.GetQuestCount();
     }
 }

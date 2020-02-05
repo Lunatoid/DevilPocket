@@ -71,7 +71,11 @@ public class QuestLedger : MonoBehaviour {
         }
     }
 
-    public Quest[] GetAllQuests() {
-        return quests;
+    public Quest GetQuest(int index) {
+        return quests[index];
+    }
+
+    public int GetQuestCount() {
+        return quests.Length;
     }
 }

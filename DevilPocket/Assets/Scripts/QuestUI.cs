@@ -22,7 +22,7 @@ public class QuestUI : MonoBehaviour {
 
     PlayerInventory playerInventory;
 
-    void Start() {
+    void Awake() {
         playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
         
     }
@@ -32,10 +32,12 @@ public class QuestUI : MonoBehaviour {
     }
 
     private void LoadQuest(int desiredIndex = 0) {
-        int count = playerInventory.GetAllQuests().Length;
+        int count = playerInventory.GetQuestCount();
 
         if (desiredIndex < 0) {
             desiredIndex = count + desiredIndex;
+        } else {
+            desiredIndex %= count;
         }
 
         currentQuest = Mathf.Clamp(desiredIndex, 0, count);
@@ -43,7 +45,7 @@ public class QuestUI : MonoBehaviour {
         if (count == 0) {
             LoadEmptyQuest();   
         } else {
-            LoadQuest(currentQuest);
+            LoadExistingQuest(currentQuest);
         }
     }
 
@@ -56,14 +58,14 @@ public class QuestUI : MonoBehaviour {
         questProgressBar.maxValue = 0;
         questProgressBar.value = 0;
         questDescriptionText.text = "";
-        claimButton.enabled = false;
-        leftCycleButton.enabled = false;
-        rightCycleButton.enabled = false;
+        claimButton.interactable = false;
+        leftCycleButton.interactable = false;
+        rightCycleButton.interactable = false;
     }
 
     public void LoadExistingQuest(int index) {
-        int count = playerInventory.GetAllQuests().Length;
-        Quest quest = playerInventory.GetAllQuests()[index];
+        int count = playerInventory.GetQuestCount();
+        Quest quest = playerInventory.GetQuest(index);
 
         questIndexText.text = $"Quest {index + 1}/{count}";
         questGiverText.text = quest.questGiverName;
@@ -99,26 +101,28 @@ public class QuestUI : MonoBehaviour {
                 break;
         }
 
-        questDescriptionText.text = quest.questDescription;
-        claimButton.enabled = quest.Completed && !quest.collectedReward;
+        questTargetText.text += $" ({questProgressBar.maxValue})";
 
-        leftCycleButton.enabled = count > 1;
-        rightCycleButton.enabled = count > 1;
+        questDescriptionText.text = quest.questDescription;
+        claimButton.interactable = quest.Completed && !quest.collectedReward;
+
+        leftCycleButton.interactable = count > 1;
+        rightCycleButton.interactable = count > 1;
     }
 
     public void CycleLeft() {
-        LoadQuest(currentQuest + 1);
-    }
-
-    public void CycleRight() {
         LoadQuest(currentQuest - 1);
     }
 
+    public void CycleRight() {
+        LoadQuest(currentQuest + 1);
+    }
+
     public void ClaimReward() {
-        Quest quest = playerInventory.GetAllQuests()[currentQuest];
+        Quest quest = playerInventory.GetQuest(currentQuest);
         quest.collectedReward = true;
 
         playerInventory.money += quest.moneyReward;
-        claimButton.enabled = false;
+        claimButton.interactable = false;
     }
 }
