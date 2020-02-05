@@ -11,6 +11,7 @@ public class Puse : MonoBehaviour {
 
     public GameObject inventory;
     public GameObject quests;
+    public GameObject backgoundPannel;
 
     public bool ispouse = false;
 
@@ -18,6 +19,7 @@ public class Puse : MonoBehaviour {
         pausePanel.SetActive(false);
         inventory.SetActive(false);
         quests.SetActive(false);
+        backgoundPannel.SetActive(false);
     }
 
 
@@ -57,14 +59,6 @@ public class Puse : MonoBehaviour {
     }
 
 
-    IEnumerator UpDaTeUNitygo() {
-        yield return new WaitForEndOfFrame();
-        StartCoroutine(UpDaTeUNitygo());
-    }
-
-    IEnumerator FiXedUPdatE() {
-        yield return new WaitForSeconds(Time.fixedDeltaTime);
-        StartCoroutine(FiXedUPdatE());
-    }
+    
 
 }
