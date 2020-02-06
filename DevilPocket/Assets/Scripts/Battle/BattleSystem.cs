@@ -90,7 +90,7 @@ public class BattleSystem : MonoBehaviour {
         yield return new WaitForSeconds(3);
         dialoogText.text = $"You run away as fast as you can!";
         yield return new WaitForSeconds(1.5f);
-        StartCoroutine(LoadMainScene());
+        StartCoroutine(LoadPreviousScene());
         //SceneManager.LoadScene("MainScene");
     }
 
@@ -262,6 +262,7 @@ public class BattleSystem : MonoBehaviour {
     /// </summary>
     /// <param name="killedEnemy">Whether or not the player won by killing the enemy. Only applicable if the player won.</param>
     IEnumerator EndBattle(bool killedEnemy = true) {
+        playerInventory.wonLastBattle = state == BattleState.Won;
         if (state == BattleState.Won) {
             if (killedEnemy) {
                 // Player killed the enemy
@@ -397,11 +398,11 @@ public class BattleSystem : MonoBehaviour {
     void ExitScene() {
         playerMonster.transform.parent = playerInventory.transform;
         playerMonster.gameObject.SetActive(false);
-        StartCoroutine(LoadMainScene());
+        StartCoroutine(LoadPreviousScene());
         //SceneManager.LoadScene("MainScene");
     }
 
-    public IEnumerator LoadMainScene() {
+    public IEnumerator LoadPreviousScene() {
 
         //play animation
         transitson.SetTrigger("start");
@@ -410,7 +411,7 @@ public class BattleSystem : MonoBehaviour {
         yield return new WaitForSeconds(1.1f);
 
         // load scene 
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene(playerInventory.sceneBeforeBattle);
     }
 
     /// <summary>

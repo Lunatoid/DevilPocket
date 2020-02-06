@@ -60,7 +60,10 @@ public class Saver : MonoBehaviour {
         // Quests
         writer.WriteLine(playerInventory.SaveQuestLedger());
 
-        // @TODO: completed bosses
+        // Bosses
+        foreach (bool b in playerInventory.beatenBosses) {
+            writer.WriteLine(b);
+        }
 
         writer.Close();
     }
@@ -107,7 +110,10 @@ public class Saver : MonoBehaviour {
         // Quests
         playerInventory.LoadQuestLedger(reader);
 
-        // @TODO: completed bosses
+        // Bosses
+        for (int i = 0; i < 4; ++i) {
+            playerInventory.beatenBosses[i] = bool.Parse(reader.ReadLine());
+        }
 
         reader.Close();
     }

@@ -13,8 +13,10 @@ public class OpenReactorDoorsInside : MonoBehaviour {
     bool poisonBeaten = false;
     bool godBeaten = false;
 
+    PlayerInventory playerInventory;
+
     private void Start() {
-        //openingDoors = GetComponent<Animator>();
+        playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
     }
 
     
@@ -26,25 +28,25 @@ public class OpenReactorDoorsInside : MonoBehaviour {
     }
 
     public void OpenSecondDoor(List<string> args) {
-        if (iceBeaten == true) {
+        if (playerInventory.beatenBosses[(int)Element.Ice]) {
             openingDoors.SetTrigger("Ice");
         }
     }
 
     public void OpenThirdDoor(List<string> args) {
-        if (metalBeaten == true) {
+        if (playerInventory.beatenBosses[(int)Element.Metal]) {
             openingDoors.SetTrigger("Metal");
         }
     }
 
-    public void OpenForthDoor(List<string> args) {
-        if (poisonBeaten == true) {
+    public void OpenFourthDoor(List<string> args) {
+        if (playerInventory.beatenBosses[(int)Element.Poison]) {
             openingDoors.SetTrigger("Poison");
         }
     }
 
     public void OpenFifthDoor(List<string> args) {
-        if (godBeaten == true) {
+        if (playerInventory.beatenBosses[(int)Element.Normal]) {
             openingDoors.SetTrigger("God");
         }
     }

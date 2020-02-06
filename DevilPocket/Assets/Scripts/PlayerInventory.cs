@@ -1,13 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using System.IO;
-
-// DEBUG!!!
-#if UNITY_EDITOR
-using UnityEngine.SceneManagement;
-#endif
 
 public class PlayerInventory : MonoBehaviour, IShopCostumer {
 
@@ -48,6 +44,10 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     [HideInInspector]
     public List<PcEntry> pcStorage = new List<PcEntry>();
 
+    public bool wonLastBattle = false;
+    Element? currentBossBattle = null; // null == no boss battle
+    public bool[] beatenBosses = new bool[4];
+
     private void Awake() {
         DontDestroyOnLoad(gameObject);
 
@@ -67,6 +67,21 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
         }
 
         shopSource = GetComponent<AudioSource>();
+
+        SceneManager.activeSceneChanged += CheckForBossCompletion;
+    }
+
+    public string sceneBeforeBattle;
+    private void CheckForBossCompletion(Scene arg0, Scene arg1) {
+        if (arg1.name != "BattleScene") {
+            sceneBeforeBattle = arg1.name;
+        }
+
+        if (arg1.name == "Example_01" && wonLastBattle && currentBossBattle != null) {
+            beatenBosses[(int)currentBossBattle] = true;
+            Debug.Log("Player won against " + currentBossBattle);
+            currentBossBattle = null;
+        }
     }
 
     public void LoadMonster(string monsterName, string saveString, bool secondaryMonster = false) {
@@ -114,15 +129,6 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     public bool UpdateCompletion<T>(GoalType intendedType, int amount = 1, T customData = default) {
         return questLedger.UpdateCompletion(intendedType, amount, customData);
     }
-
-#if UNITY_EDITOR
-    private void Update() {
-        // DEBUG!!!
-        if (Input.GetKeyDown(KeyCode.F10)) {
-            SceneManager.LoadScene("BattleScene");
-        }
-    }
-#endif
 
     public void BoughtItem(Item.ItemType itemType) {
         Debug.Log("Bought item" + itemType);
@@ -209,5 +215,41 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
 
     public int GetQuestCount() {
         return questLedger.GetQuestCount();
+    }
+
+
+    public void StartBossBattle(Element battle) {
+        currentBossBattle = battle;
+
+        switch (battle) {
+            case Element.Ice:
+                enemyMonster = randomMonsterPicker.GetMonsterPrefabByName("Jesus");
+                enemyMonsterLevel = 25;
+                break;
+
+            case Element.Metal:
+                enemyMonster = randomMonsterPicker.GetMonsterPrefabByName("Fernando");
+                enemyMonsterLevel = 40;
+                break;
+
+            case Element.Poison:
+                enemyMonster = randomMonsterPicker.GetMonsterPrefabByName("Saint Nicholas");
+                enemyMonsterLevel = 55;
+                break;
+
+            case Element.Normal:
+                string enemy = (Random.Range(0.0f, 1.0f) >= 0.5f) ? "Joris" : "Tom";
+                enemyMonster = randomMonsterPicker.GetMonsterPrefabByName(enemy);
+                enemyMonsterLevel = 70;
+                break;
+        }
+
+        StartCoroutine(StartBattleScene());
+    }
+
+    IEnumerator StartBattleScene() {
+        GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LoadTransition>().SlideUpDown();
+        yield return new WaitForSeconds(1.1f);
+        SceneManager.LoadScene("BattleScene");
     }
 }

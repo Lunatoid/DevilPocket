@@ -6303,7 +6303,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &215412618
 GameObject:
@@ -8089,6 +8089,127 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257786138}
   m_Mesh: {fileID: 4300000, guid: e926e4d5204b44d87ac4b794a7bfb82a, type: 3}
+--- !u!1001 &260543283
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_Idle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 509.1305
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.49231
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 989.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[0]
+      value: "#noconfirm\nAre you ready to battle one of the legends of this world?\t"
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[1]
+      value: "#choice Yes No\nAre you ready to battle one of the legends of this world?\t"
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[2]
+      value: '#ifchoice Yes
+
+        You are not prepared. Here we come!'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[3]
+      value: '#ifchoice Yes
+
+        #noconfirm
+
+        #function StartBossBattle'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[4]
+      value: '#ifchoice No
+
+        Talk to me when you''re ready...'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d4ad6e4a5364dc4f82f452fc55155db, type: 3}
+--- !u!1 &260543284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 260543283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &260543285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260543284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f579cd1070aba694e8a5e377a02d5f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossBattle: 0
 --- !u!1 &262703265
 GameObject:
   m_ObjectHideFlags: 0
@@ -8718,6 +8839,95 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.454595, y: 2.0278864, z: 2.0757642}
   m_Center: {x: 0.2051704, y: 1.0575595, z: 0.9890082}
+--- !u!1001 &298193501
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_Idle (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 509.059
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.492311
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1038.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[0]
+      value: Congratulations! You have beaten the reactor ploeg!
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195361800223434406, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a48550f315f5dd4ca24a737a4e91621, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d4ad6e4a5364dc4f82f452fc55155db, type: 3}
 --- !u!1 &302842787
 GameObject:
   m_ObjectHideFlags: 0
@@ -10755,6 +10965,157 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342389050}
   m_Mesh: {fileID: 4300000, guid: 620813c3d11d1412a874c60c0aed7aeb, type: 3}
+--- !u!1001 &346744117
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1046411354}
+    m_Modifications:
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_Idle (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.958008
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.9076881
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -146.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[0]
+      value: '#function OpenFifthDoor
+
+        I will open the door for you if you win!'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[2]
+      value: '#ifchoice Yes1
+
+        Great! Show me the power of your monsters.'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[3]
+      value: '#ifchoice No
+
+        Why are you even here...
+
+        The exit is behind you...'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[1]
+      value: '#choice Yes No
+
+        I see you made it to the battle arena.
+
+        Are you ready to fight the REACTOR PLOEG?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629871059381877711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.64777094
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629871059381877711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5350004
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d4ad6e4a5364dc4f82f452fc55155db, type: 3}
+--- !u!4 &346744118 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 346744117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &346744119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 346744117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &346744120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346744119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0633052693537a46af04175f8a97721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDoors: {fileID: 1683862575}
 --- !u!1 &348328917
 GameObject:
   m_ObjectHideFlags: 0
@@ -11609,7 +11970,7 @@ PrefabInstance:
     - target: {fileID: 8129151399754311773, guid: 26d18b777349bfe4b9674d0918cf3297,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8129151399754311773, guid: 26d18b777349bfe4b9674d0918cf3297,
         type: 3}
@@ -15271,6 +15632,157 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &497505102
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1046411354}
+    m_Modifications:
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_Idle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.958008
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.9076881
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -88.186
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[0]
+      value: '#function OpenFourthDoor
+
+        I will open the door for you if you win!'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[2]
+      value: '#ifchoice Yes1
+
+        Great! Show me the power of your monsters.'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[3]
+      value: '#ifchoice No
+
+        Why are you even here...
+
+        The exit is behind you...'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[1]
+      value: '#choice Yes No
+
+        I see you made it to the battle arena.
+
+        Are you ready to fight the REACTOR PLOEG?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629871059381877711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.64777094
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629871059381877711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5350004
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d4ad6e4a5364dc4f82f452fc55155db, type: 3}
+--- !u!4 &497505103 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 497505102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &497505104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 497505102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &497505105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497505104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0633052693537a46af04175f8a97721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDoors: {fileID: 1683862575}
 --- !u!1 &497850828
 GameObject:
   m_ObjectHideFlags: 0
@@ -17829,7 +18341,7 @@ RectTransform:
   - {fileID: 1423894136}
   - {fileID: 1059122833}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -20722,7 +21234,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &691708124
 GameObject:
@@ -20939,6 +21451,129 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695502273}
   m_Mesh: {fileID: 4300000, guid: 0a6b6b7ff1542492e82047c6949c3445, type: 3}
+--- !u!1001 &699695985
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_Idle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 509.1305
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.49231
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 887.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[0]
+      value: "#noconfirm\nAre you ready to battle the master of the undead?\t"
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[1]
+      value: '#choice Yes No
+
+        Are you ready to battle the master of the undead?'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[2]
+      value: '#ifchoice Yes
+
+        You will feel the adrenaline in your bones. Here we come!'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[3]
+      value: '#ifchoice Yes
+
+        #noconfirm
+
+        #function StartBossBattle'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[4]
+      value: '#ifchoice No
+
+        Talk to me when you''re ready...'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d4ad6e4a5364dc4f82f452fc55155db, type: 3}
+--- !u!1 &699695986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 699695985}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &699695987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699695986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f579cd1070aba694e8a5e377a02d5f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossBattle: 2
 --- !u!1 &705788562
 GameObject:
   m_ObjectHideFlags: 0
@@ -31058,6 +31693,10 @@ Transform:
   - {fileID: 7320958}
   - {fileID: 1766115951}
   - {fileID: 50853842}
+  - {fileID: 1898923882}
+  - {fileID: 1576885996}
+  - {fileID: 497505103}
+  - {fileID: 346744118}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -36029,6 +36668,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1202313091}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1202313093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4866209726724092384, guid: 3eedac50db979b34a951f0ad8b5ed57c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1202313091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1202313094
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202313093}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20238829, y: 0.14911686, z: 0.2023883}
+  m_Center: {x: -0.000000011175871, y: 0.07454496, z: -0.000003822148}
 --- !u!1 &1204393431
 GameObject:
   m_ObjectHideFlags: 0
@@ -39000,6 +39658,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1297051491}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1297051493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1609641950251421251, guid: ab10bd3242d5ac14eb3ffbd20ee61eb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1297051491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1297051494
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297051493}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20238829, y: 0.14911686, z: 0.2023883}
+  m_Center: {x: -0.000000011175871, y: 0.07454496, z: -0.000003822148}
 --- !u!1 &1301725922
 GameObject:
   m_ObjectHideFlags: 0
@@ -44861,6 +45538,129 @@ Transform:
   m_Father: {fileID: 1623019061}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1484085689
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_Idle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 509.1305
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.49231
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 931.564
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[0]
+      value: "#noconfirm\nAre you ready to battle the children's Saint?\t"
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[1]
+      value: '#choice Yes No
+
+        Are you ready to battle the children''s Saint?'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[2]
+      value: '#ifchoice Yes
+
+        I hope you''ve been a good boy. Here we come!'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[3]
+      value: '#ifchoice Yes
+
+        #noconfirm
+
+        #function StartBossBattle'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[4]
+      value: '#ifchoice No
+
+        Talk to me when you''re ready...'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d4ad6e4a5364dc4f82f452fc55155db, type: 3}
+--- !u!1 &1484085690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1484085689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1484085691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484085690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f579cd1070aba694e8a5e377a02d5f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossBattle: 1
 --- !u!1 &1484467547
 GameObject:
   m_ObjectHideFlags: 0
@@ -44982,7 +45782,7 @@ Transform:
   m_Children:
   - {fileID: 150695950}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 92.538, z: 0}
 --- !u!1 &1486491800
 GameObject:
@@ -46385,6 +47185,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1525178447}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1525178449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2226808877653812285, guid: da221bac678ad0f4a852ca39656098c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1525178447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1525178450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525178449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20238829, y: 0.14911686, z: 0.2023883}
+  m_Center: {x: -0.000000011175871, y: 0.07454496, z: -0.000003822148}
 --- !u!1 &1526263860
 GameObject:
   m_ObjectHideFlags: 0
@@ -46923,6 +47742,129 @@ Transform:
   m_Father: {fileID: 949904125}
   m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1548753389
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 509.1305
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.49231
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 843.2475
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[0]
+      value: "#noconfirm\nAre you ready to battle the holy king of ice?\t"
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[1]
+      value: '#choice Yes No
+
+        Are you ready to battle the holy king of ice?'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[2]
+      value: '#ifchoice Yes
+
+        Try to keep your head cool. Here we come!'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[3]
+      value: '#ifchoice Yes
+
+        #noconfirm
+
+        #function StartBossBattle'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[4]
+      value: '#ifchoice No
+
+        Talk to me when you''re ready...'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d4ad6e4a5364dc4f82f452fc55155db, type: 3}
+--- !u!1 &1548753390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1548753389}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1548753391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548753390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f579cd1070aba694e8a5e377a02d5f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossBattle: 3
 --- !u!1 &1549821552
 GameObject:
   m_ObjectHideFlags: 0
@@ -47708,6 +48650,157 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575122802}
   m_Mesh: {fileID: 4300000, guid: 505a5b8cdef614b96bd7d9b29111d23d, type: 3}
+--- !u!1001 &1576885995
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1046411354}
+    m_Modifications:
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_Idle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.958008
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.9076881
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -44.086
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[0]
+      value: '#function OpenThirdDoor
+
+        I will open the door for you if you win!'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[2]
+      value: '#ifchoice Yes1
+
+        Great! Show me the power of your monsters.'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[3]
+      value: '#ifchoice No
+
+        Why are you even here...
+
+        The exit is behind you...'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[1]
+      value: '#choice Yes No
+
+        I see you made it to the battle arena.
+
+        Are you ready to fight the REACTOR PLOEG?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629871059381877711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.64777094
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629871059381877711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5350004
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d4ad6e4a5364dc4f82f452fc55155db, type: 3}
+--- !u!4 &1576885996 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1576885995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1576885997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1576885995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1576885998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576885997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0633052693537a46af04175f8a97721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDoors: {fileID: 1683862575}
 --- !u!1 &1578735778
 GameObject:
   m_ObjectHideFlags: 0
@@ -56564,6 +57657,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1878633788}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1878633790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1641660726539907705, guid: 93529b9f62c9f3749a77341c18f7623d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1878633788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1878633791
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878633790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20238829, y: 0.14911686, z: 0.2023883}
+  m_Center: {x: -0.000000011175871, y: 0.07454496, z: -0.000000007450581}
 --- !u!1 &1881219511
 GameObject:
   m_ObjectHideFlags: 0
@@ -56841,6 +57953,157 @@ Transform:
   m_Father: {fileID: 1623019061}
   m_RootOrder: 117
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1001 &1898923881
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1046411354}
+    m_Modifications:
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_Idle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.958008
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.9076881
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[0]
+      value: '#function OpenSecondDoor
+
+        I will open the door for you if you win!'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[2]
+      value: '#ifchoice Yes1
+
+        Great! Show me the power of your monsters.'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[3]
+      value: '#ifchoice No
+
+        Why are you even here...
+
+        The exit is behind you...'
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -4897643768118902434, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: dialog.Array.data[1]
+      value: '#choice Yes No
+
+        I see you made it to the battle arena.
+
+        Are you ready to fight the REACTOR PLOEG?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629871059381877711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.64777094
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629871059381877711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5350004
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d4ad6e4a5364dc4f82f452fc55155db, type: 3}
+--- !u!4 &1898923882 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3726366994117205711, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1898923881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1898923883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 427260122504260828, guid: 3d4ad6e4a5364dc4f82f452fc55155db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1898923881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1898923884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898923883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0633052693537a46af04175f8a97721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDoors: {fileID: 1683862575}
 --- !u!1 &1900567228
 GameObject:
   m_ObjectHideFlags: 0
