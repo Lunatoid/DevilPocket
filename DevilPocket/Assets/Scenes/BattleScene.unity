@@ -2928,7 +2928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &617818156
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3163,7 +3163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &693241710
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8566,7 +8566,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: fb0e9dc630a5c544fae6100ec8560bcf, type: 3}
-  m_Color: {r: 0.41683426, g: 0.4433962, b: 0.17777678, a: 0.43137255}
+  m_Color: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 0.3137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10150,7 +10150,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: fb0e9dc630a5c544fae6100ec8560bcf, type: 3}
-  m_Color: {r: 0.41683426, g: 0.4433962, b: 0.17777678, a: 0.43137255}
+  m_Color: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 0.3137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10574,6 +10574,9 @@ MonoBehaviour:
   healSfx: {fileID: 8300000, guid: a1a85175f79c3ff4c9cbda14521947c1, type: 3}
   levelUpSfx: {fileID: 8300000, guid: 8bf79938a17d0664db6a2b95bf06364c, type: 3}
   runSfx: {fileID: 8300000, guid: 351fe344ba1e9154a9535b7d798700c2, type: 3}
+  wildMuzik: {fileID: 8300000, guid: 6de79d8c51edf274eb395468115ae4aa, type: 3}
+  bossMuzik: {fileID: 8300000, guid: fb247f58db971004d9cc98a45ad5ffbf, type: 3}
+  godMuziek: {fileID: 8300000, guid: 870977081a48db440bd846e7a128a9e8, type: 3}
   state: 0
   baseMoney: 10
   minMoneyMod: 0.1
@@ -10581,6 +10584,8 @@ MonoBehaviour:
   baseExp: 100
   minExpMod: 30
   maxExpMod: 80
+  wildBattle: {fileID: 693241709}
+  reactorBattle: {fileID: 617818155}
 --- !u!4 &1933963151
 Transform:
   m_ObjectHideFlags: 0

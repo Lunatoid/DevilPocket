@@ -160,12 +160,17 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     /// Adds the monster to the pc.
     /// </summary>
     /// <param name="monster">The monster.</param>
-    public void AddMonsterToPc(Monster monster) {
+    public void AddMonsterToPc(Monster monster, int preferredIndex = -1) {
         PcEntry entry;
         entry.name = monster.monsterName;
         entry.saveString = monster.SaveToString();
 
-        pcStorage.Add(entry);
+        // Add it to the index if one is specified
+        if (preferredIndex == -1) {
+            pcStorage.Add(entry);
+        } else {
+            pcStorage[preferredIndex] = entry;
+        }
     }
 
     /// <summary>
@@ -173,15 +178,18 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     /// </summary>
     /// <param name="pcIndex">Index of the monster in the pc.</param>
     /// <param name="secondaryMonster">If <c>false</c> it will replace the primary monster, if <c>true</c> it will replace the secondary.</param>
-    public void LoadMonsterFromPc(int pcIndex, bool secondaryMonster = false) {
+    public bool LoadMonsterFromPc(int pcIndex, bool secondaryMonster = false, int preferredIndex = -1) {
         int index = (secondaryMonster) ? 1 : 0;
         PcEntry entry = pcStorage[pcIndex];
 
         GameObject prefab = randomMonsterPicker.GetMonsterPrefabByName(entry.name);
 
+        bool switchedMonster = false;
+
         // Put the current monster in the PC
         if (carriedMonsters[index] != null) {
-            AddMonsterToPc(carriedMonsters[index].GetComponent<Monster>());
+            AddMonsterToPc(carriedMonsters[index].GetComponent<Monster>(), preferredIndex);
+            switchedMonster = true;
         }
 
         // Load the monster
@@ -189,6 +197,8 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
         carriedMonsters[index].GetComponent<Monster>().LoadFromString(entry.saveString);
         carriedMonsters[index].GetComponent<Monster>().ownedByPlayer = true;
         carriedMonsters[index].SetActive(false);
+
+        return switchedMonster;
     }
 
     public void LoadMonsterIntoParty(Monster monster, bool secondaryMonster = false) {

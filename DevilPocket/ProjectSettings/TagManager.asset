@@ -11,6 +11,7 @@ TagManager:
   - Inventory
   - PousePannel
   - PCInventory
+  - muziek
   layers:
   - Default
   - TransparentFX

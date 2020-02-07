@@ -27,37 +27,8 @@ public class PcInventory : MonoBehaviour {
 
     [Space]
 
-    //PC Invenory UI 4x
-    [Header("Pc Monster 1")]
-    [Header("PC Inventory UI")]
-    [SerializeField] private TextMeshProUGUI pCMonstername1;
-    [SerializeField] private Image pCMonsterSprite1;
-    [SerializeField] private TextMeshProUGUI pCMonsterType1;
-    [SerializeField] private TextMeshProUGUI pCMonsterLVL1;
-    [SerializeField] public Button equipMonster1;
-
-    [Header("Pc Monster 2")]
-    [SerializeField] private TextMeshProUGUI pCMonstername2;
-    [SerializeField] private Image pCMonsterSprite2;
-    [SerializeField] private TextMeshProUGUI pCMonsterType2;
-    [SerializeField] private TextMeshProUGUI pCMonsterLVL2;
-    [SerializeField] public Button equipMonster2;
-
-    [Header("Pc Monster 3")]
-    [SerializeField] private TextMeshProUGUI pCMonstername3;
-    [SerializeField] private Image pCMonsterSprite3;
-    [SerializeField] private TextMeshProUGUI pCMonsterType3;
-    [SerializeField] private TextMeshProUGUI pCMonsterLVL3;
-    [SerializeField] public Button equipMonster3;
-
-    [Header("Pc Monster 4")]
-    [SerializeField] private TextMeshProUGUI pCMonstername4;
-    [SerializeField] private Image pCMonsterSprite4;
-    [SerializeField] private TextMeshProUGUI pCMonsterType4;
-    [SerializeField] private TextMeshProUGUI pCMonsterLVL4;
-    [SerializeField] public Button equipMonster4;
-
-    [Space]
+    [SerializeField] private GameObject uiTemplatePrefab;
+    [SerializeField] private GameObject holder;
 
     //Buttons navigation 2x
 
@@ -67,29 +38,39 @@ public class PcInventory : MonoBehaviour {
     [Space]
     //pannels to enable when there are no monsters.
     [SerializeField] private GameObject monsterPanel2;
-    [SerializeField] private GameObject pcMonsterPanel1;
-    [SerializeField] private GameObject pcMonsterPanel2;
-    [SerializeField] private GameObject pcMonsterPanel3;
-    [SerializeField] private GameObject pcMonsterPanel4;
 
 
     private PlayerInventory playerInventory;
     private Puse puse;
     public GameObject pcPanel;
     private FirstPersonController player;
+    private RandomMonsterPicker randomMonsterPicker;
 
+    private GameObject entryHolder;
+
+    void MakeHolder() {
+        if (entryHolder != null) {
+            Destroy(entryHolder);
+        }
+
+        entryHolder = new GameObject("Entry Holder");
+        entryHolder.transform.parent = holder.transform;
+        VerticalLayoutGroup group = entryHolder.AddComponent<VerticalLayoutGroup>();
+        group.childForceExpandHeight = false;
+        group.childControlHeight = false;
+        group.childControlWidth = false;
+
+        holder.GetComponent<ScrollRect>().content = entryHolder.GetComponent<RectTransform>();
+    }
 
     private void Start() {
         puse = GameObject.FindGameObjectWithTag("PousePannel").GetComponent<Puse>();
         playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
+        randomMonsterPicker = GameObject.Find("RandomMonsterPicker").GetComponent<RandomMonsterPicker>();
         player = GameObject.Find("Player").GetComponent<FirstPersonController>();
 
         pcPanel.SetActive(false);
         monsterPanel2.SetActive(false);
-        pcMonsterPanel1.SetActive(false);
-        pcMonsterPanel2.SetActive(false);
-        pcMonsterPanel3.SetActive(false);
-        pcMonsterPanel4.SetActive(false);
     }
     
     public void HidePcUi() {
@@ -107,6 +88,7 @@ public class PcInventory : MonoBehaviour {
         player.enabled = false;
         Time.timeScale = 0;
         SetPlayerMonstersPC();
+        LoadPCElements();
     }
 
 
@@ -132,6 +114,39 @@ public class PcInventory : MonoBehaviour {
         } else {
             monsterPanel2.SetActive(false);
         }
+    }
+
+    void LoadPCElements() {
+        // Delete old UI elements
+        MakeHolder();
+
+        int i = 0;
+        foreach(PlayerInventory.PcEntry entry in playerInventory.pcStorage) {
+            // Get prefab from name and load relevant data
+            GameObject monster = Instantiate(randomMonsterPicker.GetMonsterPrefabByName(entry.name));
+            Sprite front = monster.GetComponent<Monster>().sprites[0];
+            Element element = monster.GetComponent<Monster>().element;
+
+            // Create dummy monster to parse the data and get the level
+            Monster dummy = monster.GetComponent<Monster>();
+            dummy.LoadFromString(entry.saveString);
+            int level = dummy.monsterLevel;
+
+            Destroy(monster);
+
+            // Create UI element and assign data
+            GameObject template = Instantiate(uiTemplatePrefab, entryHolder.transform);
+            PcUIEntry pc = template.GetComponent<PcUIEntry>();
+            pc.monsterName.text = entry.name;
+            pc.monsterLevel.text = $"Lvl. {level}";
+            pc.monsterSprite.sprite = front;
+            pc.monsterElement.text = element.ToString();
+            pc.index = i;
+
+            ++i;
+        }
+
+
     }
 
         //@ TODO Monsters uit opslag haalen

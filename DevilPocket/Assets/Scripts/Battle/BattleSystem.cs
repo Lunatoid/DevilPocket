@@ -44,7 +44,19 @@ public class BattleSystem : MonoBehaviour {
     [SerializeField]
     AudioClip runSfx;
 
+
+    [SerializeField]
+    AudioClip wildMuzik;
+
+    [SerializeField]
+    AudioClip bossMuzik;
+
+    [SerializeField]
+    AudioClip godMuziek;
+
     AudioSource audioSource;
+
+    AudioSource muziek;
 
     [Space]
     public BattleState state;
@@ -67,17 +79,37 @@ public class BattleSystem : MonoBehaviour {
     [SerializeField]
     float maxExpMod = 5.0f;
 
+    public GameObject wildBattle;
+    public GameObject reactorBattle;
+
     // Start is called before the first frame update
     void Start() {
+        
+
         if (!playerInventory) {
             playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
         }
 
         if (playerInventory.currentBossBattle != null) {
-            // SWITCH REACTOR BG/SOUND
+            if (playerInventory.currentBossBattle != Element.Normal){
+                wildBattle.SetActive(false);
+                reactorBattle.SetActive(true);
+                muziek.clip = bossMuzik;
+            }
+            if (playerInventory.currentBossBattle == Element.Normal) {
+                wildBattle.SetActive(false);
+                reactorBattle.SetActive(true);
+                muziek.clip = godMuziek;
+            }
+        } else {
+            reactorBattle.SetActive(false);
+            wildBattle.SetActive(true);
+            muziek.clip = wildMuzik;
         }
 
         audioSource = GetComponent<AudioSource>();
+
+        muziek = GameObject.FindGameObjectWithTag("muziek").GetComponent<AudioSource>();
 
         state = BattleState.Start;
         StartCoroutine(SetupBattle());
@@ -297,7 +329,7 @@ public class BattleSystem : MonoBehaviour {
                     yield return new WaitForSeconds(waitTimeEnd);
                     dialoogText.text = "Damage increased by " + levelsGrown * playerMonster.damageValue.y + "!\n";
                     dialoogText.text += "Healing increased by " + levelsGrown * playerMonster.healValue.y + "!\n";
-                    dialoogText.text += "Hit points increased by " + (levelsGrown * playerMonster.damageValue.y + playerMonster.healValue.y) + "!\n";
+                    dialoogText.text += "Hit points increased by " + levelsGrown * (playerMonster.damageValue.y + playerMonster.healValue.y) + "!\n";
                     yield return new WaitForSeconds(waitTimeEnd * 3.0f);
                 }
 
