@@ -45,7 +45,7 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     public List<PcEntry> pcStorage = new List<PcEntry>();
 
     public bool wonLastBattle = false;
-    Element? currentBossBattle = null; // null == no boss battle
+    public Element? currentBossBattle = null; // null == no boss battle
     public bool[] beatenBosses = new bool[4];
 
     private void Awake() {

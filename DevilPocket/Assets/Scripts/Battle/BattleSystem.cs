@@ -73,10 +73,14 @@ public class BattleSystem : MonoBehaviour {
             playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
         }
 
+        if (playerInventory.currentBossBattle != null) {
+            // SWITCH REACTOR BG/SOUND
+        }
+
         audioSource = GetComponent<AudioSource>();
 
         state = BattleState.Start;
-        StartCoroutine( SetupBattle());
+        StartCoroutine(SetupBattle());
 
         transitson.SetTrigger("init");
     }
@@ -275,7 +279,9 @@ public class BattleSystem : MonoBehaviour {
                 float expFloat = Random.Range(baseExp + (float)(enemyMonster.monsterLevel + 1) * minExpMod,
                                               baseExp + (float)(enemyMonster.monsterLevel + 1) * maxExpMod);
 
+                int oldLevels = playerMonster.monsterLevel;
                 bool leveledUp = playerMonster.AddExp(Mathf.RoundToInt(expFloat));
+                int levelsGrown = playerMonster.monsterLevel - oldLevels;
                 LoadPlayerMonsterHud();
 
                 // Update any quest data
@@ -287,11 +293,11 @@ public class BattleSystem : MonoBehaviour {
 
                     StartCoroutine(FlashColor(playerMonster, Color.cyan));
 
-                    dialoogText.text = "Leveled up!";
+                    dialoogText.text = $"Leveled up {levelsGrown} level{((levelsGrown > 1) ? "s" : "")}!";
                     yield return new WaitForSeconds(waitTimeEnd);
-                    dialoogText.text = "Damage increased by " + playerMonster.damageValue.y + "!\n";
-                    dialoogText.text += "Healing increased by " + playerMonster.healValue.y + "!\n";
-                    dialoogText.text += "Hit points increased by " + (playerMonster.damageValue.y + playerMonster.healValue.y) + "!\n";
+                    dialoogText.text = "Damage increased by " + levelsGrown * playerMonster.damageValue.y + "!\n";
+                    dialoogText.text += "Healing increased by " + levelsGrown * playerMonster.healValue.y + "!\n";
+                    dialoogText.text += "Hit points increased by " + (levelsGrown * playerMonster.damageValue.y + playerMonster.healValue.y) + "!\n";
                     yield return new WaitForSeconds(waitTimeEnd * 3.0f);
                 }
 
@@ -465,7 +471,7 @@ public class BattleSystem : MonoBehaviour {
     public void AttemptRun() {
         if (state != BattleState.PlayerTurn || !canInteract) return;
         canInteract = false;
-        
+
         bool strongOrSameStrength = playerMonster.monsterLevel >= enemyMonster.monsterLevel;
 
         int percentChance = (strongOrSameStrength) ? 75 : 10;

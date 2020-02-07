@@ -78,12 +78,13 @@ public class Monster : MonoBehaviour {
     public bool AddExp(int exp) {
         currentXP += exp;
 
-        if (currentXP >= xpUntilLevelUp) {
-            int remainder = currentXP % xpUntilLevelUp;
+        bool leveledUp = false;
+        while (currentXP >= xpUntilLevelUp) {
+            currentXP -= xpUntilLevelUp;
+
+            leveledUp = true;
 
             ++monsterLevel;
-
-            currentXP = remainder;
 
             // xpUntilLevelUp = Mathf.RoundToInt((float)BASE_XP * Mathf.Pow((float)monsterLevel, 1.2f));
             xpUntilLevelUp = Mathf.RoundToInt((float)BASE_XP * (Mathf.Pow((float)monsterLevel, 1.5f) * 0.2f));
@@ -95,10 +96,9 @@ public class Monster : MonoBehaviour {
             foreach (Move move in moves) {
                 move.LevelUp();
             }
-
-            return true;
         }
-        return false;
+
+        return leveledUp;
     }
 
     public int GetCurrentExp() {
