@@ -7,9 +7,11 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class WaterBop : MonoBehaviour {
 
     [SerializeField]
+    FirstPersonController firstPersonController;
     float forceAmount = 5.0f;
 
     GameObject player;
+
 
     // If we immediately unmute the audio it will still play the footsteps
     // We set a timer to unmute the audio
@@ -19,6 +21,7 @@ public class WaterBop : MonoBehaviour {
 
     void Start() {
         player = GameObject.Find("Player");
+        firstPersonController = GameObject.Find("Player").GetComponent<FirstPersonController>();
     }
 
     void Update() {
@@ -36,6 +39,8 @@ public class WaterBop : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
+            firstPersonController.m_WalkSpeed = firstPersonController.m_WalkSpeed / 3;
+            firstPersonController.m_RunSpeed = firstPersonController.m_RunSpeed / 3;
             Debug.Log("Muting sounds");
             other.GetComponent<FirstPersonController>().MuteSounds();
             isInWater = true;
@@ -44,8 +49,16 @@ public class WaterBop : MonoBehaviour {
 
     void OnTriggerStay(Collider other) {
         if (other.tag == "Player") {
-            other.GetComponent<CharacterController>().Move(Vector3.up * forceAmount * Time.deltaTime);
+            //other.GetComponent<CharacterController>().Move(Vector3.up * forceAmount * Time.deltaTime);
             leaveWaterTimer = LEAVE_WATER_UNMUTE_TIME;
         }
     }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.tag == "Player") {
+            firstPersonController.m_WalkSpeed = firstPersonController.m_WalkSpeed * 3;
+            firstPersonController.m_RunSpeed = firstPersonController.m_RunSpeed * 3;
+        }
+    }
+
 }

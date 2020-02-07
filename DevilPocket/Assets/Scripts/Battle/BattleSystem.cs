@@ -86,29 +86,33 @@ public class BattleSystem : MonoBehaviour {
     void Start() {
 
         muziek = GameObject.FindGameObjectWithTag("muziek").GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         if (!playerInventory) {
             playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
         }
 
         if (playerInventory.currentBossBattle != null) {
-            if (playerInventory.currentBossBattle != Element.Normal){
+           if (playerInventory.currentBossBattle != Element.Normal){
                 wildBattle.SetActive(false);
                 reactorBattle.SetActive(true);
                 muziek.clip = bossMuzik;
+                muziek.Play();
             }
-            if (playerInventory.currentBossBattle == Element.Normal) {
+            else if (playerInventory.currentBossBattle == Element.Normal) {
                 wildBattle.SetActive(false);
                 reactorBattle.SetActive(true);
                 muziek.clip = godMuziek;
+                muziek.Play();
             }
         } else {
             reactorBattle.SetActive(false);
             wildBattle.SetActive(true);
             muziek.clip = wildMuzik;
+            muziek.Play();
         }
 
-        audioSource = GetComponent<AudioSource>();
+        
 
         state = BattleState.Start;
         StartCoroutine(SetupBattle());
