@@ -84,7 +84,8 @@ public class BattleSystem : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        
+
+        muziek = GameObject.FindGameObjectWithTag("muziek").GetComponent<AudioSource>();
 
         if (!playerInventory) {
             playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
@@ -108,8 +109,6 @@ public class BattleSystem : MonoBehaviour {
         }
 
         audioSource = GetComponent<AudioSource>();
-
-        muziek = GameObject.FindGameObjectWithTag("muziek").GetComponent<AudioSource>();
 
         state = BattleState.Start;
         StartCoroutine(SetupBattle());
