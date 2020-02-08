@@ -13,11 +13,9 @@ public class SetPlyerActife : MonoBehaviour {
     FirstPersonController firstPersonControler;
 
     // Start is called before the first frame update
-    void Awake()
-    {
+    void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
-
-        firstPersonControler = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
+        firstPersonControler = player.GetComponent<FirstPersonController>();
 
         SetplayerActife();
 
@@ -25,7 +23,7 @@ public class SetPlyerActife : MonoBehaviour {
         firstPersonControler.enabled = false;
         Debug.Log("de speler poziete is " + player.transform.position);
         player.transform.position = spawnlocation.transform.position;
-   
+
     }
 
     private void Start() {
@@ -43,8 +41,8 @@ public class SetPlyerActife : MonoBehaviour {
 
         Debug.Log("player sould be active");
         player.gameObject.SetActive(enabled);
-        
+
     }
 
-    
+
 }

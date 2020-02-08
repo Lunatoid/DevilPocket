@@ -10969,6 +10969,9 @@ MonoBehaviour:
   maxExpMod: 80
   wildBattle: {fileID: 531140380}
   reactorBattle: {fileID: 864411631}
+  buttonsToDisable:
+  - {fileID: 1430879427}
+  - {fileID: 1062896222}
 --- !u!4 &1933963151
 Transform:
   m_ObjectHideFlags: 0

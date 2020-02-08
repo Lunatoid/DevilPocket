@@ -58,8 +58,6 @@ public class InventoryUI : MonoBehaviour {
         
     }
     private void SetInventoty() {
-
-        
         // monny on schreen
         coins.text = $"Coins {playerInventory.money.ToString()}";
 

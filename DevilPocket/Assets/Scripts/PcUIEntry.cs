@@ -13,6 +13,7 @@ public class PcUIEntry : MonoBehaviour {
     public int index;
 
     PlayerInventory playerInventory;
+    public PcInventory pcInventory;
     RandomMonsterPicker randomMonsterPicker;
 
     // Start is called before the first frame update
@@ -45,6 +46,10 @@ public class PcUIEntry : MonoBehaviour {
             monsterLevel.text = $"Lvl. {level}";
             monsterElement.text = element.ToString();
             monsterSprite.sprite = front;
+        } else {
+            pcInventory.RemoveIndex(index);
         }
+
+        pcInventory.SetPlayerMonstersPC();
     }
 }

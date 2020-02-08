@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 using UnityEngine.SceneManagement;
 
@@ -82,6 +83,9 @@ public class BattleSystem : MonoBehaviour {
     public GameObject wildBattle;
     public GameObject reactorBattle;
 
+    [SerializeField, Space, Header("Buttons to be disabled if you're in a boss battle")]
+    Button[] buttonsToDisable;
+
     // Start is called before the first frame update
     void Start() {
 
@@ -93,13 +97,12 @@ public class BattleSystem : MonoBehaviour {
         }
 
         if (playerInventory.currentBossBattle != null) {
-           if (playerInventory.currentBossBattle != Element.Normal){
+            if (playerInventory.currentBossBattle != Element.Normal) {
                 wildBattle.SetActive(false);
                 reactorBattle.SetActive(true);
                 muziek.clip = bossMuzik;
                 muziek.Play();
-            }
-            else if (playerInventory.currentBossBattle == Element.Normal) {
+            } else if (playerInventory.currentBossBattle == Element.Normal) {
                 wildBattle.SetActive(false);
                 reactorBattle.SetActive(true);
                 muziek.clip = godMuziek;
@@ -111,8 +114,6 @@ public class BattleSystem : MonoBehaviour {
             muziek.clip = wildMuzik;
             muziek.Play();
         }
-
-        
 
         state = BattleState.Start;
         StartCoroutine(SetupBattle());
@@ -271,7 +272,7 @@ public class BattleSystem : MonoBehaviour {
         bool isCurrentDead = current.currentHP <= 0;
 
         bool playerWon = (state == BattleState.PlayerTurn && isTargetDead) || (state == BattleState.EnemyTurn && isCurrentDead);
-        bool enemyWon  = (state == BattleState.EnemyTurn && isTargetDead) || (state == BattleState.PlayerTurn && isCurrentDead);
+        bool enemyWon = (state == BattleState.EnemyTurn && isTargetDead) || (state == BattleState.PlayerTurn && isCurrentDead);
 
         if (playerWon) {
             state = BattleState.Won;
@@ -292,6 +293,15 @@ public class BattleSystem : MonoBehaviour {
         } else {
             state = BattleState.PlayerTurn;
             PlayerTurn();
+        }
+    }
+
+    private void Update() {
+        // We can't do this in the Start() because some of the buttons are either disabled or under disabled parents
+        if (playerInventory.currentBossBattle != null) {
+            foreach (Button button in buttonsToDisable) {
+                button.interactable = false;
+            }
         }
     }
 

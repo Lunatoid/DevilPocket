@@ -63,6 +63,11 @@ public class PlayerDialogHandler : MonoBehaviour {
         fps = GetComponent<FirstPersonController>();
     }
 
+    public void ClearDialog() {
+        queuedDialog.Clear();
+        textboxBg.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update() {
         if (queuedDialog.Count > 0) {
