@@ -197,7 +197,7 @@ MonoBehaviour:
   despawnTimeInSeconds: 600
   waitSpawnMargin: 15
   encounterCap: 25
-  timeUntilSpawning: 75
+  timeUntilSpawning: 120
   despawnCheckInterval: 10
 --- !u!4 &1288718584
 Transform:
