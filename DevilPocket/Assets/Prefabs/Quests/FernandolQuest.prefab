@@ -48,9 +48,8 @@ MonoBehaviour:
   questGiverName: Funeral guard
   questName: Death is inevitable
   acceptedQuest: 0
-  questDescription: "All those people who lie here at the cemetery. \nYou know there
-    is a monster that escaped death. \nIt seems impossible but he really did it.\n\nProve
-    that death is inevitable."
+  questDescription: "Kill the monster that escaped death. \nIt seems impossible but
+    you can do it.\n\nProve that death is inevitable."
   moneyReward: 200
   collectedReward: 0
   killMonstersData:

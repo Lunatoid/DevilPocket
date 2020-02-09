@@ -56,7 +56,7 @@ MonoBehaviour:
   killMonstersData:
     amountDone: 0
     amountRequired: 4
-    killName: OfficerYip
+    killName: Officier Yip
   catchMonstersData:
     amountDone: 0
     amountRequired: 0
