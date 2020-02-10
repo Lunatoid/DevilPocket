@@ -550,11 +550,11 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: CROSS_PLATFORM_INPUT;UNITY_POST_PROCESSING_STACK_V2
-    4: CROSS_PLATFORM_INPUT
-    7: CROSS_PLATFORM_INPUT;UNITY_POST_PROCESSING_STACK_V2
+    1: 24;UNITY_POST_PROCESSING_STACK_V2;CROSS_PLATFORM_INPUT
+    4: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    7: CROSS_PLATFORM_INPUT;UNITY_POST_PROCESSING_STACK_V2;MOBILE_INPUT
     13: UNITY_POST_PROCESSING_STACK_V2
-    14: MOBILE_INPUT
+    14: 
     19: UNITY_POST_PROCESSING_STACK_V2
     21: UNITY_POST_PROCESSING_STACK_V2
     25: UNITY_POST_PROCESSING_STACK_V2
@@ -572,24 +572,26 @@ PlayerSettings:
   scriptingRuntimeVersion: 1
   gcIncremental: 0
   gcWBarrierValidation: 0
-  apiCompatibilityLevelPerPlatform: {}
+  apiCompatibilityLevelPerPlatform:
+    Windows Store Apps: 6
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: DevBuildV1
+  metroPackageName: DevilPocedXbox
   metroPackageVersion: 1.0.0.0
   metroCertificatePath: Assets/WSATestCertificate.pfx
-  metroCertificatePassword: =>?8
+  metroCertificatePassword: 
   metroCertificateSubject: Tom&Joris_Productions
   metroCertificateIssuer: Tom&Joris_Productions
-  metroCertificateNotAfter: 80e8d0d2fbf1d601
+  metroCertificateNotAfter: 002a190e13ffd601
   metroApplicationDescription: Template_3D
-  wsaImages: {}
+  wsaImages:
+    65936: Assets/Resources/Textures/BG/icon.png
   metroTileShortName: DevilPocket
   metroTileShowName: 0
-  metroMediumTileShowName: 0
+  metroMediumTileShowName: 1
   metroLargeTileShowName: 1
-  metroWideTileShowName: 0
-  metroSupportStreamingInstall: 0
+  metroWideTileShowName: 1
+  metroSupportStreamingInstall: 1
   metroLastRequiredScene: 0
   metroDefaultTileSize: 1
   metroTileForegroundText: 2
@@ -637,13 +639,13 @@ PlayerSettings:
       VoipCall: False
       WebCam: False
   metroTargetDeviceFamilies:
-    Desktop: False
+    Desktop: True
     Holographic: False
     IoT: False
     IoTHeadless: False
     Mobile: False
     Team: False
-    Xbox: False
+    Xbox: True
   metroFTAName: 
   metroFTAFileTypes: []
   metroProtocolName: 

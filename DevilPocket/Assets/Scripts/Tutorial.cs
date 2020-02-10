@@ -11,7 +11,7 @@ public class Tutorial : MonoBehaviour
     }
 
     public void StepOneDone() {
-        playermonster1.SetActive(true);
+        playermonster1.SetActive(false);
     }
 
     

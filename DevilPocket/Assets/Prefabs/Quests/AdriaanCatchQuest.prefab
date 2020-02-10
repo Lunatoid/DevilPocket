@@ -46,7 +46,7 @@ MonoBehaviour:
   goalType: 1
   questId: 
   questGiverName: Businessman
-  questName: Vind 3 Adriaan's
+  questName: Find 3 Adriaan's
   acceptedQuest: 0
   questDescription: "I was late for a business meeting and then had 3 missed calls
     from 3 different Ariaan's. \nFind 3 Adrians and capture them."

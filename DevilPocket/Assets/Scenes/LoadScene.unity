@@ -196,8 +196,8 @@ MonoBehaviour:
     type: 3}
   despawnTimeInSeconds: 600
   waitSpawnMargin: 15
-  encounterCap: 25
-  timeUntilSpawning: 120
+  encounterCap: 30
+  timeUntilSpawning: 100
   despawnCheckInterval: 10
 --- !u!4 &1288718584
 Transform:
@@ -363,7 +363,7 @@ MonoBehaviour:
   enemyMonsterLevel: 1
   enemyMonster: {fileID: 0}
   money: 0
-  hasBattlepass: 0
+  hasBattlepass: 1
   baitAmount: 0
   paracetamolAmount: 0
   ibuprofenAmount: 0

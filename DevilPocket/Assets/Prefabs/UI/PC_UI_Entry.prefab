@@ -54,6 +54,7 @@ MonoBehaviour:
   monsterLevel: {fileID: 649014347200463371}
   monsterSprite: {fileID: 649014347781302581}
   index: 0
+  pcInventory: {fileID: 0}
 --- !u!1 &649014346718774905
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: -1
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}

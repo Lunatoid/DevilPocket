@@ -50,7 +50,7 @@ MonoBehaviour:
   acceptedQuest: 0
   questDescription: "All my life I have fought against the herring people in the sewer
     of the village next to us. Now the police officers have taken my permit and unfortunately
-    I can no longer hunt for them.\r\nshow who's in charge and beat up a few."
+    I can no longer hunt them.\r\nshow who's in charge and beat up a few."
   moneyReward: 250
   collectedReward: 0
   killMonstersData:

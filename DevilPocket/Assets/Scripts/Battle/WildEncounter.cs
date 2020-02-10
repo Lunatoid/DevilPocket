@@ -32,7 +32,7 @@ public class WildEncounter : MonoBehaviour {
     PlayerInventory playerInventory;
     RandomMonsterPicker randomMonsterPicker;
 
-    NavMeshAgent agent;
+    [HideInInspector]public NavMeshAgent agent;
 
     Animator monsterAnimator;
 

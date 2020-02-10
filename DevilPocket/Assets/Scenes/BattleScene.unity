@@ -3046,12 +3046,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1743347664}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1430879427}
+        m_MethodName: Select
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10971,7 +10982,6 @@ MonoBehaviour:
   reactorBattle: {fileID: 864411631}
   buttonsToDisable:
   - {fileID: 1430879427}
-  - {fileID: 1062896222}
 --- !u!4 &1933963151
 Transform:
   m_ObjectHideFlags: 0

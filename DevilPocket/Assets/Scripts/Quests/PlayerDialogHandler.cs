@@ -12,6 +12,7 @@ public class PlayerDialogHandler : MonoBehaviour {
 
     List<string> queuedDialog = new List<string>();
 
+
     class ChoiceInfo {
         public bool makingChoice = false;
         public List<string> choices = new List<string>();
@@ -72,6 +73,7 @@ public class PlayerDialogHandler : MonoBehaviour {
     void Update() {
         if (queuedDialog.Count > 0) {
             fps.LockMovement();
+            
         } else if (fps.IsMovementLocked()) {
             fps.UnlockMovement();
         }

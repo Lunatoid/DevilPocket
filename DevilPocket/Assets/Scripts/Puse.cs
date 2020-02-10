@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.UI;
 
 public class Puse : MonoBehaviour {
 
@@ -17,6 +18,8 @@ public class Puse : MonoBehaviour {
     private FirstPersonController player;
 
     public bool ispouse = false;
+
+    public Button firtstSelect;
 
     private void Awake() {
         pausePanel.SetActive(false);
@@ -49,6 +52,7 @@ public class Puse : MonoBehaviour {
         Time.timeScale = 0;
         pausePanel.SetActive(true);
         ispouse = true;
+        firtstSelect.Select();
         Debug.Log("pouse");
     }
 
