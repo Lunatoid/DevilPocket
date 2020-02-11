@@ -12,6 +12,7 @@ TagManager:
   - PousePannel
   - PCInventory
   - muziek
+  - WildMonster
   layers:
   - Default
   - TransparentFX

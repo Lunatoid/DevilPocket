@@ -14,7 +14,7 @@ public class WildEncounter : MonoBehaviour {
     float monsterTriggerDistence = 20.0f;
 
     [SerializeField]
-    float monsterSpeed = 3.5f;
+    public float monsterSpeed = 3.5f;
 
     [SerializeField]
     float chaseModifier = 1.25f;
