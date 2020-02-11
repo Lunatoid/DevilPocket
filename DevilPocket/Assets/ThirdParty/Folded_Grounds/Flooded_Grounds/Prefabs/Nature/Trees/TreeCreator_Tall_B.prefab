@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2393040}
   - component: {fileID: 7303089826858426563}
   - component: {fileID: 7391359512331504978}
+  - component: {fileID: 1436237533604477359}
+  - component: {fileID: 1536391686122029600}
   m_Layer: 0
   m_Name: TreeCreator_Tall_B
   m_TagString: Untagged
@@ -101,10 +103,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 4.385309
+  m_Radius: 0.76
   m_Height: 27.653103
   m_Direction: 1
-  m_Center: {x: -1.4978037, y: 9.639183, z: 1.7614422}
+  m_Center: {x: 2.09, y: 9.639183, z: 2.12}
 --- !u!114 &7391359512331504978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +123,34 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!136 &1436237533604477359
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.8185444
+  m_Height: 38.990692
+  m_Direction: 1
+  m_Center: {x: -0.5, y: 16.73, z: 0.88}
+--- !u!136 &1536391686122029600
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.8185444
+  m_Height: 38.990692
+  m_Direction: 1
+  m_Center: {x: -3.85, y: 16.73, z: 1.43}
 --- !u!21 &2179674
 Material:
   serializedVersion: 6
