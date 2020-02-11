@@ -22,6 +22,9 @@ public class QuestUI : MonoBehaviour {
 
     PlayerInventory playerInventory;
 
+    public AudioSource sourece;
+    public AudioClip calimSound;
+
     void Awake() {
         playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
 
@@ -186,6 +189,8 @@ public class QuestUI : MonoBehaviour {
     }
 
     public void ClaimReward() {
+        sourece.clip = calimSound;
+        sourece.Play();
         Quest quest = playerInventory.GetQuest(currentQuest);
         quest.collectedReward = true;
 

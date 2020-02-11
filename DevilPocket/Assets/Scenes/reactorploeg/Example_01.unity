@@ -31569,6 +31569,8 @@ MonoBehaviour:
   claimButton: {fileID: 906529610}
   leftCycleButton: {fileID: 596674571}
   rightCycleButton: {fileID: 32822021}
+  sourece: {fileID: 0}
+  calimSound: {fileID: 0}
 --- !u!224 &792819935
 RectTransform:
   m_ObjectHideFlags: 0

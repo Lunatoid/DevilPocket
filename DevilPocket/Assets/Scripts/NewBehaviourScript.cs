@@ -17,7 +17,6 @@ public class NewBehaviourScript : MonoBehaviour
 
     IEnumerator EndEnd() {
 
-        yield return new WaitForSeconds(1.1f);
         lt.FadeToBlack();
         yield return new WaitForSeconds(1.1f);
 
