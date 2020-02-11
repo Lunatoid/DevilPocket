@@ -86,6 +86,9 @@ public class BattleSystem : MonoBehaviour {
     [SerializeField, Space, Header("Buttons to be disabled if you're in a boss battle")]
     Button[] buttonsToDisable;
 
+    [Space]
+    public GameObject hudHolder;
+
     // Start is called before the first frame update
     void Start() {
 
@@ -95,6 +98,8 @@ public class BattleSystem : MonoBehaviour {
         if (!playerInventory) {
             playerInventory = GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>();
         }
+
+        //hudHolder.SetActive(true);
 
         if (playerInventory.currentBossBattle != null) {
             if (playerInventory.currentBossBattle != Element.Normal) {
@@ -126,6 +131,7 @@ public class BattleSystem : MonoBehaviour {
     /// Shows dialog and then switches to the main scene.
     /// </summary>
     IEnumerator EscapeNoValidMonsters() {
+        hudHolder.SetActive(false);
         dialoogText.text = $"You enter the battle but none of your monsters are able to fight!";
         yield return new WaitForSeconds(3);
         dialoogText.text = $"You run away as fast as you can!";
@@ -140,6 +146,8 @@ public class BattleSystem : MonoBehaviour {
     IEnumerator SetupBattle() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        hudHolder.SetActive(false);
 
         GameObject enemyGo = Instantiate(playerInventory.enemyMonster, enemyBattleStation);
         enemyMonster = enemyGo.GetComponent<Monster>();
@@ -245,6 +253,7 @@ public class BattleSystem : MonoBehaviour {
     /// <param name="target">The monster that is being attacked.</param>
     /// <param name="index">The move that is being used.</param>
     IEnumerator PerformMove(Monster current, Monster target, int index) {
+        hudHolder.SetActive(false);
         int uses = current.moves[index].uses;
         bool isTargetDead = current.moves[index].PerformMove(current, target);
         playerHUD.UpdateUsesHUD(playerMonster);
@@ -311,6 +320,7 @@ public class BattleSystem : MonoBehaviour {
     /// </summary>
     /// <param name="killedEnemy">Whether or not the player won by killing the enemy. Only applicable if the player won.</param>
     IEnumerator EndBattle(bool killedEnemy = true) {
+        hudHolder.SetActive(false);
         playerInventory.wonLastBattle = state == BattleState.Won;
         if (state == BattleState.Won) {
             if (killedEnemy) {
@@ -332,6 +342,9 @@ public class BattleSystem : MonoBehaviour {
                 // Update any quest data
                 playerInventory.UpdateCompletion(GoalType.KillMonsters, 1, enemyMonster.monsterName);
 
+                dialoogText.text = "You got " + money + " coins and " + Mathf.RoundToInt(expFloat) + " experience!";
+                yield return new WaitForSeconds(waitTimeEnd);
+
                 if (leveledUp) {
                     audioSource.clip = levelUpSfx;
                     audioSource.Play();
@@ -343,13 +356,12 @@ public class BattleSystem : MonoBehaviour {
                     dialoogText.text = "Damage increased by " + levelsGrown * playerMonster.damageValue.y + "!\n";
                     dialoogText.text += "Healing increased by " + levelsGrown * playerMonster.healValue.y + "!\n";
                     dialoogText.text += "Hit points increased by " + levelsGrown * (playerMonster.damageValue.y + playerMonster.healValue.y) + "!\n";
-                    yield return new WaitForSeconds(waitTimeEnd * 3.0f);
+                    yield return new WaitForSeconds(waitTimeEnd * 2.0f);
                 }
 
                 dialoogText.text = "You won the battle against " + enemyMonster.monsterName + "!";
                 yield return new WaitForSeconds(waitTimeEnd);
-                dialoogText.text = "You got " + money + " coins and " + Mathf.RoundToInt(expFloat) + " experience!";
-                yield return new WaitForSeconds(waitTimeEnd);
+                
             } else {
                 // Player caught the enemy
 
@@ -469,6 +481,7 @@ public class BattleSystem : MonoBehaviour {
     /// Shows dialog and enables player interaction
     /// </summary>
     void PlayerTurn() {
+        hudHolder.SetActive(true);
         dialoogText.text = "Choose an action:";
         canInteract = true;
     }
@@ -499,6 +512,7 @@ public class BattleSystem : MonoBehaviour {
     /// </summary>
     /// <param name="index">The index of the move to do.</param>
     void DoMove(int index) {
+        hudHolder.SetActive(false);
         if (state != BattleState.PlayerTurn) {
             return;
         } else {
@@ -528,6 +542,7 @@ public class BattleSystem : MonoBehaviour {
     /// </summary>
     /// <param name="success">If <c>true</c> it will run successfully, if <c>false</c> it will fail.</param>
     IEnumerator PerformRun(bool success) {
+        hudHolder.SetActive(false);
         if (success) {
             dialoogText.text = "You successfully ran away!";
             audioSource.clip = runSfx;
@@ -563,6 +578,7 @@ public class BattleSystem : MonoBehaviour {
     /// <param name="nextTurn">If the switch fails, which turn it should switch to</param>
     IEnumerator PerformSwitch(bool success, BattleState nextTurn) {
         if (success) {
+            hudHolder.SetActive(false);
             // Save current monster
             playerMonster.transform.parent = playerInventory.transform;
             playerMonster.gameObject.SetActive(false);
@@ -606,6 +622,7 @@ public class BattleSystem : MonoBehaviour {
     /// <returns></returns>
     public IEnumerator UseHealItem(bool playerMonster, int amount, string message = "") {
         // Set state immediately so the player can't spam actions
+        hudHolder.SetActive(false);
         state = (playerMonster) ? BattleState.EnemyTurn : BattleState.PlayerTurn;
 
         if (playerMonster) {
@@ -635,6 +652,9 @@ public class BattleSystem : MonoBehaviour {
     }
 
     public IEnumerator CatchEnemyMonster() {
+
+        hudHolder.SetActive(false);
+
         // Set state immediately so the player can't spam actions
         state = BattleState.EnemyTurn;
 

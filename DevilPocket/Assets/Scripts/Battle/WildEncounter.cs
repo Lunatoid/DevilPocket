@@ -24,6 +24,16 @@ public class WildEncounter : MonoBehaviour {
 
     public int level = 1;
 
+    [Header("mat changing")]
+    public GameObject materialHolder;
+
+    public Material godMaterial;
+    public Material iceMaterial;
+    public Material metalMaterial;
+    public Material posionMaterial;
+
+
+
     // This is the random monster that the player will encounter
     // Decided at Start()
     GameObject randomMonster;
@@ -32,7 +42,7 @@ public class WildEncounter : MonoBehaviour {
     PlayerInventory playerInventory;
     RandomMonsterPicker randomMonsterPicker;
 
-    [HideInInspector]public NavMeshAgent agent;
+    [HideInInspector] public NavMeshAgent agent;
 
     Animator monsterAnimator;
 
@@ -41,10 +51,10 @@ public class WildEncounter : MonoBehaviour {
     Vector3 GetRandomDestination() {
         // Set agent to random path
         // Pick the first indice of a random triangle in the nav mesh
-        int t = Random.Range(0, navMeshTriangles.indices.Length-3);
+        int t = Random.Range(0, navMeshTriangles.indices.Length - 3);
 
         // Select a random point on it
-        Vector3 point = Vector3.Lerp(navMeshTriangles.vertices[navMeshTriangles.indices[t]], navMeshTriangles.vertices[navMeshTriangles.indices[t+1]], Random.value);
+        Vector3 point = Vector3.Lerp(navMeshTriangles.vertices[navMeshTriangles.indices[t]], navMeshTriangles.vertices[navMeshTriangles.indices[t + 1]], Random.value);
         Vector3.Lerp(point, navMeshTriangles.vertices[navMeshTriangles.indices[t + 2]], Random.value);
 
         return point;
@@ -68,6 +78,21 @@ public class WildEncounter : MonoBehaviour {
 
         navMeshTriangles = NavMesh.CalculateTriangulation();
         agent.destination = GetRandomDestination();
+
+
+        if (randomMonster.GetComponent<Monster>().element != Element.Normal) {
+            if (randomMonster.GetComponent<Monster>().element == Element.Ice) {
+                materialHolder.GetComponent<SkinnedMeshRenderer>().material = iceMaterial;
+            }
+            if (randomMonster.GetComponent<Monster>().element == Element.Metal) {
+                materialHolder.GetComponent<SkinnedMeshRenderer>().material = metalMaterial;
+            }
+            if (randomMonster.GetComponent<Monster>().element == Element.Poison) {
+                materialHolder.GetComponent<SkinnedMeshRenderer>().material = posionMaterial;
+            }
+        } else {
+            materialHolder.GetComponent<SkinnedMeshRenderer>().material = godMaterial;
+        }
     }
 
     /// <summary>

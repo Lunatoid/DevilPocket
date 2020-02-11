@@ -1862,7 +1862,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aeed4e1030027dd41b4b57077c61d2c4, type: 2}
+  - {fileID: 2100000, guid: 6e0375605ab64f14da5a64c7ec80e03c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2189,6 +2189,13 @@ MonoBehaviour:
   monsterSpeed: 4
   chaseModifier: 2
   maxAnimationSpeed: 4
+  level: 1
+  materialHolder: {fileID: 7687389440340563672}
+  godMaterial: {fileID: 2100000, guid: 6e0375605ab64f14da5a64c7ec80e03c, type: 2}
+  iceMaterial: {fileID: 2100000, guid: aeed4e1030027dd41b4b57077c61d2c4, type: 2}
+  metalMaterial: {fileID: 2100000, guid: 1b106f39e984b4b4baf00f092d6d2e8a, type: 2}
+  posionMaterial: {fileID: 2100000, guid: 54c73a857c8b9544badb6ab5383fda5a, type: 2}
+  agent: {fileID: 0}
 --- !u!195 &2949045453487349242
 NavMeshAgent:
   m_ObjectHideFlags: 0

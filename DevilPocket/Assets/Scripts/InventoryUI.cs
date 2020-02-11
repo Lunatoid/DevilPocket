@@ -40,7 +40,7 @@ public class InventoryUI : MonoBehaviour {
     private PlayerInventory playerInventory;
     private Puse puse;
 
-    private bool hasShownPP = false;
+    [HideInInspector]public bool hasShownPP = false;
 
     private void Start() {
         puse = GameObject.FindGameObjectWithTag("PousePannel").GetComponent<Puse>();
