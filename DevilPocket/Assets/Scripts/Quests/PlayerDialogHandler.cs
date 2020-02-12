@@ -73,9 +73,10 @@ public class PlayerDialogHandler : MonoBehaviour {
     void Update() {
         if (queuedDialog.Count > 0) {
             fps.LockMovement();
-            
+            Time.timeScale = 0.0f;
         } else if (fps.IsMovementLocked()) {
             fps.UnlockMovement();
+            Time.timeScale = 1.0f;
         }
 
         if (choiceInfo.makingChoice) {
@@ -236,7 +237,7 @@ public class PlayerDialogHandler : MonoBehaviour {
                     queuedDialog[0] = queuedDialog[0].Substring(1);
                 }
 
-                typewriterTimer += Time.deltaTime;
+                typewriterTimer += Time.unscaledDeltaTime;
 
                 if (CrossPlatformInputManager.GetButtonDown("Interact") && !firstFrameInteractDelay) {
                     typewriterTimer = 0.0f;

@@ -21,6 +21,9 @@ public class MainSceneInit : MonoBehaviour {
     [SerializeField]
     GameObject choiceBg;
 
+    [SerializeField]
+    GameObject questNotify;
+
     GameObject player;
 
     // Start is called before the first frame update
@@ -36,8 +39,9 @@ public class MainSceneInit : MonoBehaviour {
         handler.enabled = true;
         handler.Init();
 
-        // textboxBg.color = Color.clear;
-        // choiceBg.color = Color.clear;
+        if (questNotify) {
+            GameObject.Find("PlayerInventory").GetComponent<PlayerInventory>().questNotify = questNotify;
+        }
 
         Destroy(gameObject);
     }

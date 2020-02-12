@@ -48,6 +48,9 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     public Element? currentBossBattle = null; // null == no boss battle
     public bool[] beatenBosses = new bool[4];
 
+    [Space]
+    public GameObject questNotify;
+
     private void Awake() {
         DontDestroyOnLoad(gameObject);
 
@@ -116,9 +119,31 @@ public class PlayerInventory : MonoBehaviour, IShopCostumer {
     }
 
     public void AddQuest(string name) {
-        questLedger.AcceptQuest(name);
+        if (!questLedger.AcceptQuest(name)) {
+            StartCoroutine(QuestNotify());
+        }
     }
 
+    IEnumerator QuestNotify() {
+        UnityEngine.UI.Image img = questNotify.GetComponent<UnityEngine.UI.Image>();
+        TMPro.TextMeshProUGUI text = questNotify.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        questNotify.SetActive(true);
+        img.color = new Color(img.color.r, img.color.g, img.color.b, 0.7f);
+        Color imgTarget = new Color(img.color.r, img.color.g, img.color.b, 0.0f);
+        text.color = new Color(text.color.r, text.color.g, text.color.b, 1.0f);
+        Color textTarget = new Color(text.color.r, text.color.g, text.color.b, 0.0f);
+        yield return new WaitForSeconds(2.5f);
+
+        const float TIME_TO_LERP = 2.5f;
+        float elapsedTime = 0.0f;
+        while (elapsedTime < TIME_TO_LERP) {
+            elapsedTime += Time.deltaTime;
+            img.color = Color.Lerp(img.color, imgTarget, (elapsedTime / TIME_TO_LERP));
+            text.color = Color.Lerp(text.color, textTarget, (elapsedTime / TIME_TO_LERP));
+            yield return new WaitForEndOfFrame();
+        }
+        questNotify.SetActive(false);
+    }
 
     /// <summary>
     /// Updates completion on all quests.

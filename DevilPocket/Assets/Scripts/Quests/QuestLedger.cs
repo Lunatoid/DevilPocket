@@ -29,8 +29,10 @@ public class QuestLedger : MonoBehaviour {
         return null;
     }
 
-    public void AcceptQuest(string name) {
+    public bool AcceptQuest(string name) {
+        bool wasAccepted = GetQuestFromName(name).acceptedQuest;
         GetQuestFromName(name).acceptedQuest = true;
+        return wasAccepted;
     }
 
     /// <summary>
