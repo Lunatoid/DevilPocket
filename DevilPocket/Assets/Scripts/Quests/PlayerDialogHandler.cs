@@ -189,7 +189,7 @@ public class PlayerDialogHandler : MonoBehaviour {
             }
         }
 
-        float axis = CrossPlatformInputManager.GetAxis("Vertical");
+        float axis = CrossPlatformInputManager.GetAxisRaw("Vertical");
         // Debug.Log($"Axis {axis}");
         if (!alreadyMovedAxis && axis > AXIS_CHOICE_DEADZONE) {
             alreadyMovedAxis = true;
