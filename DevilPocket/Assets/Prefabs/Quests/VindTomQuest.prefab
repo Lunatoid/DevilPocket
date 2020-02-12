@@ -45,10 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalType: 1
   questId: 
-  questGiverName: Profesor Malm
-  questName: Merge Conflicts
+  questGiverName: Professor Malm
+  questName: Solve The Merge Conflicts
   acceptedQuest: 0
-  questDescription: 'I have heard rumors of a legendary Git expert walking around.
+  questDescription: 'I have heard rumors of a legendary Git Expert walking around...
 
     I want you to bring him to me to solve this error!
 

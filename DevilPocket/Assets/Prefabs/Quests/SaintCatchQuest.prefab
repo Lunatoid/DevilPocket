@@ -46,7 +46,7 @@ MonoBehaviour:
   goalType: 1
   questId: 
   questGiverName: Piet
-  questName: Catch Saint Nicolas for me
+  questName: Catch Saint Nicolas For Me
   acceptedQuest: 0
   questDescription: 'I was born in a poor family so Saint Nicholas always ignored
     me...
@@ -54,7 +54,7 @@ MonoBehaviour:
     Please catch him so I can extort his genorosity and get INFINITE gifts!
 
     Thanks!'
-  moneyReward: 60
+  moneyReward: 80
   collectedReward: 0
   killMonstersData:
     amountDone: 0

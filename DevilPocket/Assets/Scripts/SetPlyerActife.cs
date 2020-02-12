@@ -14,7 +14,7 @@ public class SetPlyerActife : MonoBehaviour {
 
     // Start is called before the first frame update
     void Awake() {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
         firstPersonControler = player.GetComponent<FirstPersonController>();
 
         SetplayerActife();

@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalType: 0
+  questId: 
   questGiverName: Professor Boomerang
-  questName: Slay the legendary beast
+  questName: Slay The Legendary Beast
   acceptedQuest: 0
   questDescription: 'There are rumors of a legendary monster roaming around.
 
@@ -53,6 +54,7 @@ MonoBehaviour:
 
     Are you willing to kill such a legendary creature in the name of science?'
   moneyReward: 800
+  collectedReward: 0
   killMonstersData:
     amountDone: 0
     amountRequired: 1

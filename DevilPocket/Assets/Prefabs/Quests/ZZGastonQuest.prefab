@@ -45,10 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalType: 2
   questId: 
-  questGiverName: Sik poor man
+  questGiverName: Salmonella Steve
   questName: The Peaceful way
   acceptedQuest: 0
-  questDescription: 'I have constant diarrhea thanks to the raw food I got from Gston.
+  questDescription: 'I have constant diarrhea thanks to the raw food I got from Gaston.
 
 
     Be a good boy and give me the medication.'

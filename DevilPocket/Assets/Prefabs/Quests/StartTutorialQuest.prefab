@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalType: 0
   questId: 
-  questGiverName: 'Profesor '
+  questGiverName: Helpful Jummo
   questName: Your First Kill
   acceptedQuest: 0
   questDescription: Test your new monster by killing a monster.

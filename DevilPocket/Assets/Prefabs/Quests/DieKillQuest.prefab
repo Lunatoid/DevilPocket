@@ -46,11 +46,12 @@ MonoBehaviour:
   goalType: 0
   questId: 
   questGiverName: Squidward
-  questName: Time to roll the dice
+  questName: Time To Roll The Dice!
   acceptedQuest: 0
   questDescription: "I always sucked at board games, can you get payback for me?\nYou
     will be looking for the dice monster named diederik. \nIts time to roll the dice..."
   moneyReward: 121
+  collectedReward: 0
   killMonstersData:
     amountDone: 0
     amountRequired: 6

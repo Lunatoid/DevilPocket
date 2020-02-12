@@ -46,11 +46,11 @@ MonoBehaviour:
   goalType: 0
   questId: 
   questGiverName: Survivor from Zeeland
-  questName: Beat those police officers up!
+  questName: Beat Those Police Officers Up!
   acceptedQuest: 0
   questDescription: "All my life I have fought against the herring people in the sewer
     of the village next to us. Now the police officers have taken my permit and unfortunately
-    I can no longer hunt them.\r\nshow who's in charge and beat up a few."
+    I can no longer hunt them.\r\nShow who's in charge and beat up a few of them ."
   moneyReward: 250
   collectedReward: 0
   killMonstersData:

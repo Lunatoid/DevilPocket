@@ -45,8 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalType: 0
   questId: 
-  questGiverName: Funeral guard
-  questName: Death is inevitable
+  questGiverName: Gravekeeper
+  questName: Death Is Inevitable
   acceptedQuest: 0
   questDescription: "Kill the monster that escaped death. \nIt seems impossible but
     you can do it.\n\nProve that death is inevitable."

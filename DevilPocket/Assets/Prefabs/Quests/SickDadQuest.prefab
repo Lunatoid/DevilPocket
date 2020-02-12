@@ -46,12 +46,13 @@ MonoBehaviour:
   goalType: 2
   questId: 
   questGiverName: Little Tommy
-  questName: Help Little Tommy buy medicne
+  questName: Help Little Tommy Buy Medicine
   acceptedQuest: 0
-  questDescription: 'The fater of little Tommy is verry sick.
+  questDescription: 'The father of little Tommy is very sick.
 
-    Help him by buing some morfine from the schop.'
+    Help him by buying some morphine from the shop.'
   moneyReward: 150
+  collectedReward: 0
   killMonstersData:
     amountDone: 0
     amountRequired: 0

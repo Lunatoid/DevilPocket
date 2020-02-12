@@ -46,7 +46,7 @@ MonoBehaviour:
   goalType: 2
   questId: 
   questGiverName: Sailor Moon
-  questName: Help the seasick sailor
+  questName: Help The Seasick Sailor
   acceptedQuest: 0
   questDescription: The sailor is a bit seasick, help him by buying some medication.
   moneyReward: 50

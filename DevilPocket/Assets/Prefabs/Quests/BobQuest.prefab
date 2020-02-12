@@ -46,9 +46,9 @@ MonoBehaviour:
   goalType: 1
   questId: 
   questGiverName: Farmer
-  questName: Find Bob
+  questName: Bob The Repairman
   acceptedQuest: 0
-  questDescription: "A monster named Bob would repair the holes in our roof. However
+  questDescription: "A monster named Bob can repair the holes in our roof. However
     he has never come to his appointment. \nCatch him for me so that he can fix the
     holes."
   moneyReward: 100

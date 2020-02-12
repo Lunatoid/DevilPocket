@@ -46,11 +46,12 @@ MonoBehaviour:
   goalType: 1
   questId: 
   questGiverName: Gary
-  questName: Catch 2 Tranier's for me
+  questName: Catch 2 Traniers For Me
   acceptedQuest: 0
-  questDescription: "I want to have a trainer all my life. Help me catch 2 of them.
-    \nHe has beaten me a little too often in another universe..."
+  questDescription: "I've wanted to have a trainer all my life. Help me catch 2 of
+    them. \nHe has beaten me a little too often in another universe..."
   moneyReward: 100
+  collectedReward: 0
   killMonstersData:
     amountDone: 0
     amountRequired: 0

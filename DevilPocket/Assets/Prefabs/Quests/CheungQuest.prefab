@@ -45,8 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalType: 0
   questId: 
-  questGiverName: Shady doctor
-  questName: Prevent an outbreak
+  questGiverName: Shady Doctor
+  questName: Prevent An Outbreak
   acceptedQuest: 0
   questDescription: 'A monster named Cheung carries a very contagious disease that
     makes the people in the village very sick.

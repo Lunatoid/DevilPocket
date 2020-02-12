@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalType: 2
+  questId: 
   questGiverName: Hungry Boy
-  questName: Buy some bait
+  questName: Buying Some Bait
   acceptedQuest: 0
   questDescription: 'Did you know that bait can be used to catch monsters?
 
@@ -53,6 +54,7 @@ MonoBehaviour:
 
     Buy some bait and get it reimbursed.'
   moneyReward: 10
+  collectedReward: 0
   killMonstersData:
     amountDone: 0
     amountRequired: 0

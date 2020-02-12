@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 442760}
   - component: {fileID: 20532068}
   - component: {fileID: -5276170725537986771}
+  - component: {fileID: 8088910668813981571}
   m_Layer: 0
   m_Name: Struct_Docking_B
   m_TagString: Untagged
@@ -263,6 +264,22 @@ MonoBehaviour:
   m_OverrideArea: 1
   m_Area: 0
   m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!114 &8088910668813981571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 10.064545, y: 2.6713066, z: 4}
+  m_Center: {x: -4.9727936, y: 1.1643467, z: 0}
+  m_Area: 0
   m_AffectedAgents: ffffffff
 --- !u!1 &141306
 GameObject:
